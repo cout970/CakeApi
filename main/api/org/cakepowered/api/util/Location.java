@@ -4,7 +4,7 @@ import org.cakepowered.api.base.World;
 
 public class Location {
 
-	protected  World world;
+	protected World world;
 	protected Vector3d position;
 	
 	public Location(World w, int x, int y, int z){

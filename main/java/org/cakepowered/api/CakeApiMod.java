@@ -25,6 +25,7 @@ import org.objectweb.asm.Type;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 
+import net.minecraft.scoreboard.Scoreboard;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.DummyModContainer;
 import net.minecraftforge.fml.common.FMLCommonHandler;
