@@ -20,4 +20,5 @@ public interface Player {
 
 	public CommandSender getCommandSender();
 	
+	public void sendMessage(String s);
 }

@@ -4,6 +4,7 @@ import org.cakepowered.api.CakeApiMod;
 import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Player;
 import org.cakepowered.api.command.CommandSender;
+import org.cakepowered.api.commands.ApiCommandSender;
 import org.cakepowered.api.event.Event.EventResult;
 import org.cakepowered.api.implement.ApiPlayer;
 
@@ -44,7 +45,7 @@ public class ForgeInterface {
 	}
 
 	public static CommandSender getCommandSender(ICommandSender sender) {
-		return null;
+		return new ApiCommandSender(sender);
 	}
 
 	public static Vec3 getVec3(Vector3d v) {

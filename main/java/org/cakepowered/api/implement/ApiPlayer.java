@@ -47,4 +47,8 @@ public class ApiPlayer implements Player{
 	public CommandSender getCommandSender() {
 		return ForgeInterface.getCommandSender(player);
 	}
+
+	@Override
+	public void sendMessage(String s) {
+	}
 }

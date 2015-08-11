@@ -1,6 +1,7 @@
 package org.cakepowered.api.implement;
 
 import java.awt.Color;
+import java.util.EnumMap;
 
 import org.cakepowered.api.util.text.TextFormating;
 import org.cakepowered.api.util.text.TextModifier;
@@ -8,6 +9,8 @@ import org.cakepowered.api.util.text.TextModifier;
 import net.minecraft.util.EnumChatFormatting;
 
 public class TextUtils{
+	
+	public static EnumMap<EnumChatFormatting, TextModifier> modifiers = new EnumMap<EnumChatFormatting, TextModifier>(EnumChatFormatting.class);
 
 	public static void registerModifiers(){
 		for(int i = 0; i<EnumChatFormatting.values().length; i++)
@@ -16,73 +19,74 @@ public class TextUtils{
 	}
 
 	private static void addModifier(EnumChatFormatting f) {
-		TextModifier color = new TextModifier(f.name(), f.toString(), f.getColorIndex());
+		TextModifier modifier = new TextModifier(f.name(), f.toString(), f.getColorIndex());
+		modifiers.put(f, modifier);
 		switch (f.ordinal()) {
 		case 0:
-			TextFormating.BLACK = color;
+			TextFormating.BLACK = modifier;
 			break;
 		case 1:
-			TextFormating.DARK_BLUE = color;
+			TextFormating.DARK_BLUE = modifier;
 			break;
 		case 2:
-			TextFormating.DARK_GREEN = color;
+			TextFormating.DARK_GREEN = modifier;
 			break;
 		case 3:
-			TextFormating.DARK_AQUA = color;
+			TextFormating.DARK_AQUA = modifier;
 			break;
 		case 4:
-			TextFormating.DARK_RED = color;
+			TextFormating.DARK_RED = modifier;
 			break;
 		case 5:
-			TextFormating.DARK_PURPLE = color;
+			TextFormating.DARK_PURPLE = modifier;
 			break;
 		case 6:
-			TextFormating.GOLD = color;
+			TextFormating.GOLD = modifier;
 			break;
 		case 7:
-			TextFormating.GRAY = color;
+			TextFormating.GRAY = modifier;
 			break;
 		case 8:
-			TextFormating.DARK_GRAY = color;
+			TextFormating.DARK_GRAY = modifier;
 			break;
 		case 9:
-			TextFormating.BLUE = color;
+			TextFormating.BLUE = modifier;
 			break;
 		case 10:
-			TextFormating.GREEN = color;
+			TextFormating.GREEN = modifier;
 			break;
 		case 11:
-			TextFormating.AQUA = color;
+			TextFormating.AQUA = modifier;
 			break;
 		case 12:
-			TextFormating.RED = color;
+			TextFormating.RED = modifier;
 			break;
 		case 13:
-			TextFormating.LIGHT_PURPLE = color;
+			TextFormating.LIGHT_PURPLE = modifier;
 			break;
 		case 14:
-			TextFormating.YELLOW = color;
+			TextFormating.YELLOW = modifier;
 			break;
 		case 15:
-			TextFormating.WHITE = color;
+			TextFormating.WHITE = modifier;
 			break;
 		case 16:
-			TextFormating.OBFUSCATED = color;
+			TextFormating.OBFUSCATED = modifier;
 			break;
 		case 17:
-			TextFormating.BOLD = color;
+			TextFormating.BOLD = modifier;
 			break;
 		case 18:
-			TextFormating.STRIKETHROUGH = color;
+			TextFormating.STRIKETHROUGH = modifier;
 			break;
 		case 19:
-			TextFormating.UNDERLINE = color;
+			TextFormating.UNDERLINE = modifier;
 			break;
 		case 20:
-			TextFormating.ITALIC = color;
+			TextFormating.ITALIC = modifier;
 			break;
 		case 21:
-			TextFormating.RESET = color;
+			TextFormating.RESET = modifier;
 			break;
 		default:
 			break;
