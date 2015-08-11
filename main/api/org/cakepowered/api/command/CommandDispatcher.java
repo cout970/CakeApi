@@ -2,8 +2,7 @@ package org.cakepowered.api.command;
 
 public interface CommandDispatcher {
 
-	public boolean register(Object plugin, CommandDescription desc, String... alias);
+	public boolean registerCommand(CommandExecutor command);
 	
-	public CommandResult process(CommandSender src, CommandArguments args);
-	
+	public void executeCommand(CommandSender sender, String command);
 }

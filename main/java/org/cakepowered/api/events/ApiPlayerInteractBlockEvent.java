@@ -53,7 +53,7 @@ public class ApiPlayerInteractBlockEvent implements org.cakepowered.api.event.Pl
 
 	@Override
 	public Vector3i getBlock() {
-		return ForgeInterface.getBlockPos(event.pos);
+		return ForgeInterface.getVector3(event.pos);
 	}
 
 	@Override
