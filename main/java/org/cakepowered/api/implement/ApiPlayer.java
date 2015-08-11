@@ -48,7 +48,7 @@ public class ApiPlayer implements Player{
 
 	@Override
 	public World getWorld() {
-		return null;
+		return new ApiWorld(player.getEntityWorld());
 	}
 
 	@Override
