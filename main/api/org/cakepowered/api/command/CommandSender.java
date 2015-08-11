@@ -1,14 +1,18 @@
 package org.cakepowered.api.command;
 
+import org.cakepowered.api.util.Vector3d;
+import org.cakepowered.api.util.Vector3i;
+
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.Vec3;
+
 public interface CommandSender {
 
-	public String getName();
+	String getName();
 	
-	public void sendMessage(String... messages);
+	String getDisplayName();
 	
-	public void sendMessage(Iterable<String> messages);
+	boolean canUseCommand(int permLevel, String commandName);
 	
-	public String getIdentifier();
-
-	public boolean hasPermission(String permission);
+	Vector3d getPositionVector();
 }

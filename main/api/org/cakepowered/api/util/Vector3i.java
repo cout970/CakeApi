@@ -25,10 +25,6 @@ public class Vector3i {
 		this(ar[0],ar[1],ar[2]);
 	}
 
-	public Vector3i(Player pl) {
-		this(pl.getX(), pl.getY(), pl.getZ());
-	}
-
 	public Vector3i getOpposite() {
 		return new Vector3i(-x, -y, -z);
 	}

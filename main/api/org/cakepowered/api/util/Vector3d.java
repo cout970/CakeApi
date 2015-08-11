@@ -27,10 +27,6 @@ public class Vector3d {
 		this(ar[0],ar[1],ar[2]);
 	}
 
-	public Vector3d(Player pl) {
-		this(pl.getX(), pl.getY(), pl.getZ());
-	}
-
 	public Vector3d getOpposite() {
 		return new Vector3d(-x, -y, -z);
 	}
