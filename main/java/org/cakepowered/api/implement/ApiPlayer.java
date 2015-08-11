@@ -38,8 +38,7 @@ public class ApiPlayer implements Player{
 	public Vector3d getPosition() {
 		return new Vector3d(player.posX, player.posY, player.posZ);
 	}
-
-	@Override
+	
 	public void setPosition(Vector3d vec) {
 		player.setPosition(vec.getX(), vec.getY(), vec.getZ());
 	}
