@@ -1,10 +1,12 @@
 package org.cakepowered.api.commands;
 
+import org.cakepowered.api.base.Player;
 import org.cakepowered.api.command.CommandSender;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.Vector3d;
 
 import net.minecraft.command.ICommandSender;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.IChatComponent;
 
 public class ApiCommandSender implements CommandSender{
@@ -35,6 +37,12 @@ public class ApiCommandSender implements CommandSender{
 	@Override
 	public Vector3d getPositionVector() {
 		return ForgeInterface.getVector3(sender.getPositionVector());
+	}
+
+	@Override
+	public Player getPlayer() {
+		if(sender instanceof EntityPlayer)return ForgeInterface.getPlayer((EntityPlayer) sender);
+		return null;
 	}
 
 }

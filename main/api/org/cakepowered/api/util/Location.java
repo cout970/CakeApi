@@ -5,13 +5,13 @@ import org.cakepowered.api.world.World;
 public class Location {
 
 	protected World world;
-	protected Vector3d position;
+	protected Vector3i position;
 	
 	public Location(World w, int x, int y, int z){
-		this(w, new Vector3d(x, y, z));
+		this(w, new Vector3i(x, y, z));
 	}
 	
-	public Location(World w, Vector3d pos){
+	public Location(World w, Vector3i pos){
 		world = w;
 		pos = pos.copy();
 	}
@@ -20,7 +20,7 @@ public class Location {
 		return world;
 	}
 
-	public Vector3d getPosition() {
+	public Vector3i getPosition() {
 		return position;
 	}
 }

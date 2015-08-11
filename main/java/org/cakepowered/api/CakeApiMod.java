@@ -4,6 +4,7 @@ import org.cakepowered.api.base.CakePlugin;
 import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Log;
 import org.cakepowered.api.base.Server;
+import org.cakepowered.api.event.PlayerChatEvent;
 import org.cakepowered.api.event.PlayerInteractEvent;
 import org.cakepowered.api.event.PlayerJoinEvent;
 import org.cakepowered.api.event.PlayerQuitEvent;
@@ -58,13 +59,6 @@ public class CakeApiMod extends DummyModContainer{
 	public void preInit(FMLPreInitializationEvent event){
 		logger = new ApiLog(Ref.MODID);
 		game = new ApiGame();
-		//events
-		ApiEventRegistry.INSTANCE.registerEvent(PlayerJoinEvent.class);
-		ApiEventRegistry.INSTANCE.registerEvent(PlayerQuitEvent.class);
-		ApiEventRegistry.INSTANCE.registerEvent(PlayerRespawnEvent.class);
-		ApiEventRegistry.INSTANCE.registerEvent(PlayerInteractEvent.class);
-		ApiEventRegistry.INSTANCE.registerEvent(ServerStatingEvent.class);
-		ApiEventRegistry.INSTANCE.registerEvent(ServerStoppingEvent.class);
 		
 		MinecraftForge.EVENT_BUS.register(new EventRedirect());
 		FMLCommonHandler.instance().bus().register(new EventRedirect());

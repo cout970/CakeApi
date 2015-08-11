@@ -11,5 +11,4 @@ public interface Scoreboard {
 	void removeTeam(Team team);
 	void addTeam(Team team) throws IllegalArgumentException;
 	Set<Team> getTeams();
-
 }

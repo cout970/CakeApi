@@ -13,18 +13,19 @@ public class Plugin {
 
 	public Log logger;
 	public Game game;
-	
+	public static Plugin INSTANCE;
 	
 	@EventSuscribe
 	public void onInit(InitializationEvent event){
 		logger = event.getLogger("plugin_id");
 		game = event.getGame();
 		logger.info("debug plugin loaded Successful");
+		INSTANCE = this;
+		game.getCommandDispacher().registerCommand(new CommandKillPlayer());
 	}
 	
 	@EventSuscribe
 	public void onPlayerChat(PlayerChatEvent event){
-		CommandSender sender = event.getPlayer().getCommandSender();
-		game.getCommandDispacher().executeCommand(sender, "/kill");
+		logger.info("Player: "+event.getPlayer().getUserName()+" write: "+event.getMessage());
 	}
 }

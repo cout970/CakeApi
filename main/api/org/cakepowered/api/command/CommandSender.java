@@ -1,5 +1,6 @@
 package org.cakepowered.api.command;
 
+import org.cakepowered.api.base.Player;
 import org.cakepowered.api.util.Vector3d;
 import org.cakepowered.api.util.Vector3i;
 
@@ -15,4 +16,7 @@ public interface CommandSender {
 	boolean canUseCommand(int permLevel, String commandName);
 	
 	Vector3d getPositionVector();
+	
+	//can be null
+	Player getPlayer();
 }
