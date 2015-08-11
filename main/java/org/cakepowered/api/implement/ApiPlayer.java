@@ -3,8 +3,8 @@ package org.cakepowered.api.implement;
 import java.util.UUID;
 
 import org.cakepowered.api.base.Player;
-import org.cakepowered.api.base.World;
 import org.cakepowered.api.util.Location;
+import org.cakepowered.api.world.World;
 
 import net.minecraft.entity.player.EntityPlayer;
 

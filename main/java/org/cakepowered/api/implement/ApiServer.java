@@ -7,8 +7,8 @@ import java.util.UUID;
 
 import org.cakepowered.api.base.Player;
 import org.cakepowered.api.base.Server;
-import org.cakepowered.api.base.World;
 import org.cakepowered.api.util.ForgeInterface;
+import org.cakepowered.api.world.World;
 
 import com.mojang.authlib.GameProfile;
 
@@ -16,6 +16,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.WorldServer;
 
 public class ApiServer implements Server{
 
@@ -63,6 +64,11 @@ public class ApiServer implements Server{
 
 	@Override
 	public World getWorld(String name) {
+		for (WorldServer world : server.worldServers) {
+			if(world.getWorldInfo().getWorldName().equals(name)){
+				return new ApiWorld(world);
+			}
+		}
 		return null;
 	}
 

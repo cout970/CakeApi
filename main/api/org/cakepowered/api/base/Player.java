@@ -3,6 +3,7 @@ package org.cakepowered.api.base;
 import java.util.UUID;
 
 import org.cakepowered.api.util.Location;
+import org.cakepowered.api.world.World;
 
 public interface Player {
 
