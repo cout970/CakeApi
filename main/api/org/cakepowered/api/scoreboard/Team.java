@@ -8,13 +8,11 @@ import org.cakepowered.api.util.text.TextModifier;
 public interface Team {
 	
 	String getName();
-	String getDisplayName();
 	TextModifier getColor();
 	void setColor(TextModifier color) throws IllegalArgumentException;
-	void setDisplayName(String displayName) throws IllegalArgumentException;
+	void setName(String displayName) throws IllegalArgumentException;
 	Set<Player> getPlayers();
 	void addPlayer(Player player);
-	boolean removeUser(Player player);
-	Set<Scoreboard> getScoreboards();
+	boolean removePlayer(Player player);
 	
 }

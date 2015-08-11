@@ -1,10 +1,12 @@
 package org.cakepowered.api.implement;
 
+import org.cakepowered.api.scoreboard.ApiScoreboard;
 import org.cakepowered.api.scoreboard.Scoreboard;
 import org.cakepowered.api.util.Location;
 import org.cakepowered.api.world.Difficulties;
 import org.cakepowered.api.world.DimensionTypes;
 import org.cakepowered.api.world.World;
+import org.cakepowered.api.world.WorldCreationSettings;
 
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -40,33 +42,26 @@ public class ApiWorld implements World {
 	}
 
 	public int getDimension() {
-		switch (world.provider.getDimensionId()) {
-		case -1:
-			return DimensionTypes.NETHER;
-		case 0:
-			return DimensionTypes.OVERWORLD;
-		case 1:
-			return DimensionTypes.END;
-		default:
-			return DimensionTypes.OVERWORLD;
-		}
+		return world.provider.getDimensionId();
 	}
 
 	@Override
-	public void setWorldGenerator(WorldGenerator generator) {
-		// TODO Auto-generated method stub
+	public void setWorldGenerator(WorldCreationSettings generator) {
+		
+		this.world.getWorldInfo().setWorldName(generator.getWorldName());
+		this.world.rand.setSeed(generator.getSeed());
+		this.world.provider.setDimension(generator.getdimensionType());
 		
 	}
 
 	@Override
 	public Scoreboard getScoreboard() {
-		return null;
+		return new ApiScoreboard(this.world.getScoreboard());
 	}
 
 	@Override
 	public Location getSpawnLocation() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Location(new ApiWorld(world), world.getSpawnPoint().getX(), world.getSpawnPoint().getY(), world.getSpawnPoint().getZ());
 	}
 	
 }
