@@ -10,4 +10,10 @@ public class ApiBlock implements Block{
 		block = bl;
 	}
 
+	public boolean equals(Object o){
+		if(o instanceof ApiBlock){
+			return block.equals(((ApiBlock) o).block);
+		}
+		return false;
+	}
 }

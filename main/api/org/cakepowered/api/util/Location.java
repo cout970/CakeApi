@@ -1,6 +1,7 @@
 package org.cakepowered.api.util;
 
 import org.cakepowered.api.world.World;
+import org.cakepowered.api.world.tileentity.TileEntity;
 
 public class Location {
 
@@ -34,5 +35,9 @@ public class Location {
 
 	public int getZ() {
 		return position.getZ();
+	}
+
+	public TileEntity getTileEntity() {
+		return world.getTileEntity(position);
 	}
 }

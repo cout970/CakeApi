@@ -32,7 +32,10 @@ public abstract class CommandBase implements CommandExecutor{
 
 	@Override
 	public boolean canCommandSenderUse(CommandSender commandSender) {
-		return true;
+		return commandSender.canUseCommand(getRequiredPermissionLevel(), getName());
 	}
 
+	public int getRequiredPermissionLevel(){
+		return 0;
+	}
 }

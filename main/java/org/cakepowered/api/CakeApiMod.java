@@ -13,6 +13,7 @@ import org.cakepowered.api.implement.ApiGame;
 import org.cakepowered.api.implement.ApiLog;
 import org.cakepowered.api.implement.ApiServer;
 import org.cakepowered.api.plugin.PluginContainer;
+import org.cakepowered.api.util.BlockUtils;
 import org.cakepowered.api.util.Ref;
 import org.cakepowered.api.util.TextUtils;
 import org.objectweb.asm.Type;
@@ -46,7 +47,8 @@ public class CakeApiMod extends DummyModContainer{
 		ModContainerFactory.instance().registerContainerType(Type.getType(CakePlugin.class), PluginContainer.class);
 		INSTANCE = this;
 		TextUtils.registerModifiers();
-		//change
+		BlockUtils.registerBlocks();
+		BlockUtils.registerEntities();
 	}
 
 	@Subscribe

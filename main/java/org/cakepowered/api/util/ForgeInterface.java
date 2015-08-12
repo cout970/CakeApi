@@ -10,12 +10,15 @@ import org.cakepowered.api.event.Event.EventResult;
 import org.cakepowered.api.implement.ApiBlock;
 import org.cakepowered.api.implement.ApiEntity;
 import org.cakepowered.api.implement.ApiPlayer;
+import org.cakepowered.api.implement.ApiTileEntity;
 import org.cakepowered.api.implement.ApiWorld;
 import org.cakepowered.api.world.World;
 import org.cakepowered.api.world.block.Block;
+import org.cakepowered.api.world.tileentity.TileEntity;
 
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntitySign;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Vec3;
@@ -85,5 +88,10 @@ public class ForgeInterface {
 	public static Block getBlock(net.minecraft.block.Block bl) {
 		if(bl == null)return null;
 		return new ApiBlock(bl);
+	}
+
+	public static TileEntity getTileEntity(net.minecraft.tileentity.TileEntity tile) {
+		if(tile == null)return null;
+		return new ApiTileEntity(tile);
 	}
 }

@@ -10,19 +10,23 @@ import org.cakepowered.api.base.Server;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.world.World;
 
+import com.google.common.collect.Lists;
 import com.mojang.authlib.GameProfile;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.management.ServerConfigurationManager;
 import net.minecraft.world.WorldServer;
 
 public class ApiServer implements Server{
 
 	public MinecraftServer server;
+	public ServerConfigurationManager config;
 	
 	public ApiServer(MinecraftServer minecraftServer){
 		server = minecraftServer;
+		config = server.getConfigurationManager();
 	}
 
 	@Override
@@ -83,4 +87,37 @@ public class ApiServer implements Server{
 		}
 	}
 
+	@Override
+	public List<Player> getPlayersOP() {
+		List<Player> ops = Lists.newArrayList();
+		for(String s : config.getOppedPlayerNames()){
+			Player p= getPlayer(s);
+			if(p != null)ops.add(p);
+		}
+		return ops;
+	}
+
+	@Override
+	public void setPlayerOP(Player p, boolean op) {
+		if(op){//op
+			if(!p.isOP()){
+				for(GameProfile gp : server.getGameProfiles()){
+					if(gp.getId().equals(p.getUniqueID())){
+						config.addOp(gp);
+						break;
+					}
+				}
+			}
+		}else{//deop
+			if(p.isOP()){
+				for(GameProfile gp : server.getGameProfiles()){
+					if(gp.getId().equals(p.getUniqueID())){
+						config.removeOp(gp);
+						break;
+					}
+				}
+
+			}
+		}
+	}
 }

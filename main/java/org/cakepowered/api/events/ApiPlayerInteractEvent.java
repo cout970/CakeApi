@@ -5,6 +5,7 @@ import org.cakepowered.api.base.Player;
 import org.cakepowered.api.util.Direction;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.Vector3i;
+import org.cakepowered.api.world.World;
 
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
@@ -65,5 +66,10 @@ public class ApiPlayerInteractEvent implements org.cakepowered.api.event.PlayerI
 	@Override
 	public Vector3i getPosition() {
 		return ForgeInterface.getVector3i(event.pos);
+	}
+
+	@Override
+	public World getWorld() {
+		return ForgeInterface.getWorld(event.world);
 	}
 }

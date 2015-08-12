@@ -1,10 +1,12 @@
 package org.cakepowered.api.implement;
 
+import org.cakepowered.api.CakeApiMod;
 import org.cakepowered.api.base.Player;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.PreciseLocation;
 import org.cakepowered.api.util.Vector3d;
 
+import net.minecraft.command.server.CommandOp;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentText;
 
@@ -50,4 +52,25 @@ public class ApiPlayer extends ApiEntity implements Player{
 	public PreciseLocation getLocation() {
 		return new PreciseLocation(getWorld(), getPosition());
 	}
+
+	@Override
+	public boolean isInCreative() {
+		return player.capabilities.isCreativeMode;
+	}
+
+	@Override
+	public void setCreativeMode(boolean value) {
+		player.capabilities.isCreativeMode = value;
+	}
+
+	@Override
+	public boolean isOP() {
+		for(String s : ((ApiServer)CakeApiMod.server).server.getConfigurationManager().getOppedPlayerNames()){
+			if(getUserName().equals(s)){
+				return true;
+			}
+		}
+		return false;
+	}
+	
 }

@@ -16,4 +16,9 @@ public interface Player extends Entity{
 	public void moveToWorld(PreciseLocation loc);
 
 	public PreciseLocation getLocation();
+	
+	public boolean isInCreative();
+	public void setCreativeMode(boolean value);
+	
+	public boolean isOP();
 }

@@ -1,6 +1,7 @@
 package org.cakepowered.api.base;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 import org.cakepowered.api.world.World;
@@ -20,4 +21,8 @@ public interface Server {
 	public int getRunningTimeTicks();
 
 	public void sendMessageToAll(String message);
+	
+	public List<Player> getPlayersOP();
+	
+	public void setPlayerOP(Player p, boolean op);
 }

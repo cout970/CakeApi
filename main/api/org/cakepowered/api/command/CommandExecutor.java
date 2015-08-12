@@ -14,4 +14,6 @@ public interface CommandExecutor {
 
 	boolean canCommandSenderUse(CommandSender commandSender);
 	
+	public int getRequiredPermissionLevel();
+	
 }

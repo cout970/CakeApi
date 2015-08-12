@@ -4,10 +4,12 @@ import org.cakepowered.api.scoreboard.ApiScoreboard;
 import org.cakepowered.api.scoreboard.Scoreboard;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.Location;
+import org.cakepowered.api.util.Vector3i;
 import org.cakepowered.api.world.Difficulties;
 import org.cakepowered.api.world.World;
 import org.cakepowered.api.world.WorldCreationSettings;
 import org.cakepowered.api.world.block.Block;
+import org.cakepowered.api.world.tileentity.TileEntity;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockPos;
@@ -70,6 +72,11 @@ public class ApiWorld implements World {
 	public Block getBlock(int x, int y, int z) {
 		IBlockState state = world.getBlockState(new BlockPos(x, y, z));
 		return ForgeInterface.getBlock(state.getBlock());
+	}
+
+	@Override
+	public TileEntity getTileEntity(Vector3i position) {
+		return ForgeInterface.getTileEntity(world.getTileEntity(ForgeInterface.getBlockPos(position)));
 	}
 	
 }

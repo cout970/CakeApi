@@ -14,8 +14,8 @@ public class ApiLog implements Log{
 	}
 	
 	@Override
-	public void error(String s) {
-		FMLLog.log(plugin, Level.ERROR, s);
+	public void error(Object s) {
+		FMLLog.log(plugin+"[DEBUG]", Level.ERROR, String.valueOf(s));
 	}
 
 	@Override
