@@ -1,4 +1,4 @@
-package org.cakepowered.api.implement;
+package org.cakepowered.api.util;
 
 import java.awt.Color;
 import java.util.EnumMap;
@@ -21,6 +21,7 @@ public class TextUtils{
 	private static void addModifier(EnumChatFormatting f) {
 		TextModifier modifier = new TextModifier(f.name(), f.toString(), f.getColorIndex());
 		modifiers.put(f, modifier);
+		TextFormating.modifiers.add(modifier);
 		switch (f.ordinal()) {
 		case 0:
 			TextFormating.BLACK = modifier;

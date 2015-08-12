@@ -1,4 +1,4 @@
-package org.cakepowered.api.util;
+package org.cakepowered.api.plugin;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

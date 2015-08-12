@@ -1,7 +1,12 @@
 package org.cakepowered.api.util.text;
 
+import java.util.List;
+
+import com.google.common.collect.Lists;
+
 public class TextFormating {
 
+	public static List<TextModifier> modifiers = Lists.newArrayList();
 	
 	public static TextModifier BLACK;
 	public static TextModifier DARK_BLUE;
@@ -27,6 +32,9 @@ public class TextFormating {
 	public static TextModifier ITALIC;
 
 	public static String toPlainString(String str){
+		for(TextModifier mod : modifiers){
+			str = str.replaceAll(mod.controlString, "");
+		}
 		return str;
 	}
 }

@@ -10,7 +10,7 @@ import org.cakepowered.api.event.Event;
 import org.cakepowered.api.event.EventSuscribe;
 import org.cakepowered.api.event.PlayerJoinEvent;
 import org.cakepowered.api.events.ApiPlayerJoinEvent;
-import org.cakepowered.api.util.MethodCaller;
+import org.cakepowered.api.plugin.MethodCaller;
 
 public class ApiEventRegistry implements EventRegistry{
 

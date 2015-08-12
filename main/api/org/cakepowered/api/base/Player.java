@@ -7,18 +7,9 @@ import org.cakepowered.api.util.Location;
 import org.cakepowered.api.util.Vector3d;
 import org.cakepowered.api.world.World;
 
-public interface Player {
+public interface Player extends Entity{
 
 	public String getUserName();
-	
-	public UUID getUniqueID();
-	
-	public World getWorld();
-	
-	public Vector3d getPosition();
-	public void setPosition(Vector3d vec);
-
-	public CommandSender getCommandSender();
 	
 	public void sendMessage(String s);
 }
