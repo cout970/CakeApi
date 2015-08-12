@@ -4,6 +4,7 @@ import java.util.Map;
 
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 
+@IFMLLoadingPlugin.MCVersion("1.8")
 public class CakeCoremod implements IFMLLoadingPlugin{
 
 	@Override

@@ -21,6 +21,7 @@ import org.objectweb.asm.Type;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 
+import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.DummyModContainer;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -49,6 +50,7 @@ public class CakeApiMod extends DummyModContainer{
 		TextUtils.registerModifiers();
 		BlockUtils.registerBlocks();
 		BlockUtils.registerEntities();
+		LoadController c;
 	}
 
 	@Subscribe
@@ -62,15 +64,17 @@ public class CakeApiMod extends DummyModContainer{
 
 	@Subscribe
 	public void Init(FMLInitializationEvent event){
+		server = new ApiServer(MinecraftServer.getServer());
+		logger.info("Starting Plugin InitializationEvent");
 		ApiEventRegistry.INSTANCE.postEvent(new ApiInitializationEvent(game));
 	}
 	
 	@Subscribe
-	public void postInit(FMLPostInitializationEvent event){}
+	public void postInit(FMLPostInitializationEvent event){
+	}
 	
 	@Subscribe
 	public void onServerStart(FMLServerStartingEvent event){
-		server = new ApiServer(event.getServer());
 		ApiEventRegistry.INSTANCE.postEvent(new ApiServerStartingEvent(event, server));
 	}
 	

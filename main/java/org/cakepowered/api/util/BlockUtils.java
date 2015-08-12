@@ -17,6 +17,11 @@ public class BlockUtils {
 		Blocks.TNT = ForgeInterface.getBlock(net.minecraft.init.Blocks.tnt);
 		Blocks.WOODEN_DOOR = ForgeInterface.getBlock(net.minecraft.init.Blocks.oak_door);
 		Blocks.ACACIA_DOOR = ForgeInterface.getBlock(net.minecraft.init.Blocks.acacia_door);
+		Blocks.BIRCH_DOOR = ForgeInterface.getBlock(net.minecraft.init.Blocks.birch_door);
+		Blocks.DARK_OAK_DOOR = ForgeInterface.getBlock(net.minecraft.init.Blocks.dark_oak_door);
+		Blocks.JUNGLE_DOOR = ForgeInterface.getBlock(net.minecraft.init.Blocks.jungle_door);
+		Blocks.SPRUCE_DOOR = ForgeInterface.getBlock(net.minecraft.init.Blocks.spruce_door);
+		
 	}
 
 	public static void registerEntities() {
