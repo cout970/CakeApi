@@ -7,8 +7,6 @@ import org.cakepowered.api.base.Player;
 import org.cakepowered.api.util.TextUtils;
 import org.cakepowered.api.util.text.TextModifier;
 
-import net.minecraft.util.EnumChatFormatting;
-
 public class ApiTeam implements Team {
 
 	public net.minecraft.scoreboard.ScorePlayerTeam team;

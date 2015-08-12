@@ -19,17 +19,19 @@ public class ApiScoreboard implements Scoreboard {
 	
 	@Override
 	public Team getPlayerTeam(Player player) {
-		return new ApiTeam(this.scoreboard.getPlayersTeam(player.getUserName()));
+		return new ApiTeam(this.scoreboard.getTeam(player.getUserName()));
 	}
 
 	@Override
 	public Team getTeam(String teamName) {
-		return new ApiTeam(this.scoreboard.getPlayersTeam(teamName));
+		ScorePlayerTeam team = this.scoreboard.getTeam(teamName);
+		if(team == null)return null;
+		return new ApiTeam(this.scoreboard.getTeam(teamName));
 	}
 
 	@Override
 	public void removeTeam(Team team) {
-		this.scoreboard.removeTeam(this.scoreboard.getPlayersTeam(team.getName()));
+		this.scoreboard.removeTeam(this.scoreboard.getTeam(team.getName()));
 		
 	}
 
@@ -46,7 +48,7 @@ public class ApiScoreboard implements Scoreboard {
 		List<Team> t = new ArrayList<Team>();
 		for(Object s : this.scoreboard.getTeamNames()){
 			
-			t.add(new ApiTeam(this.scoreboard.getPlayersTeam(s.toString())));
+			t.add(new ApiTeam(this.scoreboard.getTeam(s.toString())));
 			
 		}
 		
