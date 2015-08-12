@@ -2,7 +2,6 @@ package org.cakepowered.api.events;
 
 import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Player;
-import org.cakepowered.api.event.Event.EventResult;
 import org.cakepowered.api.util.ForgeInterface;
 
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;

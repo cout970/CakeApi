@@ -4,7 +4,6 @@ import org.cakepowered.api.base.Entity;
 import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Player;
 import org.cakepowered.api.event.PlayerInteractEntityEvent;
-import org.cakepowered.api.event.Event.EventResult;
 import org.cakepowered.api.util.ForgeInterface;
 
 import net.minecraftforge.event.entity.player.EntityInteractEvent;

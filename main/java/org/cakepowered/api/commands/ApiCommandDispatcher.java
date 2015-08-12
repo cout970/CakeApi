@@ -5,7 +5,6 @@ import java.util.List;
 import org.cakepowered.api.command.CommandDispatcher;
 import org.cakepowered.api.command.CommandExecutor;
 import org.cakepowered.api.command.CommandSender;
-import org.cakepowered.api.util.ForgeInterface;
 
 import com.google.common.collect.Lists;
 

@@ -14,4 +14,6 @@ public interface Player extends Entity{
 	public void setSpawnLocation(Vector3d vec);
 
 	public void moveToWorld(PreciseLocation loc);
+
+	public PreciseLocation getLocation();
 }

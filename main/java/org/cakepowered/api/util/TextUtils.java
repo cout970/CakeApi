@@ -1,6 +1,5 @@
 package org.cakepowered.api.util;
 
-import java.awt.Color;
 import java.util.EnumMap;
 
 import org.cakepowered.api.util.text.TextFormating;

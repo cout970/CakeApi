@@ -3,8 +3,6 @@ package org.cakepowered.api.plugin;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import org.cakepowered.api.events.ApiPlayerJoinEvent;
-
 public class MethodCaller {
 	
 	private Object obj;

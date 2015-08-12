@@ -35,4 +35,8 @@ public class PreciseLocation {
 	public double getZ() {
 		return position.getZ();
 	}
+
+	public Location toLocation() {
+		return new Location(getWorld(), getPosition().toVector3i());
+	}
 }

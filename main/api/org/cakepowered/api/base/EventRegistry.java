@@ -6,6 +6,6 @@ public interface EventRegistry {
 
 	public boolean postEvent(Event e);
 	
-	public boolean registerEvent(Object o);
+	public boolean registerEventListener(Object o);
 	
 }

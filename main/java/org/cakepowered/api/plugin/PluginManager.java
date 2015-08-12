@@ -12,7 +12,7 @@ public class PluginManager {
 
 	public static void registerPlugin(PluginContainer container, Object instance) {
 		loadedPlugins.add(container);
-		ApiEventRegistry.INSTANCE.registerEvent(instance);
+		ApiEventRegistry.INSTANCE.registerEventListener(instance);
 	}
 
 }

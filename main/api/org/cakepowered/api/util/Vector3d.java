@@ -91,4 +91,8 @@ public class Vector3d {
 		Vector3d line = vector.copy().add(getOpposite());
 		return Math.sqrt(line.squareDistance());
 	}
+
+	public Vector3i toVector3i() {
+		return new Vector3i(getX(), getY(), getZ());
+	}
 }

@@ -5,14 +5,16 @@ import org.cakepowered.api.util.Vector3d;
 
 public interface CommandSender {
 
-	String getName();
+	public String getName();
 	
-	String getDisplayName();
+	public String getDisplayName();
 	
-	boolean canUseCommand(int permLevel, String commandName);
+	public boolean canUseCommand(int permLevel, String commandName);
 	
-	Vector3d getPositionVector();
+	public Vector3d getPositionVector();
 	
 	//can be null
-	Player getPlayer();
+	public Player getPlayer();
+
+	public void sendMessage(String message);
 }

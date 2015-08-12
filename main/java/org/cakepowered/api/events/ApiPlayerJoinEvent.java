@@ -5,7 +5,6 @@ import org.cakepowered.api.base.Player;
 import org.cakepowered.api.event.PlayerJoinEvent;
 import org.cakepowered.api.util.ForgeInterface;
 
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 
 public class ApiPlayerJoinEvent implements PlayerJoinEvent{

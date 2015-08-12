@@ -2,9 +2,6 @@ package org.cakepowered.api;
 
 import java.util.Map;
 
-import org.cakepowered.api.base.Log;
-import org.cakepowered.api.util.Ref;
-
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 
 public class CakeCoremod implements IFMLLoadingPlugin{

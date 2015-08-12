@@ -7,6 +7,7 @@ import org.cakepowered.api.util.Vector3d;
 
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IChatComponent;
 
 public class ApiCommandSender implements CommandSender{
@@ -43,6 +44,11 @@ public class ApiCommandSender implements CommandSender{
 	public Player getPlayer() {
 		if(sender instanceof EntityPlayer)return ForgeInterface.getPlayer((EntityPlayer) sender);
 		return null;
+	}
+
+	@Override
+	public void sendMessage(String message) {
+		sender.addChatMessage(new ChatComponentText(message));
 	}
 
 }

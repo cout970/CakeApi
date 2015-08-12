@@ -2,9 +2,9 @@ package org.cakepowered.api.events;
 
 import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Player;
-import org.cakepowered.api.util.Vector3i;
 import org.cakepowered.api.util.Direction;
 import org.cakepowered.api.util.ForgeInterface;
+import org.cakepowered.api.util.Vector3i;
 
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 

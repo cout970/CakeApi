@@ -8,8 +8,6 @@ import org.cakepowered.api.CakeApiMod;
 import org.cakepowered.api.base.EventRegistry;
 import org.cakepowered.api.event.Event;
 import org.cakepowered.api.event.EventSuscribe;
-import org.cakepowered.api.event.PlayerJoinEvent;
-import org.cakepowered.api.events.ApiPlayerJoinEvent;
 import org.cakepowered.api.plugin.MethodCaller;
 
 public class ApiEventRegistry implements EventRegistry{
@@ -36,7 +34,7 @@ public class ApiEventRegistry implements EventRegistry{
 	}
 
 	@Override
-	public boolean registerEvent(Object o) {
+	public boolean registerEventListener(Object o) {
 		if(o == null)return false;
 		boolean registered = false;
 		for(Method m : o.getClass().getMethods()){

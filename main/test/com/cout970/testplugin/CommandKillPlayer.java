@@ -14,6 +14,10 @@ public class CommandKillPlayer extends CommandBase{
 	@Override
 	public void execute(CommandSender commandSender, String[] args) {
 		Player p = commandSender.getPlayer();
+		System.out.println(args);
+		if(args != null)
+			for(String a : args)
+				System.out.println(a);
 		if(p != null){
 			p.sendMessage(TextFormating.DARK_AQUA+"I don't want to kill you");
 			p.sendMessage(TextFormating.DARK_RED+"BUT I WILL DO IT!!!");

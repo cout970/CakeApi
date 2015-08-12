@@ -3,10 +3,8 @@ package org.cakepowered.api.events;
 import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Server;
 import org.cakepowered.api.event.ServerUpdateEvent;
-import org.cakepowered.api.event.Event.EventResult;
 import org.cakepowered.api.util.ForgeInterface;
 
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.ServerTickEvent;
 
 public class ApiServerUpdateEvent implements ServerUpdateEvent{

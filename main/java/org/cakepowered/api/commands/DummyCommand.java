@@ -8,7 +8,6 @@ import org.cakepowered.api.util.ForgeInterface;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.util.BlockPos;
 
 public class DummyCommand extends CommandBase{
 		

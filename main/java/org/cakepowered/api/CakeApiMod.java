@@ -4,13 +4,6 @@ import org.cakepowered.api.base.CakePlugin;
 import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Log;
 import org.cakepowered.api.base.Server;
-import org.cakepowered.api.event.PlayerChatEvent;
-import org.cakepowered.api.event.PlayerInteractEvent;
-import org.cakepowered.api.event.PlayerJoinEvent;
-import org.cakepowered.api.event.PlayerQuitEvent;
-import org.cakepowered.api.event.PlayerRespawnEvent;
-import org.cakepowered.api.event.ServerStatingEvent;
-import org.cakepowered.api.event.ServerStoppingEvent;
 import org.cakepowered.api.events.ApiInitializationEvent;
 import org.cakepowered.api.events.ApiServerStartingEvent;
 import org.cakepowered.api.events.ApiServerStoppingEvent;
@@ -27,7 +20,6 @@ import org.objectweb.asm.Type;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 
-import net.minecraft.scoreboard.Scoreboard;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.DummyModContainer;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -39,7 +31,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent.ServerTickEvent;
 
 public class CakeApiMod extends DummyModContainer{
 

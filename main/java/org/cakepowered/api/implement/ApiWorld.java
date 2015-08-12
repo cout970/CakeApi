@@ -5,14 +5,12 @@ import org.cakepowered.api.scoreboard.Scoreboard;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.Location;
 import org.cakepowered.api.world.Difficulties;
-import org.cakepowered.api.world.DimensionTypes;
 import org.cakepowered.api.world.World;
 import org.cakepowered.api.world.WorldCreationSettings;
 import org.cakepowered.api.world.block.Block;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockPos;
-import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class ApiWorld implements World {
 	
