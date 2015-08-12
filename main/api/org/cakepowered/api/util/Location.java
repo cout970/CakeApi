@@ -23,4 +23,16 @@ public class Location {
 	public Vector3i getPosition() {
 		return position;
 	}
+	
+	public int getX() {
+		return position.getX();
+	}
+
+	public int getY() {
+		return position.getY();
+	}
+
+	public int getZ() {
+		return position.getZ();
+	}
 }

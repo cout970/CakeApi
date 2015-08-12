@@ -1,9 +1,5 @@
 package org.cakepowered.api.util;
 
-import org.cakepowered.api.base.Player;
-
-import com.google.common.base.Objects;
-
 public class Vector3i {
 
 	public static final Vector3i NULL_VECTOR = new Vector3i(0, 0, 0);
@@ -61,7 +57,7 @@ public class Vector3i {
 	}
 	
 	public String toString() {
-		return Objects.toStringHelper(this).add("x", this.getX()).add("y", this.getY()).add("z", this.getZ()).toString();
+		return "x: "+getX()+", y: "+getY()+", z: "+getZ();
 	}
 	
 	public Vector3i multiply(int i) {
@@ -93,7 +89,11 @@ public class Vector3i {
 		return new int[]{x,y,z};
 	}
 
-	public int squareDistance() {
+	public int magnitude() {
 		return x*x+y*y+z*z;
+	}
+
+	public Vector3d toVector3d() {
+		return new Vector3d(getX(), getY(), getZ());
 	}
 }

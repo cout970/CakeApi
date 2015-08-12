@@ -14,6 +14,7 @@ import org.cakepowered.api.event.ServerStoppingEvent;
 import org.cakepowered.api.events.ApiInitializationEvent;
 import org.cakepowered.api.events.ApiServerStartingEvent;
 import org.cakepowered.api.events.ApiServerStoppingEvent;
+import org.cakepowered.api.events.EventRedirect;
 import org.cakepowered.api.implement.ApiEventRegistry;
 import org.cakepowered.api.implement.ApiGame;
 import org.cakepowered.api.implement.ApiLog;

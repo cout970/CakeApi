@@ -1,12 +1,11 @@
 package org.cakepowered.api.util.text;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import com.google.common.collect.Lists;
 
 public class TextFormating {
 
-	public static List<TextModifier> modifiers = Lists.newArrayList();
+	public static List<TextModifier> modifiers = new ArrayList<TextModifier>();
 	
 	public static TextModifier BLACK;
 	public static TextModifier DARK_BLUE;

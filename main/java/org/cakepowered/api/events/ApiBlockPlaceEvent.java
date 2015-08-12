@@ -6,6 +6,7 @@ import org.cakepowered.api.event.BlockPlaceEvent;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.Vector3i;
 import org.cakepowered.api.world.World;
+import org.cakepowered.api.world.block.Block;
 
 import net.minecraftforge.event.world.BlockEvent.PlaceEvent;
 
@@ -60,6 +61,11 @@ public class ApiBlockPlaceEvent implements BlockPlaceEvent{
 	@Override
 	public Player getPlayer() {
 		return ForgeInterface.getPlayer(event.player);
+	}
+
+	@Override
+	public Block getBlock() {
+		return ForgeInterface.getBlock(event.state.getBlock());
 	}
 }
 

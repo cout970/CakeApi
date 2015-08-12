@@ -16,4 +16,8 @@ public interface Server {
 	public Player getPlayer(String username);
 	
 	public World getWorld(String name);
+
+	public int getRunningTimeTicks();
+
+	public void sendMessageToAll(String message);
 }

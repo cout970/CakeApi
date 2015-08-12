@@ -52,11 +52,6 @@ public class ApiPlayerInteractEvent implements org.cakepowered.api.event.PlayerI
 	}
 
 	@Override
-	public Vector3i getBlock() {
-		return ForgeInterface.getVector3i(event.pos);
-	}
-
-	@Override
 	public Direction getFace() {
 		return ForgeInterface.getDirection(event.face);
 	}
@@ -65,5 +60,10 @@ public class ApiPlayerInteractEvent implements org.cakepowered.api.event.PlayerI
 	public ClickAction getAction() {
 		if(event.action == null)return null;
 		return ClickAction.values()[event.action.ordinal()];
+	}
+
+	@Override
+	public Vector3i getPosition() {
+		return ForgeInterface.getVector3i(event.pos);
 	}
 }

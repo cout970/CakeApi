@@ -1,9 +1,5 @@
 package org.cakepowered.api.util;
 
-import org.cakepowered.api.base.Player;
-
-import com.google.common.base.Objects;
-
 public class Vector3d {
 
 	public static final Vector3d NULL_VECTOR = new Vector3d(0, 0, 0);
@@ -55,24 +51,24 @@ public class Vector3d {
 	}
 	
 	public String toString() {
-		return Objects.toStringHelper(this).add("x", this.getX()).add("y", this.getY()).add("z", this.getZ()).toString();
+		return "x: "+getX()+", y: "+getY()+", z: "+getZ();
 	}
 	
-	public Vector3d multiply(int i) {
+	public Vector3d multiply(double i) {
 		x *= i;
 		y *= i;
 		z *= i;
 		return this;
 	}
 
-	public Vector3d add(Vector3i v) {
+	public Vector3d add(Vector3d v) {
 		x += v.x;
 		y += v.y;
 		z += v.z;
 		return this;
 	}
 	
-	public Vector3d add(int a, int b, int c) {
+	public Vector3d add(double a, double b, double c) {
 		x += a;
 		y += b;
 		z += c;
@@ -89,5 +85,10 @@ public class Vector3d {
 
 	public double squareDistance() {
 		return x*x+y*y+z*z;
+	}
+	
+	public double distance(Vector3d vector) {
+		Vector3d line = vector.copy().add(getOpposite());
+		return Math.sqrt(line.squareDistance());
 	}
 }

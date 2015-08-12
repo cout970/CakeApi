@@ -2,8 +2,6 @@ package org.cakepowered.api.command;
 
 import java.util.List;
 
-import org.cakepowered.api.util.ForgeInterface;
-
 public interface CommandExecutor {
 
 	String getName();

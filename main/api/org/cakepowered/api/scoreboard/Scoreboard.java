@@ -1,8 +1,6 @@
 package org.cakepowered.api.scoreboard;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import org.cakepowered.api.base.Player;
 

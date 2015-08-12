@@ -49,9 +49,7 @@ public class ApiScoreboard implements Scoreboard {
 		for(Object s : this.scoreboard.getTeamNames()){
 			
 			t.add(new ApiTeam(this.scoreboard.getTeam(s.toString())));
-			
 		}
-		
 		return t;
 	}
 

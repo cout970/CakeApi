@@ -72,4 +72,16 @@ public class ApiServer implements Server{
 		return null;
 	}
 
+	@Override
+	public int getRunningTimeTicks() {
+		return server.getTickCounter();
+	}
+
+	@Override
+	public void sendMessageToAll(String message) {
+		for(Player p : getOnlinePlayers()){
+			p.sendMessage(message);
+		}
+	}
+
 }

@@ -3,6 +3,7 @@ package com.cout970.testplugin;
 import org.cakepowered.api.base.CakePlugin;
 import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Log;
+import org.cakepowered.api.base.Player;
 import org.cakepowered.api.command.CommandSender;
 import org.cakepowered.api.event.EventSuscribe;
 import org.cakepowered.api.event.InitializationEvent;
@@ -32,20 +33,36 @@ public class Plugin {
 	@EventSuscribe
 	public void onPlayerChat(PlayerChatEvent event){
 		logger.info("Player: "+event.getPlayer().getUserName()+" write: "+event.getMessage());
-		//		event.getPlayer().getWorld().getScoreboard().addTeam("admin");
+		event.setEventCanceled(true);
+		Team t = getTeam(event.getPlayer());
+		String message = "/"+event.getPlayer().getUserName()+" ";
+		boolean found = false;
+		for(Player p : t.getPlayers()){
+			if(p.getUniqueID().equals(event.getPlayer().getUniqueID())){
+				found = true;
+				break;
+			}
+		}
+		if(!found){
+			message += TextFormating.RED + event.getMessage();
+		}else{
+			message += TextFormating.DARK_AQUA + event.getMessage();
+		}
+		event.getPlayer().sendMessage(message);
 	}
 
 	@EventSuscribe
 	public void on(PlayerJoinEvent e){
-		Team t = e.getPlayer().getWorld().getScoreboard().getTeam("admin");
-		System.out.println(t);
-		t.setName("asdasd");
-		System.out.println(t.getName() + "_________");
-		//		if(t == null){
-		//			t = e.getPlayer().getWorld().getScoreboard().addTeam("admin");
-		//			t.setColor(TextFormating.DARK_AQUA);
-		//		}
-		//		
-		//		t.addPlayer(e.getPlayer());
+		Team t = getTeam(e.getPlayer());
+		t.addPlayer(e.getPlayer());
+	}
+	
+	public Team getTeam(Player p){
+		Team t = p.getWorld().getScoreboard().getTeam("admin");
+		if(t == null){
+			t = p.getWorld().getScoreboard().addTeam("admin");
+			t.setColor(TextFormating.DARK_AQUA);
+		}
+		return t;
 	}
 }

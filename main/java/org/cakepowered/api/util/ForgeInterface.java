@@ -7,10 +7,12 @@ import org.cakepowered.api.base.Player;
 import org.cakepowered.api.command.CommandSender;
 import org.cakepowered.api.commands.ApiCommandSender;
 import org.cakepowered.api.event.Event.EventResult;
+import org.cakepowered.api.implement.ApiBlock;
 import org.cakepowered.api.implement.ApiEntity;
 import org.cakepowered.api.implement.ApiPlayer;
 import org.cakepowered.api.implement.ApiWorld;
 import org.cakepowered.api.world.World;
+import org.cakepowered.api.world.block.Block;
 
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
@@ -76,5 +78,15 @@ public class ForgeInterface {
 	public static World getWorld(net.minecraft.world.World entityWorld) {
 		if(entityWorld == null)return null;
 		return new ApiWorld(entityWorld);
+	}
+
+	public static BlockPos getBlockPos(Vector3i v) {
+		if(v == null)return null;
+		return new BlockPos(v.getX(), v.getY(), v.getZ());
+	}
+
+	public static Block getBlock(net.minecraft.block.Block bl) {
+		if(bl == null)return null;
+		return new ApiBlock(bl);
 	}
 }
