@@ -18,9 +18,9 @@ import org.cakepowered.api.implement.ApiEventRegistry;
 import org.cakepowered.api.implement.ApiGame;
 import org.cakepowered.api.implement.ApiLog;
 import org.cakepowered.api.implement.ApiServer;
-import org.cakepowered.api.implement.TextUtils;
 import org.cakepowered.api.plugin.PluginContainer;
 import org.cakepowered.api.util.Ref;
+import org.cakepowered.api.util.TextUtils;
 import org.objectweb.asm.Type;
 
 import com.google.common.eventbus.EventBus;
@@ -38,6 +38,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent.ServerTickEvent;
 
 public class CakeApiMod extends DummyModContainer{
 

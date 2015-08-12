@@ -1,21 +1,22 @@
 package org.cakepowered.api.events;
 
+import org.cakepowered.api.base.Entity;
 import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Player;
-import org.cakepowered.api.util.Vector3i;
-import org.cakepowered.api.util.Direction;
+import org.cakepowered.api.event.PlayerInteractEntityEvent;
+import org.cakepowered.api.event.Event.EventResult;
 import org.cakepowered.api.util.ForgeInterface;
 
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.EntityInteractEvent;
 
-public class ApiPlayerInteractBlockEvent implements org.cakepowered.api.event.PlayerInteractEvent{
+public class ApiPlayerInteractEntityEvent implements PlayerInteractEntityEvent{
 
-	public PlayerInteractEvent event;
-	
-	public ApiPlayerInteractBlockEvent(PlayerInteractEvent e){
+	public EntityInteractEvent event;
+
+	public ApiPlayerInteractEntityEvent(EntityInteractEvent e){
 		event = e;
 	}
-	
+
 	@Override
 	public Player getPlayer() {
 		return ForgeInterface.getPlayer(event.entityPlayer);
@@ -52,18 +53,8 @@ public class ApiPlayerInteractBlockEvent implements org.cakepowered.api.event.Pl
 	}
 
 	@Override
-	public Vector3i getBlock() {
-		return ForgeInterface.getVector3(event.pos);
+	public Entity getEntity() {
+		return ForgeInterface.getEntity(event.target);
 	}
 
-	@Override
-	public Direction getFace() {
-		return ForgeInterface.getDirection(event.face);
-	}
-
-	@Override
-	public ClickAction getAction() {
-		if(event.action == null)return null;
-		return ClickAction.values()[event.action.ordinal()];
-	}
 }
