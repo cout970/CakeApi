@@ -4,10 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.cakepowered.api.base.Player;
-import org.cakepowered.api.implement.TextUtils;
+import org.cakepowered.api.util.TextUtils;
 import org.cakepowered.api.util.text.TextModifier;
-
-import net.minecraft.util.EnumChatFormatting;
 
 public class ApiTeam implements Team {
 

@@ -32,18 +32,20 @@ public class Plugin {
 	@EventSuscribe
 	public void onPlayerChat(PlayerChatEvent event){
 		logger.info("Player: "+event.getPlayer().getUserName()+" write: "+event.getMessage());
+		//		event.getPlayer().getWorld().getScoreboard().addTeam("admin");
 	}
-	
+
 	@EventSuscribe
 	public void on(PlayerJoinEvent e){
 		Team t = e.getPlayer().getWorld().getScoreboard().getTeam("admin");
+		System.out.println(t);
 		t.setName("asdasd");
 		System.out.println(t.getName() + "_________");
-//		if(t == null){
-//			t = e.getPlayer().getWorld().getScoreboard().addTeam("admin");
-//			t.setColor(TextFormating.DARK_AQUA);
-//		}
-//		
-//		t.addPlayer(e.getPlayer());
+		//		if(t == null){
+		//			t = e.getPlayer().getWorld().getScoreboard().addTeam("admin");
+		//			t.setColor(TextFormating.DARK_AQUA);
+		//		}
+		//		
+		//		t.addPlayer(e.getPlayer());
 	}
 }
