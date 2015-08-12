@@ -55,6 +55,7 @@ public class CakeApiMod extends DummyModContainer{
 		ModContainerFactory.instance().registerContainerType(Type.getType(CakePlugin.class), PluginContainer.class);
 		INSTANCE = this;
 		TextUtils.registerModifiers();
+		//change
 	}
 
 	@Subscribe
