@@ -14,5 +14,5 @@ public @interface CakePlugin {
 
 	String name();
 
-	String version() default "unknown";
+	String version();
 }

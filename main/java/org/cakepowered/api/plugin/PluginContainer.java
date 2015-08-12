@@ -1,6 +1,7 @@
 package org.cakepowered.api.plugin;
 
 import java.io.File;
+import java.net.MalformedURLException;
 import java.security.cert.Certificate;
 import java.util.List;
 import java.util.Map;
@@ -10,13 +11,16 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.common.eventbus.EventBus;
+import com.google.common.eventbus.Subscribe;
 
 import net.minecraftforge.fml.common.LoadController;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.MetadataCollection;
+import net.minecraftforge.fml.common.ModClassLoader;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.ModMetadata;
 import net.minecraftforge.fml.common.discovery.ModCandidate;
+import net.minecraftforge.fml.common.event.FMLConstructionEvent;
 import net.minecraftforge.fml.common.versioning.ArtifactVersion;
 import net.minecraftforge.fml.common.versioning.DefaultArtifactVersion;
 import net.minecraftforge.fml.common.versioning.VersionRange;
@@ -31,19 +35,31 @@ public class PluginContainer implements ModContainer{
 	public EventBus eventBus;
     public LoadController controller;
     public Object pluginInstance;
+    public File source;
 
 	public PluginContainer(String className, ModCandidate candidate, Map<String, Object> descriptor){
 		this.pluginClass = className;
 		this.modCandidate = candidate;
 		this.pluginDescriptor = descriptor;
+		source = candidate.getModContainer();
+	}
+	
+	@Subscribe
+	public void constructMod(FMLConstructionEvent event){
 		try {
-			pluginInstance = Class.forName(className).newInstance();
+			ModClassLoader modClassLoader = event.getModClassLoader();
+            modClassLoader.addFile(source);
+            modClassLoader.clearNegativeCacheFor(modCandidate.getClassList());
+            Class<?> clazz = Class.forName(pluginClass, true, modClassLoader);
+			pluginInstance = clazz.newInstance();
 			PluginManager.registerPlugin(this, pluginInstance);
 		} catch (InstantiationException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 	}
@@ -121,6 +137,7 @@ public class PluginContainer implements ModContainer{
         if (enabled) {
             eventBus = bus;
             this.controller = controller;
+            bus.register(this);
             return true;
         }
         return false;
@@ -143,7 +160,7 @@ public class PluginContainer implements ModContainer{
 
 	@Override
 	public boolean isImmutable() {
-		return false;
+		return true;
 	}
 
 	@Override

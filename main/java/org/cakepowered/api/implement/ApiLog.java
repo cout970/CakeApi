@@ -14,13 +14,13 @@ public class ApiLog implements Log{
 	}
 	
 	@Override
-	public void error(Object s) {
-		FMLLog.log(plugin+"[DEBUG]", Level.ERROR, String.valueOf(s));
+	public void error(String s) {
+		FMLLog.log(plugin, Level.ERROR, s);
 	}
 
 	@Override
-	public void debug(String s) {
-		FMLLog.log(plugin, Level.DEBUG, s);
+	public void debug(Object s) {
+		FMLLog.log(plugin+"[DEBUG]", Level.INFO, String.valueOf(s));
 	}
 
 	@Override
