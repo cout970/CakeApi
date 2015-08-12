@@ -1,6 +1,8 @@
 package org.cakepowered.api.scoreboard;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.cakepowered.api.base.Player;
@@ -27,17 +29,28 @@ public class ApiScoreboard implements Scoreboard {
 
 	@Override
 	public void removeTeam(Team team) {
-		this.scoreboard.removeTeam(new ScorePlayerTeam(scoreboard, team.getName()));
+		this.scoreboard.removeTeam(this.scoreboard.getPlayersTeam(team.getName()));
+		
 	}
 
 	@Override
-	public void addTeam(Team team) throws IllegalArgumentException {
-		this.scoreboard.createTeam(team.getName());
+	public Team addTeam(String team) throws IllegalArgumentException {
+		
+		ScorePlayerTeam s = this.scoreboard.createTeam(team);
+		return new ApiTeam(s);
+		
 	}
 
 	@Override
-	public Set<Team> getTeams() {
-		return new HashSet<Team>(this.scoreboard.getTeams());
+	public List<Team> getTeams() {
+		List<Team> t = new ArrayList<Team>();
+		for(Object s : this.scoreboard.getTeamNames()){
+			
+			t.add(new ApiTeam(this.scoreboard.getPlayersTeam(s.toString())));
+			
+		}
+		
+		return t;
 	}
 
 }

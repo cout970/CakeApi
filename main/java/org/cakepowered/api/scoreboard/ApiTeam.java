@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.cakepowered.api.base.Player;
+import org.cakepowered.api.implement.TextUtils;
 import org.cakepowered.api.util.text.TextModifier;
 
 import net.minecraft.util.EnumChatFormatting;
@@ -23,12 +24,12 @@ public class ApiTeam implements Team {
 
 	@Override
 	public TextModifier getColor() {
-		return new EnumChatFormatting.AQUA.name();
+		return TextUtils.modifiers.get(this.team.getColorPrefix());
 	}
 
 	@Override
 	public void setColor(TextModifier color) throws IllegalArgumentException {
-		
+		this.team.setNamePrefix(color.name.toLowerCase());
 	}
 
 	@Override
@@ -43,12 +44,12 @@ public class ApiTeam implements Team {
 
 	@Override
 	public void addPlayer(Player player) {
-		this.team.getMembershipCollection().add(player);
+		this.team.getMembershipCollection().add(player.getUniqueID());
 	}
 
 	@Override
 	public boolean removePlayer(Player player) {
-		this.team.getMembershipCollection().remove(player);
+		this.team.getMembershipCollection().remove(player.getUniqueID());
 		return true;
 	}
 
