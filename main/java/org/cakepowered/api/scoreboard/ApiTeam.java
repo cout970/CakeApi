@@ -1,7 +1,6 @@
 package org.cakepowered.api.scoreboard;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.cakepowered.api.base.Player;
 import org.cakepowered.api.util.ForgeInterface;
@@ -42,9 +41,8 @@ public class ApiTeam implements Team {
 	public List<Player> getPlayers() {
 		List<Player> players = Lists.newArrayList();
 		for(Object o : team.getMembershipCollection()){
-			if(o instanceof UUID){
-				UUID id = (UUID) o;
-				Player p = ForgeInterface.getGame().getServer().getPlayer(id);
+			if(o instanceof String){
+				Player p = ForgeInterface.getGame().getServer().getPlayer((String)o);
 				if(p != null)
 					players.add(p);
 			}
