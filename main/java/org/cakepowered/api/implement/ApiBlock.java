@@ -24,7 +24,6 @@ public class ApiBlock implements Block{
 
 	@Override
 	public String getLocalizedName() {
-		// TODO Auto-generated method stub
 		return block.getLocalizedName();
 	}
 }
