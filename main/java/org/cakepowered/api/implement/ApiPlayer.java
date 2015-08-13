@@ -4,6 +4,8 @@ import org.cakepowered.api.CakeApiMod;
 import org.cakepowered.api.base.Player;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.PreciseLocation;
+import org.cakepowered.api.util.Title;
+import org.cakepowered.api.util.TitleUtils;
 import org.cakepowered.api.util.Vector3d;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -74,5 +76,10 @@ public class ApiPlayer extends ApiEntity implements Player{
 		}
 		return false;
 	}
-	
+
+	@Override
+	public void sendTitle(Title t) {
+		if(t == null)return;
+		TitleUtils.sendTitle(((EntityPlayerMP)player).playerNetServerHandler, player, t);
+	}
 }
