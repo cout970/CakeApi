@@ -1,6 +1,8 @@
 package org.cakepowered.api.scoreboard;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -40,14 +42,14 @@ public class ApiTeam implements Team {
 	}
 
 	@Override
-	public Set<Player> getPlayers() {
-		HashSet<Player> players = Sets.newHashSet();
+	public List<Player> getPlayers() {
+		List<Player> players = new ArrayList<Player>();
 		for(Object o : team.getMembershipCollection()){
 			if(o instanceof String){
-				UUID id = UUID.fromString((String) o);
-				Player p = ForgeInterface.getGame().getServer().getPlayer(id);
-				if(p != null)
+				Player p = ForgeInterface.getGame().getServer().getPlayer(o.toString());
+				if(p != null){
 					players.add(p);
+				}
 			}
 		}
 		return players;
@@ -55,12 +57,12 @@ public class ApiTeam implements Team {
 
 	@Override
 	public void addPlayer(Player player) {
-		this.team.getMembershipCollection().add(player.getUniqueID().toString());
+		this.team.getMembershipCollection().add(player.getUserName());
 	}
 
 	@Override
 	public boolean removePlayer(Player player) {
-		this.team.getMembershipCollection().remove(player.getUniqueID().toString());
+		this.team.getMembershipCollection().remove(player.getUserName());
 		return true;
 	}
 
