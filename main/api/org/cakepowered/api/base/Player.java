@@ -1,9 +1,7 @@
 package org.cakepowered.api.base;
 
-import org.cakepowered.api.util.Location;
 import org.cakepowered.api.util.PreciseLocation;
 import org.cakepowered.api.util.Vector3d;
-import org.cakepowered.api.world.World;
 
 public interface Player extends Entity{
 
@@ -17,8 +15,8 @@ public interface Player extends Entity{
 
 	public PreciseLocation getLocation();
 	
-	public boolean isInCreative();
-	public void setCreativeMode(boolean value);
+	public int getGameMode();
+	public void setGameMode(int value);
 	
 	public boolean isOP();
 }

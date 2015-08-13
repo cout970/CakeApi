@@ -28,6 +28,7 @@ public class DummyCommand extends CommandBase{
 		return command.getCommandUsage(ForgeInterface.getCommandSender(sender));
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List getAliases() {
 		return command.getAllias();

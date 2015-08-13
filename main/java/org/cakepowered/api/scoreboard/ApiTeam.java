@@ -26,12 +26,12 @@ public class ApiTeam implements Team {
 
 	@Override
 	public TextModifier getColor() {
-		return TextUtils.modifiers.get(this.team.getColorPrefix());
+		return TextUtils.modifiers.get(this.team.func_178775_l());
 	}
 
 	@Override
 	public void setColor(TextModifier color) throws IllegalArgumentException {
-		this.team.setNamePrefix(color.name.toLowerCase());
+		this.team.func_178774_a(ForgeInterface.getEnumChatFormatting(color));
 	}
 
 	@Override
@@ -53,6 +53,7 @@ public class ApiTeam implements Team {
 		return players;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void addPlayer(Player player) {
 		this.team.getMembershipCollection().add(player.getUniqueID().toString());

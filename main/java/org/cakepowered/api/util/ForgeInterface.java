@@ -12,14 +12,15 @@ import org.cakepowered.api.implement.ApiEntity;
 import org.cakepowered.api.implement.ApiPlayer;
 import org.cakepowered.api.implement.ApiTileEntity;
 import org.cakepowered.api.implement.ApiWorld;
+import org.cakepowered.api.util.text.TextModifier;
 import org.cakepowered.api.world.World;
 import org.cakepowered.api.world.block.Block;
 import org.cakepowered.api.world.tileentity.TileEntity;
 
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntitySign;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Vec3;
 import net.minecraftforge.fml.common.eventhandler.Event;
@@ -93,5 +94,15 @@ public class ForgeInterface {
 	public static TileEntity getTileEntity(net.minecraft.tileentity.TileEntity tile) {
 		if(tile == null)return null;
 		return new ApiTileEntity(tile);
+	}
+
+	public static EnumChatFormatting getEnumChatFormatting(TextModifier color) {
+		if(color == null)return null;
+		for(EnumChatFormatting s : EnumChatFormatting.values()){
+			if(s.name().equals(color.name)){
+				return s;
+			}
+		}
+		return null;
 	}
 }
