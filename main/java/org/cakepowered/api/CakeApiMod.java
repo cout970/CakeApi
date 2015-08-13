@@ -50,7 +50,6 @@ public class CakeApiMod extends DummyModContainer{
 		TextUtils.registerModifiers();
 		BlockUtils.registerBlocks();
 		BlockUtils.registerEntities();
-		LoadController c;
 	}
 
 	@Subscribe

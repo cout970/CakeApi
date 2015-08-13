@@ -13,7 +13,7 @@ public class PreciseLocation {
 	
 	public PreciseLocation(World w, Vector3d pos){
 		world = w;
-		pos = pos.copy();
+		position = pos.copy();
 	}
 
 	public World getWorld() {
