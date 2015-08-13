@@ -16,4 +16,15 @@ public class ApiBlock implements Block{
 		}
 		return false;
 	}
+
+	@Override
+	public String getUnlocalizedName() {
+		return block.getUnlocalizedName();
+	}
+
+	@Override
+	public String getLocalizedName() {
+		// TODO Auto-generated method stub
+		return block.getLocalizedName();
+	}
 }

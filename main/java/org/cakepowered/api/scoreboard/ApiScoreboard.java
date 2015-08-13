@@ -36,6 +36,7 @@ public class ApiScoreboard implements Scoreboard {
 	@Override
 	public Team addTeam(String team) throws IllegalArgumentException {
 		ScorePlayerTeam s = this.scoreboard.createTeam(team);
+		this.scoreboard.broadcastTeamCreated(s);
 		return new ApiTeam(s);
 
 	}
