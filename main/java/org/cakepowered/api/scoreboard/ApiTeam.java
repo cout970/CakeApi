@@ -1,7 +1,6 @@
 package org.cakepowered.api.scoreboard;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 import java.util.UUID;
 
 import org.cakepowered.api.base.Player;
@@ -9,7 +8,7 @@ import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.TextUtils;
 import org.cakepowered.api.util.text.TextModifier;
 
-import com.google.common.collect.Sets;
+import com.google.common.collect.Lists;
 
 public class ApiTeam implements Team {
 
@@ -40,11 +39,11 @@ public class ApiTeam implements Team {
 	}
 
 	@Override
-	public Set<Player> getPlayers() {
-		HashSet<Player> players = Sets.newHashSet();
+	public List<Player> getPlayers() {
+		List<Player> players = Lists.newArrayList();
 		for(Object o : team.getMembershipCollection()){
-			if(o instanceof String){
-				UUID id = UUID.fromString((String) o);
+			if(o instanceof UUID){
+				UUID id = (UUID) o;
 				Player p = ForgeInterface.getGame().getServer().getPlayer(id);
 				if(p != null)
 					players.add(p);
@@ -56,13 +55,12 @@ public class ApiTeam implements Team {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void addPlayer(Player player) {
-		this.team.getMembershipCollection().add(player.getUniqueID().toString());
+		this.team.getMembershipCollection().add(player.getUserName());
 	}
 
 	@Override
 	public boolean removePlayer(Player player) {
-		this.team.getMembershipCollection().remove(player.getUniqueID().toString());
+		this.team.getMembershipCollection().remove(player.getUserName());
 		return true;
 	}
-
 }
