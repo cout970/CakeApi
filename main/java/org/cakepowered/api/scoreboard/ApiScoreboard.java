@@ -17,6 +17,7 @@ public class ApiScoreboard implements Scoreboard {
 	
 	@Override
 	public Team getPlayerTeam(Player player) {
+		if(this.scoreboard.getTeam(player.getUserName()) == null)return null;
 		return new ApiTeam(this.scoreboard.getTeam(player.getUserName()));
 	}
 
@@ -30,22 +31,20 @@ public class ApiScoreboard implements Scoreboard {
 	@Override
 	public void removeTeam(Team team) {
 		this.scoreboard.removeTeam(this.scoreboard.getTeam(team.getName()));
-		
 	}
 
 	@Override
 	public Team addTeam(String team) throws IllegalArgumentException {
-		
 		ScorePlayerTeam s = this.scoreboard.createTeam(team);
 		return new ApiTeam(s);
-		
+
 	}
 
 	@Override
 	public List<Team> getTeams() {
 		List<Team> t = new ArrayList<Team>();
+		
 		for(Object s : this.scoreboard.getTeamNames()){
-			
 			t.add(new ApiTeam(this.scoreboard.getTeam(s.toString())));
 		}
 		return t;

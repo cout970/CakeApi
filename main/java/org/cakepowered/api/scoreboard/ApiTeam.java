@@ -5,13 +5,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+import java.util.List;
 
 import org.cakepowered.api.base.Player;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.TextUtils;
 import org.cakepowered.api.util.text.TextModifier;
 
-import com.google.common.collect.Sets;
+import com.google.common.collect.Lists;
 
 public class ApiTeam implements Team {
 
@@ -28,12 +29,12 @@ public class ApiTeam implements Team {
 
 	@Override
 	public TextModifier getColor() {
-		return TextUtils.modifiers.get(this.team.getColorPrefix());
+		return TextUtils.modifiers.get(this.team.func_178775_l());
 	}
 
 	@Override
 	public void setColor(TextModifier color) throws IllegalArgumentException {
-		this.team.setNamePrefix(color.name.toLowerCase());
+		this.team.func_178774_a(ForgeInterface.getEnumChatFormatting(color));
 	}
 
 	@Override
@@ -43,18 +44,21 @@ public class ApiTeam implements Team {
 
 	@Override
 	public List<Player> getPlayers() {
-		List<Player> players = new ArrayList<Player>();
+		List<Player> players = Lists.newArrayList();
 		for(Object o : team.getMembershipCollection()){
 			if(o instanceof String){
-				Player p = ForgeInterface.getGame().getServer().getPlayer(o.toString());
+				Player p = ForgeInterface.getGame().getServer().getPlayer((String)o);
 				if(p != null){
 					players.add(p);
 				}
 			}
 		}
+		
 		return players;
+		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void addPlayer(Player player) {
 		this.team.getMembershipCollection().add(player.getUserName());
@@ -65,5 +69,4 @@ public class ApiTeam implements Team {
 		this.team.getMembershipCollection().remove(player.getUserName());
 		return true;
 	}
-
 }

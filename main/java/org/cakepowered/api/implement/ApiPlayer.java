@@ -6,9 +6,10 @@ import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.PreciseLocation;
 import org.cakepowered.api.util.Vector3d;
 
-import net.minecraft.command.server.CommandOp;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.world.WorldSettings.GameType;
 
 public class ApiPlayer extends ApiEntity implements Player{
 	
@@ -54,13 +55,14 @@ public class ApiPlayer extends ApiEntity implements Player{
 	}
 
 	@Override
-	public boolean isInCreative() {
-		return player.capabilities.isCreativeMode;
+	public int getGameMode() {
+		return ((EntityPlayerMP)player).theItemInWorldManager.getGameType().getID();
 	}
 
 	@Override
-	public void setCreativeMode(boolean value) {
-		player.capabilities.isCreativeMode = value;
+	public void setGameMode(int value) {
+		GameType mode = GameType.getByID(value);
+		player.setGameType(mode);
 	}
 
 	@Override
