@@ -8,6 +8,7 @@ import org.cakepowered.api.event.EventSuscribe;
 import org.cakepowered.api.event.InitializationEvent;
 import org.cakepowered.api.event.PlayerChatEvent;
 import org.cakepowered.api.event.PlayerJoinEvent;
+import org.cakepowered.api.event.ServerStatingEvent;
 import org.cakepowered.api.scoreboard.Team;
 import org.cakepowered.api.util.text.TextFormating;
 
@@ -25,6 +26,13 @@ public class Plugin {
 		logger.info("debug plugin loaded Successful");
 		INSTANCE = this;
 	}
+	
+	@EventSuscribe
+	public void onStart(ServerStatingEvent event){
+		game.getWorldManager().createWorld(2);
+		game.getWorldManager().createWorld(3);
+	}
+	
 	
 	@EventSuscribe
 	public void onPlayerChat(PlayerChatEvent event){
