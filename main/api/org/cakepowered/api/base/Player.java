@@ -34,4 +34,8 @@ public interface Player extends Entity{
 	public Team getTeam();
 	
 	public Scoreboard getScoreboard();
+	
+	public void kick(String mes);
+
+	public void kick();
 }

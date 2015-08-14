@@ -16,10 +16,10 @@ public class Title {
 		this.end = end;
 	}
 	
-	public Title(String title, String subTitle, int show){
+	public Title(String title, String subTitle, int end){
 		this.title = title;
 		this.subTitle = subTitle;
-		this.show = show;
+		this.end = end;
 	}
 	
 	public Title(String title, int time) {

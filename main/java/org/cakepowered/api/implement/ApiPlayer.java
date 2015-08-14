@@ -58,12 +58,12 @@ public class ApiPlayer extends ApiEntity implements Player{
 
 	@Override
 	public void moveToWorld(PreciseLocation loc) {
-		player.travelToDimension(loc.getWorld().getDimension());
+		player.travelToDimension(loc.getDimension());
 	}
 
 	@Override
 	public PreciseLocation getLocation() {
-		return new PreciseLocation(getWorld(), getPosition(), player.rotationYaw, player.rotationPitch);
+		return new PreciseLocation(getWorld().getDimension(), getPosition(), player.rotationYaw, player.rotationPitch);
 	}
 
 	@Override
@@ -91,8 +91,8 @@ public class ApiPlayer extends ApiEntity implements Player{
 
 	public void setLocation(PreciseLocation loc) {
 		World w = (World) player.getEntityWorld();
-		if(w.provider.getDimensionId() != loc.getWorld().getDimension()){
-			player.travelToDimension(loc.getWorld().getDimension());
+		if(w.provider.getDimensionId() != loc.getDimension()){
+			player.travelToDimension(loc.getDimension());
 		}
 		player.setSpawnPoint(ForgeInterface.getBlockPos(loc.getPosition()), true);
 		player.setPositionAndUpdate(loc.getX(), loc.getY(), loc.getZ());
@@ -136,5 +136,16 @@ public class ApiPlayer extends ApiEntity implements Player{
 		style.setChatClickEvent(new ClickEvent(Action.OPEN_URL, TextFormating.toPlainString(link)));
 		chat.setChatStyle(style);
 		player.addChatMessage(chat);
+	}
+
+	@Override
+	public void kick(String mes) {
+		if(mes == null) mes = "";
+		((EntityPlayerMP)entity).playerNetServerHandler.kickPlayerFromServer(mes);
+	}
+	
+	@Override
+	public void kick() {
+		((EntityPlayerMP)entity).playerNetServerHandler.kickPlayerFromServer("");
 	}
 }

@@ -5,20 +5,20 @@ import org.cakepowered.api.world.tileentity.TileEntity;
 
 public class Location {
 
-	protected World world;
+	protected int dimension;
 	protected Vector3i position;
 	
-	public Location(World w, int x, int y, int z){
-		this(w, new Vector3i(x, y, z));
+	public Location(int d, int x, int y, int z){
+		this(d, new Vector3i(x, y, z));
 	}
 	
-	public Location(World w, Vector3i pos){
-		world = w;
+	public Location(int d, Vector3i pos){
+		dimension = d;
 		pos = pos.copy();
 	}
 
-	public World getWorld() {
-		return world;
+	public int getDimension() {
+		return dimension;
 	}
 
 	public Vector3i getPosition() {
@@ -35,9 +35,5 @@ public class Location {
 
 	public int getZ() {
 		return position.getZ();
-	}
-
-	public TileEntity getTileEntity() {
-		return world.getTileEntity(position);
 	}
 }
