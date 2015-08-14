@@ -33,9 +33,7 @@ public class ApiEntity implements Entity {
 
 	@Override
 	public void setPosition(Vector3d vec) {
-		entity.posX = vec.getX();
-		entity.posY = vec.getY();
-		entity.posZ = vec.getZ();
+		entity.setPosition(vec.getX(), vec.getY(), vec.getZ());
 	}
 
 	@Override

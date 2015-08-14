@@ -2,6 +2,7 @@ package org.cakepowered.api.implement;
 
 import org.cakepowered.api.CakeApiMod;
 import org.cakepowered.api.base.Player;
+import org.cakepowered.api.util.DirectionYaw;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.PreciseLocation;
 import org.cakepowered.api.util.Vector3d;
@@ -44,14 +45,12 @@ public class ApiPlayer extends ApiEntity implements Player{
 
 	@Override
 	public void moveToWorld(PreciseLocation loc) {
-		player.setPosition(loc.getX(), loc.getY(), loc.getZ());
 		player.travelToDimension(loc.getWorld().getDimension());
-		player.setPosition(loc.getX(), loc.getY(), loc.getZ());
 	}
 
 	@Override
 	public PreciseLocation getLocation() {
-		return new PreciseLocation(getWorld(), getPosition());
+		return new PreciseLocation(getWorld(), getPosition(), player.rotationYaw, player.rotationPitch);
 	}
 
 	@Override
@@ -73,6 +72,27 @@ public class ApiPlayer extends ApiEntity implements Player{
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public void setLocation(PreciseLocation loc) {
+		((EntityPlayerMP)player).playerNetServerHandler.setPlayerLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());
+		
+	}
+
+	@Override
+	public int getDirection() {
+		float yaw = player.rotationYaw;
+		if(yaw >= 135f && yaw < 225f){
+			return DirectionYaw.NORTH;
+		} else if(yaw >= 45f && yaw < 135){
+			return DirectionYaw.WEST;
+		} else if((yaw >= 0 && yaw < 45) || (yaw >= 315 && yaw <= 360)){
+			return DirectionYaw.SOUTH;
+		} else if(yaw >= 225 && yaw < 315){
+			return DirectionYaw.EAST;
+		}
+		return 0;
 	}
 	
 }
