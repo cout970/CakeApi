@@ -59,7 +59,7 @@ public class ApiWorld implements World {
 
 	@Override
 	public Location getSpawnLocation() {
-		return new Location(new ApiWorld(world), world.getSpawnPoint().getX(), world.getSpawnPoint().getY(), world.getSpawnPoint().getZ());
+		return new Location(world.provider.getDimensionId(), world.getSpawnPoint().getX(), world.getSpawnPoint().getY(), world.getSpawnPoint().getZ());
 	}
 
 	@Override

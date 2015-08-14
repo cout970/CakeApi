@@ -4,25 +4,25 @@ import org.cakepowered.api.world.World;
 
 public class PreciseLocation {
 	
-	protected World world;
+	protected int dimension;
 	protected Vector3d position;
 	protected float yaw;
 	protected float pitch;
 	
-	public PreciseLocation(World w, Vector3d pos, float y, float p){
-		world = w;
+	public PreciseLocation(int d, Vector3d pos, float y, float p){
+		dimension = d;
 		position = pos.copy();
 		yaw = y;
 		pitch = p;
 	}
 	
-	public PreciseLocation(World w, double x, double y, double z, float yaw, float pitch){
-		this(w, new Vector3d(x, y, z), yaw, pitch);
+	public PreciseLocation(int d, double x, double y, double z, float yaw, float pitch){
+		this(d, new Vector3d(x, y, z), yaw, pitch);
 	}
 	
 
-	public World getWorld() {
-		return world;
+	public int getDimension() {
+		return dimension;
 	}
 
 	public Vector3d getPosition() {
@@ -49,6 +49,6 @@ public class PreciseLocation {
 	}
 
 	public Location toLocation() {
-		return new Location(getWorld(), getPosition().toVector3i());
+		return new Location(dimension, getPosition().toVector3i());
 	}
 }
