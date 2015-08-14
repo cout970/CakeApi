@@ -3,7 +3,7 @@ package org.cakepowered.api.util;
 import org.cakepowered.api.world.World;
 
 public class PreciseLocation {
-
+	
 	protected World world;
 	protected Vector3d position;
 	protected float yaw;

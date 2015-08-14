@@ -22,6 +22,7 @@ import net.minecraft.scoreboard.ScorePlayerTeam;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.IChatComponent;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldSettings.GameType;
 
 public class ApiPlayer extends ApiEntity implements Player{
@@ -89,8 +90,13 @@ public class ApiPlayer extends ApiEntity implements Player{
 	@Override
 
 	public void setLocation(PreciseLocation loc) {
-		((EntityPlayerMP)player).playerNetServerHandler.setPlayerLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());
-		
+		World w = (World) player.getEntityWorld();
+		if(w.provider.getDimensionId() != loc.getWorld().getDimension()){
+			player.travelToDimension(loc.getWorld().getDimension());
+		}
+		player.setSpawnPoint(ForgeInterface.getBlockPos(loc.getPosition()), true);
+		player.setPositionAndUpdate(loc.getX(), loc.getY(), loc.getZ());
+		((EntityPlayerMP)player).playerNetServerHandler.setPlayerLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());		
 	}
 
 	@Override
