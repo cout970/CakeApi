@@ -1,5 +1,6 @@
 package org.cakepowered.api.events;
 
+import org.cakepowered.api.CakeApiMod;
 import org.cakepowered.api.event.BlockBreakEvent;
 import org.cakepowered.api.event.BlockPlaceEvent;
 import org.cakepowered.api.event.EventSuscribe;
@@ -18,8 +19,15 @@ import net.minecraftforge.event.world.BlockEvent.PlaceEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedOutEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent.ServerTickEvent;
 
 public class EventRedirect {
+	
+	@SubscribeEvent
+	public void onServerTick(ServerTickEvent event){
+		ApiServerUpdateEvent e = new ApiServerUpdateEvent(event, CakeApiMod.server);
+		ApiEventRegistry.INSTANCE.postEvent(e);
+	}
 	
 	@SubscribeEvent
 	public void onPlayerJoinEvent(PlayerLoggedInEvent e){

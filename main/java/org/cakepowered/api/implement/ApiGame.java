@@ -6,6 +6,8 @@ import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Server;
 import org.cakepowered.api.command.CommandDispatcher;
 import org.cakepowered.api.commands.ApiCommandDispatcher;
+import org.cakepowered.api.nbt.ApiNBTFactory;
+import org.cakepowered.api.nbt.NBTFactory;
 import org.cakepowered.api.world.ApiWorldManager;
 import org.cakepowered.api.world.WorldManager;
 
@@ -31,5 +33,10 @@ public class ApiGame implements Game{
 	@Override
 	public WorldManager getWorldManager() {
 		return ApiWorldManager.INSTANCE;
+	}
+
+	@Override
+	public NBTFactory getNBTFactory() {
+		return ApiNBTFactory.INSTANCE;
 	}
 }

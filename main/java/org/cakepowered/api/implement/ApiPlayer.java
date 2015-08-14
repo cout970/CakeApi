@@ -2,11 +2,11 @@ package org.cakepowered.api.implement;
 
 import org.cakepowered.api.CakeApiMod;
 import org.cakepowered.api.base.Player;
-import org.cakepowered.api.util.DirectionYaw;
 import org.cakepowered.api.scoreboard.ApiScoreboard;
 import org.cakepowered.api.scoreboard.ApiTeam;
 import org.cakepowered.api.scoreboard.Scoreboard;
 import org.cakepowered.api.scoreboard.Team;
+import org.cakepowered.api.util.DirectionYaw;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.PreciseLocation;
 import org.cakepowered.api.util.Title;

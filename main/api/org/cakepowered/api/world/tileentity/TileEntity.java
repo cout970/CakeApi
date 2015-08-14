@@ -9,6 +9,6 @@ public interface TileEntity {
 	
 	public Vector3i getPosition();
 	
-	public boolean isEquivalentTo(TileEntity sIGN);
+	public boolean isEquivalentTo(TileEntity t);
 	
 }

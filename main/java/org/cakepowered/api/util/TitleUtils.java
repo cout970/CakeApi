@@ -26,6 +26,9 @@ public class TitleUtils {
 				p = new S45PacketTitle(Type.SUBTITLE, new ChatComponentText(t.getSubTitle()), t.getStartTime(), t.getShowTime(), t.getEndTime());
 				net.sendPacket(p);
 			}
+			
+			p = new S45PacketTitle(Type.TIMES, null, t.getStartTime(), t.getShowTime(), t.getEndTime());
+			net.sendPacket(p);
 		}
 	}
 }

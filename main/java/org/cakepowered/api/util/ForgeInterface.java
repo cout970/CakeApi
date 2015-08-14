@@ -12,6 +12,10 @@ import org.cakepowered.api.implement.ApiEntity;
 import org.cakepowered.api.implement.ApiPlayer;
 import org.cakepowered.api.implement.ApiTileEntity;
 import org.cakepowered.api.implement.ApiWorld;
+import org.cakepowered.api.nbt.ApiNBTBase;
+import org.cakepowered.api.nbt.ApiNBTCompund;
+import org.cakepowered.api.nbt.ApiNBTList;
+import org.cakepowered.api.nbt.NBTBase;
 import org.cakepowered.api.util.text.TextModifier;
 import org.cakepowered.api.world.World;
 import org.cakepowered.api.world.block.Block;
@@ -19,6 +23,8 @@ import org.cakepowered.api.world.tileentity.TileEntity;
 
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.EnumFacing;
@@ -104,5 +110,16 @@ public class ForgeInterface {
 			}
 		}
 		return null;
+	}
+
+	public static NBTBase fromNBT(net.minecraft.nbt.NBTBase tag) {
+		if(tag == null)return null;
+		if(tag instanceof NBTTagCompound){
+			return new ApiNBTCompund((NBTTagCompound) tag);
+		}
+		if(tag instanceof NBTTagList){
+			return new ApiNBTList((NBTTagList) tag);
+		}
+		return new ApiNBTBase(tag);
 	}
 }

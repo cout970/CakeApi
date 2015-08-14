@@ -1,6 +1,5 @@
 package org.cakepowered.api.base;
 
-import org.cakepowered.api.util.DirectionYaw;
 import org.cakepowered.api.scoreboard.Scoreboard;
 import org.cakepowered.api.scoreboard.Team;
 import org.cakepowered.api.util.PreciseLocation;
