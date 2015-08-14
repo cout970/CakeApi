@@ -30,7 +30,11 @@ public class ApiScoreboard implements Scoreboard {
 
 	@Override
 	public void removeTeam(Team team) {
-		this.scoreboard.removeTeam(this.scoreboard.getTeam(team.getName()));
+		if(team == null)return;
+		ScorePlayerTeam scoreTeam = this.scoreboard.getTeam(team.getName());
+		if(scoreTeam == null)return;
+		this.scoreboard.removeTeam(scoreTeam);
+		scoreboard.sendTeamUpdate(scoreTeam);
 	}
 
 	@Override
@@ -38,13 +42,11 @@ public class ApiScoreboard implements Scoreboard {
 		ScorePlayerTeam s = this.scoreboard.createTeam(team);
 		this.scoreboard.broadcastTeamCreated(s);
 		return new ApiTeam(s);
-
 	}
 
 	@Override
 	public List<Team> getTeams() {
 		List<Team> t = new ArrayList<Team>();
-		
 		for(Object s : this.scoreboard.getTeamNames()){
 			t.add(new ApiTeam(this.scoreboard.getTeam(s.toString())));
 		}

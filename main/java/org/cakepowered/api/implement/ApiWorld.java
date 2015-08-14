@@ -1,5 +1,9 @@
 package org.cakepowered.api.implement;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.cakepowered.api.base.Entity;
 import org.cakepowered.api.scoreboard.ApiScoreboard;
 import org.cakepowered.api.scoreboard.Scoreboard;
 import org.cakepowered.api.util.ForgeInterface;
@@ -7,7 +11,6 @@ import org.cakepowered.api.util.Location;
 import org.cakepowered.api.util.Vector3i;
 import org.cakepowered.api.world.Difficulties;
 import org.cakepowered.api.world.World;
-import org.cakepowered.api.world.WorldCreationSettings;
 import org.cakepowered.api.world.block.Block;
 import org.cakepowered.api.world.tileentity.TileEntity;
 
@@ -50,15 +53,6 @@ public class ApiWorld implements World {
 	}
 
 	@Override
-	public void setWorldGenerator(WorldCreationSettings generator) {
-		
-		this.world.getWorldInfo().setWorldName(generator.getWorldName());
-		this.world.rand.setSeed(generator.getSeed());
-		this.world.provider.setDimension(generator.getdimensionType());
-		
-	}
-
-	@Override
 	public Scoreboard getScoreboard() {
 		return new ApiScoreboard(this.world.getScoreboard());
 	}
@@ -77,6 +71,17 @@ public class ApiWorld implements World {
 	@Override
 	public TileEntity getTileEntity(Vector3i position) {
 		return ForgeInterface.getTileEntity(world.getTileEntity(ForgeInterface.getBlockPos(position)));
+	}
+
+	@Override
+	public List<Entity> getEntities() {
+		List<Entity> list = new ArrayList<Entity>();
+		for(Object e : world.getLoadedEntityList()){
+			if(e instanceof net.minecraft.entity.Entity){
+				list.add(ForgeInterface.getEntity((net.minecraft.entity.Entity) e));
+			}
+		}
+		return list;
 	}
 	
 }

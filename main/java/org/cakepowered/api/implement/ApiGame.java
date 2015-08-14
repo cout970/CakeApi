@@ -6,6 +6,8 @@ import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Server;
 import org.cakepowered.api.command.CommandDispatcher;
 import org.cakepowered.api.commands.ApiCommandDispatcher;
+import org.cakepowered.api.world.ApiWorldManager;
+import org.cakepowered.api.world.WorldManager;
 
 public class ApiGame implements Game{
 
@@ -24,5 +26,10 @@ public class ApiGame implements Game{
 	@Override
 	public CommandDispatcher getCommandDispacher() {
 		return ApiCommandDispatcher.INSTANCE;
+	}
+
+	@Override
+	public WorldManager getWorldManager() {
+		return ApiWorldManager.INSTANCE;
 	}
 }

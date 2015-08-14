@@ -16,6 +16,7 @@ import org.cakepowered.api.plugin.PluginContainer;
 import org.cakepowered.api.util.BlockUtils;
 import org.cakepowered.api.util.Ref;
 import org.cakepowered.api.util.TextUtils;
+import org.cakepowered.api.world.ApiWorldManager;
 import org.objectweb.asm.Type;
 
 import com.google.common.eventbus.EventBus;
@@ -70,10 +71,12 @@ public class CakeApiMod extends DummyModContainer{
 	
 	@Subscribe
 	public void postInit(FMLPostInitializationEvent event){
+		
 	}
 	
 	@Subscribe
 	public void onServerStart(FMLServerStartingEvent event){
+		ApiWorldManager.registerWorlds();	
 		ApiEventRegistry.INSTANCE.postEvent(new ApiServerStartingEvent(event, server));
 	}
 	

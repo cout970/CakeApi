@@ -1,7 +1,10 @@
 package org.cakepowered.api.base;
 
 import org.cakepowered.api.util.DirectionYaw;
+import org.cakepowered.api.scoreboard.Scoreboard;
+import org.cakepowered.api.scoreboard.Team;
 import org.cakepowered.api.util.PreciseLocation;
+import org.cakepowered.api.util.Title;
 import org.cakepowered.api.util.Vector3d;
 
 public interface Player extends Entity{
@@ -9,6 +12,10 @@ public interface Player extends Entity{
 	public String getUserName();
 	
 	public void sendMessage(String s);
+	
+	public void sendLink(String link);
+	
+	public void sendTitle(Title t);
 	
 	public void setSpawnLocation(Vector3d vec);
 
@@ -24,4 +31,8 @@ public interface Player extends Entity{
 	public void setGameMode(int value);
 	
 	public boolean isOP();
+	
+	public Team getTeam();
+	
+	public Scoreboard getScoreboard();
 }

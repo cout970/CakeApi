@@ -3,13 +3,25 @@ package org.cakepowered.api.implement;
 import org.cakepowered.api.CakeApiMod;
 import org.cakepowered.api.base.Player;
 import org.cakepowered.api.util.DirectionYaw;
+import org.cakepowered.api.scoreboard.ApiScoreboard;
+import org.cakepowered.api.scoreboard.ApiTeam;
+import org.cakepowered.api.scoreboard.Scoreboard;
+import org.cakepowered.api.scoreboard.Team;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.PreciseLocation;
+import org.cakepowered.api.util.Title;
+import org.cakepowered.api.util.TitleUtils;
 import org.cakepowered.api.util.Vector3d;
+import org.cakepowered.api.util.text.TextFormating;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.event.ClickEvent;
+import net.minecraft.event.ClickEvent.Action;
+import net.minecraft.scoreboard.ScorePlayerTeam;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatStyle;
+import net.minecraft.util.IChatComponent;
 import net.minecraft.world.WorldSettings.GameType;
 
 public class ApiPlayer extends ApiEntity implements Player{
@@ -75,6 +87,7 @@ public class ApiPlayer extends ApiEntity implements Player{
 	}
 
 	@Override
+
 	public void setLocation(PreciseLocation loc) {
 		((EntityPlayerMP)player).playerNetServerHandler.setPlayerLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());
 		
@@ -94,5 +107,28 @@ public class ApiPlayer extends ApiEntity implements Player{
 		}
 		return 0;
 	}
-	
+
+	public void sendTitle(Title t) {
+		if(t == null)return;
+		TitleUtils.sendTitle(((EntityPlayerMP)player).playerNetServerHandler, player, t);
+	}
+
+	@Override
+	public Team getTeam() {
+		return new ApiTeam((ScorePlayerTeam) (player.getTeam()));
+	}
+
+	@Override
+	public Scoreboard getScoreboard() {
+		return new ApiScoreboard(player.getWorldScoreboard());
+	}
+
+	@Override
+	public void sendLink(String link) {
+		IChatComponent chat = new ChatComponentText(link);
+		ChatStyle style = new ChatStyle();
+		style.setChatClickEvent(new ClickEvent(Action.OPEN_URL, TextFormating.toPlainString(link)));
+		chat.setChatStyle(style);
+		player.addChatMessage(chat);
+	}
 }

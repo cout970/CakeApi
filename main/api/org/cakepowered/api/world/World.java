@@ -1,5 +1,8 @@
 package org.cakepowered.api.world;
 
+import java.util.List;
+
+import org.cakepowered.api.base.Entity;
 import org.cakepowered.api.scoreboard.Scoreboard;
 import org.cakepowered.api.util.Location;
 import org.cakepowered.api.util.Vector3i;
@@ -8,20 +11,19 @@ import org.cakepowered.api.world.tileentity.TileEntity;
 
 public interface World {
 
-	int getDifficulty();
+	public int getDifficulty();
 	
-	String getName();
+	public String getName();
 	
-	int getDimension();
+	public int getDimension();
+		
+	public Scoreboard getScoreboard();
 	
-	void setWorldGenerator(WorldCreationSettings generator);
+	public Location getSpawnLocation();
 	
-	Scoreboard getScoreboard();
-	
-	Location getSpawnLocation();
-	
-	Block getBlock(int x, int i, int z);
+	public Block getBlock(int x, int i, int z);
 
-	TileEntity getTileEntity(Vector3i position);
+	public TileEntity getTileEntity(Vector3i position);
 	
+	public List<Entity> getEntities();
 }
