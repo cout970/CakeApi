@@ -3,7 +3,6 @@ package org.cakepowered.api.events;
 import org.cakepowered.api.CakeApiMod;
 import org.cakepowered.api.event.BlockBreakEvent;
 import org.cakepowered.api.event.BlockPlaceEvent;
-import org.cakepowered.api.event.EventSuscribe;
 import org.cakepowered.api.event.PlayerChatEvent;
 import org.cakepowered.api.event.PlayerInteractEntityEvent;
 import org.cakepowered.api.event.PlayerInteractEvent;
@@ -66,19 +65,19 @@ public class EventRedirect {
 		ApiEventRegistry.INSTANCE.postEvent(event);
 	}
 	
-	@EventSuscribe
+	@SubscribeEvent
 	public void onBlockBreak(BreakEvent e){
 		BlockBreakEvent event = new ApiBlockBreakEvent(e);
 		ApiEventRegistry.INSTANCE.postEvent(event);
 	}
 	
-	@EventSuscribe
+	@SubscribeEvent
 	public void onBlockPlace(PlaceEvent e){
 		BlockPlaceEvent event = new ApiBlockPlaceEvent(e);
 		ApiEventRegistry.INSTANCE.postEvent(event);
 	}
 	
-	@EventSuscribe
+	@SubscribeEvent
 	public void onEntityInteract(EntityInteractEvent e){
 		PlayerInteractEntityEvent event = new ApiPlayerInteractEntityEvent(e);
 		ApiEventRegistry.INSTANCE.postEvent(event);
