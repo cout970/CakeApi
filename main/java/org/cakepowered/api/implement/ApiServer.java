@@ -66,9 +66,9 @@ public class ApiServer implements Server{
 	}
 
 	@Override
-	public World getWorld(String name) {
+	public World getWorld(int id) {
 		for (WorldServer world : server.worldServers) {
-			if(world.getWorldInfo().getWorldName().equals(name)){
+			if(world.provider.getDimensionId() == id){
 				return new ApiWorld(world);
 			}
 		}

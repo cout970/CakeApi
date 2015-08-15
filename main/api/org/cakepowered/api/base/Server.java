@@ -16,7 +16,7 @@ public interface Server {
 	
 	public Player getPlayer(String username);
 	
-	public World getWorld(String name);
+	public World getWorld(int i);
 
 	public int getRunningTimeTicks();
 
