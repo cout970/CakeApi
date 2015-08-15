@@ -29,13 +29,5 @@ public abstract class CommandBase implements CommandExecutor{
 	public List<String> getAllias() {
 		return alias;
 	}
-
-	@Override
-	public boolean canCommandSenderUse(CommandSender commandSender) {
-		return commandSender.canUseCommand(getRequiredPermissionLevel(), getName());
-	}
-
-	public int getRequiredPermissionLevel(){
-		return 0;
-	}
+	
 }

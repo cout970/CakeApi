@@ -11,9 +11,5 @@ public interface CommandExecutor {
 	List<String> getAllias();
 
 	void execute(CommandSender commandSender, String[] args);
-
-	boolean canCommandSenderUse(CommandSender commandSender);
-	
-	public int getRequiredPermissionLevel();
 	
 }

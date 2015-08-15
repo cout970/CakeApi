@@ -37,8 +37,7 @@ public class DummyCommandSender implements ICommandSender{
 
 	@Override
 	public boolean canUseCommand(int permLevel, String commandName) {
-		if(sender instanceof ApiCommandSender) return ((ApiCommandSender) sender).sender.canUseCommand(permLevel, commandName);
-		return false;
+		return true;
 	}
 
 	@Override

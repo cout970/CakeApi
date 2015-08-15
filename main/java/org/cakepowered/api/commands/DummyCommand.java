@@ -41,6 +41,6 @@ public class DummyCommand extends CommandBase{
 
 	@Override
 	public boolean canCommandSenderUse(ICommandSender sender) {
-		return command.canCommandSenderUse(ForgeInterface.getCommandSender(sender));
+		return true;
 	}
 }
