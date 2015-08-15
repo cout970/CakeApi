@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
+import org.cakepowered.api.command.CommandSender;
 import org.cakepowered.api.world.World;
 
 public interface Server {
@@ -25,4 +26,6 @@ public interface Server {
 	public List<Player> getPlayersOP();
 	
 	public void setPlayerOP(Player p, boolean op);
+	
+	public CommandSender getCommandSender();
 }

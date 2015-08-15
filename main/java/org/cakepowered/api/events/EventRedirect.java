@@ -3,6 +3,7 @@ package org.cakepowered.api.events;
 import org.cakepowered.api.CakeApiMod;
 import org.cakepowered.api.event.BlockBreakEvent;
 import org.cakepowered.api.event.BlockPlaceEvent;
+import org.cakepowered.api.event.EntityAttackedEvent;
 import org.cakepowered.api.event.PlayerChatEvent;
 import org.cakepowered.api.event.PlayerInteractEntityEvent;
 import org.cakepowered.api.event.PlayerInteractEvent;
@@ -13,6 +14,7 @@ import org.cakepowered.api.implement.ApiEventRegistry;
 
 import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 import net.minecraftforge.event.world.BlockEvent.PlaceEvent;
@@ -80,6 +82,12 @@ public class EventRedirect {
 	@SubscribeEvent
 	public void onEntityInteract(EntityInteractEvent e){
 		PlayerInteractEntityEvent event = new ApiPlayerInteractEntityEvent(e);
+		ApiEventRegistry.INSTANCE.postEvent(event);
+	}
+	
+	@SubscribeEvent
+	public void onEntityInteract(AttackEntityEvent e){
+		EntityAttackedEvent event = new ApiEntityAttackedEvent(e);
 		ApiEventRegistry.INSTANCE.postEvent(event);
 	}
 }

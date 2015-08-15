@@ -7,6 +7,7 @@ import java.util.UUID;
 
 import org.cakepowered.api.base.Player;
 import org.cakepowered.api.base.Server;
+import org.cakepowered.api.command.CommandSender;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.world.World;
 
@@ -119,5 +120,10 @@ public class ApiServer implements Server{
 
 			}
 		}
+	}
+
+	@Override
+	public CommandSender getCommandSender() {
+		return ForgeInterface.getCommandSender(server);
 	}
 }
