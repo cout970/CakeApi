@@ -8,6 +8,10 @@ import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.Vector3d;
 import org.cakepowered.api.world.World;
 
+import net.minecraftforge.fml.common.ModContainer;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.common.registry.EntityRegistry.EntityRegistration;
+
 public class ApiEntity implements Entity {
 
 	public net.minecraft.entity.Entity entity;
@@ -56,5 +60,19 @@ public class ApiEntity implements Entity {
 	@Override
 	public CommandSender getCommandSender() {
 		return ForgeInterface.getCommandSender(entity);
+	}
+
+	@Override
+	public String getName() {
+		return entity.getName();
+	}
+
+	@Override
+	public String getModID() {
+		EntityRegistration er = EntityRegistry.instance().lookupModSpawn(entity.getClass(), false);
+		if(er == null)return null;
+		ModContainer mc = er.getContainer();
+		if(mc == null)return null;
+		return mc.getModId();
 	}
 }

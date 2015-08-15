@@ -8,9 +8,13 @@ import org.cakepowered.api.world.World;
 
 public interface Entity {
 
-public UUID getUniqueID();
+	public UUID getUniqueID();
 	
 	public World getWorld();
+	
+	public String getName();
+	
+	public String getModID();
 	
 	public Vector3d getPosition();
 	

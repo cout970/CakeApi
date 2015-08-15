@@ -13,6 +13,7 @@ import org.cakepowered.api.event.PlayerRespawnEvent;
 import org.cakepowered.api.implement.ApiEventRegistry;
 
 import net.minecraftforge.event.ServerChatEvent;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 import net.minecraftforge.event.world.BlockEvent.PlaceEvent;
@@ -22,6 +23,12 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedOutEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.ServerTickEvent;
 
 public class EventRedirect {
+	
+	@SubscribeEvent
+	public void onSpawn(EntityJoinWorldEvent e){
+		ApiEntityRespawnEvent event = new ApiEntityRespawnEvent(e);
+		ApiEventRegistry.INSTANCE.postEvent(event);
+	}
 	
 	@SubscribeEvent
 	public void onServerTick(ServerTickEvent event){

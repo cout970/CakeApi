@@ -22,7 +22,7 @@ public abstract class CommandBase implements CommandExecutor{
 
 	@Override
 	public String getCommandUsage(CommandSender commandSender) {
-		return "";
+		return "/"+getName()+" ";
 	}
 
 	@Override

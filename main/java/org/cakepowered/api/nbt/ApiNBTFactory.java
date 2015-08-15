@@ -41,7 +41,7 @@ public class ApiNBTFactory implements NBTFactory{
             	nbt = new NBTTagByte((Byte) data);
             	break;
             case 2:
-            	nbt = new NBTTagShort();
+            	nbt = new NBTTagShort((Short)data);
             	break;
             case 3:
             	nbt = new NBTTagInt((Integer) data);
