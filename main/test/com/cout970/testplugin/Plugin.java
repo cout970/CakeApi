@@ -1,5 +1,7 @@
 package com.cout970.testplugin;
 
+import java.util.Random;
+
 import org.cakepowered.api.base.CakePlugin;
 import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Log;
@@ -27,11 +29,10 @@ public class Plugin {
 		INSTANCE = this;
 	}
 	
-	@EventSuscribe
-	public void onStart(ServerStatingEvent event){
-		game.getWorldManager().createWorld(2);
-		game.getWorldManager().createWorld(3);
-	}
+//	@EventSuscribe
+//	public void onStart(ServerStatingEvent event){
+//		game.getWorldManager().createWorld(2, (new Random()).nextLong(), "flat");
+//	}
 	
 	
 	@EventSuscribe
