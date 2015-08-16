@@ -21,7 +21,9 @@ public interface Player extends Entity{
 	public void moveToWorld(PreciseLocation loc);
 	
 	public void setLocation(PreciseLocation loc);
-
+	
+	public void setPitchAndYaw(float p, float y);
+	
 	public PreciseLocation getLocation();
 	
 	public int getDirection();

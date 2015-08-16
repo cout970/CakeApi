@@ -8,6 +8,7 @@ import org.cakepowered.api.util.ForgeInterface;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
+import net.minecraft.util.BlockPos;
 
 public class DummyCommand extends CommandBase{
 		
@@ -42,5 +43,11 @@ public class DummyCommand extends CommandBase{
 	@Override
 	public boolean canCommandSenderUse(ICommandSender sender) {
 		return true;
+	}
+	
+	@Override
+	public List addTabCompletionOptions(ICommandSender sender, String[] args, BlockPos pos){
+		return command.addTabCompletionOptions(ForgeInterface.getCommandSender(sender), args, ForgeInterface.getVector3i(pos));
+		
 	}
 }

@@ -3,6 +3,7 @@ package org.cakepowered.api.event;
 import org.cakepowered.api.util.Direction;
 import org.cakepowered.api.util.Vector3i;
 import org.cakepowered.api.world.World;
+import org.cakepowered.api.world.block.Block;
 
 public interface PlayerInteractEvent extends PlayerEvent{
 
@@ -16,4 +17,6 @@ public interface PlayerInteractEvent extends PlayerEvent{
         RIGHT_CLICK_BLOCK,
         LEFT_CLICK_BLOCK
 	}
+
+	public Block getInteractBlock();
 }

@@ -41,7 +41,7 @@ public class ApiPlayer extends ApiEntity implements Player{
 
 	@Override
 	public void sendMessage(String s) {
-		player.addChatMessage(new ChatComponentText(s));
+		player.addChatComponentMessage(new ChatComponentText(s));
 	}
 	
 	public boolean equals(Object o){
@@ -147,5 +147,11 @@ public class ApiPlayer extends ApiEntity implements Player{
 	@Override
 	public void kick() {
 		((EntityPlayerMP)entity).playerNetServerHandler.kickPlayerFromServer("");
+	}
+
+	@Override
+	public void setPitchAndYaw(float p, float y) {
+		((EntityPlayerMP)player).playerNetServerHandler.setPlayerLocation(getLocation().getX(), getLocation().getY(), getLocation().getZ(), y, p);
+		
 	}
 }

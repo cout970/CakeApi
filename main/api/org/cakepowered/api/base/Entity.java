@@ -33,4 +33,6 @@ public interface Entity {
 	public int getDimensionID();
 	
 	public CommandSender getCommandSender();
+
+	public void setDead();
 }

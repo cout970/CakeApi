@@ -3,6 +3,8 @@ package org.cakepowered.api.command;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.cakepowered.api.util.Vector3i;
+
 public abstract class CommandBase implements CommandExecutor{
 
 	public String name;
@@ -28,6 +30,12 @@ public abstract class CommandBase implements CommandExecutor{
 	@Override
 	public List<String> getAllias() {
 		return alias;
+	}
+	
+	@Override
+	public List addTabCompletionOptions(CommandSender sender, String[] args, Vector3i pos){
+		return null;
+		
 	}
 	
 }

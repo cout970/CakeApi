@@ -75,4 +75,9 @@ public class ApiEntity implements Entity {
 		if(mc == null)return null;
 		return mc.getModId();
 	}
+
+	@Override
+	public void setDead() {	
+		entity.setDead();
+	}
 }
