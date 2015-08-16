@@ -20,7 +20,7 @@ public class ApiWorldManager implements WorldManager{
 	public static HashMap<Integer, WorldServer> dimensions = new HashMap<Integer, WorldServer>();
 	
 	@Override
-	public void registerWorlds(){
+	public static void registerWorlds(){
 		CakeApiMod.logger.info("Registering Dimensions");
 		
 		for(WorldServer s: MinecraftServer.getServer().worldServers){
