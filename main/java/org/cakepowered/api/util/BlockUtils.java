@@ -21,6 +21,7 @@ public class BlockUtils {
 		Blocks.DARK_OAK_DOOR = ForgeInterface.getBlock(net.minecraft.init.Blocks.dark_oak_door);
 		Blocks.JUNGLE_DOOR = ForgeInterface.getBlock(net.minecraft.init.Blocks.jungle_door);
 		Blocks.SPRUCE_DOOR = ForgeInterface.getBlock(net.minecraft.init.Blocks.spruce_door);
+		Blocks.SAPLING = ForgeInterface.getBlock(net.minecraft.init.Blocks.sapling);
 		
 	}
 

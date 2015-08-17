@@ -15,5 +15,6 @@ public class Blocks {
 	public static Block DARK_OAK_DOOR;
 	public static Block JUNGLE_DOOR;
 	public static Block SPRUCE_DOOR;
+	public static Block SAPLING;
 
 }
