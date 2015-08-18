@@ -2,8 +2,8 @@ package org.cakepowered.api.implement;
 
 import org.cakepowered.api.CakeApiMod;
 import org.cakepowered.api.base.Player;
-import org.cakepowered.api.inventory.Inventory;
 import org.cakepowered.api.inventory.ItemStack;
+import org.cakepowered.api.inventory.PlayerInventory;
 import org.cakepowered.api.scoreboard.ApiScoreboard;
 import org.cakepowered.api.scoreboard.ApiTeam;
 import org.cakepowered.api.scoreboard.Scoreboard;
@@ -154,8 +154,8 @@ public class ApiPlayer extends ApiEntity implements Player{
 	}
 
 	@Override
-	public Inventory getPlayerInventory() {
-		return ForgeInterface.getInventory(player.inventory);
+	public PlayerInventory getPlayerInventory() {
+		return new ApiPlayerInventory(player.inventory);
 	}
 
 	@Override
