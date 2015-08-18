@@ -56,6 +56,4 @@ public class ApiPlayerInventory extends ApiInventory implements PlayerInventory{
 	public boolean hasItemStack(ItemStack stack) {
 		return player.hasItemStack(((ApiItemStack)stack).stack);
 	}
-
-	
 }
