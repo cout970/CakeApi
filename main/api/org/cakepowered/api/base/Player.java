@@ -1,6 +1,5 @@
 package org.cakepowered.api.base;
 
-import org.cakepowered.api.inventory.Inventory;
 import org.cakepowered.api.inventory.ItemStack;
 import org.cakepowered.api.inventory.PlayerInventory;
 import org.cakepowered.api.scoreboard.Scoreboard;
