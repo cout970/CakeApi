@@ -1,8 +1,5 @@
 package org.cakepowered.api.util;
 
-import org.cakepowered.api.tileentity.TileEntity;
-import org.cakepowered.api.world.World;
-
 public class Location {
 
 	protected int dimension;

@@ -25,6 +25,7 @@ public class Vector3i {
 		return new Vector3i(-x, -y, -z);
 	}
 
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;
@@ -36,6 +37,7 @@ public class Vector3i {
 		}
 	}
 
+	@Override
 	public int hashCode() {
 		return (this.getY() + this.getZ() * 31) * 31 + this.getX();
 	}
@@ -56,6 +58,7 @@ public class Vector3i {
 		return this.z;
 	}
 	
+	@Override
 	public String toString() {
 		return "x: "+getX()+", y: "+getY()+", z: "+getZ();
 	}

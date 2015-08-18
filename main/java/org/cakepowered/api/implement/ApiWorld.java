@@ -47,6 +47,7 @@ public class ApiWorld implements World {
 		return world.getWorldInfo().getWorldName();
 	}
 
+	@Override
 	public int getDimension() {
 		return world.provider.getDimensionId();
 	}

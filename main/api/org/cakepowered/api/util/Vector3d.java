@@ -27,6 +27,7 @@ public class Vector3d {
 		return new Vector3d(-x, -y, -z);
 	}
 
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;
@@ -50,6 +51,7 @@ public class Vector3d {
 		return this.z;
 	}
 	
+	@Override
 	public String toString() {
 		return "x: "+getX()+", y: "+getY()+", z: "+getZ();
 	}

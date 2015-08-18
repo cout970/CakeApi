@@ -13,7 +13,6 @@ public class ApiWorldManager implements WorldManager{
 
 		DimensionManager.registerProviderType(2, CustomWorldProvider.class, false);
 		DimensionManager.registerDimension(id, 2);
-//		DimensionManager.initDimension(id);
 
 		return ForgeInterface.getWorld(DimensionManager.getWorld(id));
 	}
@@ -31,7 +30,6 @@ public class ApiWorldManager implements WorldManager{
 	@Override
 	public World createNormalWorld(int id) {
 		DimensionManager.registerDimension(id, 0);
-//		DimensionManager.initDimension(id);
 
 		return ForgeInterface.getWorld(DimensionManager.getWorld(id));
 	}

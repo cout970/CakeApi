@@ -46,6 +46,7 @@ public class ApiPlayer extends ApiEntity implements Player{
 		player.addChatComponentMessage(new ChatComponentText(s));
 	}
 	
+	@Override
 	public boolean equals(Object o){
 		if(o instanceof Player){
 			return getUniqueID().equals(((Player) o).getUniqueID());
@@ -91,7 +92,7 @@ public class ApiPlayer extends ApiEntity implements Player{
 
 	@Override
 	public void setLocation(PreciseLocation loc) {
-		World w = (World) player.getEntityWorld();
+		World w = player.getEntityWorld();
 		if(w.provider.getDimensionId() != loc.getDimension()){
 			player.travelToDimension(loc.getDimension());
 		}
@@ -115,6 +116,7 @@ public class ApiPlayer extends ApiEntity implements Player{
 		return 0;
 	}
 
+	@Override
 	public void sendTitle(Title t) {
 		if(t == null)return;
 		TitleUtils.sendTitle(((EntityPlayerMP)player).playerNetServerHandler, player, t);
@@ -164,5 +166,15 @@ public class ApiPlayer extends ApiEntity implements Player{
 	@Override
 	public int getSelectedslot() {
 		return player.inventory.currentItem;
+	}
+	
+	@Override
+	public void addItemStack(String unlocalizedName, int quantity){
+		CakeApiMod.game.getCommandDispacher().executeCommand(CakeApiMod.game.getServer().getCommandSender(), "give " + getName() + " " + unlocalizedName  +" " + quantity);	
+	}
+	
+	@Override
+	public boolean isSneaking(){
+		return player.isSneaking();
 	}
 }

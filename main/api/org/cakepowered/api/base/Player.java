@@ -31,6 +31,7 @@ public interface Player extends Entity{
 	public int getDirection();
 	
 	public int getGameMode();
+	
 	public void setGameMode(int value);
 	
 	public boolean isOP();
@@ -52,4 +53,8 @@ public interface Player extends Entity{
 	 * Return the selected slot in the hotbar
 	 */
 	public int getSelectedslot();
+
+	public void addItemStack(String unlocalizedName, int quantity);
+
+	public boolean isSneaking();
 }

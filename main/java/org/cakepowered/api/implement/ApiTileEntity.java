@@ -34,6 +34,7 @@ public class ApiTileEntity implements org.cakepowered.api.tileentity.TileEntity{
 		return false;
 	}
 	
+	@Override
 	public boolean equals(Object o){
 		if(o instanceof ApiTileEntity){
 			return tile.equals(((ApiTileEntity) o).tile);

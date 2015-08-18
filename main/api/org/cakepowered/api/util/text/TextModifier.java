@@ -12,6 +12,7 @@ public class TextModifier {
 		this.colorIndex = colorIndex;
 	}
 
+	@Override
 	public String toString(){
 		return controlString;
 	}

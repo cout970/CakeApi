@@ -73,6 +73,7 @@ public class ApiItemStack implements org.cakepowered.api.inventory.ItemStack{
 		stack.stackSize = amount;
 	}
 	
+	@Override
 	public String toString(){
 		return stack.toString();
 	}
@@ -157,6 +158,7 @@ public class ApiItemStack implements org.cakepowered.api.inventory.ItemStack{
 		stack.setRepairCost(cost);
 	}
 	
+	@Override
 	public boolean equals(Object o){
 		if(o instanceof ApiItemStack){
 			return stack.equals(((ApiItemStack) o).stack);

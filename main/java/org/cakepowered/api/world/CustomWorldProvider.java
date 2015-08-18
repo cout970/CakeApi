@@ -24,6 +24,7 @@ public class CustomWorldProvider extends WorldProvider{
 		return "_flat";
 	}
 
+	@Override
 	protected void registerWorldChunkManager()
 	{
 		this.worldChunkMgr = type.getChunkManager(worldObj);
@@ -32,39 +33,46 @@ public class CustomWorldProvider extends WorldProvider{
 	/**
 	 * Returns a new chunk provider which generates chunks for this world
 	 */
+	@Override
 	public IChunkProvider createChunkGenerator()
 	{
 		return type.getChunkGenerator(worldObj, genSettings);
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public float getCloudHeight()
 	{
 		return this.type.getCloudHeight();
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean isSkyColored()
 	{
 		return true;
 	}
 
+	@Override
 	public BlockPos getSpawnCoordinate()
 	{
 		return null;
 	}
 
+	@Override
 	public int getAverageGroundLevel()
 	{
 		return this.type.getMinimumSpawnHeight(this.worldObj);
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public double getVoidFogYFactor()
 	{
 		return this.type.voidFadeMagnitude();
 	}
 
+	@Override
 	public BlockPos getRandomizedSpawnPoint()
 	{
 		BlockPos ret = this.worldObj.getSpawnPoint();
