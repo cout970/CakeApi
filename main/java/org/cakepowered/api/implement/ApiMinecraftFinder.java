@@ -53,5 +53,15 @@ public class ApiMinecraftFinder implements MinecraftFinder{
 		if(id == null)return null;
 		return id.modId;
 	}
+	
+	@Override
+	public String getCompleteName(Item item) {
+		return getDomain(item) + ":" + getIdentifier(item);
+	}
+	
+	@Override
+	public String getCompleteName(Block block) {
+		return getDomain(block) + ":" + getIdentifier(block);
+	}
 
 }

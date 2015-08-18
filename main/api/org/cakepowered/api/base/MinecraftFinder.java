@@ -14,5 +14,8 @@ public interface MinecraftFinder {
 	
 	public String getDomain(Item item);
 	public String getDomain(Block block);
+
+	public String getCompleteName(Item item);
+	public String getCompleteName(Block block);
 	
 }
