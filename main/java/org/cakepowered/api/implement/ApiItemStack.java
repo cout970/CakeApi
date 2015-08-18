@@ -25,7 +25,7 @@ public class ApiItemStack implements org.cakepowered.api.inventory.ItemStack{
 	
 	@Override
 	public Item getItem() {
-		return null;
+		return ForgeInterface.getItem(stack.getItem());
 	}
 
 	@Override
