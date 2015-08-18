@@ -2,6 +2,8 @@ package org.cakepowered.api.implement;
 
 import org.cakepowered.api.CakeApiMod;
 import org.cakepowered.api.base.Player;
+import org.cakepowered.api.inventory.Inventory;
+import org.cakepowered.api.inventory.ItemStack;
 import org.cakepowered.api.scoreboard.ApiScoreboard;
 import org.cakepowered.api.scoreboard.ApiTeam;
 import org.cakepowered.api.scoreboard.Scoreboard;
@@ -88,7 +90,6 @@ public class ApiPlayer extends ApiEntity implements Player{
 	}
 
 	@Override
-
 	public void setLocation(PreciseLocation loc) {
 		World w = (World) player.getEntityWorld();
 		if(w.provider.getDimensionId() != loc.getDimension()){
@@ -143,15 +144,25 @@ public class ApiPlayer extends ApiEntity implements Player{
 		if(mes == null) mes = "";
 		((EntityPlayerMP)entity).playerNetServerHandler.kickPlayerFromServer(mes);
 	}
-	
-	@Override
-	public void kick() {
-		((EntityPlayerMP)entity).playerNetServerHandler.kickPlayerFromServer("");
-	}
 
 	@Override
 	public void setPitchAndYaw(float p, float y) {
 		((EntityPlayerMP)player).playerNetServerHandler.setPlayerLocation(getLocation().getX(), getLocation().getY(), getLocation().getZ(), y, p);
 		
+	}
+
+	@Override
+	public Inventory getPlayerInventory() {
+		return ForgeInterface.getInventory(player.inventory);
+	}
+
+	@Override
+	public ItemStack getCurrentItem() {
+		return ForgeInterface.getApiItemStack(player.getCurrentEquippedItem());
+	}
+
+	@Override
+	public int getSelectedslot() {
+		return player.inventory.currentItem;
 	}
 }

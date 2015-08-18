@@ -1,4 +1,4 @@
-package org.cakepowered.api.world.block;
+package org.cakepowered.api.block;
 
 public class Blocks {
 

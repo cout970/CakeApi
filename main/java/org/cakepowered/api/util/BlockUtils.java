@@ -1,7 +1,7 @@
 package org.cakepowered.api.util;
 
-import org.cakepowered.api.world.block.Blocks;
-import org.cakepowered.api.world.tileentity.TileEntities;
+import org.cakepowered.api.block.Blocks;
+import org.cakepowered.api.tileentity.TileEntities;
 
 import net.minecraft.tileentity.TileEntitySign;
 

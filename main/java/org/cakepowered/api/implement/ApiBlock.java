@@ -1,6 +1,6 @@
 package org.cakepowered.api.implement;
 
-import org.cakepowered.api.world.block.Block;
+import org.cakepowered.api.block.Block;
 
 public class ApiBlock implements Block{
 

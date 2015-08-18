@@ -1,4 +1,4 @@
-package org.cakepowered.api.world.tileentity;
+package org.cakepowered.api.tileentity;
 
 public class TileEntities {
 

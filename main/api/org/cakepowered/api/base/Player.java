@@ -1,5 +1,7 @@
 package org.cakepowered.api.base;
 
+import org.cakepowered.api.inventory.Inventory;
+import org.cakepowered.api.inventory.ItemStack;
 import org.cakepowered.api.scoreboard.Scoreboard;
 import org.cakepowered.api.scoreboard.Team;
 import org.cakepowered.api.util.PreciseLocation;
@@ -38,6 +40,16 @@ public interface Player extends Entity{
 	public Scoreboard getScoreboard();
 	
 	public void kick(String mes);
-
-	public void kick();
+	
+	public Inventory getPlayerInventory();
+	
+	/**
+	 * Returns the itemstack in the player inventory that is selected in the hotbar
+	 */
+	public ItemStack getCurrentItem();
+	
+	/**
+	 * Return the selected slot in the hotbar
+	 */
+	public int getSelectedslot();
 }

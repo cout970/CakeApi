@@ -4,25 +4,34 @@ import org.cakepowered.api.CakeApiMod;
 import org.cakepowered.api.base.Entity;
 import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Player;
+import org.cakepowered.api.block.Block;
 import org.cakepowered.api.command.CommandSender;
 import org.cakepowered.api.commands.ApiCommandSender;
+import org.cakepowered.api.enchantment.Enchantment;
 import org.cakepowered.api.event.Event.EventResult;
 import org.cakepowered.api.implement.ApiBlock;
+import org.cakepowered.api.implement.ApiEnchantment;
 import org.cakepowered.api.implement.ApiEntity;
+import org.cakepowered.api.implement.ApiInventory;
+import org.cakepowered.api.implement.ApiItem;
+import org.cakepowered.api.implement.ApiItemStack;
 import org.cakepowered.api.implement.ApiPlayer;
 import org.cakepowered.api.implement.ApiTileEntity;
 import org.cakepowered.api.implement.ApiWorld;
+import org.cakepowered.api.inventory.Inventory;
+import org.cakepowered.api.inventory.ItemStack;
 import org.cakepowered.api.nbt.ApiNBTBase;
 import org.cakepowered.api.nbt.ApiNBTCompund;
 import org.cakepowered.api.nbt.ApiNBTList;
 import org.cakepowered.api.nbt.NBTBase;
+import org.cakepowered.api.tileentity.TileEntity;
 import org.cakepowered.api.util.text.TextModifier;
 import org.cakepowered.api.world.World;
-import org.cakepowered.api.world.block.Block;
-import org.cakepowered.api.world.tileentity.TileEntity;
 
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.BlockPos;
@@ -121,5 +130,30 @@ public class ForgeInterface {
 			return new ApiNBTList((NBTTagList) tag);
 		}
 		return new ApiNBTBase(tag);
+	}
+
+	public static ItemStack getApiItemStack(net.minecraft.item.ItemStack stack) {
+		if(stack == null)return null;
+		return new ApiItemStack(stack);
+	}
+
+	public static net.minecraft.item.ItemStack getItemStack(ItemStack stack) {
+		if(stack == null)return null;
+		return ((ApiItemStack)stack).stack;
+	}
+
+	public static net.minecraft.enchantment.Enchantment getEnchantment(Enchantment ench) {
+		if(ench == null)return null;
+		return ((ApiEnchantment)ench).ench;
+	}
+
+	public static org.cakepowered.api.item.Item getItem(Item stack) {
+		if(stack == null)return null;
+		return new ApiItem(stack);
+	}
+
+	public static Inventory getInventory(IInventory inv) {
+		if(inv == null)return null;
+		return new ApiInventory(inv);
 	}
 }

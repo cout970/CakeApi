@@ -1,7 +1,5 @@
 package com.cout970.testplugin;
 
-import java.util.Random;
-
 import org.cakepowered.api.base.CakePlugin;
 import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Log;
@@ -10,7 +8,6 @@ import org.cakepowered.api.event.EventSuscribe;
 import org.cakepowered.api.event.InitializationEvent;
 import org.cakepowered.api.event.PlayerChatEvent;
 import org.cakepowered.api.event.PlayerJoinEvent;
-import org.cakepowered.api.event.ServerStatingEvent;
 import org.cakepowered.api.scoreboard.Team;
 import org.cakepowered.api.util.text.TextFormating;
 

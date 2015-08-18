@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.cakepowered.api.base.Entity;
+import org.cakepowered.api.block.Block;
 import org.cakepowered.api.scoreboard.ApiScoreboard;
 import org.cakepowered.api.scoreboard.Scoreboard;
+import org.cakepowered.api.tileentity.TileEntity;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.Location;
 import org.cakepowered.api.util.Vector3i;
 import org.cakepowered.api.world.Difficulties;
 import org.cakepowered.api.world.World;
-import org.cakepowered.api.world.block.Block;
-import org.cakepowered.api.world.tileentity.TileEntity;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockPos;
@@ -24,7 +24,6 @@ public class ApiWorld implements World {
 	public ApiWorld(net.minecraft.world.World world){
 		
 		this.world = world;
-		
 	}
 	
 	@Override

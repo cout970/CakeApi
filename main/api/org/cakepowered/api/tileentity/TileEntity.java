@@ -1,5 +1,6 @@
-package org.cakepowered.api.world.tileentity;
+package org.cakepowered.api.tileentity;
 
+import org.cakepowered.api.inventory.Inventory;
 import org.cakepowered.api.util.Vector3i;
 import org.cakepowered.api.world.World;
 
@@ -10,5 +11,10 @@ public interface TileEntity {
 	public Vector3i getPosition();
 	
 	public boolean isEquivalentTo(TileEntity t);
+	
+	/**
+	 * Returns the inventory associated with the tileEntity, can be null.
+	 */
+	public Inventory getInventory();
 	
 }

@@ -1,12 +1,14 @@
 package org.cakepowered.api.implement;
 
+import org.cakepowered.api.inventory.Inventory;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.Vector3i;
 import org.cakepowered.api.world.World;
 
+import net.minecraft.inventory.IInventory;
 import net.minecraft.tileentity.TileEntity;
 
-public class ApiTileEntity implements org.cakepowered.api.world.tileentity.TileEntity{
+public class ApiTileEntity implements org.cakepowered.api.tileentity.TileEntity{
 
 	public TileEntity tile;
 	
@@ -25,7 +27,7 @@ public class ApiTileEntity implements org.cakepowered.api.world.tileentity.TileE
 	}
 
 	@Override
-	public boolean isEquivalentTo(org.cakepowered.api.world.tileentity.TileEntity t) {
+	public boolean isEquivalentTo(org.cakepowered.api.tileentity.TileEntity t) {
 		if(t instanceof ApiTileEntity){
 			return ((ApiTileEntity) t).tile.getClass().equals(tile.getClass());
 		}
@@ -37,5 +39,13 @@ public class ApiTileEntity implements org.cakepowered.api.world.tileentity.TileE
 			return tile.equals(((ApiTileEntity) o).tile);
 		}
 		return false;
+	}
+
+	@Override
+	public Inventory getInventory() {
+		if(tile instanceof IInventory){
+			return ForgeInterface.getInventory((IInventory) tile);
+		}
+		return null;
 	}
 }

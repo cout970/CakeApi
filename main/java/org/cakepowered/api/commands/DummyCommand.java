@@ -45,6 +45,7 @@ public class DummyCommand extends CommandBase{
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List addTabCompletionOptions(ICommandSender sender, String[] args, BlockPos pos){
 		return command.addTabCompletionOptions(ForgeInterface.getCommandSender(sender), args, ForgeInterface.getVector3i(pos));

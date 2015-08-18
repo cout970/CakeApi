@@ -11,7 +11,7 @@ public class ApiWorldManager implements WorldManager{
 	@Override
 	public World createFlatWorld(int id){
 
-		DimensionManager.registerProviderType(2, CustomWorldProvider.class, true);
+		DimensionManager.registerProviderType(2, CustomWorldProvider.class, false);
 		DimensionManager.registerDimension(id, 2);
 //		DimensionManager.initDimension(id);
 
@@ -35,4 +35,5 @@ public class ApiWorldManager implements WorldManager{
 
 		return ForgeInterface.getWorld(DimensionManager.getWorld(id));
 	}
+	
 }

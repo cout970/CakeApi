@@ -1,7 +1,7 @@
 package org.cakepowered.api.util;
 
+import org.cakepowered.api.tileentity.TileEntity;
 import org.cakepowered.api.world.World;
-import org.cakepowered.api.world.tileentity.TileEntity;
 
 public class Location {
 

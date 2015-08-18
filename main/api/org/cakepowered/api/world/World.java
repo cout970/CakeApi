@@ -3,11 +3,11 @@ package org.cakepowered.api.world;
 import java.util.List;
 
 import org.cakepowered.api.base.Entity;
+import org.cakepowered.api.block.Block;
 import org.cakepowered.api.scoreboard.Scoreboard;
+import org.cakepowered.api.tileentity.TileEntity;
 import org.cakepowered.api.util.Location;
 import org.cakepowered.api.util.Vector3i;
-import org.cakepowered.api.world.block.Block;
-import org.cakepowered.api.world.tileentity.TileEntity;
 
 public interface World {
 

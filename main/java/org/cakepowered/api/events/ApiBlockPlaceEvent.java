@@ -2,11 +2,11 @@ package org.cakepowered.api.events;
 
 import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Player;
+import org.cakepowered.api.block.Block;
 import org.cakepowered.api.event.BlockPlaceEvent;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.Vector3i;
 import org.cakepowered.api.world.World;
-import org.cakepowered.api.world.block.Block;
 
 import net.minecraftforge.event.world.BlockEvent.PlaceEvent;
 
