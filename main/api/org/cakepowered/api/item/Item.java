@@ -5,7 +5,7 @@ import org.cakepowered.api.inventory.ItemStack;
 public interface Item {
 
 	/**
-	 * Returns the internal name, ej: item.apple.name
+	 * Returns the internal name, ej: item.apple
 	 */
 	public String getUnlocalizedName(ItemStack stack);
 	

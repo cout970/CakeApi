@@ -21,7 +21,7 @@ public interface World {
 	
 	public Location getSpawnLocation();
 	
-	public Block getBlock(int x, int i, int z);
+	public Block getBlock(Vector3i position);
 
 	public TileEntity getTileEntity(Vector3i position);
 	

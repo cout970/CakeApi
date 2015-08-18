@@ -1,6 +1,8 @@
 package org.cakepowered.api.implement;
 
 import org.cakepowered.api.block.Block;
+import org.cakepowered.api.inventory.ItemStack;
+import org.cakepowered.api.util.ForgeInterface;
 
 public class ApiBlock implements Block{
 
@@ -24,7 +26,12 @@ public class ApiBlock implements Block{
 	}
 
 	@Override
-	public String getLocalizedName() {
-		return block.getLocalizedName();
+	public ItemStack createStack(int amount) {
+		return createStack(amount, 0);
+	}
+
+	@Override
+	public ItemStack createStack(int amount, int metadata) {
+		return ForgeInterface.getApiItemStack(new net.minecraft.item.ItemStack(block, amount, metadata));
 	}
 }

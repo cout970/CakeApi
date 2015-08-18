@@ -15,4 +15,6 @@ public interface Game {
 	public WorldManager getWorldManager();
 	
 	public NBTFactory getNBTFactory();
+	
+	public MinecraftFinder getFinder();
 }

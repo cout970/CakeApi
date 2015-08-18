@@ -164,13 +164,8 @@ public class ApiPlayer extends ApiEntity implements Player{
 	}
 
 	@Override
-	public int getSelectedslot() {
+	public int getSelectedSlot() {
 		return player.inventory.currentItem;
-	}
-	
-	@Override
-	public void addItemStack(String unlocalizedName, int quantity){
-		CakeApiMod.game.getCommandDispacher().executeCommand(CakeApiMod.game.getServer().getCommandSender(), "give " + getName() + " " + unlocalizedName  +" " + quantity);	
 	}
 	
 	@Override

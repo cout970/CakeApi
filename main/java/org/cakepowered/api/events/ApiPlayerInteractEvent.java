@@ -76,6 +76,6 @@ public class ApiPlayerInteractEvent implements org.cakepowered.api.event.PlayerI
 	
 	@Override
 	public Block getInteractBlock(){
-		return  ForgeInterface.getGame().getServer().getWorld(getPlayer().getDimensionID()).getBlock(getPosition().getX(), getPosition().getY(), getPosition().getZ());
+		return  ForgeInterface.getGame().getServer().getWorld(getPlayer().getDimensionID()).getBlock(getPosition());
 	}
 }

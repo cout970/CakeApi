@@ -52,9 +52,7 @@ public interface Player extends Entity{
 	/**
 	 * Return the selected slot in the hotbar
 	 */
-	public int getSelectedslot();
-
-	public void addItemStack(String unlocalizedName, int quantity);
+	public int getSelectedSlot();
 
 	public boolean isSneaking();
 }

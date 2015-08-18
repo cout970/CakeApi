@@ -15,7 +15,6 @@ import org.cakepowered.api.world.Difficulties;
 import org.cakepowered.api.world.World;
 
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.BlockPos;
 
 public class ApiWorld implements World {
 	
@@ -63,8 +62,8 @@ public class ApiWorld implements World {
 	}
 
 	@Override
-	public Block getBlock(int x, int y, int z) {
-		IBlockState state = world.getBlockState(new BlockPos(x, y, z));
+	public Block getBlock(Vector3i pos) {
+		IBlockState state = world.getBlockState(ForgeInterface.getBlockPos(pos));
 		return ForgeInterface.getBlock(state.getBlock());
 	}
 

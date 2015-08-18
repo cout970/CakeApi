@@ -8,6 +8,7 @@ import org.cakepowered.api.nbt.NBTList;
 
 public interface ItemStack {
 
+	
 	public Item getItem();
 	
 	public void setItem(Item item);
