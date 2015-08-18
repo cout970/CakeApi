@@ -28,6 +28,7 @@ public class ApiInventory implements Inventory{
 	@Override
 	public void setStackInSlot(int index, ItemStack stack) {
 		inv.setInventorySlotContents(index, ForgeInterface.getItemStack(stack));
+		inv.markDirty();
 	}
 
 	@Override
