@@ -18,6 +18,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.event.ClickEvent;
 import net.minecraft.event.ClickEvent.Action;
+import net.minecraft.item.ItemStack;
 import net.minecraft.scoreboard.ScorePlayerTeam;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
@@ -153,5 +154,24 @@ public class ApiPlayer extends ApiEntity implements Player{
 	public void setPitchAndYaw(float p, float y) {
 		((EntityPlayerMP)player).playerNetServerHandler.setPlayerLocation(getLocation().getX(), getLocation().getY(), getLocation().getZ(), y, p);
 		
+	}
+
+	@Override
+	public String getItemInHand() {
+		ItemStack i = player.getHeldItem();
+		if(i != null){
+			return i.getUnlocalizedName();
+		}
+		return null;
+	}
+	
+	@Override
+	public void addItemStack(String unlocalizedName, int quantity){
+		CakeApiMod.game.getCommandDispacher().executeCommand(CakeApiMod.game.getServer().getCommandSender(), "give " + getName() + " " + unlocalizedName  +" " + quantity);	
+	}
+	
+	@Override
+	public boolean isSneaking(){
+		return player.isSneaking();
 	}
 }

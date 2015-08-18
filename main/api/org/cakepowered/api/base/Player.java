@@ -40,4 +40,11 @@ public interface Player extends Entity{
 	public void kick(String mes);
 
 	public void kick();
+	
+	public String getItemInHand();
+
+	void addItemStack(String unlocalizedName, int quantity);
+
+	boolean isSneaking();
+	
 }
