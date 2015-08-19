@@ -1,11 +1,14 @@
 package org.cakepowered.api.implement;
 
 import org.cakepowered.api.inventory.Inventory;
+import org.cakepowered.api.nbt.ApiNBTCompund;
+import org.cakepowered.api.nbt.NBTCompund;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.Vector3i;
 import org.cakepowered.api.world.World;
 
 import net.minecraft.inventory.IInventory;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 
 public class ApiTileEntity implements org.cakepowered.api.tileentity.TileEntity{
@@ -48,5 +51,17 @@ public class ApiTileEntity implements org.cakepowered.api.tileentity.TileEntity{
 			return ForgeInterface.getInventory((IInventory) tile);
 		}
 		return null;
+	}
+
+	@Override
+	public void readFromNBT(NBTCompund nbt) {
+		NBTTagCompound tag = ((ApiNBTCompund)nbt).nbt;
+		tile.readFromNBT(tag);
+	}
+
+	@Override
+	public void writeToNBT(NBTCompund nbt) {
+		NBTTagCompound tag = ((ApiNBTCompund)nbt).nbt;
+		tile.readFromNBT(tag);
 	}
 }
