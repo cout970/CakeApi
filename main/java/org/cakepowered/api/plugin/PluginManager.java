@@ -14,5 +14,15 @@ public class PluginManager {
 		loadedPlugins.add(container);
 		ApiEventRegistry.INSTANCE.registerEventListener(instance);
 	}
+	
+	public static String findName(Object plugin){
+		if(plugin == null)return null;
+		for(PluginContainer o : loadedPlugins){
+			if(plugin.equals(o.pluginInstance)){
+				return o.getModId();
+			}
+		}
+		return null;
+	}
 
 }

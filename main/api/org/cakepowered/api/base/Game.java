@@ -17,4 +17,6 @@ public interface Game {
 	public NBTFactory getNBTFactory();
 	
 	public MinecraftFinder getFinder();
+
+	public MessageDispatcher getMessageDispatcher();
 }

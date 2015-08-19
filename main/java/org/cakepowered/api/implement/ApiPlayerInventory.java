@@ -15,6 +15,7 @@ public class ApiPlayerInventory extends ApiInventory implements PlayerInventory{
 	public ApiPlayerInventory(InventoryPlayer inventory) {
 		super(inventory);
 		player = inventory;
+//		player.player.inventoryContainer.detectAndSendChanges();
 	}
 
 	@Override

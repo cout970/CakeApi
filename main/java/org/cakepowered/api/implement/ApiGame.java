@@ -3,6 +3,7 @@ package org.cakepowered.api.implement;
 import org.cakepowered.api.CakeApiMod;
 import org.cakepowered.api.base.EventRegistry;
 import org.cakepowered.api.base.Game;
+import org.cakepowered.api.base.MessageDispatcher;
 import org.cakepowered.api.base.MinecraftFinder;
 import org.cakepowered.api.base.Server;
 import org.cakepowered.api.command.CommandDispatcher;
@@ -44,5 +45,10 @@ public class ApiGame implements Game{
 	@Override
 	public MinecraftFinder getFinder() {
 		return ApiMinecraftFinder.INSTANCE;
+	}
+
+	@Override
+	public MessageDispatcher getMessageDispatcher() {
+		return ApiMessageDispatcher.INSTANCE;
 	}
 }
