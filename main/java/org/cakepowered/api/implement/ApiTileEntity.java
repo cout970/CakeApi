@@ -67,7 +67,7 @@ public class ApiTileEntity implements org.cakepowered.api.tileentity.TileEntity,
 	@Override
 	public void writeToNBT(NBTCompund nbt) {
 		NBTTagCompound tag = ((ApiNBTCompund)nbt).nbt;
-		tile.readFromNBT(tag);
+		tile.writeToNBT(tag);
 	}
 
 	@Override
