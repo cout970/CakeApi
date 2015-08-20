@@ -10,6 +10,7 @@ import org.cakepowered.api.scoreboard.Scoreboard;
 import org.cakepowered.api.scoreboard.Team;
 import org.cakepowered.api.util.DirectionYaw;
 import org.cakepowered.api.util.ForgeInterface;
+import org.cakepowered.api.util.PluginInterface;
 import org.cakepowered.api.util.PreciseLocation;
 import org.cakepowered.api.util.Title;
 import org.cakepowered.api.util.TitleUtils;
@@ -29,7 +30,7 @@ import net.minecraft.world.WorldSettings.GameType;
 
 public class ApiPlayer extends ApiEntity implements Player{
 	
-	public EntityPlayer player;
+	protected EntityPlayer player;
 
 	public ApiPlayer(EntityPlayer player){
 		super(player);
@@ -56,7 +57,7 @@ public class ApiPlayer extends ApiEntity implements Player{
 
 	@Override
 	public void setSpawnLocation(Vector3d loc) {
-		player.setSpawnPoint(ForgeInterface.getBlockPos(loc), false);
+		player.setSpawnPoint(PluginInterface.getBlockPos(loc), false);
 	}
 
 	@Override
@@ -96,7 +97,7 @@ public class ApiPlayer extends ApiEntity implements Player{
 		if(w.provider.getDimensionId() != loc.getDimension()){
 			player.travelToDimension(loc.getDimension());
 		}
-		player.setSpawnPoint(ForgeInterface.getBlockPos(loc.getPosition()), true);
+		player.setSpawnPoint(PluginInterface.getBlockPos(loc.getPosition()), true);
 		player.setPositionAndUpdate(loc.getX(), loc.getY(), loc.getZ());
 		((EntityPlayerMP)player).playerNetServerHandler.setPlayerLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());		
 	}
@@ -160,7 +161,7 @@ public class ApiPlayer extends ApiEntity implements Player{
 
 	@Override
 	public ItemStack getCurrentItem() {
-		return ForgeInterface.getApiItemStack(player.getCurrentEquippedItem());
+		return ForgeInterface.getItemStack(player.getCurrentEquippedItem());
 	}
 
 	@Override
@@ -171,5 +172,9 @@ public class ApiPlayer extends ApiEntity implements Player{
 	@Override
 	public boolean isSneaking(){
 		return player.isSneaking();
+	}
+	
+	public EntityPlayer getMcPlayer(){
+		return player;
 	}
 }

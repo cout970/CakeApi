@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.cakepowered.api.base.Player;
 import org.cakepowered.api.util.ForgeInterface;
+import org.cakepowered.api.util.PluginInterface;
 import org.cakepowered.api.util.TextUtils;
 import org.cakepowered.api.util.text.TextModifier;
 
@@ -29,7 +30,7 @@ public class ApiTeam implements Team {
 
 	@Override
 	public void setColor(TextModifier color) throws IllegalArgumentException {
-		this.team.func_178774_a(ForgeInterface.getEnumChatFormatting(color));
+		this.team.func_178774_a(PluginInterface.getEnumChatFormatting(color));
 	}
 
 	@Override

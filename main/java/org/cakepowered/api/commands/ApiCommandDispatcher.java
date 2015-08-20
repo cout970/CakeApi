@@ -6,7 +6,7 @@ import org.cakepowered.api.CakeApiMod;
 import org.cakepowered.api.command.CommandDispatcher;
 import org.cakepowered.api.command.CommandExecutor;
 import org.cakepowered.api.command.CommandSender;
-import org.cakepowered.api.implement.ApiServer;
+import org.cakepowered.api.util.PluginInterface;
 
 import com.google.common.collect.Lists;
 
@@ -28,7 +28,7 @@ public class ApiCommandDispatcher implements CommandDispatcher{
 					CakeApiMod.logger.error("Invalid Registration before the server is started");
 					return false;
 				}
-				MinecraftServer server = ((ApiServer)CakeApiMod.server).server;
+				MinecraftServer server = PluginInterface.getServer(CakeApiMod.server);
 				CommandHandler handler = (CommandHandler) server.getCommandManager(); 
 				DummyCommand dummy = new DummyCommand(command);
 				handler.registerCommand(dummy);

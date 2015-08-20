@@ -1,12 +1,15 @@
 package org.cakepowered.api.implement;
 
 import org.cakepowered.api.block.Block;
+import org.cakepowered.api.block.BlockState;
 import org.cakepowered.api.inventory.ItemStack;
 import org.cakepowered.api.util.ForgeInterface;
+import org.cakepowered.api.util.IImplementation;
+import org.cakepowered.api.util.PluginInterface;
 
-public class ApiBlock implements Block{
+public class ApiBlock implements Block, IImplementation<net.minecraft.block.Block>{
 
-	public net.minecraft.block.Block block;
+	protected net.minecraft.block.Block block;
 	
 	public ApiBlock(net.minecraft.block.Block bl) {
 		block = bl;
@@ -32,6 +35,26 @@ public class ApiBlock implements Block{
 
 	@Override
 	public ItemStack createStack(int amount, int metadata) {
-		return ForgeInterface.getApiItemStack(new net.minecraft.item.ItemStack(block, amount, metadata));
+		return ForgeInterface.getItemStack(new net.minecraft.item.ItemStack(block, amount, metadata));
+	}
+
+	@Override
+	public BlockState getDefuldBlockState() {
+		return ForgeInterface.getBlockState(block.getDefaultState());
+	}
+
+	@Override
+	public int getMetadataFromState(BlockState state) {
+		return block.getMetaFromState(PluginInterface.getBlockState(state));
+	}
+
+	@Override
+	public BlockState getStateFromMetadata(int meta) {
+		return ForgeInterface.getBlockState(block.getStateFromMeta(meta));
+	}
+
+	@Override
+	public net.minecraft.block.Block getMcObject() {
+		return block;
 	}
 }

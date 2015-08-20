@@ -9,6 +9,7 @@ import org.cakepowered.api.base.Player;
 import org.cakepowered.api.base.Server;
 import org.cakepowered.api.command.CommandSender;
 import org.cakepowered.api.util.ForgeInterface;
+import org.cakepowered.api.util.IImplementation;
 import org.cakepowered.api.world.World;
 
 import com.google.common.collect.Lists;
@@ -20,9 +21,9 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.ServerConfigurationManager;
 import net.minecraft.world.WorldServer;
 
-public class ApiServer implements Server{
+public class ApiServer implements Server, IImplementation<MinecraftServer>{
 
-	public MinecraftServer server;
+	protected MinecraftServer server;
 	public ServerConfigurationManager config;
 	
 	public ApiServer(MinecraftServer minecraftServer){
@@ -125,5 +126,10 @@ public class ApiServer implements Server{
 	@Override
 	public CommandSender getCommandSender() {
 		return ForgeInterface.getCommandSender(server);
+	}
+
+	@Override
+	public MinecraftServer getMcObject() {
+		return server;
 	}
 }

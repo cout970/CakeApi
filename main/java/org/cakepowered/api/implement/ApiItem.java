@@ -2,12 +2,14 @@ package org.cakepowered.api.implement;
 
 import org.cakepowered.api.inventory.ItemStack;
 import org.cakepowered.api.util.ForgeInterface;
+import org.cakepowered.api.util.IImplementation;
+import org.cakepowered.api.util.PluginInterface;
 
 import net.minecraft.item.Item;
 
-public class ApiItem implements org.cakepowered.api.item.Item{
+public class ApiItem implements org.cakepowered.api.item.Item, IImplementation<Item>{
 
-	public Item item;
+	protected Item item;
 	
 	public ApiItem(Item it){
 		item = it;
@@ -15,7 +17,7 @@ public class ApiItem implements org.cakepowered.api.item.Item{
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return item.getUnlocalizedName(ForgeInterface.getItemStack(stack));
+		return item.getUnlocalizedName(PluginInterface.getItemStack(stack));
 	}
 
 	@Override
@@ -30,6 +32,11 @@ public class ApiItem implements org.cakepowered.api.item.Item{
 
 	@Override
 	public ItemStack createStack(int amount, int metadata) {
-		return ForgeInterface.getApiItemStack(new net.minecraft.item.ItemStack(item, amount, metadata));
+		return ForgeInterface.getItemStack(new net.minecraft.item.ItemStack(item, amount, metadata));
+	}
+
+	@Override
+	public Item getMcObject() {
+		return item;
 	}
 }

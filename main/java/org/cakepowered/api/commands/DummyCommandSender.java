@@ -1,7 +1,7 @@
 package org.cakepowered.api.commands;
 
 import org.cakepowered.api.command.CommandSender;
-import org.cakepowered.api.util.ForgeInterface;
+import org.cakepowered.api.util.PluginInterface;
 
 import net.minecraft.command.CommandResultStats.Type;
 import net.minecraft.command.ICommandSender;
@@ -43,13 +43,13 @@ public class DummyCommandSender implements ICommandSender{
 	@Override
 	public BlockPos getPosition() {
 		if(sender instanceof ApiCommandSender) return ((ApiCommandSender) sender).sender.getPosition();
-		return ForgeInterface.getBlockPos(sender.getPositionVector());
+		return PluginInterface.getBlockPos(sender.getPositionVector());
 	}
 
 	@Override
 	public Vec3 getPositionVector() {
 		if(sender instanceof ApiCommandSender) return ((ApiCommandSender) sender).sender.getPositionVector();
-		return ForgeInterface.getVec3(sender.getPositionVector());
+		return PluginInterface.getVec3(sender.getPositionVector());
 	}
 
 	@Override

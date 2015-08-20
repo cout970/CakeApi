@@ -2,19 +2,20 @@ package org.cakepowered.api.implement;
 
 import java.util.UUID;
 
-import org.cakepowered.api.base.Entity;
 import org.cakepowered.api.command.CommandSender;
 import org.cakepowered.api.util.ForgeInterface;
+import org.cakepowered.api.util.IImplementation;
 import org.cakepowered.api.util.Vector3d;
 import org.cakepowered.api.world.World;
 
+import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry.EntityRegistration;
 
-public class ApiEntity implements Entity {
+public class ApiEntity implements org.cakepowered.api.base.Entity, IImplementation<Entity> {
 
-	public net.minecraft.entity.Entity entity;
+	protected Entity entity;
 	
 	public ApiEntity(net.minecraft.entity.Entity target) {
 		entity = target;
@@ -41,13 +42,13 @@ public class ApiEntity implements Entity {
 	}
 
 	@Override
-	public Entity getRiddingEntity() {
+	public org.cakepowered.api.base.Entity getRiddingEntity() {
 		if(entity.ridingEntity == null)return null;
 		return ForgeInterface.getEntity(entity.ridingEntity);
 	}
 
 	@Override
-	public Entity getRiddingByEntity() {
+	public org.cakepowered.api.base.Entity getRiddingByEntity() {
 		if(entity.riddenByEntity == null)return null;
 		return ForgeInterface.getEntity(entity.riddenByEntity);
 	}
@@ -79,5 +80,10 @@ public class ApiEntity implements Entity {
 	@Override
 	public void setDead() {	
 		entity.setDead();
+	}
+
+	@Override
+	public Entity getMcObject() {
+		return entity;
 	}
 }

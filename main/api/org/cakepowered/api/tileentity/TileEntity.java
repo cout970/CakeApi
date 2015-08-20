@@ -1,5 +1,6 @@
 package org.cakepowered.api.tileentity;
 
+import org.cakepowered.api.base.Player;
 import org.cakepowered.api.inventory.Inventory;
 import org.cakepowered.api.nbt.NBTCompund;
 import org.cakepowered.api.util.Vector3i;
@@ -22,4 +23,5 @@ public interface TileEntity {
 	
 	public void writeToNBT(NBTCompund nbt);
 	
+	public void syncPlayer(Player p);
 }

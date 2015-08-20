@@ -1,19 +1,24 @@
 package org.cakepowered.api.implement;
 
+import org.cakepowered.api.base.Player;
 import org.cakepowered.api.inventory.Inventory;
 import org.cakepowered.api.nbt.ApiNBTCompund;
 import org.cakepowered.api.nbt.NBTCompund;
 import org.cakepowered.api.util.ForgeInterface;
+import org.cakepowered.api.util.IImplementation;
 import org.cakepowered.api.util.Vector3i;
 import org.cakepowered.api.world.World;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.Packet;
 import net.minecraft.tileentity.TileEntity;
 
-public class ApiTileEntity implements org.cakepowered.api.tileentity.TileEntity{
+public class ApiTileEntity implements org.cakepowered.api.tileentity.TileEntity, IImplementation<TileEntity>{
 
-	public TileEntity tile;
+	protected TileEntity tile;
 	
 	public ApiTileEntity(TileEntity t){
 		tile = t;
@@ -63,5 +68,21 @@ public class ApiTileEntity implements org.cakepowered.api.tileentity.TileEntity{
 	public void writeToNBT(NBTCompund nbt) {
 		NBTTagCompound tag = ((ApiNBTCompund)nbt).nbt;
 		tile.readFromNBT(tag);
+	}
+
+	@Override
+	public void syncPlayer(Player p) {
+		Packet packet = tile.getDescriptionPacket();
+		if(packet != null){
+			EntityPlayer player = ((ApiPlayer)p).player;
+			if(player instanceof EntityPlayerMP){
+				((EntityPlayerMP) player).playerNetServerHandler.sendPacket(packet);
+			}
+		}
+	}
+
+	@Override
+	public TileEntity getMcObject() {
+		return tile;
 	}
 }

@@ -18,4 +18,10 @@ public interface Block {
 	 * Creates a new ItemStack using this block, the amount (fist arg) and the metadata (second arg)
 	 */
 	public ItemStack createStack(int amount, int metadata);
+	
+	public BlockState getDefuldBlockState();
+	
+	public int getMetadataFromState(BlockState state);
+	
+	public BlockState getStateFromMetadata(int meta);
 }

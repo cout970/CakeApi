@@ -5,6 +5,7 @@ import org.cakepowered.api.inventory.ItemStack;
 import org.cakepowered.api.inventory.PlayerInventory;
 import org.cakepowered.api.item.Item;
 import org.cakepowered.api.util.ForgeInterface;
+import org.cakepowered.api.util.PluginInterface;
 
 import net.minecraft.entity.player.InventoryPlayer;
 
@@ -15,7 +16,6 @@ public class ApiPlayerInventory extends ApiInventory implements PlayerInventory{
 	public ApiPlayerInventory(InventoryPlayer inventory) {
 		super(inventory);
 		player = inventory;
-//		player.player.inventoryContainer.detectAndSendChanges();
 	}
 
 	@Override
@@ -30,12 +30,12 @@ public class ApiPlayerInventory extends ApiInventory implements PlayerInventory{
 
 	@Override
 	public boolean consumeInventoryItem(Item item) {
-		return player.consumeInventoryItem(((ApiItem)item).item);
+		return player.consumeInventoryItem(PluginInterface.getItem(item));
 	}
 
 	@Override
 	public boolean hasItem(Item item) {
-		return player.hasItem(((ApiItem)item).item);
+		return player.hasItem(PluginInterface.getItem(item));
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class ApiPlayerInventory extends ApiInventory implements PlayerInventory{
 
 	@Override
 	public ItemStack armorItemInSlot(int slot) {
-		return ForgeInterface.getApiItemStack(player.armorItemInSlot(slot));
+		return ForgeInterface.getItemStack(player.armorItemInSlot(slot));
 	}
 
 	@Override

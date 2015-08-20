@@ -7,12 +7,14 @@ import org.cakepowered.api.nbt.ApiNBTCompund;
 import org.cakepowered.api.nbt.NBTCompund;
 import org.cakepowered.api.nbt.NBTList;
 import org.cakepowered.api.util.ForgeInterface;
+import org.cakepowered.api.util.IImplementation;
+import org.cakepowered.api.util.PluginInterface;
 
 import net.minecraft.item.ItemStack;
 
-public class ApiItemStack implements org.cakepowered.api.inventory.ItemStack{
+public class ApiItemStack implements org.cakepowered.api.inventory.ItemStack, IImplementation<ItemStack>{
 
-	public ItemStack stack;
+	protected ItemStack stack;
 	
 	public ApiItemStack(ItemStack stack){
 		this.stack = stack;
@@ -80,12 +82,12 @@ public class ApiItemStack implements org.cakepowered.api.inventory.ItemStack{
 
 	@Override
 	public org.cakepowered.api.inventory.ItemStack copy() {
-		return ForgeInterface.getApiItemStack(stack.copy());
+		return ForgeInterface.getItemStack(stack.copy());
 	}
 
 	@Override
 	public org.cakepowered.api.inventory.ItemStack splitStack(int amount) {
-		return ForgeInterface.getApiItemStack(stack.splitStack(amount));
+		return ForgeInterface.getItemStack(stack.splitStack(amount));
 	}
 
 	@Override
@@ -135,7 +137,7 @@ public class ApiItemStack implements org.cakepowered.api.inventory.ItemStack{
 
 	@Override
 	public void addEnchantment(Enchantment ench, int level) {
-		stack.addEnchantment(ForgeInterface.getEnchantment(ench), level);
+		stack.addEnchantment(PluginInterface.getEnchantment(ench), level);
 	}
 
 	@Override
@@ -164,5 +166,10 @@ public class ApiItemStack implements org.cakepowered.api.inventory.ItemStack{
 			return stack.equals(((ApiItemStack) o).stack);
 		}
 		return false;
+	}
+
+	@Override
+	public ItemStack getMcObject() {
+		return stack;
 	}
 }

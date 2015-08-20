@@ -1,10 +1,12 @@
 package org.cakepowered.api.implement;
 
-import org.cakepowered.api.enchantment.Enchantment;
+import org.cakepowered.api.util.IImplementation;
 
-public class ApiEnchantment implements Enchantment{
+import net.minecraft.enchantment.Enchantment;
 
-	public net.minecraft.enchantment.Enchantment ench;
+public class ApiEnchantment implements org.cakepowered.api.enchantment.Enchantment, IImplementation<net.minecraft.enchantment.Enchantment>{
+
+	protected Enchantment ench;
 	
 	public ApiEnchantment(net.minecraft.enchantment.Enchantment ench){
 		this.ench = ench;
@@ -38,5 +40,10 @@ public class ApiEnchantment implements Enchantment{
 	@Override
 	public int getID() {
 		return ench.effectId;
+	}
+
+	@Override
+	public Enchantment getMcObject() {
+		return ench;
 	}
 }

@@ -5,12 +5,12 @@ import org.cakepowered.api.base.Entity;
 import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Player;
 import org.cakepowered.api.block.Block;
+import org.cakepowered.api.block.BlockState;
 import org.cakepowered.api.command.CommandSender;
 import org.cakepowered.api.commands.ApiCommandSender;
-import org.cakepowered.api.enchantment.Enchantment;
 import org.cakepowered.api.event.Event.EventResult;
 import org.cakepowered.api.implement.ApiBlock;
-import org.cakepowered.api.implement.ApiEnchantment;
+import org.cakepowered.api.implement.ApiBlockState;
 import org.cakepowered.api.implement.ApiEntity;
 import org.cakepowered.api.implement.ApiInventory;
 import org.cakepowered.api.implement.ApiItem;
@@ -20,28 +20,25 @@ import org.cakepowered.api.implement.ApiTileEntity;
 import org.cakepowered.api.implement.ApiWorld;
 import org.cakepowered.api.inventory.Inventory;
 import org.cakepowered.api.inventory.ItemStack;
+import org.cakepowered.api.item.Item;
 import org.cakepowered.api.nbt.ApiNBTBase;
 import org.cakepowered.api.nbt.ApiNBTCompund;
 import org.cakepowered.api.nbt.ApiNBTList;
 import org.cakepowered.api.nbt.NBTBase;
 import org.cakepowered.api.tileentity.TileEntity;
-import org.cakepowered.api.util.text.TextModifier;
 import org.cakepowered.api.world.World;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Vec3;
 import net.minecraftforge.fml.common.eventhandler.Event;
 
 public class ForgeInterface {
-	
 
 	public static Player getPlayer(EntityPlayer ep){
 		if(ep == null)return null;
@@ -72,16 +69,6 @@ public class ForgeInterface {
 		return new ApiCommandSender(sender);
 	}
 
-	public static Vec3 getVec3(Vector3d v) {
-		if(v == null)return null;
-		return new Vec3(v.getX(), v.getY(), v.getZ());
-	}
-
-	public static BlockPos getBlockPos(Vector3d v) {
-		if(v == null)return null;
-		return new BlockPos(v.getX(), v.getY(), v.getZ());
-	}
-
 	public static Vector3d getVector3(Vec3 v) {
 		return new Vector3d(v.xCoord, v.yCoord, v.zCoord);
 	}
@@ -96,11 +83,6 @@ public class ForgeInterface {
 		return new ApiWorld(entityWorld);
 	}
 
-	public static BlockPos getBlockPos(Vector3i v) {
-		if(v == null)return null;
-		return new BlockPos(v.getX(), v.getY(), v.getZ());
-	}
-
 	public static Block getBlock(net.minecraft.block.Block bl) {
 		if(bl == null)return null;
 		return new ApiBlock(bl);
@@ -109,16 +91,6 @@ public class ForgeInterface {
 	public static TileEntity getTileEntity(net.minecraft.tileentity.TileEntity tile) {
 		if(tile == null)return null;
 		return new ApiTileEntity(tile);
-	}
-
-	public static EnumChatFormatting getEnumChatFormatting(TextModifier color) {
-		if(color == null)return null;
-		for(EnumChatFormatting s : EnumChatFormatting.values()){
-			if(s.name().equals(color.name)){
-				return s;
-			}
-		}
-		return null;
 	}
 
 	public static NBTBase fromNBT(net.minecraft.nbt.NBTBase tag) {
@@ -132,22 +104,12 @@ public class ForgeInterface {
 		return new ApiNBTBase(tag);
 	}
 
-	public static ItemStack getApiItemStack(net.minecraft.item.ItemStack stack) {
+	public static ItemStack getItemStack(net.minecraft.item.ItemStack stack) {
 		if(stack == null)return null;
 		return new ApiItemStack(stack);
 	}
 
-	public static net.minecraft.item.ItemStack getItemStack(ItemStack stack) {
-		if(stack == null)return null;
-		return ((ApiItemStack)stack).stack;
-	}
-
-	public static net.minecraft.enchantment.Enchantment getEnchantment(Enchantment ench) {
-		if(ench == null)return null;
-		return ((ApiEnchantment)ench).ench;
-	}
-
-	public static org.cakepowered.api.item.Item getItem(Item stack) {
+	public static Item getItem(net.minecraft.item.Item stack) {
 		if(stack == null)return null;
 		return new ApiItem(stack);
 	}
@@ -155,5 +117,10 @@ public class ForgeInterface {
 	public static Inventory getInventory(IInventory inv) {
 		if(inv == null)return null;
 		return new ApiInventory(inv);
+	}
+
+	public static BlockState getBlockState(IBlockState state) {
+		if(state == null)return null;
+		return new ApiBlockState(state);
 	}
 }
