@@ -1,5 +1,10 @@
 package org.cakepowered.api.util;
 
+import org.cakepowered.api.block.Block;
+import org.cakepowered.api.block.BlockState;
+import org.cakepowered.api.tileentity.TileEntity;
+import org.cakepowered.api.world.World;
+
 public class Vector3i {
 
 	public static final Vector3i NULL_VECTOR = new Vector3i(0, 0, 0);
@@ -83,6 +88,10 @@ public class Vector3i {
 		z += c;
 		return this;
 	}
+	
+	public Vector3i add(Direction dir) {
+		return add(dir.getOffsetX(), dir.getOffsetY(), dir.getOffsetZ());
+	}
 
 	public Vector3i copy() {
 		return new Vector3i(x,y,z);
@@ -98,5 +107,17 @@ public class Vector3i {
 
 	public Vector3d toVector3d() {
 		return new Vector3d(getX(), getY(), getZ());
+	}
+	
+	public TileEntity getTileEntity(World w){
+		return w.getTileEntity(this);
+	}
+	
+	public BlockState getBlockState(World w){
+		return w.getBlockState(this);
+	}
+	
+	public Block getBlock(World w){
+		return w.getBlock(this);
 	}
 }

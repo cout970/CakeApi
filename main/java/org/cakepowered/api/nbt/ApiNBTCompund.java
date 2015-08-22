@@ -6,7 +6,7 @@ import net.minecraft.nbt.NBTTagCompound;
 
 public class ApiNBTCompund extends ApiNBTBase implements NBTCompund{
 
-	public NBTTagCompound nbt;
+	protected NBTTagCompound nbt;
 	
 	public ApiNBTCompund(NBTTagCompound n){
 		super(n);

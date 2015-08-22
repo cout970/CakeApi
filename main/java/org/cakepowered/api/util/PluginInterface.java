@@ -14,9 +14,12 @@ import org.cakepowered.api.implement.ApiItemStack;
 import org.cakepowered.api.implement.ApiServer;
 import org.cakepowered.api.inventory.ItemStack;
 import org.cakepowered.api.item.Item;
+import org.cakepowered.api.nbt.ApiNBTCompund;
+import org.cakepowered.api.nbt.NBTCompund;
 import org.cakepowered.api.util.text.TextModifier;
 
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumChatFormatting;
@@ -82,5 +85,9 @@ public class PluginInterface {
 	public static MinecraftServer getServer(Server server) {
 		if(server == null)return null;
 		return ((ApiServer)server).getMcObject();
+	}
+
+	public static NBTTagCompound getNBT(NBTCompund nbt) {
+		return (NBTTagCompound) ((ApiNBTCompund)nbt).getMcObject();
 	}
 }
