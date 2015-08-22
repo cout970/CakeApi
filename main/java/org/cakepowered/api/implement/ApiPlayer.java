@@ -104,7 +104,7 @@ public class ApiPlayer extends ApiEntity implements Player{
 
 	@Override
 	public int getDirection() {
-		float yaw = player.rotationYaw;
+		float yaw = Math.abs(player.rotationYaw);
 		if(yaw >= 135f && yaw < 225f){
 			return DirectionYaw.NORTH;
 		} else if(yaw >= 45f && yaw < 135){
