@@ -6,7 +6,7 @@ import net.minecraft.nbt.NBTTagList;
 
 public class ApiNBTList extends ApiNBTBase implements NBTList{
 
-	public NBTTagList list;
+	protected NBTTagList list;
 	
 	public ApiNBTList(NBTTagList b) {
 		super(b);

@@ -1,10 +1,12 @@
 package org.cakepowered.api.nbt;
 
+import org.cakepowered.api.util.IImplementation;
+
 import net.minecraft.nbt.NBTBase;
 
-public class ApiNBTBase implements org.cakepowered.api.nbt.NBTBase{
+public class ApiNBTBase implements org.cakepowered.api.nbt.NBTBase, IImplementation<NBTBase>{
 	
-	public NBTBase base;
+	protected NBTBase base;
 	
 	public ApiNBTBase(NBTBase b){
 		base = b;
@@ -23,5 +25,10 @@ public class ApiNBTBase implements org.cakepowered.api.nbt.NBTBase{
 	@Override
 	public String toString(){
 		return base.toString();
+	}
+
+	@Override
+	public NBTBase getMcObject() {
+		return base;
 	}
 }

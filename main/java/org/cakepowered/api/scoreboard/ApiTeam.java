@@ -4,15 +4,18 @@ import java.util.List;
 
 import org.cakepowered.api.base.Player;
 import org.cakepowered.api.util.ForgeInterface;
+import org.cakepowered.api.util.IImplementation;
 import org.cakepowered.api.util.PluginInterface;
 import org.cakepowered.api.util.TextUtils;
 import org.cakepowered.api.util.text.TextModifier;
 
 import com.google.common.collect.Lists;
 
-public class ApiTeam implements Team {
+import net.minecraft.scoreboard.ScorePlayerTeam;
 
-	public net.minecraft.scoreboard.ScorePlayerTeam team;
+public class ApiTeam implements Team, IImplementation<ScorePlayerTeam>{
+
+	protected net.minecraft.scoreboard.ScorePlayerTeam team;
 	
 	public ApiTeam(net.minecraft.scoreboard.ScorePlayerTeam team) {
 		this.team = team;
@@ -64,5 +67,10 @@ public class ApiTeam implements Team {
 	public boolean removePlayer(Player player) {
 		this.team.getMembershipCollection().remove(player.getUserName());
 		return true;
+	}
+
+	@Override
+	public ScorePlayerTeam getMcObject() {
+		return team;
 	}
 }

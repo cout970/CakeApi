@@ -2,10 +2,10 @@ package org.cakepowered.api.implement;
 
 import org.cakepowered.api.base.Player;
 import org.cakepowered.api.inventory.Inventory;
-import org.cakepowered.api.nbt.ApiNBTCompund;
 import org.cakepowered.api.nbt.NBTCompund;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.IImplementation;
+import org.cakepowered.api.util.PluginInterface;
 import org.cakepowered.api.util.Vector3i;
 import org.cakepowered.api.world.World;
 
@@ -60,13 +60,13 @@ public class ApiTileEntity implements org.cakepowered.api.tileentity.TileEntity,
 
 	@Override
 	public void readFromNBT(NBTCompund nbt) {
-		NBTTagCompound tag = ((ApiNBTCompund)nbt).nbt;
+		NBTTagCompound tag = PluginInterface.getNBT(nbt);
 		tile.readFromNBT(tag);
 	}
 
 	@Override
 	public void writeToNBT(NBTCompund nbt) {
-		NBTTagCompound tag = ((ApiNBTCompund)nbt).nbt;
+		NBTTagCompound tag = PluginInterface.getNBT(nbt);
 		tile.writeToNBT(tag);
 	}
 

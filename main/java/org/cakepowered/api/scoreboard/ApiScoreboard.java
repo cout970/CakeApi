@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.cakepowered.api.base.Player;
+import org.cakepowered.api.util.IImplementation;
 
 import net.minecraft.scoreboard.ScorePlayerTeam;
 
-public class ApiScoreboard implements Scoreboard {
+public class ApiScoreboard implements Scoreboard, IImplementation<net.minecraft.scoreboard.Scoreboard>{
 	
-	public net.minecraft.scoreboard.Scoreboard scoreboard;
+	protected net.minecraft.scoreboard.Scoreboard scoreboard;
 	
 	public ApiScoreboard(net.minecraft.scoreboard.Scoreboard scoreboard) {
 		this.scoreboard = scoreboard;
@@ -51,6 +52,11 @@ public class ApiScoreboard implements Scoreboard {
 			t.add(new ApiTeam(this.scoreboard.getTeam(s.toString())));
 		}
 		return t;
+	}
+
+	@Override
+	public net.minecraft.scoreboard.Scoreboard getMcObject() {
+		return scoreboard;
 	}
 
 }

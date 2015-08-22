@@ -3,7 +3,6 @@ package org.cakepowered.api.implement;
 import org.cakepowered.api.base.Player;
 import org.cakepowered.api.enchantment.Enchantment;
 import org.cakepowered.api.item.Item;
-import org.cakepowered.api.nbt.ApiNBTCompund;
 import org.cakepowered.api.nbt.NBTCompund;
 import org.cakepowered.api.nbt.NBTList;
 import org.cakepowered.api.util.ForgeInterface;
@@ -67,7 +66,7 @@ public class ApiItemStack implements org.cakepowered.api.inventory.ItemStack, II
 
 	@Override
 	public void setNBTCopound(NBTCompund nbt) {
-		stack.setTagCompound(((ApiNBTCompund)nbt).nbt);
+		stack.setTagCompound(PluginInterface.getNBT(nbt));
 	}
 
 	@Override
@@ -92,12 +91,12 @@ public class ApiItemStack implements org.cakepowered.api.inventory.ItemStack, II
 
 	@Override
 	public void writeToNBT(NBTCompund nbt) {
-		stack.writeToNBT(((ApiNBTCompund)nbt).nbt);
+		stack.writeToNBT(PluginInterface.getNBT(nbt));
 	}
 
 	@Override
 	public void readFromNBT(NBTCompund nbt) {
-		stack.readFromNBT(((ApiNBTCompund)nbt).nbt);
+		stack.readFromNBT(PluginInterface.getNBT(nbt));
 	}
 
 	@Override
