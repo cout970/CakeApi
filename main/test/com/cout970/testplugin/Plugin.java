@@ -1,5 +1,7 @@
 package com.cout970.testplugin;
 
+import java.util.Random;
+
 import org.cakepowered.api.base.CakePlugin;
 import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Log;
@@ -19,6 +21,9 @@ public class Plugin {
 		game = event.getGame();
 		logger.info("debug plugin loaded Successful");
 		INSTANCE = this;
-		game.getWorldManager().createNormalWorld(5, 0L);
+		Random r = new Random();
+		game.getWorldManager().createNormalWorld(5, r.nextLong());
+		game.getWorldManager().createNormalWorld(6, r.nextLong());
+		game.getWorldManager().createNormalWorld(7, r.nextLong());
 	}
 }

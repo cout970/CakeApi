@@ -19,8 +19,12 @@ public class SurfaceWorldProvider extends WorldProvider{
         return "";
     }
 	
+	public long getSeed(){
+		return ApiWorldManager.seeds.get(getDimensionId());
+	}
+	
 	@Override
 	public IChunkProvider createChunkGenerator(){
-		return new net.minecraft.world.gen.ChunkProviderGenerate(worldObj, ApiWorldManager.seeds.get(getDimensionId()), worldObj.getWorldInfo().isMapFeaturesEnabled(), worldObj.getWorldInfo().getGeneratorOptions());
+		return new net.minecraft.world.gen.ChunkProviderGenerate(worldObj, getSeed(), worldObj.getWorldInfo().isMapFeaturesEnabled(), worldObj.getWorldInfo().getGeneratorOptions());
 	}
 }
