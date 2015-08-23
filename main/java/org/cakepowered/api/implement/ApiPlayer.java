@@ -101,21 +101,37 @@ public class ApiPlayer extends ApiEntity implements Player{
 		player.setPositionAndUpdate(loc.getX(), loc.getY(), loc.getZ());
 		((EntityPlayerMP)player).playerNetServerHandler.setPlayerLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());		
 	}
-
+	
 	@Override
 	public int getDirection() {
-		float yaw = player.rotationYaw;
-		if(yaw >= 135f && yaw < 225f){
-			return DirectionYaw.NORTH;
-		} else if(yaw >= 45f && yaw < 135){
-			return DirectionYaw.WEST;
-		} else if((yaw >= 0 && yaw < 45) || (yaw >= 315 && yaw <= 360)){
+		float yaw = wrapAngleTo180_float(player.rotationYaw);
+		if((yaw < 45 && yaw >= 0) || (yaw > -45 && yaw <= 0)){
 			return DirectionYaw.SOUTH;
-		} else if(yaw >= 225 && yaw < 315){
+		} else if(yaw >= 45 && yaw < 135){
+			return DirectionYaw.WEST;
+		} else if(yaw <= -45 && yaw > -135){
 			return DirectionYaw.EAST;
+		} else if((yaw >= 135 && yaw <= 180) || (yaw <= -135 && yaw >= -180)){
+			return DirectionYaw.NORTH;
 		}
 		return 0;
 	}
+	
+	private static float wrapAngleTo180_float(float p_76142_0_){
+        p_76142_0_ %= 360.0F;
+
+        if (p_76142_0_ >= 180.0F)
+        {
+            p_76142_0_ -= 360.0F;
+        }
+
+        if (p_76142_0_ < -180.0F)
+        {
+            p_76142_0_ += 360.0F;
+        }
+
+        return p_76142_0_;
+    }
 
 	@Override
 	public void sendTitle(Title t) {
