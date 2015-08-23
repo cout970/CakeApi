@@ -11,6 +11,7 @@ import org.cakepowered.api.event.PlayerJoinEvent;
 import org.cakepowered.api.event.PlayerQuitEvent;
 import org.cakepowered.api.event.PlayerRespawnEvent;
 import org.cakepowered.api.implement.ApiEventRegistry;
+import org.cakepowered.api.world.ApiWorldManager;
 
 import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
@@ -39,6 +40,7 @@ public class EventRedirect {
 	
 	@SubscribeEvent
 	public void onPlayerJoinEvent(PlayerLoggedInEvent e){
+		ApiWorldManager.INSTANCE.sendDimensionData(e.player);
 		PlayerJoinEvent event = new ApiPlayerJoinEvent(e);
 		ApiEventRegistry.INSTANCE.postEvent(event);
 	}

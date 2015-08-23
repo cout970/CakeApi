@@ -9,7 +9,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class CustomWorldProvider extends WorldProvider{
+public class FlatWorldProvider extends WorldProvider{
 
 	public WorldType type = WorldType.FLAT;
 	public String genSettings = "";
@@ -51,12 +51,6 @@ public class CustomWorldProvider extends WorldProvider{
 	public boolean isSkyColored()
 	{
 		return true;
-	}
-
-	@Override
-	public BlockPos getSpawnCoordinate()
-	{
-		return null;
 	}
 
 	@Override

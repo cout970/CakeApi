@@ -19,5 +19,6 @@ public class Plugin {
 		game = event.getGame();
 		logger.info("debug plugin loaded Successful");
 		INSTANCE = this;
+		game.getWorldManager().createNormalWorld(5, 0L);
 	}
 }
