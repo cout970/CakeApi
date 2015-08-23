@@ -154,4 +154,9 @@ public class ApiWorld implements org.cakepowered.api.world.World, IImplementatio
 		return ret;
 	}
 	
+	@Override
+	public void setWorldTime(long time){
+		world.getWorldInfo().setWorldTime(time);
+	}
+	
 }

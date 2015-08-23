@@ -50,4 +50,6 @@ public interface World {
 	public boolean spawnEntityInWorld(Entity entity);
 	
 	public List<Entity> getEntitiesExcludingType(Entity type, int minX, int minY, int minZ, int maxX, int maxY, int maxZ);
+
+	void setWorldTime(long time);
 }
