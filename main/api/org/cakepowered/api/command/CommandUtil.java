@@ -3,6 +3,7 @@ package org.cakepowered.api.command;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.cakepowered.api.base.Player;
 import org.cakepowered.api.world.World;
 
 public class CommandUtil {
@@ -11,7 +12,7 @@ public class CommandUtil {
 		if(args == null)return false;
 		if(args.length != pattern.length)return false;
 		for(int i = 0; i < pattern.length; i++){
-			if(pattern[i].matches(args[i], w)){
+			if(!pattern[i].matches(args[i], w)){
 				return false;
 			}
 		}
@@ -61,5 +62,13 @@ public class CommandUtil {
 			}
 			return false;
 		}
+	}
+
+	public static String[] getOnlinePlayers(World world) {
+		List<String> list = new ArrayList<String>();
+		for(Player p : world.getServer().getOnlinePlayers()){
+			list.add(p.getName());
+		}
+		return list.toArray(new String[0]);
 	}
 }
