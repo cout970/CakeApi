@@ -9,9 +9,11 @@ import org.cakepowered.api.implement.ApiBlock;
 import org.cakepowered.api.implement.ApiBlockState;
 import org.cakepowered.api.implement.ApiEnchantment;
 import org.cakepowered.api.implement.ApiEntity;
+import org.cakepowered.api.implement.ApiInventory;
 import org.cakepowered.api.implement.ApiItem;
 import org.cakepowered.api.implement.ApiItemStack;
 import org.cakepowered.api.implement.ApiServer;
+import org.cakepowered.api.inventory.Inventory;
 import org.cakepowered.api.inventory.ItemStack;
 import org.cakepowered.api.item.Item;
 import org.cakepowered.api.nbt.ApiNBTCompund;
@@ -19,6 +21,7 @@ import org.cakepowered.api.nbt.NBTCompund;
 import org.cakepowered.api.util.text.TextModifier;
 
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.BlockPos;
@@ -89,5 +92,10 @@ public class PluginInterface {
 
 	public static NBTTagCompound getNBT(NBTCompund nbt) {
 		return (NBTTagCompound) ((ApiNBTCompund)nbt).getMcObject();
+	}
+
+	public static IInventory getInventory(Inventory inv) {
+		if(inv == null)return null;
+		return ((ApiInventory)inv).getMcObject();
 	}
 }

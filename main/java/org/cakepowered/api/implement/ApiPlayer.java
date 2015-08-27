@@ -2,6 +2,7 @@ package org.cakepowered.api.implement;
 
 import org.cakepowered.api.CakeApiMod;
 import org.cakepowered.api.base.Player;
+import org.cakepowered.api.implement.helpers.FakeTileEntityChest;
 import org.cakepowered.api.inventory.Inventory;
 import org.cakepowered.api.inventory.ItemStack;
 import org.cakepowered.api.inventory.PlayerInventory;
@@ -24,6 +25,8 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.event.ClickEvent;
 import net.minecraft.event.ClickEvent.Action;
 import net.minecraft.potion.Potion;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryEnderChest;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.scoreboard.ScorePlayerTeam;
 import net.minecraft.server.MinecraftServer;
@@ -221,7 +224,26 @@ public class ApiPlayer extends ApiEntity implements Player {
 	public Inventory getPlayerEnderChest() {
 		return new ApiInventory(player.getInventoryEnderChest());
 	}
-	
+
+	@Override
+	public void openGui(Inventory chest) {
+		IInventory inv = PluginInterface.getInventory(chest);
+		if (inv instanceof InventoryEnderChest) {
+			openGuiEnderChest(chest);
+			return;
+		}
+		player.displayGUIChest(inv);
+	}
+
+	public void openGuiEnderChest(Inventory enderChest) {
+		IInventory inv = PluginInterface.getInventory(enderChest);
+		if (inv instanceof InventoryEnderChest) {
+			InventoryEnderChest chest = (InventoryEnderChest) inv;
+			chest.setChestTileEntity(new FakeTileEntityChest());
+			player.displayGUIChest(chest);
+		}
+	}
+
 	@Override
 	public void addPotionEffect(int id, int effectDuration, int effectAmplifier, boolean ambient, boolean showParticles){
 		player.addPotionEffect(new PotionEffect(id, effectDuration, effectAmplifier, ambient, showParticles));

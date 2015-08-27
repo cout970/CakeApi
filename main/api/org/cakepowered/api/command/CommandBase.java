@@ -32,9 +32,8 @@ public abstract class CommandBase implements CommandExecutor{
 		return alias;
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	public List addTabCompletionOptions(CommandSender sender, String[] args, Vector3i pos){
+	public List<String> addTabCompletionOptions(CommandSender sender, String[] args, Vector3i pos){
 		return null;
 	}
 }
