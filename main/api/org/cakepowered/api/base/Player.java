@@ -59,5 +59,5 @@ public interface Player extends Entity{
 
 	public boolean isSneaking();
 
-	void addPotionEffect(int id, int duration, int amplification, boolean ambient, boolean showParticles);
+	public void addPotionEffect(int id, int duration, int amplification, boolean ambient, boolean showParticles);
 }
