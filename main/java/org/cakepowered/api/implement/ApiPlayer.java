@@ -23,6 +23,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.event.ClickEvent;
 import net.minecraft.event.ClickEvent.Action;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.scoreboard.ScorePlayerTeam;
 import net.minecraft.server.MinecraftServer;
@@ -32,6 +33,7 @@ import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.WorldSettings.GameType;
+import scala.reflect.api.Positions;
 
 public class ApiPlayer extends ApiEntity implements Player {
 
@@ -223,5 +225,10 @@ public class ApiPlayer extends ApiEntity implements Player {
 	@Override
 	public void addPotionEffect(int id, int effectDuration, int effectAmplifier, boolean ambient, boolean showParticles){
 		player.addPotionEffect(new PotionEffect(id, effectDuration, effectAmplifier, ambient, showParticles));
+	}
+	
+	@Override
+	public void clearActivePotions(){
+		player.clearActivePotions();
 	}
 }
