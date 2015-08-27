@@ -2,6 +2,7 @@ package org.cakepowered.api.implement;
 
 import org.cakepowered.api.CakeApiMod;
 import org.cakepowered.api.base.Player;
+import org.cakepowered.api.inventory.Inventory;
 import org.cakepowered.api.inventory.ItemStack;
 import org.cakepowered.api.inventory.PlayerInventory;
 import org.cakepowered.api.scoreboard.ApiScoreboard;
@@ -110,6 +111,7 @@ public class ApiPlayer extends ApiEntity implements Player {
 		int oldDimension = player.worldObj.provider.getDimensionId();
 		EntityPlayerMP entityPlayerMP = (EntityPlayerMP) player;
 		WorldServer worldServer = MinecraftServer.getServer().worldServerForDimension(loc.getDimension());
+		player.addExperienceLevel(0);
 		MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(entityPlayerMP,
 				loc.getDimension(), new CustomTeleporter(worldServer));
 		if (oldDimension == 1) {
@@ -210,5 +212,10 @@ public class ApiPlayer extends ApiEntity implements Player {
 
 	public EntityPlayer getMcPlayer() {
 		return player;
+	}
+
+	@Override
+	public Inventory getPlayerEnderChest() {
+		return new ApiInventory(player.getInventoryEnderChest());
 	}
 }

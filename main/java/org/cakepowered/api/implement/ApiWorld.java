@@ -3,7 +3,9 @@ package org.cakepowered.api.implement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.cakepowered.api.CakeApiMod;
 import org.cakepowered.api.base.Entity;
+import org.cakepowered.api.base.Server;
 import org.cakepowered.api.block.Block;
 import org.cakepowered.api.block.BlockState;
 import org.cakepowered.api.scoreboard.ApiScoreboard;
@@ -157,6 +159,11 @@ public class ApiWorld implements org.cakepowered.api.world.World, IImplementatio
 	@Override
 	public void setWorldTime(long time){
 		world.getWorldInfo().setWorldTime(time);
+	}
+
+	@Override
+	public Server getServer() {
+		return CakeApiMod.server;
 	}
 	
 }

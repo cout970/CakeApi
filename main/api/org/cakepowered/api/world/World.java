@@ -3,6 +3,7 @@ package org.cakepowered.api.world;
 import java.util.List;
 
 import org.cakepowered.api.base.Entity;
+import org.cakepowered.api.base.Server;
 import org.cakepowered.api.block.Block;
 import org.cakepowered.api.block.BlockState;
 import org.cakepowered.api.scoreboard.Scoreboard;
@@ -52,4 +53,6 @@ public interface World {
 	public List<Entity> getEntitiesExcludingType(Entity type, int minX, int minY, int minZ, int maxX, int maxY, int maxZ);
 
 	void setWorldTime(long time);
+
+	public Server getServer();
 }

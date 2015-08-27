@@ -4,6 +4,7 @@ import org.cakepowered.api.base.Player;
 import org.cakepowered.api.command.CommandSender;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.Vector3d;
+import org.cakepowered.api.world.World;
 
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
@@ -49,6 +50,11 @@ public class ApiCommandSender implements CommandSender{
 	@Override
 	public void sendMessage(String message) {
 		sender.addChatMessage(new ChatComponentText(message));
+	}
+
+	@Override
+	public World getWorld() {
+		return ForgeInterface.getWorld(sender.getEntityWorld());
 	}
 
 }

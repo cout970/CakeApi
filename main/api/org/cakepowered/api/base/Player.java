@@ -1,5 +1,6 @@
 package org.cakepowered.api.base;
 
+import org.cakepowered.api.inventory.Inventory;
 import org.cakepowered.api.inventory.ItemStack;
 import org.cakepowered.api.inventory.PlayerInventory;
 import org.cakepowered.api.scoreboard.Scoreboard;
@@ -43,6 +44,8 @@ public interface Player extends Entity{
 	public void kick(String mes);
 	
 	public PlayerInventory getPlayerInventory();
+	
+	public Inventory getPlayerEnderChest();
 	
 	/**
 	 * Returns the itemstack in the player inventory that is selected in the hotbar
