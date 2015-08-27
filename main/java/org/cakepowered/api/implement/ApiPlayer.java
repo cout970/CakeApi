@@ -26,6 +26,7 @@ import net.minecraft.event.ClickEvent;
 import net.minecraft.event.ClickEvent.Action;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryEnderChest;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.scoreboard.ScorePlayerTeam;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
@@ -239,5 +240,10 @@ public class ApiPlayer extends ApiEntity implements Player {
 			chest.setChestTileEntity(new FakeTileEntityChest());
 			player.displayGUIChest(chest);
 		}
+	}
+
+	@Override
+	public void addPotionEffect(int id, int effectDuration, int effectAmplifier, boolean ambient, boolean showParticles){
+		player.addPotionEffect(new PotionEffect(id, effectDuration, effectAmplifier, ambient, showParticles));
 	}
 }
