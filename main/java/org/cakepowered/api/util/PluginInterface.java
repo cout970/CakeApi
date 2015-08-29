@@ -4,6 +4,8 @@ import org.cakepowered.api.base.Entity;
 import org.cakepowered.api.base.Server;
 import org.cakepowered.api.block.Block;
 import org.cakepowered.api.block.BlockState;
+import org.cakepowered.api.command.CommandSender;
+import org.cakepowered.api.commands.DummyCommandSender;
 import org.cakepowered.api.enchantment.Enchantment;
 import org.cakepowered.api.implement.ApiBlock;
 import org.cakepowered.api.implement.ApiBlockState;
@@ -21,6 +23,7 @@ import org.cakepowered.api.nbt.NBTCompund;
 import org.cakepowered.api.util.text.TextModifier;
 
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.command.ICommandSender;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
@@ -97,5 +100,10 @@ public class PluginInterface {
 	public static IInventory getInventory(Inventory inv) {
 		if(inv == null)return null;
 		return ((ApiInventory)inv).getMcObject();
+	}
+
+	public static ICommandSender getCommandSender(CommandSender sender){
+		if(sender == null)return null;
+		return new DummyCommandSender(sender);
 	}
 }

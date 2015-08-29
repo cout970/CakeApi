@@ -6,7 +6,9 @@ import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Player;
 import org.cakepowered.api.block.Block;
 import org.cakepowered.api.block.BlockState;
+import org.cakepowered.api.command.CommandExecutor;
 import org.cakepowered.api.command.CommandSender;
+import org.cakepowered.api.commands.ApiCommand;
 import org.cakepowered.api.commands.ApiCommandSender;
 import org.cakepowered.api.event.Event.EventResult;
 import org.cakepowered.api.implement.ApiBlock;
@@ -29,6 +31,7 @@ import org.cakepowered.api.tileentity.TileEntity;
 import org.cakepowered.api.world.World;
 
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -122,5 +125,10 @@ public class ForgeInterface {
 	public static BlockState getBlockState(IBlockState state) {
 		if(state == null)return null;
 		return new ApiBlockState(state);
+	}
+
+	public static CommandExecutor getCommandExecutor(ICommand command) {
+		if(command == null)return null;
+		return new ApiCommand(command);
 	}
 }

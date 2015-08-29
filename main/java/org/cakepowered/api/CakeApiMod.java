@@ -3,6 +3,7 @@ package org.cakepowered.api;
 import org.cakepowered.api.base.CakePlugin;
 import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Log;
+import org.cakepowered.api.base.References;
 import org.cakepowered.api.base.Server;
 import org.cakepowered.api.events.ApiInitializationEvent;
 import org.cakepowered.api.events.ApiServerStartingEvent;
@@ -47,15 +48,16 @@ public class CakeApiMod extends DummyModContainer{
 		//plugin loader
 		ModContainerFactory.instance().registerContainerType(Type.getType(CakePlugin.class), PluginContainer.class);
 		INSTANCE = this;
-		TextUtils.registerModifiers();
-		ApiUtils.registerBlocks();
-		ApiUtils.registerEntities();
 	}
 
 	@Subscribe
 	public void preInit(FMLPreInitializationEvent event){
 		logger = new ApiLog(Ref.MODID);
 		game = new ApiGame();
+		References.GAME = game;
+		
+		TextUtils.registerModifiers();
+		ApiUtils.registerEntities();
 		
 		MinecraftForge.EVENT_BUS.register(new EventRedirect());
 		FMLCommonHandler.instance().bus().register(new EventRedirect());
@@ -64,6 +66,7 @@ public class CakeApiMod extends DummyModContainer{
 	@Subscribe
 	public void Init(FMLInitializationEvent event){
 		server = new ApiServer(MinecraftServer.getServer());
+		References.SERVER = server;
 		logger.info("Starting Plugin InitializationEvent");
 		ApiEventRegistry.INSTANCE.postEvent(new ApiInitializationEvent(game));
 		
@@ -71,7 +74,6 @@ public class CakeApiMod extends DummyModContainer{
 	
 	@Subscribe
 	public void postInit(FMLPostInitializationEvent event){
-		
 	}
 	
 	@Subscribe

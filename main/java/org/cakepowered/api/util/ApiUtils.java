@@ -1,6 +1,5 @@
 package org.cakepowered.api.util;
 
-import org.cakepowered.api.block.Blocks;
 import org.cakepowered.api.tileentity.TileEntities;
 
 import net.minecraft.tileentity.TileEntityBanner;
@@ -24,24 +23,6 @@ import net.minecraft.tileentity.TileEntitySign;
 import net.minecraft.tileentity.TileEntitySkull;
 
 public class ApiUtils {
-
-	public static void registerBlocks() {
-		Blocks.PISTON = ForgeInterface.getBlock(net.minecraft.init.Blocks.piston);
-		Blocks.PISTON_EXTENSION = ForgeInterface.getBlock(net.minecraft.init.Blocks.piston_extension);
-		Blocks.PISTON_HEAD = ForgeInterface.getBlock(net.minecraft.init.Blocks.piston_head);
-		Blocks.STICKY_PISTON = ForgeInterface.getBlock(net.minecraft.init.Blocks.sticky_piston);
-		Blocks.DISPENSER = ForgeInterface.getBlock(net.minecraft.init.Blocks.dispenser);
-		Blocks.DROPPER = ForgeInterface.getBlock(net.minecraft.init.Blocks.dropper);
-		Blocks.TNT = ForgeInterface.getBlock(net.minecraft.init.Blocks.tnt);
-		Blocks.WOODEN_DOOR = ForgeInterface.getBlock(net.minecraft.init.Blocks.oak_door);
-		Blocks.ACACIA_DOOR = ForgeInterface.getBlock(net.minecraft.init.Blocks.acacia_door);
-		Blocks.BIRCH_DOOR = ForgeInterface.getBlock(net.minecraft.init.Blocks.birch_door);
-		Blocks.DARK_OAK_DOOR = ForgeInterface.getBlock(net.minecraft.init.Blocks.dark_oak_door);
-		Blocks.JUNGLE_DOOR = ForgeInterface.getBlock(net.minecraft.init.Blocks.jungle_door);
-		Blocks.SPRUCE_DOOR = ForgeInterface.getBlock(net.minecraft.init.Blocks.spruce_door);
-		Blocks.SAPLING = ForgeInterface.getBlock(net.minecraft.init.Blocks.sapling);
-		
-	}
 
 	public static void registerEntities() {
 		TileEntities.BANNER = ForgeInterface.getTileEntity(new TileEntityBanner());

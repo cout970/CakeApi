@@ -6,6 +6,7 @@ import org.cakepowered.api.item.Item;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.PluginInterface;
 
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry.UniqueIdentifier;
 
@@ -14,16 +15,20 @@ public class ApiMinecraftFinder implements MinecraftFinder{
 	public static ApiMinecraftFinder INSTANCE = new ApiMinecraftFinder();
 	
 	@Override
-	public Item findItem(String domain, String unlocalizedName) {
-		net.minecraft.item.Item i = GameRegistry.findItem(domain, unlocalizedName);
-		if(i == null)return null;
+	public Item findItem(String domain, String identifier) {
+		net.minecraft.item.Item i = GameRegistry.findItem(domain, identifier);
+		if(i == null){
+			i = (net.minecraft.item.Item) net.minecraft.item.Item.itemRegistry.getObject(new ResourceLocation(domain, identifier));
+		}
 		return ForgeInterface.getItem(i);
 	}
 
 	@Override
-	public Block findBlock(String domain, String unlocalizedName) {
-		net.minecraft.block.Block i = GameRegistry.findBlock(domain, unlocalizedName);
-		if(i == null)return null;
+	public Block findBlock(String domain, String identifier) {
+		net.minecraft.block.Block i = GameRegistry.findBlock(domain, identifier);
+		if(i == null){
+			i = (net.minecraft.block.Block) net.minecraft.block.Block.blockRegistry.getObject(new ResourceLocation(domain, identifier));
+		}
 		return ForgeInterface.getBlock(i);
 	}
 
