@@ -63,4 +63,6 @@ public interface Player extends Entity {
 	public void openGui(Inventory chest);
 
 	public void addPotionEffect(int id, int duration, int amplification, boolean ambient, boolean showParticles);
+
+	public void clearActivePotions();
 }
