@@ -6,11 +6,11 @@ import org.cakepowered.mod.util.ForgeInterface;
 
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
 
-public class ApiPlayerRespawnEvent implements org.cakepowered.api.event.PlayerRespawnEvent{
+public class ApiPlayerRespawnEvent implements org.cakepowered.api.event.PlayerRespawnEvent {
 
 	public PlayerRespawnEvent event;
-	
-	public ApiPlayerRespawnEvent(PlayerRespawnEvent e){
+
+	public ApiPlayerRespawnEvent(PlayerRespawnEvent e) {
 		event = e;
 	}
 

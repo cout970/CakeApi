@@ -13,28 +13,29 @@ import com.google.common.collect.Lists;
 import net.minecraft.command.CommandHandler;
 import net.minecraft.server.MinecraftServer;
 
-public class ApiCommandDispatcher implements CommandDispatcher{
+public class ApiCommandDispatcher implements CommandDispatcher {
 
 	public static ApiCommandDispatcher INSTANCE = new ApiCommandDispatcher();
-	
+
 	public List<CommandExecutor> registeredCommands = Lists.newArrayList();
-	
+
 	@Override
 	public boolean registerCommand(CommandExecutor command) {
-		if(command == null)return false;
-		if(!registeredCommands.contains(command)){
-			try{
-				if(CakeApiCore.server == null){
+		if (command == null)
+			return false;
+		if (!registeredCommands.contains(command)) {
+			try {
+				if (CakeApiCore.server == null) {
 					CakeApiCore.logger.error("Invalid Registration before the server is started");
 					return false;
 				}
 				MinecraftServer server = PluginInterface.getServer(CakeApiCore.server);
-				CommandHandler handler = (CommandHandler) server.getCommandManager(); 
+				CommandHandler handler = (CommandHandler) server.getCommandManager();
 				DummyForgeCommand dummy = new DummyForgeCommand(command);
 				handler.registerCommand(dummy);
 				registeredCommands.add(command);
 				return true;
-			} catch(Exception e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 				return false;
 			}
@@ -44,6 +45,7 @@ public class ApiCommandDispatcher implements CommandDispatcher{
 
 	@Override
 	public void executeCommand(CommandSender sender, String command) {
-		MinecraftServer.getServer().getCommandManager().executeCommand(PluginInterface.getCommandSender(sender), command);
+		MinecraftServer.getServer().getCommandManager().executeCommand(PluginInterface.getCommandSender(sender),
+				command);
 	}
 }

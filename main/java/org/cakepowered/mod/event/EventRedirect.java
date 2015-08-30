@@ -26,76 +26,76 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedOutEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.ServerTickEvent;
 
 public class EventRedirect {
-	
+
 	@SubscribeEvent
-	public void onExecuteCommand(CommandEvent e){
+	public void onExecuteCommand(CommandEvent e) {
 		ApiCommandExecuteEvent event = new ApiCommandExecuteEvent(e);
 		ApiEventRegistry.INSTANCE.postEvent(event);
 	}
-	
+
 	@SubscribeEvent
-	public void onSpawn(EntityJoinWorldEvent e){
+	public void onSpawn(EntityJoinWorldEvent e) {
 		ApiEntityRespawnEvent event = new ApiEntityRespawnEvent(e);
 		ApiEventRegistry.INSTANCE.postEvent(event);
 	}
-	
+
 	@SubscribeEvent
-	public void onServerTick(ServerTickEvent event){
+	public void onServerTick(ServerTickEvent event) {
 		ApiServerUpdateEvent e = new ApiServerUpdateEvent(event, CakeApiCore.server);
 		ApiEventRegistry.INSTANCE.postEvent(e);
 	}
-	
+
 	@SubscribeEvent
-	public void onPlayerJoinEvent(PlayerLoggedInEvent e){
+	public void onPlayerJoinEvent(PlayerLoggedInEvent e) {
 		ApiWorldManager.INSTANCE.sendDimensionData(e.player);
 		PlayerJoinEvent event = new ApiPlayerJoinEvent(e);
 		ApiEventRegistry.INSTANCE.postEvent(event);
 	}
-	
+
 	@SubscribeEvent
-	public void onPlayerQuitEvent(PlayerLoggedOutEvent e){
+	public void onPlayerQuitEvent(PlayerLoggedOutEvent e) {
 		PlayerQuitEvent event = new ApiPlayerQuitEvent(e);
 		ApiEventRegistry.INSTANCE.postEvent(event);
 	}
-	
+
 	@SubscribeEvent
-	public void onPlayerChatEvent(ServerChatEvent e){
+	public void onPlayerChatEvent(ServerChatEvent e) {
 		PlayerChatEvent event = new ApiPlayerChatEvent(e);
 		ApiEventRegistry.INSTANCE.postEvent(event);
 	}
-	
+
 	@SubscribeEvent
-	public void onPlayerRespawn(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent e){
+	public void onPlayerRespawn(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent e) {
 		PlayerRespawnEvent event = new ApiPlayerRespawnEvent(e);
 		ApiEventRegistry.INSTANCE.postEvent(event);
 	}
-	
+
 	@SubscribeEvent
-	public void onPlayerInteractEvent(net.minecraftforge.event.entity.player.PlayerInteractEvent e){
+	public void onPlayerInteractEvent(net.minecraftforge.event.entity.player.PlayerInteractEvent e) {
 		PlayerInteractEvent event = new ApiPlayerInteractEvent(e);
 		ApiEventRegistry.INSTANCE.postEvent(event);
 	}
-	
+
 	@SubscribeEvent
-	public void onBlockBreak(BreakEvent e){
+	public void onBlockBreak(BreakEvent e) {
 		BlockBreakEvent event = new ApiBlockBreakEvent(e);
 		ApiEventRegistry.INSTANCE.postEvent(event);
 	}
-	
+
 	@SubscribeEvent
-	public void onBlockPlace(PlaceEvent e){
+	public void onBlockPlace(PlaceEvent e) {
 		BlockPlaceEvent event = new ApiBlockPlaceEvent(e);
 		ApiEventRegistry.INSTANCE.postEvent(event);
 	}
-	
+
 	@SubscribeEvent
-	public void onEntityInteract(EntityInteractEvent e){
+	public void onEntityInteract(EntityInteractEvent e) {
 		PlayerInteractEntityEvent event = new ApiPlayerInteractEntityEvent(e);
 		ApiEventRegistry.INSTANCE.postEvent(event);
 	}
-	
+
 	@SubscribeEvent
-	public void onEntityInteract(AttackEntityEvent e){
+	public void onEntityInteract(AttackEntityEvent e) {
 		EntityAttackedEvent event = new ApiEntityAttackedEvent(e);
 		ApiEventRegistry.INSTANCE.postEvent(event);
 	}

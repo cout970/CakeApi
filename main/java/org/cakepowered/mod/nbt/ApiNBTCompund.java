@@ -7,11 +7,11 @@ import org.cakepowered.mod.util.PluginInterface;
 
 import net.minecraft.nbt.NBTTagCompound;
 
-public class ApiNBTCompund extends ApiNBTBase implements NBTCompund{
+public class ApiNBTCompund extends ApiNBTBase implements NBTCompund {
 
 	protected NBTTagCompound nbt;
-	
-	public ApiNBTCompund(NBTTagCompound n){
+
+	public ApiNBTCompund(NBTTagCompound n) {
 		super(n);
 		nbt = n;
 	}
@@ -25,7 +25,7 @@ public class ApiNBTCompund extends ApiNBTBase implements NBTCompund{
 	public boolean containsTag(String name) {
 		return nbt.hasKey(name);
 	}
-	
+
 	@Override
 	public void setInteger(String name, int id) {
 		nbt.setInteger(name, id);

@@ -7,11 +7,11 @@ import org.cakepowered.mod.util.ForgeInterface;
 
 import net.minecraftforge.event.ServerChatEvent;
 
-public class ApiPlayerChatEvent implements PlayerChatEvent{
+public class ApiPlayerChatEvent implements PlayerChatEvent {
 
 	public ServerChatEvent event;
-	
-	public ApiPlayerChatEvent(ServerChatEvent e){
+
+	public ApiPlayerChatEvent(ServerChatEvent e) {
 		event = e;
 	}
 

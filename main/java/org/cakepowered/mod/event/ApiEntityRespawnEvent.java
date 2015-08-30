@@ -8,10 +8,10 @@ import org.cakepowered.mod.util.ForgeInterface;
 
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 
-public class ApiEntityRespawnEvent implements EntitySpawnEvent{
+public class ApiEntityRespawnEvent implements EntitySpawnEvent {
 
 	public EntityJoinWorldEvent event;
-	
+
 	public ApiEntityRespawnEvent(EntityJoinWorldEvent e) {
 		event = e;
 	}

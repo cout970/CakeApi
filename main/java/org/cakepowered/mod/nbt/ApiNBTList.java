@@ -6,10 +6,10 @@ import org.cakepowered.mod.util.PluginInterface;
 
 import net.minecraft.nbt.NBTTagList;
 
-public class ApiNBTList extends ApiNBTBase implements NBTList{
+public class ApiNBTList extends ApiNBTBase implements NBTList {
 
 	protected NBTTagList list;
-	
+
 	public ApiNBTList(NBTTagList b) {
 		super(b);
 		list = b;

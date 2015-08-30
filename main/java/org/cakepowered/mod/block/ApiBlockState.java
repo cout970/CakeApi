@@ -7,10 +7,10 @@ import org.cakepowered.mod.util.IImplementation;
 
 import net.minecraft.block.state.IBlockState;
 
-public class ApiBlockState implements BlockState, IImplementation<IBlockState>{
+public class ApiBlockState implements BlockState, IImplementation<IBlockState> {
 
 	protected IBlockState state;
-	
+
 	public ApiBlockState(IBlockState state) {
 		this.state = state;
 	}

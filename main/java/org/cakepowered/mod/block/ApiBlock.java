@@ -8,17 +8,17 @@ import org.cakepowered.mod.util.ForgeInterface;
 import org.cakepowered.mod.util.IImplementation;
 import org.cakepowered.mod.util.PluginInterface;
 
-public class ApiBlock implements Block, IImplementation<net.minecraft.block.Block>{
+public class ApiBlock implements Block, IImplementation<net.minecraft.block.Block> {
 
 	protected net.minecraft.block.Block block;
-	
+
 	public ApiBlock(net.minecraft.block.Block bl) {
 		block = bl;
 	}
 
 	@Override
-	public boolean equals(Object o){
-		if(o instanceof ApiBlock){
+	public boolean equals(Object o) {
+		if (o instanceof ApiBlock) {
 			return block.equals(((ApiBlock) o).block);
 		}
 		return false;

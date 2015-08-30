@@ -7,16 +7,16 @@ import org.cakepowered.api.world.World;
 public interface CommandSender {
 
 	public String getName();
-	
+
 	public String getDisplayName();
-	
+
 	public boolean canUseCommand(int permLevel, String commandName);
-	
+
 	public Vector3d getPositionVector();
-	
-	//can be null
+
+	// can be null
 	public Player getPlayer();
-	
+
 	public World getWorld();
 
 	public void sendMessage(String message);

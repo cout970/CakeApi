@@ -1,7 +1,7 @@
 package org.cakepowered.api.util;
 
 public class Potions {
-	
+
 	public static int Speed = 1;
 	public static int Slowness = 2;
 	public static int Haste = 3;

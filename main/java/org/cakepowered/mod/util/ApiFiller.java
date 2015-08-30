@@ -49,17 +49,22 @@ public class ApiFiller {
 
 	public static void registerEnchantments() {
 		Enchantments.protection = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.protection);
-		Enchantments.fireProtection = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.fireProtection);
-		Enchantments.featherFalling = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.featherFalling);
-		Enchantments.blastProtection = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.blastProtection);
-		Enchantments.projectileProtection = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.projectileProtection);
+		Enchantments.fireProtection = ForgeInterface
+				.getEnchantment(net.minecraft.enchantment.Enchantment.fireProtection);
+		Enchantments.featherFalling = ForgeInterface
+				.getEnchantment(net.minecraft.enchantment.Enchantment.featherFalling);
+		Enchantments.blastProtection = ForgeInterface
+				.getEnchantment(net.minecraft.enchantment.Enchantment.blastProtection);
+		Enchantments.projectileProtection = ForgeInterface
+				.getEnchantment(net.minecraft.enchantment.Enchantment.projectileProtection);
 		Enchantments.respiration = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.respiration);
 		Enchantments.aquaAffinity = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.aquaAffinity);
 		Enchantments.thorns = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.thorns);
 		Enchantments.depthStrider = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.depthStrider);
 		Enchantments.sharpness = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.sharpness);
 		Enchantments.smite = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.smite);
-		Enchantments.baneOfArthropods = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.baneOfArthropods);
+		Enchantments.baneOfArthropods = ForgeInterface
+				.getEnchantment(net.minecraft.enchantment.Enchantment.baneOfArthropods);
 		Enchantments.knockback = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.knockback);
 		Enchantments.fireAspect = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.fireAspect);
 		Enchantments.looting = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.looting);

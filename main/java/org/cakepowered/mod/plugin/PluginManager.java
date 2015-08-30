@@ -7,18 +7,19 @@ import org.cakepowered.mod.base.ApiEventRegistry;
 import com.google.common.collect.Lists;
 
 public class PluginManager {
-	
+
 	public static List<PluginContainer> loadedPlugins = Lists.newArrayList();
 
 	public static void registerPlugin(PluginContainer container, Object instance) {
 		loadedPlugins.add(container);
 		ApiEventRegistry.INSTANCE.registerEventListener(instance);
 	}
-	
-	public static String findName(Object plugin){
-		if(plugin == null)return null;
-		for(PluginContainer o : loadedPlugins){
-			if(plugin.equals(o.pluginInstance)){
+
+	public static String findName(Object plugin) {
+		if (plugin == null)
+			return null;
+		for (PluginContainer o : loadedPlugins) {
+			if (plugin.equals(o.pluginInstance)) {
 				return o.getModId();
 			}
 		}

@@ -10,10 +10,10 @@ import org.cakepowered.mod.util.PluginInterface;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 
-public class ApiCommand implements CommandExecutor{
+public class ApiCommand implements CommandExecutor {
 
 	public ICommand command;
-	
+
 	public ApiCommand(ICommand command) {
 		this.command = command;
 	}
@@ -46,6 +46,7 @@ public class ApiCommand implements CommandExecutor{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<String> addTabCompletionOptions(CommandSender sender, String[] args, Vector3i pos) {
-		return command.addTabCompletionOptions(PluginInterface.getCommandSender(sender), args, PluginInterface.getBlockPos(pos));
+		return command.addTabCompletionOptions(PluginInterface.getCommandSender(sender), args,
+				PluginInterface.getBlockPos(pos));
 	}
 }

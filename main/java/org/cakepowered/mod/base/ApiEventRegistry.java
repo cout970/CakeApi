@@ -10,7 +10,7 @@ import org.cakepowered.api.event.EventSuscribe;
 import org.cakepowered.mod.CakeApiCore;
 import org.cakepowered.mod.plugin.MethodCaller;
 
-public class ApiEventRegistry implements EventRegistry{
+public class ApiEventRegistry implements EventRegistry {
 
 	public static ApiEventRegistry INSTANCE = new ApiEventRegistry();
 
@@ -19,14 +19,14 @@ public class ApiEventRegistry implements EventRegistry{
 	@Override
 	public boolean postEvent(Event e) {
 		ArrayList<MethodCaller> methods = null;
-		for(Class<?> clazz : listeners.keySet()){
-			if(clazz.isInstance(e)){
+		for (Class<?> clazz : listeners.keySet()) {
+			if (clazz.isInstance(e)) {
 				methods = listeners.get(clazz);
 				break;
 			}
 		}
-		if(methods != null){
-			for(MethodCaller m : methods){
+		if (methods != null) {
+			for (MethodCaller m : methods) {
 				m.call(e);
 			}
 		}
@@ -35,22 +35,24 @@ public class ApiEventRegistry implements EventRegistry{
 
 	@Override
 	public boolean registerEventListener(Object o) {
-		if(o == null)return false;
+		if (o == null)
+			return false;
 		boolean registered = false;
-		for(Method m : o.getClass().getMethods()){
-			
-			if(m.isAnnotationPresent(EventSuscribe.class)){
+		for (Method m : o.getClass().getMethods()) {
+
+			if (m.isAnnotationPresent(EventSuscribe.class)) {
 				Class<?>[] parameterTypes = m.getParameterTypes();
-				if(parameterTypes.length != 1){
-					CakeApiCore.logger.error("Invalid number of arguments on the EventSuscribe method: "+m.getName());
+				if (parameterTypes.length != 1) {
+					CakeApiCore.logger.error("Invalid number of arguments on the EventSuscribe method: " + m.getName());
 					continue;
 				}
 				Class<?> eventType = parameterTypes[0];
 				if (!Event.class.isAssignableFrom(eventType)) {
-					CakeApiCore.logger.error("Invalid argument type on the EventSuscribe method: "+m.getName()+", the type "+eventType+" don't implements Event");
+					CakeApiCore.logger.error("Invalid argument type on the EventSuscribe method: " + m.getName()
+							+ ", the type " + eventType + " don't implements Event");
 					continue;
-                }
-				
+				}
+
 				register(eventType, o, m);
 				registered = true;
 			}
@@ -60,13 +62,13 @@ public class ApiEventRegistry implements EventRegistry{
 
 	private void register(Class<?> eventType, Object o, Method m) {
 		ArrayList<MethodCaller> list;
-		if(listeners.containsKey(eventType)){
+		if (listeners.containsKey(eventType)) {
 			list = listeners.get(eventType);
-		}else{
+		} else {
 			list = new ArrayList<MethodCaller>();
 			listeners.put(eventType, list);
 		}
-		MethodCaller caller = new MethodCaller(o,m);
+		MethodCaller caller = new MethodCaller(o, m);
 		list.add(caller);
 	}
 }

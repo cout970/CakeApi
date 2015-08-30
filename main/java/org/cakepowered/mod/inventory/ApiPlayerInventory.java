@@ -9,10 +9,10 @@ import org.cakepowered.mod.util.PluginInterface;
 
 import net.minecraft.entity.player.InventoryPlayer;
 
-public class ApiPlayerInventory extends ApiInventory implements PlayerInventory{
+public class ApiPlayerInventory extends ApiInventory implements PlayerInventory {
 
 	public InventoryPlayer player;
-	
+
 	public ApiPlayerInventory(InventoryPlayer inventory) {
 		super(inventory);
 		player = inventory;
@@ -40,7 +40,7 @@ public class ApiPlayerInventory extends ApiInventory implements PlayerInventory{
 
 	@Override
 	public boolean addItemStackToInventory(ItemStack stack) {
-		return player.addItemStackToInventory(((ApiItemStack)stack).stack);
+		return player.addItemStackToInventory(((ApiItemStack) stack).stack);
 	}
 
 	@Override
@@ -55,6 +55,6 @@ public class ApiPlayerInventory extends ApiInventory implements PlayerInventory{
 
 	@Override
 	public boolean hasItemStack(ItemStack stack) {
-		return player.hasItemStack(((ApiItemStack)stack).stack);
+		return player.hasItemStack(((ApiItemStack) stack).stack);
 	}
 }

@@ -6,7 +6,7 @@ import java.util.List;
 public class TextFormating {
 
 	public static List<TextModifier> modifiers = new ArrayList<TextModifier>();
-	
+
 	public static TextModifier BLACK;
 	public static TextModifier DARK_BLUE;
 	public static TextModifier DARK_GREEN;
@@ -30,8 +30,8 @@ public class TextFormating {
 	public static TextModifier UNDERLINE;
 	public static TextModifier ITALIC;
 
-	public static String toPlainString(String str){
-		for(TextModifier mod : modifiers){
+	public static String toPlainString(String str) {
+		for (TextModifier mod : modifiers) {
 			str = str.replaceAll(mod.controlString, "");
 		}
 		return str;

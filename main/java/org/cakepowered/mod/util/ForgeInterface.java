@@ -48,13 +48,15 @@ import net.minecraftforge.fml.common.eventhandler.Event;
 
 public class ForgeInterface {
 
-	public static Player getPlayer(EntityPlayer ep){
-		if(ep == null)return null;
+	public static Player getPlayer(EntityPlayer ep) {
+		if (ep == null)
+			return null;
 		return new ApiPlayer(ep);
 	}
 
 	public static EventResult getEventResult(Event.Result result) {
-		if(result == null)return null;
+		if (result == null)
+			return null;
 		return EventResult.values()[result.ordinal()];
 	}
 
@@ -63,17 +65,20 @@ public class ForgeInterface {
 	}
 
 	public static Vector3i getVector3i(net.minecraft.util.BlockPos pos) {
-		if(pos == null)return null;
+		if (pos == null)
+			return null;
 		return new Vector3i(pos.getX(), pos.getY(), pos.getZ());
 	}
 
 	public static Direction getDirection(EnumFacing face) {
-		if(face == null)return null;
+		if (face == null)
+			return null;
 		return Direction.values()[face.getIndex()];
 	}
 
 	public static CommandSender getCommandSender(ICommandSender sender) {
-		if(sender == null)return null;
+		if (sender == null)
+			return null;
 		return new ApiCommandSender(sender);
 	}
 
@@ -82,63 +87,74 @@ public class ForgeInterface {
 	}
 
 	public static Entity getEntity(net.minecraft.entity.Entity target) {
-		if(target == null)return null;
+		if (target == null)
+			return null;
 		return new ApiEntity(target);
 	}
 
 	public static World getWorld(net.minecraft.world.World entityWorld) {
-		if(entityWorld == null)return null;
+		if (entityWorld == null)
+			return null;
 		return new ApiWorld(entityWorld);
 	}
 
 	public static Block getBlock(net.minecraft.block.Block bl) {
-		if(bl == null)return null;
+		if (bl == null)
+			return null;
 		return new ApiBlock(bl);
 	}
 
 	public static TileEntity getTileEntity(net.minecraft.tileentity.TileEntity tile) {
-		if(tile == null)return null;
+		if (tile == null)
+			return null;
 		return new ApiTileEntity(tile);
 	}
 
 	public static NBTBase fromNBT(net.minecraft.nbt.NBTBase tag) {
-		if(tag == null)return null;
-		if(tag instanceof NBTTagCompound){
+		if (tag == null)
+			return null;
+		if (tag instanceof NBTTagCompound) {
 			return new ApiNBTCompund((NBTTagCompound) tag);
 		}
-		if(tag instanceof NBTTagList){
+		if (tag instanceof NBTTagList) {
 			return new ApiNBTList((NBTTagList) tag);
 		}
 		return new ApiNBTBase(tag);
 	}
 
 	public static ItemStack getItemStack(net.minecraft.item.ItemStack stack) {
-		if(stack == null)return null;
+		if (stack == null)
+			return null;
 		return new ApiItemStack(stack);
 	}
 
 	public static Item getItem(net.minecraft.item.Item stack) {
-		if(stack == null)return null;
+		if (stack == null)
+			return null;
 		return new ApiItem(stack);
 	}
 
 	public static Inventory getInventory(IInventory inv) {
-		if(inv == null)return null;
+		if (inv == null)
+			return null;
 		return new ApiInventory(inv);
 	}
 
 	public static BlockState getBlockState(IBlockState state) {
-		if(state == null)return null;
+		if (state == null)
+			return null;
 		return new ApiBlockState(state);
 	}
 
 	public static CommandExecutor getCommandExecutor(ICommand command) {
-		if(command == null)return null;
+		if (command == null)
+			return null;
 		return new ApiCommand(command);
 	}
 
 	public static Enchantment getEnchantment(net.minecraft.enchantment.Enchantment ench) {
-		if(ench == null)return null;
+		if (ench == null)
+			return null;
 		return new ApiEnchantment(ench);
 	}
 }

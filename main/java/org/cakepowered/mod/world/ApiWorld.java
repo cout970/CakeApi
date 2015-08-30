@@ -23,15 +23,15 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-public class ApiWorld implements org.cakepowered.api.world.World, IImplementation<World>{
-	
+public class ApiWorld implements org.cakepowered.api.world.World, IImplementation<World> {
+
 	public World world;
-	
-	public ApiWorld(net.minecraft.world.World world){
-		
+
+	public ApiWorld(net.minecraft.world.World world) {
+
 		this.world = world;
 	}
-	
+
 	@Override
 	public int getDifficulty() {
 		switch (world.getDifficulty()) {
@@ -65,7 +65,8 @@ public class ApiWorld implements org.cakepowered.api.world.World, IImplementatio
 
 	@Override
 	public Location getSpawnLocation() {
-		return new Location(world.provider.getDimensionId(), world.getSpawnPoint().getX(), world.getSpawnPoint().getY(), world.getSpawnPoint().getZ());
+		return new Location(world.provider.getDimensionId(), world.getSpawnPoint().getX(), world.getSpawnPoint().getY(),
+				world.getSpawnPoint().getZ());
 	}
 
 	@Override
@@ -82,8 +83,8 @@ public class ApiWorld implements org.cakepowered.api.world.World, IImplementatio
 	@Override
 	public List<Entity> getEntities() {
 		List<Entity> list = new ArrayList<Entity>();
-		for(Object e : world.getLoadedEntityList()){
-			if(e instanceof net.minecraft.entity.Entity){
+		for (Object e : world.getLoadedEntityList()) {
+			if (e instanceof net.minecraft.entity.Entity) {
 				list.add(ForgeInterface.getEntity((net.minecraft.entity.Entity) e));
 			}
 		}
@@ -142,22 +143,23 @@ public class ApiWorld implements org.cakepowered.api.world.World, IImplementatio
 
 	@SuppressWarnings("rawtypes")
 	@Override
-	public List<Entity> getEntitiesExcludingType(Entity type, int minX, int minY, int minZ, int maxX, int maxY,int maxZ) {
+	public List<Entity> getEntitiesExcludingType(Entity type, int minX, int minY, int minZ, int maxX, int maxY,
+			int maxZ) {
 		AxisAlignedBB aabb = AxisAlignedBB.fromBounds(minX, minY, minZ, maxX, maxY, maxZ);
 		List list = world.getEntitiesWithinAABBExcludingEntity(PluginInterface.getEntity(type), aabb);
 		List<Entity> ret = new ArrayList<Entity>(list.size());
-		for(Object o : list){
-			if(o instanceof EntityPlayer){
+		for (Object o : list) {
+			if (o instanceof EntityPlayer) {
 				ret.add(ForgeInterface.getPlayer((EntityPlayer) o));
-			}else if(o instanceof net.minecraft.entity.Entity){
+			} else if (o instanceof net.minecraft.entity.Entity) {
 				ret.add(ForgeInterface.getEntity((net.minecraft.entity.Entity) o));
 			}
 		}
 		return ret;
 	}
-	
+
 	@Override
-	public void setWorldTime(long time){
+	public void setWorldTime(long time) {
 		world.getWorldInfo().setWorldTime(time);
 	}
 
@@ -165,5 +167,5 @@ public class ApiWorld implements org.cakepowered.api.world.World, IImplementatio
 	public Server getServer() {
 		return CakeApiCore.server;
 	}
-	
+
 }

@@ -4,12 +4,12 @@ public class Location {
 
 	protected int dimension;
 	protected Vector3i position;
-	
-	public Location(int d, int x, int y, int z){
+
+	public Location(int d, int x, int y, int z) {
 		this(d, new Vector3i(x, y, z));
 	}
-	
-	public Location(int d, Vector3i pos){
+
+	public Location(int d, Vector3i pos) {
 		dimension = d;
 		pos = pos.copy();
 	}
@@ -21,7 +21,7 @@ public class Location {
 	public Vector3i getPosition() {
 		return position;
 	}
-	
+
 	public int getX() {
 		return position.getX();
 	}

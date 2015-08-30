@@ -6,10 +6,10 @@ import org.cakepowered.mod.util.PluginInterface;
 
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ApiRecipeManager implements RecipeManager{
+public class ApiRecipeManager implements RecipeManager {
 
 	public static final ApiRecipeManager INSTANCE = new ApiRecipeManager();
-	
+
 	@Override
 	public void addFurnaceRecipe(ItemStack input, ItemStack output, float experience) {
 		GameRegistry.addSmelting(PluginInterface.getItemStack(input), PluginInterface.getItemStack(output), experience);

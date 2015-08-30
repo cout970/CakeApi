@@ -10,22 +10,22 @@ import org.cakepowered.api.world.World;
 public interface Server {
 
 	public Collection<Player> getOnlinePlayers();
-	
+
 	public int getMaxPlayers();
-	
+
 	public Player getPlayer(UUID uniqueId);
-	
+
 	public Player getPlayer(String username);
-	
+
 	public World getWorld(int i);
 
 	public int getRunningTimeTicks();
 
 	public void sendMessageToAll(String message);
-	
+
 	public List<Player> getPlayersOP();
-	
+
 	public void setPlayerOP(Player p, boolean op);
-	
+
 	public CommandSender getCommandSender();
 }

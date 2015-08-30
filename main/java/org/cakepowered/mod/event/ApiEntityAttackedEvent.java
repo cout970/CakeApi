@@ -11,11 +11,11 @@ import net.minecraftforge.event.entity.player.AttackEntityEvent;
 public class ApiEntityAttackedEvent implements EntityAttackedEvent {
 
 	public AttackEntityEvent event;
-	
+
 	public ApiEntityAttackedEvent(AttackEntityEvent e) {
 		event = e;
 	}
-	
+
 	@Override
 	public Player getPlayer() {
 		return ForgeInterface.getPlayer(event.entityPlayer);

@@ -7,16 +7,16 @@ import org.cakepowered.mod.util.ForgeInterface;
 
 import net.minecraftforge.fml.common.gameevent.TickEvent.ServerTickEvent;
 
-public class ApiServerUpdateEvent implements ServerUpdateEvent{
+public class ApiServerUpdateEvent implements ServerUpdateEvent {
 
 	public ServerTickEvent event;
 	public Server server;
-	
-	public ApiServerUpdateEvent(ServerTickEvent e, Server server){
+
+	public ApiServerUpdateEvent(ServerTickEvent e, Server server) {
 		event = e;
 		this.server = server;
 	}
-	
+
 	@Override
 	public Game getGame() {
 		return ForgeInterface.getGame();
@@ -28,7 +28,8 @@ public class ApiServerUpdateEvent implements ServerUpdateEvent{
 	}
 
 	@Override
-	public void setEventCanceled(boolean value) {}
+	public void setEventCanceled(boolean value) {
+	}
 
 	@Override
 	public boolean isEventCanceled() {

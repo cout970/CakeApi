@@ -7,11 +7,11 @@ import org.cakepowered.mod.util.ForgeInterface;
 
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedOutEvent;
 
-public class ApiPlayerQuitEvent implements PlayerQuitEvent{
+public class ApiPlayerQuitEvent implements PlayerQuitEvent {
 
 	public PlayerLoggedOutEvent event;
-	
-	public ApiPlayerQuitEvent(PlayerLoggedOutEvent e){
+
+	public ApiPlayerQuitEvent(PlayerLoggedOutEvent e) {
 		event = e;
 	}
 

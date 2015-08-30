@@ -14,14 +14,14 @@ import com.google.common.collect.Lists;
 
 import net.minecraft.scoreboard.ScorePlayerTeam;
 
-public class ApiTeam implements Team, IImplementation<ScorePlayerTeam>{
+public class ApiTeam implements Team, IImplementation<ScorePlayerTeam> {
 
 	protected net.minecraft.scoreboard.ScorePlayerTeam team;
-	
+
 	public ApiTeam(net.minecraft.scoreboard.ScorePlayerTeam team) {
 		this.team = team;
 	}
-	
+
 	@Override
 	public String getName() {
 		return this.team.getRegisteredName();
@@ -45,17 +45,17 @@ public class ApiTeam implements Team, IImplementation<ScorePlayerTeam>{
 	@Override
 	public List<Player> getPlayers() {
 		List<Player> players = Lists.newArrayList();
-		for(Object o : team.getMembershipCollection()){
-			if(o instanceof String){
-				Player p = ForgeInterface.getGame().getServer().getPlayer((String)o);
-				if(p != null){
+		for (Object o : team.getMembershipCollection()) {
+			if (o instanceof String) {
+				Player p = ForgeInterface.getGame().getServer().getPlayer((String) o);
+				if (p != null) {
 					players.add(p);
 				}
 			}
 		}
-		
+
 		return players;
-		
+
 	}
 
 	@SuppressWarnings("unchecked")

@@ -9,10 +9,10 @@ import org.cakepowered.mod.util.PluginInterface;
 
 import net.minecraft.inventory.IInventory;
 
-public class ApiInventory implements Inventory, IImplementation<IInventory>{
+public class ApiInventory implements Inventory, IImplementation<IInventory> {
 
 	protected IInventory inv;
-	
+
 	public ApiInventory(IInventory inv) {
 		this.inv = inv;
 	}

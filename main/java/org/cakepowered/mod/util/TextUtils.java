@@ -7,12 +7,13 @@ import org.cakepowered.api.util.text.TextModifier;
 
 import net.minecraft.util.EnumChatFormatting;
 
-public class TextUtils{
-	
-	public static EnumMap<EnumChatFormatting, TextModifier> modifiers = new EnumMap<EnumChatFormatting, TextModifier>(EnumChatFormatting.class);
+public class TextUtils {
 
-	public static void registerModifiers(){
-		for(int i = 0; i<EnumChatFormatting.values().length; i++)
+	public static EnumMap<EnumChatFormatting, TextModifier> modifiers = new EnumMap<EnumChatFormatting, TextModifier>(
+			EnumChatFormatting.class);
+
+	public static void registerModifiers() {
+		for (int i = 0; i < EnumChatFormatting.values().length; i++)
 			addModifier(EnumChatFormatting.values()[i]);
 
 	}

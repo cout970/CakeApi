@@ -10,11 +10,11 @@ import org.cakepowered.mod.util.ForgeInterface;
 
 import net.minecraftforge.event.world.BlockEvent.PlaceEvent;
 
-public class ApiBlockPlaceEvent implements BlockPlaceEvent{
+public class ApiBlockPlaceEvent implements BlockPlaceEvent {
 
 	public PlaceEvent event;
-	
-	public ApiBlockPlaceEvent(PlaceEvent e){
+
+	public ApiBlockPlaceEvent(PlaceEvent e) {
 		event = e;
 	}
 
@@ -68,4 +68,3 @@ public class ApiBlockPlaceEvent implements BlockPlaceEvent{
 		return ForgeInterface.getBlock(event.state.getBlock());
 	}
 }
-

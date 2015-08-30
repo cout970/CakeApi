@@ -8,11 +8,11 @@ import org.cakepowered.mod.util.ForgeInterface;
 
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 
-public class ApiPlayerInteractEntityEvent implements PlayerInteractEntityEvent{
+public class ApiPlayerInteractEntityEvent implements PlayerInteractEntityEvent {
 
 	public EntityInteractEvent event;
 
-	public ApiPlayerInteractEntityEvent(EntityInteractEvent e){
+	public ApiPlayerInteractEntityEvent(EntityInteractEvent e) {
 		event = e;
 	}
 

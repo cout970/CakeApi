@@ -7,16 +7,16 @@ import org.cakepowered.mod.util.ForgeInterface;
 
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 
-public class ApiServerStartingEvent implements ServerStatingEvent{
+public class ApiServerStartingEvent implements ServerStatingEvent {
 
 	public FMLServerStartingEvent event;
 	public Server server;
-	
-	public ApiServerStartingEvent(FMLServerStartingEvent e, Server server){
+
+	public ApiServerStartingEvent(FMLServerStartingEvent e, Server server) {
 		event = e;
 		this.server = server;
 	}
-	
+
 	@Override
 	public Game getGame() {
 		return ForgeInterface.getGame();
@@ -28,7 +28,8 @@ public class ApiServerStartingEvent implements ServerStatingEvent{
 	}
 
 	@Override
-	public void setEventCanceled(boolean value) {}
+	public void setEventCanceled(boolean value) {
+	}
 
 	@Override
 	public boolean isEventCanceled() {

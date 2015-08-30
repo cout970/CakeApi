@@ -16,11 +16,11 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.Packet;
 import net.minecraft.tileentity.TileEntity;
 
-public class ApiTileEntity implements org.cakepowered.api.tileentity.TileEntity, IImplementation<TileEntity>{
+public class ApiTileEntity implements org.cakepowered.api.tileentity.TileEntity, IImplementation<TileEntity> {
 
 	protected TileEntity tile;
-	
-	public ApiTileEntity(TileEntity t){
+
+	public ApiTileEntity(TileEntity t) {
 		tile = t;
 	}
 
@@ -36,15 +36,15 @@ public class ApiTileEntity implements org.cakepowered.api.tileentity.TileEntity,
 
 	@Override
 	public boolean isEquivalentTo(org.cakepowered.api.tileentity.TileEntity t) {
-		if(t instanceof ApiTileEntity){
+		if (t instanceof ApiTileEntity) {
 			return ((ApiTileEntity) t).tile.getClass().equals(tile.getClass());
 		}
 		return false;
 	}
-	
+
 	@Override
-	public boolean equals(Object o){
-		if(o instanceof ApiTileEntity){
+	public boolean equals(Object o) {
+		if (o instanceof ApiTileEntity) {
 			return tile.equals(((ApiTileEntity) o).tile);
 		}
 		return false;
@@ -52,7 +52,7 @@ public class ApiTileEntity implements org.cakepowered.api.tileentity.TileEntity,
 
 	@Override
 	public Inventory getInventory() {
-		if(tile instanceof IInventory){
+		if (tile instanceof IInventory) {
 			return ForgeInterface.getInventory((IInventory) tile);
 		}
 		return null;
@@ -73,9 +73,9 @@ public class ApiTileEntity implements org.cakepowered.api.tileentity.TileEntity,
 	@Override
 	public void syncPlayer(Player p) {
 		Packet packet = tile.getDescriptionPacket();
-		if(packet != null){
+		if (packet != null) {
 			EntityPlayer player = PluginInterface.getPlayer(p);
-			if(player instanceof EntityPlayerMP){
+			if (player instanceof EntityPlayerMP) {
 				((EntityPlayerMP) player).playerNetServerHandler.sendPacket(packet);
 			}
 		}

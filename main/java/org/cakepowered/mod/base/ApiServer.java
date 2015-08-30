@@ -22,12 +22,12 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.ServerConfigurationManager;
 import net.minecraft.world.WorldServer;
 
-public class ApiServer implements Server, IImplementation<MinecraftServer>{
+public class ApiServer implements Server, IImplementation<MinecraftServer> {
 
 	protected MinecraftServer server;
 	public ServerConfigurationManager config;
-	
-	public ApiServer(MinecraftServer minecraftServer){
+
+	public ApiServer(MinecraftServer minecraftServer) {
 		server = minecraftServer;
 		config = server.getConfigurationManager();
 	}
@@ -36,10 +36,12 @@ public class ApiServer implements Server, IImplementation<MinecraftServer>{
 	public Collection<Player> getOnlinePlayers() {
 		List<Player> list = new ArrayList<Player>();
 		GameProfile[] players = server.getGameProfiles();
-		if(players == null)return list;
-		for(GameProfile p : players){
+		if (players == null)
+			return list;
+		for (GameProfile p : players) {
 			Player pl = getPlayer(p.getId());
-			if(pl != null)list.add(pl);
+			if (pl != null)
+				list.add(pl);
 		}
 		return list;
 	}
@@ -52,16 +54,18 @@ public class ApiServer implements Server, IImplementation<MinecraftServer>{
 	@Override
 	public Player getPlayer(UUID uniqueId) {
 		Entity t = server.getEntityFromUuid(uniqueId);
-		if(t instanceof EntityPlayer)return ForgeInterface.getPlayer((EntityPlayer) t);
+		if (t instanceof EntityPlayer)
+			return ForgeInterface.getPlayer((EntityPlayer) t);
 		return null;
 	}
 
 	@Override
 	public Player getPlayer(String username) {
 		GameProfile[] players = server.getGameProfiles();
-		if(players == null)return null;
-		for(GameProfile p : players){
-			if(p.getName().equals(username)){
+		if (players == null)
+			return null;
+		for (GameProfile p : players) {
+			if (p.getName().equals(username)) {
 				return getPlayer(p.getId());
 			}
 		}
@@ -71,7 +75,7 @@ public class ApiServer implements Server, IImplementation<MinecraftServer>{
 	@Override
 	public World getWorld(int id) {
 		for (WorldServer world : server.worldServers) {
-			if(world.provider.getDimensionId() == id){
+			if (world.provider.getDimensionId() == id) {
 				return new ApiWorld(world);
 			}
 		}
@@ -85,7 +89,7 @@ public class ApiServer implements Server, IImplementation<MinecraftServer>{
 
 	@Override
 	public void sendMessageToAll(String message) {
-		for(Player p : getOnlinePlayers()){
+		for (Player p : getOnlinePlayers()) {
 			p.sendMessage(message);
 		}
 	}
@@ -93,28 +97,29 @@ public class ApiServer implements Server, IImplementation<MinecraftServer>{
 	@Override
 	public List<Player> getPlayersOP() {
 		List<Player> ops = Lists.newArrayList();
-		for(String s : config.getOppedPlayerNames()){
-			Player p= getPlayer(s);
-			if(p != null)ops.add(p);
+		for (String s : config.getOppedPlayerNames()) {
+			Player p = getPlayer(s);
+			if (p != null)
+				ops.add(p);
 		}
 		return ops;
 	}
 
 	@Override
 	public void setPlayerOP(Player p, boolean op) {
-		if(op){//op
-			if(!p.isOP()){
-				for(GameProfile gp : server.getGameProfiles()){
-					if(gp.getId().equals(p.getUniqueID())){
+		if (op) {// op
+			if (!p.isOP()) {
+				for (GameProfile gp : server.getGameProfiles()) {
+					if (gp.getId().equals(p.getUniqueID())) {
 						config.addOp(gp);
 						break;
 					}
 				}
 			}
-		}else{//deop
-			if(p.isOP()){
-				for(GameProfile gp : server.getGameProfiles()){
-					if(gp.getId().equals(p.getUniqueID())){
+		} else {// deop
+			if (p.isOP()) {
+				for (GameProfile gp : server.getGameProfiles()) {
+					if (gp.getId().equals(p.getUniqueID())) {
 						config.removeOp(gp);
 						break;
 					}

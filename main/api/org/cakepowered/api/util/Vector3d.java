@@ -117,8 +117,7 @@ public class Vector3d {
 	}
 
 	/**
-	 * Returns the distance from this point to the point specified by the first
-	 * argument
+	 * Returns the distance from this point to the point specified by the first argument
 	 */
 	public double distance(Vector3d vector) {
 		Vector3d line = vector.copy().add(getOpposite());
@@ -165,8 +164,8 @@ public class Vector3d {
 	}
 
 	public Vector3d rotateX(double angle) {
-		Vector3d[] rotationMatrix = { new Vector3d(1, 0, 0), new Vector3d(0, Math.cos(angle), -Math.sin(angle)),
-				new Vector3d(0, Math.sin(angle), Math.cos(angle)) };
+		Vector3d[] rotationMatrix = { new Vector3d(1, 0, 0), new Vector3d(0, Math.cos(angle),
+				-Math.sin(angle)), new Vector3d(0, Math.sin(angle), Math.cos(angle)) };
 
 		double i, j, k;
 		i = dotProduct(rotationMatrix[0]);
@@ -177,8 +176,8 @@ public class Vector3d {
 	}
 
 	public Vector3d rotateY(double angle) {
-		Vector3d[] rotationMatrix = { new Vector3d(Math.cos(angle), 0, Math.sin(angle)), new Vector3d(0, 1, 0),
-				new Vector3d(-Math.sin(angle), 0, Math.cos(angle)) };
+		Vector3d[] rotationMatrix = { new Vector3d(Math.cos(angle), 0, Math.sin(angle)), new Vector3d(0, 1,
+				0), new Vector3d(-Math.sin(angle), 0, Math.cos(angle)) };
 
 		double i, j, k;
 		i = dotProduct(rotationMatrix[0]);
@@ -189,8 +188,8 @@ public class Vector3d {
 	}
 
 	public Vector3d rotateZ(double angle) {
-		Vector3d[] rotationMatrix = { new Vector3d(Math.cos(angle), -Math.sin(angle), 0),
-				new Vector3d(Math.sin(angle), Math.cos(angle), 0), new Vector3d(0, 0, 1) };
+		Vector3d[] rotationMatrix = { new Vector3d(Math.cos(angle), -Math.sin(angle),
+				0), new Vector3d(Math.sin(angle), Math.cos(angle), 0), new Vector3d(0, 0, 1) };
 
 		double i, j, k;
 		i = dotProduct(rotationMatrix[0]);
@@ -206,14 +205,14 @@ public class Vector3d {
 
 		double cos = Math.cos(angle);
 		double sin = Math.sin(angle);
-		
-		Vector3d[] rotationMatrix = {
-				new Vector3d(cos + axis.x * axis.x * (1 - cos), axis.y * axis.x * (1 - cos) + axis.z * sin,
-						axis.z * axis.x * (1 - cos) - axis.y * sin),
-				new Vector3d(axis.x * axis.y * (1 - cos) - axis.z * sin, cos + axis.y * axis.y * (1 - cos),
-						axis.z * axis.y * (1 - cos) + axis.z * sin),
-				new Vector3d(axis.x * axis.z * (1 - cos) + axis.y * sin, axis.y * axis.z * (1 - cos),
-						cos + axis.z * axis.z * (1 - cos)) };
+
+		Vector3d[] rotationMatrix = { new Vector3d(cos + axis.x * axis.x * (1 - cos),
+				axis.y * axis.x * (1 - cos) + axis.z * sin,
+				axis.z * axis.x * (1 - cos) - axis.y * sin), new Vector3d(
+						axis.x * axis.y * (1 - cos) - axis.z * sin, cos + axis.y * axis.y * (1 - cos),
+						axis.z * axis.y * (1 - cos) + axis.z * sin), new Vector3d(
+								axis.x * axis.z * (1 - cos) + axis.y * sin, axis.y * axis.z * (1 - cos),
+								cos + axis.z * axis.z * (1 - cos)) };
 
 		double i, j, k;
 		i = dotProduct(rotationMatrix[0]);

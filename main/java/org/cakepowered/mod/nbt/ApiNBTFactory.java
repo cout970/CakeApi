@@ -19,7 +19,7 @@ import net.minecraft.nbt.NBTTagLong;
 import net.minecraft.nbt.NBTTagShort;
 import net.minecraft.nbt.NBTTagString;
 
-public class ApiNBTFactory implements NBTFactory{
+public class ApiNBTFactory implements NBTFactory {
 
 	public static final ApiNBTFactory INSTANCE = new ApiNBTFactory();
 
@@ -36,47 +36,46 @@ public class ApiNBTFactory implements NBTFactory{
 	@Override
 	public NBTBase newNBTBase(byte id, Object data) throws ClassCastException {
 		net.minecraft.nbt.NBTBase nbt = null;
-		switch (id)
-        {
-            case 0:
-            	nbt = new NBTTagEnd();
-            	break;
-            case 1:
-            	nbt = new NBTTagByte((Byte) data);
-            	break;
-            case 2:
-            	nbt = new NBTTagShort((Short)data);
-            	break;
-            case 3:
-            	nbt = new NBTTagInt((Integer) data);
-            	break;
-            case 4:
-            	nbt = new NBTTagLong((Long) data);
-            	break;
-            case 5:
-            	nbt = new NBTTagFloat((Float) data);
-            	break;
-            case 6:
-            	nbt = new NBTTagDouble((Double) data);
-            	break;
-            case 7:
-            	nbt = new NBTTagByteArray((byte[]) data);
-            	break;
-            case 8:
-            	nbt = new NBTTagString((String) data);
-            	break;
-            case 9:
-            	nbt = new NBTTagList();
-            	break;
-            case 10:
-            	nbt = new NBTTagCompound();
-            	break;
-            case 11:
-            	nbt = new NBTTagIntArray((int[]) data);
-            	break;
-            default:
-            	return null;
-        }
+		switch (id) {
+		case 0:
+			nbt = new NBTTagEnd();
+			break;
+		case 1:
+			nbt = new NBTTagByte((Byte) data);
+			break;
+		case 2:
+			nbt = new NBTTagShort((Short) data);
+			break;
+		case 3:
+			nbt = new NBTTagInt((Integer) data);
+			break;
+		case 4:
+			nbt = new NBTTagLong((Long) data);
+			break;
+		case 5:
+			nbt = new NBTTagFloat((Float) data);
+			break;
+		case 6:
+			nbt = new NBTTagDouble((Double) data);
+			break;
+		case 7:
+			nbt = new NBTTagByteArray((byte[]) data);
+			break;
+		case 8:
+			nbt = new NBTTagString((String) data);
+			break;
+		case 9:
+			nbt = new NBTTagList();
+			break;
+		case 10:
+			nbt = new NBTTagCompound();
+			break;
+		case 11:
+			nbt = new NBTTagIntArray((int[]) data);
+			break;
+		default:
+			return null;
+		}
 		return ForgeInterface.fromNBT(nbt);
 	}
 }

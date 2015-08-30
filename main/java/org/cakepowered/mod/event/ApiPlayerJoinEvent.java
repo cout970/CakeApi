@@ -7,10 +7,10 @@ import org.cakepowered.mod.util.ForgeInterface;
 
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 
-public class ApiPlayerJoinEvent implements PlayerJoinEvent{
+public class ApiPlayerJoinEvent implements PlayerJoinEvent {
 
 	public PlayerLoggedInEvent event;
-	
+
 	public ApiPlayerJoinEvent(PlayerLoggedInEvent e) {
 		event = e;
 	}

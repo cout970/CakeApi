@@ -4,11 +4,11 @@ import org.cakepowered.mod.util.IImplementation;
 
 import net.minecraft.nbt.NBTBase;
 
-public class ApiNBTBase implements org.cakepowered.api.nbt.NBTBase, IImplementation<NBTBase>{
-	
+public class ApiNBTBase implements org.cakepowered.api.nbt.NBTBase, IImplementation<NBTBase> {
+
 	protected NBTBase base;
-	
-	public ApiNBTBase(NBTBase b){
+
+	public ApiNBTBase(NBTBase b) {
 		base = b;
 	}
 
@@ -21,9 +21,9 @@ public class ApiNBTBase implements org.cakepowered.api.nbt.NBTBase, IImplementat
 	public org.cakepowered.api.nbt.NBTBase copy() {
 		return new ApiNBTBase(base.copy());
 	}
-	
+
 	@Override
-	public String toString(){
+	public String toString() {
 		return base.toString();
 	}
 

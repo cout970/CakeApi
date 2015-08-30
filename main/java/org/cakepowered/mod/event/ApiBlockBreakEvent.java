@@ -9,11 +9,11 @@ import org.cakepowered.mod.util.ForgeInterface;
 
 import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 
-public class ApiBlockBreakEvent implements BlockBreakEvent{
+public class ApiBlockBreakEvent implements BlockBreakEvent {
 
 	public BreakEvent event;
-	
-	public ApiBlockBreakEvent(BreakEvent e){
+
+	public ApiBlockBreakEvent(BreakEvent e) {
 		event = e;
 	}
 

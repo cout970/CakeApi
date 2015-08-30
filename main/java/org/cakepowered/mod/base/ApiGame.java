@@ -15,9 +15,10 @@ import org.cakepowered.mod.nbt.ApiNBTFactory;
 import org.cakepowered.mod.recipe.ApiRecipeManager;
 import org.cakepowered.mod.world.ApiWorldManager;
 
-public class ApiGame implements Game{
+public class ApiGame implements Game {
 
-	public ApiGame(){}
+	public ApiGame() {
+	}
 
 	@Override
 	public EventRegistry getEventRegistry() {

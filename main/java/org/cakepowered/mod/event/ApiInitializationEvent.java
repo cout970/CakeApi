@@ -5,14 +5,14 @@ import org.cakepowered.api.base.Log;
 import org.cakepowered.api.event.InitializationEvent;
 import org.cakepowered.mod.base.ApiLog;
 
-public class ApiInitializationEvent implements InitializationEvent{
+public class ApiInitializationEvent implements InitializationEvent {
 
 	public Game game;
-	
-	public ApiInitializationEvent(Game g){
+
+	public ApiInitializationEvent(Game g) {
 		game = g;
 	}
-	
+
 	@Override
 	public Game getGame() {
 		return game;
@@ -24,7 +24,8 @@ public class ApiInitializationEvent implements InitializationEvent{
 	}
 
 	@Override
-	public void setEventCanceled(boolean value) {}
+	public void setEventCanceled(boolean value) {
+	}
 
 	@Override
 	public boolean isEventCanceled() {

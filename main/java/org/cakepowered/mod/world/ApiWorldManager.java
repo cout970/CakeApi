@@ -14,24 +14,24 @@ import net.minecraftforge.fml.common.network.FMLOutboundHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
-public class ApiWorldManager implements WorldManager{
-	
+public class ApiWorldManager implements WorldManager {
+
 	public static final ApiWorldManager INSTANCE = new ApiWorldManager();
 	public static HashMap<Integer, Long> seeds = new HashMap<Integer, Long>();
-	
+
 	@Override
-	public World createFlatWorld(int id){
+	public World createFlatWorld(int id) {
 		DimensionManager.registerProviderType(2, FlatWorldProvider.class, true);
 		DimensionManager.registerDimension(id, 2);
 
 		return ForgeInterface.getWorld(DimensionManager.getWorld(id));
 	}
-	
+
 	@Override
 	public World getWorld(int id) {
 		return ForgeInterface.getWorld(DimensionManager.getWorld(id));
 	}
-	
+
 	@Override
 	public int getNextID() {
 		return DimensionManager.getNextFreeDimId();
@@ -45,15 +45,15 @@ public class ApiWorldManager implements WorldManager{
 
 		return ForgeInterface.getWorld(DimensionManager.getWorld(id));
 	}
-	
+
 	@Override
-	public void unloadDimension(int id){
+	public void unloadDimension(int id) {
 		DimensionManager.unloadWorld(id);
 	}
 
 	public void sendDimensionData(EntityPlayer player) {
-		for(int id : DimensionManager.getIDs()){
-			if(id != -1 && id != 0 && id != 1){
+		for (int id : DimensionManager.getIDs()) {
+			if (id != -1 && id != 0 && id != 1) {
 				FMLEmbeddedChannel serverChannel = NetworkRegistry.INSTANCE.getChannel("FORGE", Side.SERVER);
 				serverChannel.attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.PLAYER);
 				serverChannel.attr(FMLOutboundHandler.FML_MESSAGETARGETARGS).set(player);

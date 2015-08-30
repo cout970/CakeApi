@@ -19,11 +19,11 @@ public class Vector3i {
 	}
 
 	public Vector3i(double x, double y, double z) {
-		this((int)Math.floor(x), (int)Math.floor(y), (int)Math.floor(z));
+		this((int) Math.floor(x), (int) Math.floor(y), (int) Math.floor(z));
 	}
 
 	public Vector3i(int[] ar) {
-		this(ar[0],ar[1],ar[2]);
+		this(ar[0], ar[1], ar[2]);
 	}
 
 	public Vector3i getOpposite() {
@@ -38,7 +38,8 @@ public class Vector3i {
 			return false;
 		} else {
 			Vector3i vecInt = (Vector3i) obj;
-			return this.getX() != vecInt.getX() ? false : (this.getY() != vecInt.getY() ? false : this.getZ() == vecInt.getZ());
+			return this.getX() != vecInt
+					.getX() ? false : (this.getY() != vecInt.getY() ? false : this.getZ() == vecInt.getZ());
 		}
 	}
 
@@ -48,7 +49,8 @@ public class Vector3i {
 	}
 
 	public int compareTo(Vector3i vec) {
-		return this.getY() == vec.getY() ? (this.getZ() == vec.getZ() ? this.getX() - vec.getX() : this.getZ() - vec.getZ()) : this.getY() - vec.getY();
+		return this.getY() == vec.getY() ? (this.getZ() == vec.getZ() ? this.getX() - vec.getX() : this
+				.getZ() - vec.getZ()) : this.getY() - vec.getY();
 	}
 
 	public int getX() {
@@ -62,12 +64,12 @@ public class Vector3i {
 	public int getZ() {
 		return this.z;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "x: "+getX()+", y: "+getY()+", z: "+getZ();
+		return "x: " + getX() + ", y: " + getY() + ", z: " + getZ();
 	}
-	
+
 	public Vector3i multiply(int i) {
 		x *= i;
 		y *= i;
@@ -81,43 +83,43 @@ public class Vector3i {
 		z += v.z;
 		return this;
 	}
-	
+
 	public Vector3i add(int a, int b, int c) {
 		x += a;
 		y += b;
 		z += c;
 		return this;
 	}
-	
+
 	public Vector3i add(Direction dir) {
 		return add(dir.getOffsetX(), dir.getOffsetY(), dir.getOffsetZ());
 	}
 
 	public Vector3i copy() {
-		return new Vector3i(x,y,z);
+		return new Vector3i(x, y, z);
 	}
-	
+
 	public int[] intArray() {
-		return new int[]{x,y,z};
+		return new int[] { x, y, z };
 	}
 
 	public int magnitude() {
-		return x*x+y*y+z*z;
+		return x * x + y * y + z * z;
 	}
 
 	public Vector3d toVector3d() {
 		return new Vector3d(getX(), getY(), getZ());
 	}
-	
-	public TileEntity getTileEntity(World w){
+
+	public TileEntity getTileEntity(World w) {
 		return w.getTileEntity(this);
 	}
-	
-	public BlockState getBlockState(World w){
+
+	public BlockState getBlockState(World w) {
 		return w.getBlockState(this);
 	}
-	
-	public Block getBlock(World w){
+
+	public Block getBlock(World w) {
 		return w.getBlock(this);
 	}
 }

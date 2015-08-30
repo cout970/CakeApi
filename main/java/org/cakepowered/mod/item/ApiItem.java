@@ -7,11 +7,11 @@ import org.cakepowered.mod.util.PluginInterface;
 
 import net.minecraft.item.Item;
 
-public class ApiItem implements org.cakepowered.api.item.Item, IImplementation<Item>{
+public class ApiItem implements org.cakepowered.api.item.Item, IImplementation<Item> {
 
 	protected Item item;
-	
-	public ApiItem(Item it){
+
+	public ApiItem(Item it) {
 		item = it;
 	}
 

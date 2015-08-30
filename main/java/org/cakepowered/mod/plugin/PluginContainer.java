@@ -25,32 +25,32 @@ import net.minecraftforge.fml.common.versioning.ArtifactVersion;
 import net.minecraftforge.fml.common.versioning.DefaultArtifactVersion;
 import net.minecraftforge.fml.common.versioning.VersionRange;
 
-public class PluginContainer implements ModContainer{
-	
+public class PluginContainer implements ModContainer {
+
 	public String pluginClass;
 	public ModCandidate modCandidate;
 	public Map<String, Object> pluginDescriptor;
 	public ModMetadata metadata;
 	public boolean enabled = true;
 	public EventBus eventBus;
-    public LoadController controller;
-    public Object pluginInstance;
-    public File source;
+	public LoadController controller;
+	public Object pluginInstance;
+	public File source;
 
-	public PluginContainer(String className, ModCandidate candidate, Map<String, Object> descriptor){
+	public PluginContainer(String className, ModCandidate candidate, Map<String, Object> descriptor) {
 		this.pluginClass = className;
 		this.modCandidate = candidate;
 		this.pluginDescriptor = descriptor;
 		source = candidate.getModContainer();
 	}
-	
+
 	@Subscribe
-	public void constructMod(FMLConstructionEvent event){
+	public void constructMod(FMLConstructionEvent event) {
 		try {
 			ModClassLoader modClassLoader = event.getModClassLoader();
-            modClassLoader.addFile(source);
-            modClassLoader.clearNegativeCacheFor(modCandidate.getClassList());
-            Class<?> clazz = Class.forName(pluginClass, true, modClassLoader);
+			modClassLoader.addFile(source);
+			modClassLoader.clearNegativeCacheFor(modCandidate.getClassList());
+			Class<?> clazz = Class.forName(pluginClass, true, modClassLoader);
 			pluginInstance = clazz.newInstance();
 			PluginManager.registerPlugin(this, pluginInstance);
 		} catch (InstantiationException e) {
@@ -90,22 +90,22 @@ public class PluginContainer implements ModContainer{
 	}
 
 	@Override
-    public void bindMetadata(MetadataCollection mc) {
-		
-        metadata = mc.getMetadataForId(getModId(), this.pluginDescriptor);
+	public void bindMetadata(MetadataCollection mc) {
 
-        String annotationDependencies = (String) this.pluginDescriptor.get("dependencies");
+		metadata = mc.getMetadataForId(getModId(), this.pluginDescriptor);
 
-        Set<ArtifactVersion> requirements = Sets.newHashSet();
-        List<ArtifactVersion> dependencies = Lists.newArrayList();
-        List<ArtifactVersion> dependants = Lists.newArrayList();
+		String annotationDependencies = (String) this.pluginDescriptor.get("dependencies");
 
-        Loader.instance().computeDependencies(annotationDependencies, requirements, dependencies, dependants);
+		Set<ArtifactVersion> requirements = Sets.newHashSet();
+		List<ArtifactVersion> dependencies = Lists.newArrayList();
+		List<ArtifactVersion> dependants = Lists.newArrayList();
 
-        metadata.requiredMods = requirements;
-        metadata.dependencies = dependencies;
-        metadata.dependants = dependants;
-    }
+		Loader.instance().computeDependencies(annotationDependencies, requirements, dependencies, dependants);
+
+		metadata.requiredMods = requirements;
+		metadata.dependencies = dependencies;
+		metadata.dependants = dependants;
+	}
 
 	@Override
 	public void setEnabledState(boolean enabled) {
@@ -113,35 +113,35 @@ public class PluginContainer implements ModContainer{
 	}
 
 	@Override
-    public Set<ArtifactVersion> getRequirements() {
-        return this.metadata.requiredMods;
-    }
+	public Set<ArtifactVersion> getRequirements() {
+		return this.metadata.requiredMods;
+	}
 
-    @Override
-    public List<ArtifactVersion> getDependencies() {
-        return this.metadata.dependencies;
-    }
+	@Override
+	public List<ArtifactVersion> getDependencies() {
+		return this.metadata.dependencies;
+	}
 
-    @Override
-    public List<ArtifactVersion> getDependants() {
-        return this.metadata.dependants;
-    }
+	@Override
+	public List<ArtifactVersion> getDependants() {
+		return this.metadata.dependants;
+	}
 
-    @Override
-    public String getSortingRules() {
-        return (String) this.pluginDescriptor.get("dependencies");
-    }
+	@Override
+	public String getSortingRules() {
+		return (String) this.pluginDescriptor.get("dependencies");
+	}
 
-    @Override
-    public boolean registerBus(EventBus bus, LoadController controller) {
-        if (enabled) {
-            eventBus = bus;
-            this.controller = controller;
-            bus.register(this);
-            return true;
-        }
-        return false;
-    }
+	@Override
+	public boolean registerBus(EventBus bus, LoadController controller) {
+		if (enabled) {
+			eventBus = bus;
+			this.controller = controller;
+			bus.register(this);
+			return true;
+		}
+		return false;
+	}
 
 	@Override
 	public boolean matches(Object mod) {
@@ -190,12 +190,12 @@ public class PluginContainer implements ModContainer{
 
 	@Override
 	public Map<String, String> getSharedModDescriptor() {
-		Map<String,String> descriptor = Maps.newHashMap();
-        descriptor.put("modsystem", "CakeApi");
-        descriptor.put("id", getModId());
-        descriptor.put("version",getDisplayVersion());
-        descriptor.put("name", getName());
-        return descriptor;
+		Map<String, String> descriptor = Maps.newHashMap();
+		descriptor.put("modsystem", "CakeApi");
+		descriptor.put("id", getModId());
+		descriptor.put("version", getDisplayVersion());
+		descriptor.put("name", getName());
+		return descriptor;
 	}
 
 	@Override
@@ -217,9 +217,9 @@ public class PluginContainer implements ModContainer{
 	public boolean shouldLoadInEnvironment() {
 		return true;
 	}
-	
+
 	@Override
-    public String toString() {
-        return "Cake Plugin:" + getName() + "(" + getVersion() + ")";
-    }
+	public String toString() {
+		return "Cake Plugin:" + getName() + "(" + getVersion() + ")";
+	}
 }

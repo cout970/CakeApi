@@ -20,6 +20,6 @@ public interface Game {
 	public MinecraftFinder getFinder();
 
 	public MessageDispatcher getMessageDispatcher();
-	
+
 	public RecipeManager getRecipeManager();
 }

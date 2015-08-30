@@ -10,14 +10,14 @@ import org.cakepowered.mod.util.ForgeInterface;
 
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
-public class ApiPlayerInteractEvent implements org.cakepowered.api.event.PlayerInteractEvent{
+public class ApiPlayerInteractEvent implements org.cakepowered.api.event.PlayerInteractEvent {
 
 	public PlayerInteractEvent event;
-	
-	public ApiPlayerInteractEvent(PlayerInteractEvent e){
+
+	public ApiPlayerInteractEvent(PlayerInteractEvent e) {
 		event = e;
 	}
-	
+
 	@Override
 	public Player getPlayer() {
 		return ForgeInterface.getPlayer(event.entityPlayer);
@@ -60,7 +60,8 @@ public class ApiPlayerInteractEvent implements org.cakepowered.api.event.PlayerI
 
 	@Override
 	public ClickAction getAction() {
-		if(event.action == null)return null;
+		if (event.action == null)
+			return null;
 		return ClickAction.values()[event.action.ordinal()];
 	}
 
@@ -73,9 +74,9 @@ public class ApiPlayerInteractEvent implements org.cakepowered.api.event.PlayerI
 	public World getWorld() {
 		return ForgeInterface.getWorld(event.world);
 	}
-	
+
 	@Override
-	public Block getInteractBlock(){
-		return  ForgeInterface.getGame().getServer().getWorld(getPlayer().getDimensionID()).getBlock(getPosition());
+	public Block getInteractBlock() {
+		return ForgeInterface.getGame().getServer().getWorld(getPlayer().getDimensionID()).getBlock(getPosition());
 	}
 }

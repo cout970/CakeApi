@@ -16,7 +16,7 @@ import net.minecraftforge.fml.common.registry.EntityRegistry.EntityRegistration;
 public class ApiEntity implements org.cakepowered.api.base.Entity, IImplementation<Entity> {
 
 	protected Entity entity;
-	
+
 	public ApiEntity(net.minecraft.entity.Entity target) {
 		entity = target;
 	}
@@ -43,13 +43,15 @@ public class ApiEntity implements org.cakepowered.api.base.Entity, IImplementati
 
 	@Override
 	public org.cakepowered.api.base.Entity getRiddingEntity() {
-		if(entity.ridingEntity == null)return null;
+		if (entity.ridingEntity == null)
+			return null;
 		return ForgeInterface.getEntity(entity.ridingEntity);
 	}
 
 	@Override
 	public org.cakepowered.api.base.Entity getRiddingByEntity() {
-		if(entity.riddenByEntity == null)return null;
+		if (entity.riddenByEntity == null)
+			return null;
 		return ForgeInterface.getEntity(entity.riddenByEntity);
 	}
 
@@ -71,14 +73,16 @@ public class ApiEntity implements org.cakepowered.api.base.Entity, IImplementati
 	@Override
 	public String getModID() {
 		EntityRegistration er = EntityRegistry.instance().lookupModSpawn(entity.getClass(), false);
-		if(er == null)return null;
+		if (er == null)
+			return null;
 		ModContainer mc = er.getContainer();
-		if(mc == null)return null;
+		if (mc == null)
+			return null;
 		return mc.getModId();
 	}
 
 	@Override
-	public void setDead() {	
+	public void setDead() {
 		entity.setDead();
 	}
 

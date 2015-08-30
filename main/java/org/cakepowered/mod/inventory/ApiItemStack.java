@@ -11,19 +11,19 @@ import org.cakepowered.mod.util.PluginInterface;
 
 import net.minecraft.item.ItemStack;
 
-public class ApiItemStack implements org.cakepowered.api.inventory.ItemStack, IImplementation<ItemStack>{
+public class ApiItemStack implements org.cakepowered.api.inventory.ItemStack, IImplementation<ItemStack> {
 
 	protected ItemStack stack;
-	
-	public ApiItemStack(ItemStack stack){
+
+	public ApiItemStack(ItemStack stack) {
 		this.stack = stack;
 	}
 
 	@Override
-	public int getDamage(){
+	public int getDamage() {
 		return stack.getItemDamage();
 	}
-	
+
 	@Override
 	public Item getItem() {
 		return ForgeInterface.getItem(stack.getItem());
@@ -48,7 +48,7 @@ public class ApiItemStack implements org.cakepowered.api.inventory.ItemStack, II
 	public NBTCompund getNBTCompound() {
 		return (NBTCompund) ForgeInterface.fromNBT(stack.getTagCompound());
 	}
-	
+
 	@Override
 	public int getStackSize() {
 		return stack.stackSize;
@@ -61,7 +61,7 @@ public class ApiItemStack implements org.cakepowered.api.inventory.ItemStack, II
 
 	@Override
 	public void setItem(Item item) {
-		
+
 	}
 
 	@Override
@@ -73,9 +73,9 @@ public class ApiItemStack implements org.cakepowered.api.inventory.ItemStack, II
 	public void setStackSize(int amount) {
 		stack.stackSize = amount;
 	}
-	
+
 	@Override
-	public String toString(){
+	public String toString() {
 		return stack.toString();
 	}
 
@@ -158,10 +158,10 @@ public class ApiItemStack implements org.cakepowered.api.inventory.ItemStack, II
 	public void setRepairCost(int cost) {
 		stack.setRepairCost(cost);
 	}
-	
+
 	@Override
-	public boolean equals(Object o){
-		if(o instanceof ApiItemStack){
+	public boolean equals(Object o) {
+		if (o instanceof ApiItemStack) {
 			return stack.equals(((ApiItemStack) o).stack);
 		}
 		return false;

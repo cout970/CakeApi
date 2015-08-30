@@ -13,7 +13,7 @@ public interface CommandExecutor {
 	List<String> getAllias();
 
 	void execute(CommandSender commandSender, String[] args);
-	
+
 	List<String> addTabCompletionOptions(CommandSender sender, String[] args, Vector3i pos);
-	
+
 }

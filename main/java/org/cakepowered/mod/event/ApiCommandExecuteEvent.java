@@ -8,11 +8,11 @@ import org.cakepowered.mod.util.ForgeInterface;
 
 import net.minecraftforge.event.CommandEvent;
 
-public class ApiCommandExecuteEvent implements CommandExecuteEvent{
+public class ApiCommandExecuteEvent implements CommandExecuteEvent {
 
 	public CommandEvent event;
-	
-	public ApiCommandExecuteEvent(CommandEvent e){
+
+	public ApiCommandExecuteEvent(CommandEvent e) {
 		event = e;
 	}
 

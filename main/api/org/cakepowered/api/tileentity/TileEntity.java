@@ -9,19 +9,19 @@ import org.cakepowered.api.world.World;
 public interface TileEntity {
 
 	public World getWorld();
-	
+
 	public Vector3i getPosition();
-	
+
 	public boolean isEquivalentTo(TileEntity t);
-	
+
 	/**
 	 * Returns the inventory associated with the tileEntity, can be null.
 	 */
 	public Inventory getInventory();
-	
+
 	public void readFromNBT(NBTCompund nbt);
-	
+
 	public void writeToNBT(NBTCompund nbt);
-	
+
 	public void syncPlayer(Player p);
 }

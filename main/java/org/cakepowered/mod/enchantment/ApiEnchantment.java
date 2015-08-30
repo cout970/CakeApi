@@ -4,11 +4,12 @@ import org.cakepowered.mod.util.IImplementation;
 
 import net.minecraft.enchantment.Enchantment;
 
-public class ApiEnchantment implements org.cakepowered.api.enchantment.Enchantment, IImplementation<net.minecraft.enchantment.Enchantment>{
+public class ApiEnchantment
+		implements org.cakepowered.api.enchantment.Enchantment, IImplementation<net.minecraft.enchantment.Enchantment> {
 
 	protected Enchantment ench;
-	
-	public ApiEnchantment(net.minecraft.enchantment.Enchantment ench){
+
+	public ApiEnchantment(net.minecraft.enchantment.Enchantment ench) {
 		this.ench = ench;
 	}
 

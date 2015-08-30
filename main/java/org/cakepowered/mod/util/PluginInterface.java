@@ -41,24 +41,28 @@ import net.minecraft.util.Vec3;
 public class PluginInterface {
 
 	public static IBlockState getBlockState(BlockState state) {
-		if(state == null)return null;
-		return ((ApiBlockState)state).getMcObject();
+		if (state == null)
+			return null;
+		return ((ApiBlockState) state).getMcObject();
 	}
 
 	public static net.minecraft.item.ItemStack getItemStack(ItemStack stack) {
-		if(stack == null)return null;
-		return ((ApiItemStack)stack).getMcObject();
+		if (stack == null)
+			return null;
+		return ((ApiItemStack) stack).getMcObject();
 	}
 
 	public static net.minecraft.enchantment.Enchantment getEnchantment(Enchantment ench) {
-		if(ench == null)return null;
-		return ((ApiEnchantment)ench).getMcObject();
+		if (ench == null)
+			return null;
+		return ((ApiEnchantment) ench).getMcObject();
 	}
 
 	public static EnumChatFormatting getEnumChatFormatting(TextModifier color) {
-		if(color == null)return null;
-		for(EnumChatFormatting s : EnumChatFormatting.values()){
-			if(s.name().equals(color.name)){
+		if (color == null)
+			return null;
+		for (EnumChatFormatting s : EnumChatFormatting.values()) {
+			if (s.name().equals(color.name)) {
 				return s;
 			}
 		}
@@ -66,61 +70,72 @@ public class PluginInterface {
 	}
 
 	public static BlockPos getBlockPos(Vector3i v) {
-		if(v == null)return null;
+		if (v == null)
+			return null;
 		return new BlockPos(v.getX(), v.getY(), v.getZ());
 	}
 
 	public static BlockPos getBlockPos(Vector3d v) {
-		if(v == null)return null;
+		if (v == null)
+			return null;
 		return new BlockPos(v.getX(), v.getY(), v.getZ());
 	}
 
 	public static Vec3 getVec3(Vector3d v) {
-		if(v == null)return null;
+		if (v == null)
+			return null;
 		return new Vec3(v.getX(), v.getY(), v.getZ());
 	}
 
 	public static net.minecraft.block.Block getBlock(Block block) {
-		if(block == null)return null;
+		if (block == null)
+			return null;
 		return ((ApiBlock) block).getMcObject();
 	}
 
 	public static net.minecraft.item.Item getItem(Item item) {
-		if(item == null)return null;
-		return ((ApiItem)item).getMcObject();
+		if (item == null)
+			return null;
+		return ((ApiItem) item).getMcObject();
 	}
 
 	public static net.minecraft.entity.Entity getEntity(Entity entity) {
-		if(entity == null)return null;
-		return ((ApiEntity)entity).getMcObject();
+		if (entity == null)
+			return null;
+		return ((ApiEntity) entity).getMcObject();
 	}
 
 	public static MinecraftServer getServer(Server server) {
-		if(server == null)return null;
-		return ((ApiServer)server).getMcObject();
+		if (server == null)
+			return null;
+		return ((ApiServer) server).getMcObject();
 	}
 
 	public static NBTTagCompound getNBT(NBTCompund nbt) {
-		return (NBTTagCompound) ((ApiNBTCompund)nbt).getMcObject();
+		return (NBTTagCompound) ((ApiNBTCompund) nbt).getMcObject();
 	}
 
 	public static IInventory getInventory(Inventory inv) {
-		if(inv == null)return null;
-		return ((ApiInventory)inv).getMcObject();
+		if (inv == null)
+			return null;
+		return ((ApiInventory) inv).getMcObject();
 	}
 
-	public static ICommandSender getCommandSender(CommandSender sender){
-		if(sender == null)return null;
-		return ((ApiCommandSender)sender).getMcObject();
+	public static ICommandSender getCommandSender(CommandSender sender) {
+		if (sender == null)
+			return null;
+		return ((ApiCommandSender) sender).getMcObject();
 	}
 
 	public static EntityPlayer getPlayer(Player player) {
-		if(player == null)return null;
-		return ((ApiPlayer)player).getMcPlayer();
+		if (player == null)
+			return null;
+		return ((ApiPlayer) player).getMcPlayer();
 	}
 
 	public static net.minecraft.nbt.NBTBase getNBTBase(NBTBase nbt) {
-		if(nbt == null)return null;
-		return ((ApiNBTBase)nbt).getMcObject();
+		if (nbt == null)
+			return null;
+		return ((ApiNBTBase) nbt).getMcObject();
 	}
 }
