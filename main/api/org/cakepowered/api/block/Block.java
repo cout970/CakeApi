@@ -1,6 +1,7 @@
 package org.cakepowered.api.block;
 
 import org.cakepowered.api.inventory.ItemStack;
+import org.cakepowered.api.item.Item;
 
 public interface Block {
 	
@@ -24,4 +25,6 @@ public interface Block {
 	public int getMetadataFromState(BlockState state);
 	
 	public BlockState getStateFromMetadata(int meta);
+	
+	public Item toItem();
 }

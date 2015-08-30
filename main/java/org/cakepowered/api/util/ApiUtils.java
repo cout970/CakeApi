@@ -1,5 +1,6 @@
 package org.cakepowered.api.util;
 
+import org.cakepowered.api.enchantment.Enchantments;
 import org.cakepowered.api.tileentity.TileEntities;
 
 import net.minecraft.tileentity.TileEntityBanner;
@@ -24,7 +25,7 @@ import net.minecraft.tileentity.TileEntitySkull;
 
 public class ApiUtils {
 
-	public static void registerEntities() {
+	public static void registerTileEntities() {
 		TileEntities.BANNER = ForgeInterface.getTileEntity(new TileEntityBanner());
 		TileEntities.COMMAND_BLOCK = ForgeInterface.getTileEntity(new TileEntityCommandBlock());
 		TileEntities.COMPARATOR = ForgeInterface.getTileEntity(new TileEntityComparator());
@@ -44,5 +45,33 @@ public class ApiUtils {
 		TileEntities.NOTEBLOCK = ForgeInterface.getTileEntity(new TileEntityNote());
 		TileEntities.SIGN = ForgeInterface.getTileEntity(new TileEntitySign());
 		TileEntities.SKULL = ForgeInterface.getTileEntity(new TileEntitySkull());
+	}
+
+	public static void registerEnchantments() {
+		Enchantments.protection = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.protection);
+		Enchantments.fireProtection = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.fireProtection);
+		Enchantments.featherFalling = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.featherFalling);
+		Enchantments.blastProtection = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.blastProtection);
+		Enchantments.projectileProtection = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.projectileProtection);
+		Enchantments.respiration = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.respiration);
+		Enchantments.aquaAffinity = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.aquaAffinity);
+		Enchantments.thorns = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.thorns);
+		Enchantments.depthStrider = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.depthStrider);
+		Enchantments.sharpness = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.sharpness);
+		Enchantments.smite = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.smite);
+		Enchantments.baneOfArthropods = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.baneOfArthropods);
+		Enchantments.knockback = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.knockback);
+		Enchantments.fireAspect = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.fireAspect);
+		Enchantments.looting = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.looting);
+		Enchantments.efficiency = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.efficiency);
+		Enchantments.silkTouch = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.silkTouch);
+		Enchantments.unbreaking = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.unbreaking);
+		Enchantments.fortune = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.fortune);
+		Enchantments.power = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.power);
+		Enchantments.punch = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.punch);
+		Enchantments.flame = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.flame);
+		Enchantments.infinity = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.infinity);
+		Enchantments.luckOfTheSea = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.luckOfTheSea);
+		Enchantments.lure = ForgeInterface.getEnchantment(net.minecraft.enchantment.Enchantment.lure);
 	}
 }

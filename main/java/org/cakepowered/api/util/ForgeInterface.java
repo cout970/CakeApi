@@ -10,9 +10,11 @@ import org.cakepowered.api.command.CommandExecutor;
 import org.cakepowered.api.command.CommandSender;
 import org.cakepowered.api.commands.ApiCommand;
 import org.cakepowered.api.commands.ApiCommandSender;
+import org.cakepowered.api.enchantment.Enchantment;
 import org.cakepowered.api.event.Event.EventResult;
 import org.cakepowered.api.implement.ApiBlock;
 import org.cakepowered.api.implement.ApiBlockState;
+import org.cakepowered.api.implement.ApiEnchantment;
 import org.cakepowered.api.implement.ApiEntity;
 import org.cakepowered.api.implement.ApiInventory;
 import org.cakepowered.api.implement.ApiItem;
@@ -130,5 +132,10 @@ public class ForgeInterface {
 	public static CommandExecutor getCommandExecutor(ICommand command) {
 		if(command == null)return null;
 		return new ApiCommand(command);
+	}
+
+	public static Enchantment getEnchantment(net.minecraft.enchantment.Enchantment ench) {
+		if(ench == null)return null;
+		return new ApiEnchantment(ench);
 	}
 }
