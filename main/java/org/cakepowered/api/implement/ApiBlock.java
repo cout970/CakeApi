@@ -3,6 +3,7 @@ package org.cakepowered.api.implement;
 import org.cakepowered.api.block.Block;
 import org.cakepowered.api.block.BlockState;
 import org.cakepowered.api.inventory.ItemStack;
+import org.cakepowered.api.item.Item;
 import org.cakepowered.api.util.ForgeInterface;
 import org.cakepowered.api.util.IImplementation;
 import org.cakepowered.api.util.PluginInterface;
@@ -56,5 +57,10 @@ public class ApiBlock implements Block, IImplementation<net.minecraft.block.Bloc
 	@Override
 	public net.minecraft.block.Block getMcObject() {
 		return block;
+	}
+
+	@Override
+	public Item toItem() {
+		return ForgeInterface.getItem(net.minecraft.item.Item.getItemFromBlock(block));
 	}
 }

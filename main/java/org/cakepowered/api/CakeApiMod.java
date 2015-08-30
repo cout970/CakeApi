@@ -3,6 +3,7 @@ package org.cakepowered.api;
 import org.cakepowered.api.base.CakePlugin;
 import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Log;
+import org.cakepowered.api.base.References;
 import org.cakepowered.api.base.Server;
 import org.cakepowered.api.events.ApiInitializationEvent;
 import org.cakepowered.api.events.ApiServerStartingEvent;
@@ -34,61 +35,63 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
 
-public class CakeApiMod extends DummyModContainer{
+public class CakeApiMod extends DummyModContainer {
 
 	public static Log logger;
 	public static Game game;
 	public static Server server;
-	
+
 	public CakeApiMod INSTANCE;
-	
-	public CakeApiMod(){
+
+	public CakeApiMod() {
 		super(new ModMetadata());
-		//plugin loader
+		// plugin loader
 		ModContainerFactory.instance().registerContainerType(Type.getType(CakePlugin.class), PluginContainer.class);
 		INSTANCE = this;
-		TextUtils.registerModifiers();
-		ApiUtils.registerBlocks();
-		ApiUtils.registerEntities();
 	}
 
 	@Subscribe
-	public void preInit(FMLPreInitializationEvent event){
+	public void preInit(FMLPreInitializationEvent event) {
 		logger = new ApiLog(Ref.MODID);
 		game = new ApiGame();
-		
+		References.GAME = game;
+
+		TextUtils.registerModifiers();
+		ApiUtils.registerTileEntities();
+		ApiUtils.registerEnchantments();
+
 		MinecraftForge.EVENT_BUS.register(new EventRedirect());
 		FMLCommonHandler.instance().bus().register(new EventRedirect());
 	}
 
 	@Subscribe
-	public void Init(FMLInitializationEvent event){
+	public void Init(FMLInitializationEvent event) {
 		server = new ApiServer(MinecraftServer.getServer());
+		References.SERVER = server;
 		logger.info("Starting Plugin InitializationEvent");
 		ApiEventRegistry.INSTANCE.postEvent(new ApiInitializationEvent(game));
-		
+
 	}
-	
+
 	@Subscribe
-	public void postInit(FMLPostInitializationEvent event){
-		
+	public void postInit(FMLPostInitializationEvent event) {
 	}
-	
+
 	@Subscribe
-	public void onServerStart(FMLServerStartingEvent event){
+	public void onServerStart(FMLServerStartingEvent event) {
 		ApiEventRegistry.INSTANCE.postEvent(new ApiServerStartingEvent(event, server));
 	}
-	
+
 	@Subscribe
-	public void onServerStop(FMLServerStoppingEvent event){
+	public void onServerStop(FMLServerStoppingEvent event) {
 		ApiEventRegistry.INSTANCE.postEvent(new ApiServerStoppingEvent(event, server));
 	}
-	
+
 	@Override
-    public boolean registerBus(EventBus bus, LoadController controller){
+	public boolean registerBus(EventBus bus, LoadController controller) {
 		bus.register(INSTANCE);
-        return true;
-    }
+		return true;
+	}
 
 	@Override
 	public Object getMod() {
@@ -96,27 +99,27 @@ public class CakeApiMod extends DummyModContainer{
 	}
 
 	@Override
-	public String getModId(){
+	public String getModId() {
 		return Ref.MODID;
 	}
 
 	@Override
-	public String getName(){
+	public String getName() {
 		return Ref.MODNAME;
 	}
-	
+
 	@Override
-	public String getVersion(){
+	public String getVersion() {
 		return Ref.VERSION;
 	}
 
 	@Override
-	public boolean matches(Object mod){
+	public boolean matches(Object mod) {
 		return mod == INSTANCE;
 	}
-	
+
 	@Override
-    public String getDisplayVersion(){
-        return getVersion();
-    }
+	public String getDisplayVersion() {
+		return getVersion();
+	}
 }

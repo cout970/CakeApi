@@ -24,7 +24,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.event.ClickEvent;
 import net.minecraft.event.ClickEvent.Action;
-import net.minecraft.potion.Potion;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryEnderChest;
 import net.minecraft.network.Packet;
@@ -38,7 +37,6 @@ import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.WorldSettings.GameType;
-import scala.reflect.api.Positions;
 
 public class ApiPlayer extends ApiEntity implements Player {
 
@@ -47,6 +45,8 @@ public class ApiPlayer extends ApiEntity implements Player {
 	public ApiPlayer(EntityPlayer player) {
 		super(player);
 		this.player = player;
+		Packet packet = new S29PacketSoundEffect("sound", player.posX, player.posY, player.posZ, 1, 1);
+		((EntityPlayerMP) player).playerNetServerHandler.sendPacket(packet);
 	}
 	
 	@Override
@@ -253,7 +253,8 @@ public class ApiPlayer extends ApiEntity implements Player {
 	}
 
 	@Override
-	public void addPotionEffect(int id, int effectDuration, int effectAmplifier, boolean ambient, boolean showParticles){
+	public void addPotionEffect(int id, int effectDuration, int effectAmplifier, boolean ambient,
+			boolean showParticles) {
 		player.addPotionEffect(new PotionEffect(id, effectDuration, effectAmplifier, ambient, showParticles));
 	}
 	
