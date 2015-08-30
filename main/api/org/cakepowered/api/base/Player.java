@@ -65,4 +65,6 @@ public interface Player extends Entity {
 	public void addPotionEffect(int id, int duration, int amplification, boolean ambient, boolean showParticles);
 
 	public void clearActivePotions();
+
+	public void playSound(String sound, float volume, float pitch);
 }

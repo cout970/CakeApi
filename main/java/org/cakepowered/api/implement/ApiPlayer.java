@@ -27,6 +27,8 @@ import net.minecraft.event.ClickEvent.Action;
 import net.minecraft.potion.Potion;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryEnderChest;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S29PacketSoundEffect;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.scoreboard.ScorePlayerTeam;
 import net.minecraft.server.MinecraftServer;
@@ -45,6 +47,12 @@ public class ApiPlayer extends ApiEntity implements Player {
 	public ApiPlayer(EntityPlayer player) {
 		super(player);
 		this.player = player;
+	}
+	
+	@Override
+	public void playSound(String sound, float volume, float pitch){
+		Packet packet = new S29PacketSoundEffect(sound, player.posX, player.posY, player.posZ, volume, pitch);
+		((EntityPlayerMP) player).playerNetServerHandler.sendPacket(packet);
 	}
 
 	@Override
