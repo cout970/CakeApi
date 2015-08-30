@@ -10,6 +10,7 @@ import org.cakepowered.api.command.CommandDispatcher;
 import org.cakepowered.api.commands.ApiCommandDispatcher;
 import org.cakepowered.api.nbt.ApiNBTFactory;
 import org.cakepowered.api.nbt.NBTFactory;
+import org.cakepowered.api.recipe.RecipeManager;
 import org.cakepowered.api.world.ApiWorldManager;
 import org.cakepowered.api.world.WorldManager;
 
@@ -50,5 +51,10 @@ public class ApiGame implements Game{
 	@Override
 	public MessageDispatcher getMessageDispatcher() {
 		return ApiMessageDispatcher.INSTANCE;
+	}
+
+	@Override
+	public RecipeManager getRecipeManager() {
+		return ApiRecipeManager.INSTANCE;
 	}
 }
