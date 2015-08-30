@@ -48,6 +48,12 @@ public class ApiPlayer extends ApiEntity implements Player {
 		Packet packet = new S29PacketSoundEffect("sound", player.posX, player.posY, player.posZ, 1, 1);
 		((EntityPlayerMP) player).playerNetServerHandler.sendPacket(packet);
 	}
+	
+	@Override
+	public void playSound(String sound, float volume, float pitch){
+		Packet packet = new S29PacketSoundEffect(sound, player.posX, player.posY, player.posZ, volume, pitch);
+		((EntityPlayerMP) player).playerNetServerHandler.sendPacket(packet);
+	}
 
 	@Override
 	public String getUserName() {
