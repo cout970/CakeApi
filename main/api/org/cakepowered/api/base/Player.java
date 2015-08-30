@@ -48,8 +48,7 @@ public interface Player extends Entity {
 	public Inventory getPlayerEnderChest();
 
 	/**
-	 * Returns the itemstack in the player inventory that is selected in the
-	 * hotbar
+	 * Returns the itemstack in the player inventory that is selected in the hotbar
 	 */
 	public ItemStack getCurrentItem();
 

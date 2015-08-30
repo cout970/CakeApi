@@ -1,23 +1,22 @@
 package org.cakepowered.api.util;
 
 public class PreciseLocation {
-	
+
 	protected int dimension;
 	protected Vector3d position;
 	protected float yaw;
 	protected float pitch;
-	
-	public PreciseLocation(int d, Vector3d pos, float y, float p){
+
+	public PreciseLocation(int d, Vector3d pos, float y, float p) {
 		dimension = d;
 		position = pos.copy();
 		yaw = y;
 		pitch = p;
 	}
-	
-	public PreciseLocation(int d, double x, double y, double z, float yaw, float pitch){
+
+	public PreciseLocation(int d, double x, double y, double z, float yaw, float pitch) {
 		this(d, new Vector3d(x, y, z), yaw, pitch);
 	}
-	
 
 	public int getDimension() {
 		return dimension;
@@ -26,7 +25,7 @@ public class PreciseLocation {
 	public Vector3d getPosition() {
 		return position;
 	}
-	
+
 	public double getX() {
 		return position.getX();
 	}
@@ -38,11 +37,12 @@ public class PreciseLocation {
 	public double getZ() {
 		return position.getZ();
 	}
-	
-	public float getPitch(){
+
+	public float getPitch() {
 		return pitch;
 	}
-	public float getYaw(){
+
+	public float getYaw() {
 		return yaw;
 	}
 

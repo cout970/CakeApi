@@ -191,21 +191,21 @@ public enum Items {
 	RECORD_WARD("record_ward"),
 	RECORD_11("record_11"),
 	RECORD_WAIT("record_wait");
-	
+
 	private final String name;
-	
-	private Items(String name){
+
+	private Items(String name) {
 		this.name = name;
 	}
-	
-	public Item getItem(){
+
+	public Item getItem() {
 		return References.GAME.getFinder().findItem("minecraft", name);
 	}
-	
+
 	/**
 	 * @return the unique identifier of the block, usually used on "minecraft:" + getName()
 	 */
-	public String getName(){
+	public String getName() {
 		return name;
 	}
 }

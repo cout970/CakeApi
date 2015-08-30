@@ -3,7 +3,7 @@ package org.cakepowered.api.block;
 import org.cakepowered.api.base.References;
 
 public enum Blocks {
-	
+
 	AIR("air"),
 	STONE("stone"),
 	GRASS("grass"),
@@ -204,23 +204,23 @@ public enum Blocks {
 	DARK_OAK_DOOR("dark_oak_door");
 
 	private final String name;
-	
-	private Blocks(String name){
+
+	private Blocks(String name) {
 		this.name = name;
 	}
-	
-	public Block getBlock(){
+
+	public Block getBlock() {
 		return References.GAME.getFinder().findBlock("minecraft", name);
 	}
-	
+
 	/**
 	 * @return the unique identifier of the block, usually used on "minecraft:" + getName()
 	 */
-	public String getName(){
+	public String getName() {
 		return name;
 	}
-	
-	public String getUnlocalizedName(){
+
+	public String getUnlocalizedName() {
 		return getBlock().getUnlocalizedName();
 	}
 }

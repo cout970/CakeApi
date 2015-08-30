@@ -49,7 +49,7 @@ public interface World {
 	public void playSoundEffect(double x, double y, double z, String soundName, float volume, float pitch);
 
 	public boolean spawnEntityInWorld(Entity entity);
-	
+
 	public List<Entity> getEntitiesExcludingType(Entity type, int minX, int minY, int minZ, int maxX, int maxY, int maxZ);
 
 	void setWorldTime(long time);
