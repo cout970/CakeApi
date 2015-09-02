@@ -15,4 +15,10 @@ public interface Scoreboard {
 	Team addTeam(String team) throws IllegalArgumentException;
 
 	List<Team> getTeams();
+
+	void addPlayerToTeam(Player p, Team t);
+
+	void removePlayerFromTeam(Player p, Team t);
+
+	void removePlayerFromTeams(Player p);
 }

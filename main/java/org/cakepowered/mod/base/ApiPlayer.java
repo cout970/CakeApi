@@ -32,6 +32,7 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S29PacketSoundEffect;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.scoreboard.ScorePlayerTeam;
+import net.minecraft.scoreboard.ServerScoreboard;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
@@ -180,7 +181,7 @@ public class ApiPlayer extends ApiEntity implements Player {
 
 	@Override
 	public Scoreboard getScoreboard() {
-		return new ApiScoreboard(player.getWorldScoreboard());
+		return new ApiScoreboard((ServerScoreboard) player.getWorldScoreboard());
 	}
 
 	@Override

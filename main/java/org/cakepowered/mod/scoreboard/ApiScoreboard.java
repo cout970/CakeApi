@@ -12,9 +12,9 @@ import net.minecraft.scoreboard.ScorePlayerTeam;
 
 public class ApiScoreboard implements Scoreboard, IImplementation<net.minecraft.scoreboard.Scoreboard> {
 
-	protected net.minecraft.scoreboard.Scoreboard scoreboard;
+	protected net.minecraft.scoreboard.ServerScoreboard scoreboard;
 
-	public ApiScoreboard(net.minecraft.scoreboard.Scoreboard scoreboard) {
+	public ApiScoreboard(net.minecraft.scoreboard.ServerScoreboard scoreboard) {
 		this.scoreboard = scoreboard;
 	}
 
@@ -61,8 +61,24 @@ public class ApiScoreboard implements Scoreboard, IImplementation<net.minecraft.
 	}
 
 	@Override
-	public net.minecraft.scoreboard.Scoreboard getMcObject() {
+	public net.minecraft.scoreboard.ServerScoreboard getMcObject() {
 		return scoreboard;
 	}
+	
+	@Override
+	public void addPlayerToTeam(Player p, Team t){
+		this.scoreboard.addPlayerToTeam(p.getUserName(), t.getName());
+	}
+	
+	@Override
+	public void removePlayerFromTeam(Player p, Team t){
+		this.scoreboard.removePlayerFromTeam(p.getName(), this.scoreboard.getTeam(t.getName()));
+	}
+	
+	@Override
+	public void removePlayerFromTeams(Player p){
+		this.scoreboard.removePlayerFromTeams(p.getName());
+	}
+	
 
 }
