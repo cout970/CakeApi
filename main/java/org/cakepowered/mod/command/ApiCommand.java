@@ -49,4 +49,9 @@ public class ApiCommand implements CommandExecutor {
 		return command.addTabCompletionOptions(PluginInterface.getCommandSender(sender), args,
 				PluginInterface.getBlockPos(pos));
 	}
+
+	@Override
+	public boolean canBeUsedBy(CommandSender commandSender) {
+		return command.canCommandSenderUse(PluginInterface.getCommandSender(commandSender));
+	}
 }

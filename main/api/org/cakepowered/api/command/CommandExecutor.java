@@ -16,4 +16,6 @@ public interface CommandExecutor {
 
 	List<String> addTabCompletionOptions(CommandSender sender, String[] args, Vector3i pos);
 
+	boolean canBeUsedBy(CommandSender commandSender);
+
 }

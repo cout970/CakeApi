@@ -36,4 +36,8 @@ public abstract class CommandBase implements CommandExecutor {
 	public List<String> addTabCompletionOptions(CommandSender sender, String[] args, Vector3i pos) {
 		return null;
 	}
+	
+	public boolean canBeUsedBy(CommandSender commandSender){
+		return true;
+	}
 }

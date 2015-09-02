@@ -42,7 +42,7 @@ public class DummyForgeCommand extends CommandBase {
 
 	@Override
 	public boolean canCommandSenderUse(ICommandSender sender) {
-		return true;
+		return command.canBeUsedBy(ForgeInterface.getCommandSender(sender));
 	}
 
 	@SuppressWarnings("rawtypes")

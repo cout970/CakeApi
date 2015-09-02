@@ -16,8 +16,11 @@ public interface RecipeManager {
 	public void addFurnaceRecipe(ItemStack input, ItemStack output, float experience);
 
 	/**
-	 * recipe example: addCraftingRecipe( new ItemStack(Blocks.bookshelf, 1), new Object[] { "###", "XXX",
-	 * "###", '#', Blocks.planks, 'X', Items.book});
+	 * recipe example: addCraftingRecipe( new ItemStack(Blocks.bookshelf, 1), new Object[] { 
+	 * "###", 
+	 * "XXX",
+	 * "###", 
+	 * '#', Blocks.planks, 'X', Items.book});
 	 * @param output
 	 * @param recipe
 	 */
