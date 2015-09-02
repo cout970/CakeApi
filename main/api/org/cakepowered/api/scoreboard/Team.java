@@ -16,9 +16,5 @@ public interface Team {
 	void setName(String displayName) throws IllegalArgumentException;
 
 	List<Player> getPlayers();
-
-	void addPlayer(Player player);
-
-	boolean removePlayer(Player player);
-
+	
 }

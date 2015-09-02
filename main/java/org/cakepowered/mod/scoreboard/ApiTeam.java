@@ -12,6 +12,10 @@ import org.cakepowered.mod.util.TextUtils;
 
 import com.google.common.collect.Lists;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S3EPacketTeams;
 import net.minecraft.scoreboard.ScorePlayerTeam;
 
 public class ApiTeam implements Team, IImplementation<ScorePlayerTeam> {
@@ -56,18 +60,6 @@ public class ApiTeam implements Team, IImplementation<ScorePlayerTeam> {
 
 		return players;
 
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public void addPlayer(Player player) {
-		this.team.getMembershipCollection().add(player.getUserName());
-	}
-
-	@Override
-	public boolean removePlayer(Player player) {
-		this.team.getMembershipCollection().remove(player.getUserName());
-		return true;
 	}
 
 	@Override

@@ -20,6 +20,7 @@ import org.cakepowered.mod.util.PluginInterface;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.scoreboard.ServerScoreboard;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
@@ -60,7 +61,7 @@ public class ApiWorld implements org.cakepowered.api.world.World, IImplementatio
 
 	@Override
 	public Scoreboard getScoreboard() {
-		return new ApiScoreboard(this.world.getScoreboard());
+		return new ApiScoreboard((ServerScoreboard) this.world.getScoreboard());
 	}
 
 	@Override
