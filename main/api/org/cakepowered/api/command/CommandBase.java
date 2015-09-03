@@ -37,6 +37,7 @@ public abstract class CommandBase implements CommandExecutor {
 		return null;
 	}
 	
+	@Override
 	public boolean canBeUsedBy(CommandSender commandSender){
 		return true;
 	}
