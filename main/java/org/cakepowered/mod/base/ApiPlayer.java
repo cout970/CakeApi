@@ -34,6 +34,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.scoreboard.ScorePlayerTeam;
 import net.minecraft.scoreboard.ServerScoreboard;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ChatComponentProcessor;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.IChatComponent;
@@ -65,7 +66,42 @@ public class ApiPlayer extends ApiEntity implements Player {
 	public void sendMessage(String s) {
 		player.addChatComponentMessage(new ChatComponentText(s));
 	}
-
+	
+	@Override
+	public void sendLink(String link) {
+		IChatComponent chat = new ChatComponentText(link);
+		ChatStyle style = new ChatStyle();
+		style.setChatClickEvent(new ClickEvent(Action.OPEN_URL, TextFormating.toPlainString(link)));
+		chat.setChatStyle(style);
+		player.addChatMessage(chat);
+	}
+	
+	@Override
+	public void sendMessageWithLinks(String s){
+		IChatComponent toSend = new ChatComponentText("");
+		String[] message = s.split(" ");
+		
+		for (int i = 0; i < message.length; i++) {
+			if(message[i].contains("http:") || message[i].contains("https:")){
+				IChatComponent chat = new ChatComponentText(message[i]);
+				ChatStyle style = new ChatStyle();
+				style.setChatClickEvent(new ClickEvent(Action.OPEN_URL, TextFormating.toPlainString(message[i])));
+				chat.setChatStyle(style);
+				if(i != 0){
+					toSend.appendText(" ");
+				}
+				toSend.appendSibling(chat);
+			} else {
+				if(i != 0){
+					toSend.appendText(" ");
+				}
+				toSend.appendText(message[i]);
+			}
+		}
+		
+		player.addChatMessage(toSend);
+	}
+	
 	@Override
 	public boolean equals(Object o) {
 		if (o instanceof Player) {
@@ -180,15 +216,6 @@ public class ApiPlayer extends ApiEntity implements Player {
 	@Override
 	public Scoreboard getScoreboard() {
 		return new ApiScoreboard((ServerScoreboard) player.getWorldScoreboard());
-	}
-
-	@Override
-	public void sendLink(String link) {
-		IChatComponent chat = new ChatComponentText(link);
-		ChatStyle style = new ChatStyle();
-		style.setChatClickEvent(new ClickEvent(Action.OPEN_URL, TextFormating.toPlainString(link)));
-		chat.setChatStyle(style);
-		player.addChatMessage(chat);
 	}
 
 	@Override
