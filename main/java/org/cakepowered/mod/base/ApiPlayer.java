@@ -227,8 +227,8 @@ public class ApiPlayer extends ApiEntity implements Player {
 
 	@Override
 	public void setPitchAndYaw(float p, float y) {
-		((EntityPlayerMP) player).playerNetServerHandler.setPlayerLocation(getLocation().getX(), getLocation().getY(),
-				getLocation().getZ(), y, p);
+		player.rotationYaw = y;
+		player.rotationPitch = p;
 
 	}
 
