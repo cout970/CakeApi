@@ -66,4 +66,6 @@ public interface Player extends Entity {
 	public void clearActivePotions();
 
 	public void playSound(String sound, float volume, float pitch);
+
+	public void sendMessageWithLinks(String s);
 }

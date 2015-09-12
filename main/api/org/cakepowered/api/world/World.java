@@ -55,4 +55,6 @@ public interface World {
 	void setWorldTime(long time);
 
 	public Server getServer();
+	
+	boolean canBlockSeeSky(int x, int y, int z);
 }

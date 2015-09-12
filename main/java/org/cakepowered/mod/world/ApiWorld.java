@@ -22,6 +22,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.scoreboard.ServerScoreboard;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 public class ApiWorld implements org.cakepowered.api.world.World, IImplementation<World> {
@@ -169,4 +170,12 @@ public class ApiWorld implements org.cakepowered.api.world.World, IImplementatio
 		return CakeApiCore.server;
 	}
 
+	@Override
+	public boolean canBlockSeeSky(int x, int y, int z){
+		if(world.canSeeSky(new BlockPos(x, y, z))){
+			return true;
+		}
+		return false;
+	}
+	
 }
