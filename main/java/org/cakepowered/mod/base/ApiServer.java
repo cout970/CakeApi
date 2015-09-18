@@ -33,7 +33,7 @@ public class ApiServer implements Server, IImplementation<MinecraftServer> {
 	}
 
 	@Override
-	public Collection<Player> getOnlinePlayers() {
+	public List<Player> getOnlinePlayers() {
 		List<Player> list = new ArrayList<Player>();
 		GameProfile[] players = server.getGameProfiles();
 		if (players == null)
