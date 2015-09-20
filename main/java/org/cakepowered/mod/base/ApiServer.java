@@ -65,7 +65,7 @@ public class ApiServer implements Server, IImplementation<MinecraftServer> {
 		if (players == null)
 			return null;
 		for (GameProfile p : players) {
-			if (p.getName().toLowerCase().equals(username.toLowerCase())) {
+			if (p.getName().equalsIgnoreCase(username)) {
 				return getPlayer(p.getId());
 			}
 		}
