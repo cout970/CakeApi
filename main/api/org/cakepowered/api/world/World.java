@@ -8,7 +8,9 @@ import org.cakepowered.api.block.Block;
 import org.cakepowered.api.block.BlockState;
 import org.cakepowered.api.scoreboard.Scoreboard;
 import org.cakepowered.api.tileentity.TileEntity;
+import org.cakepowered.api.util.FireworkProperties;
 import org.cakepowered.api.util.Location;
+import org.cakepowered.api.util.Vector3d;
 import org.cakepowered.api.util.Vector3i;
 
 public interface World {
@@ -57,4 +59,6 @@ public interface World {
 	public Server getServer();
 	
 	boolean canBlockSeeSky(int x, int y, int z);
+	
+	boolean spawnFirework(Vector3d pos, FireworkProperties prop);
 }

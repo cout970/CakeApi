@@ -9,17 +9,22 @@ import org.cakepowered.api.block.Block;
 import org.cakepowered.api.block.BlockState;
 import org.cakepowered.api.scoreboard.Scoreboard;
 import org.cakepowered.api.tileentity.TileEntity;
+import org.cakepowered.api.util.FireworkProperties;
 import org.cakepowered.api.util.Location;
+import org.cakepowered.api.util.Vector3d;
 import org.cakepowered.api.util.Vector3i;
 import org.cakepowered.api.world.Difficulties;
 import org.cakepowered.mod.CakeApiCore;
 import org.cakepowered.mod.scoreboard.ApiScoreboard;
+import org.cakepowered.mod.util.FireworkHelper;
 import org.cakepowered.mod.util.ForgeInterface;
 import org.cakepowered.mod.util.IImplementation;
 import org.cakepowered.mod.util.PluginInterface;
 
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.item.EntityFireworkRocket;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.scoreboard.ServerScoreboard;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
@@ -176,6 +181,14 @@ public class ApiWorld implements org.cakepowered.api.world.World, IImplementatio
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public boolean spawnFirework(Vector3d pos, FireworkProperties prop) {
+		net.minecraft.item.ItemStack stack = new net.minecraft.item.ItemStack(Items.firework_charge);
+		FireworkHelper.generateFirework(stack, prop);
+		EntityFireworkRocket entity = new EntityFireworkRocket(world, pos.getX(), pos.getY(), pos.getZ(), stack);
+		return world.spawnEntityInWorld(entity);
 	}
 	
 }

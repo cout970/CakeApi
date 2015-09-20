@@ -1,4 +1,4 @@
-package org.cakepowered.mod.base;
+package org.cakepowered.mod.entity;
 
 import org.cakepowered.api.base.Player;
 import org.cakepowered.api.inventory.Inventory;
@@ -34,7 +34,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.scoreboard.ScorePlayerTeam;
 import net.minecraft.scoreboard.ServerScoreboard;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.ChatComponentProcessor;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.IChatComponent;
@@ -42,7 +41,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.WorldSettings.GameType;
 
-public class ApiPlayer extends ApiEntity implements Player {
+public class ApiPlayer extends ApiEntity implements Player{
 
 	protected EntityPlayer player;
 

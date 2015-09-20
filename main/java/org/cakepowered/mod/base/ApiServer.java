@@ -1,7 +1,6 @@
 package org.cakepowered.mod.base;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
@@ -33,7 +32,7 @@ public class ApiServer implements Server, IImplementation<MinecraftServer> {
 	}
 
 	@Override
-	public Collection<Player> getOnlinePlayers() {
+	public List<Player> getOnlinePlayers() {
 		List<Player> list = new ArrayList<Player>();
 		GameProfile[] players = server.getGameProfiles();
 		if (players == null)

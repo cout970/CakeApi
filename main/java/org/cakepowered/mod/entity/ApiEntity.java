@@ -1,4 +1,4 @@
-package org.cakepowered.mod.base;
+package org.cakepowered.mod.entity;
 
 import java.util.UUID;
 
