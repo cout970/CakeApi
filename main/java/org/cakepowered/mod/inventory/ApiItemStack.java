@@ -46,7 +46,7 @@ public class ApiItemStack implements org.cakepowered.api.inventory.ItemStack, II
 
 	@Override
 	public NBTCompund getNBTCompound() {
-		return (NBTCompund) ForgeInterface.fromNBT(stack.getTagCompound());
+		return (NBTCompund) ForgeInterface.getNBT(stack.getTagCompound());
 	}
 
 	@Override
@@ -116,7 +116,7 @@ public class ApiItemStack implements org.cakepowered.api.inventory.ItemStack, II
 
 	@Override
 	public NBTList getEnchantmentTagList() {
-		return (NBTList) ForgeInterface.fromNBT(stack.getEnchantmentTagList());
+		return (NBTList) ForgeInterface.getNBT(stack.getEnchantmentTagList());
 	}
 
 	@Override

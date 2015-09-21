@@ -27,7 +27,7 @@ public class ApiNBTList extends ApiNBTBase implements NBTList {
 
 	@Override
 	public org.cakepowered.api.nbt.NBTBase removeTag(int pos) {
-		return ForgeInterface.fromNBT(list.removeTag(pos));
+		return ForgeInterface.getNBT(list.removeTag(pos));
 	}
 
 	@Override
@@ -37,6 +37,6 @@ public class ApiNBTList extends ApiNBTBase implements NBTList {
 
 	@Override
 	public org.cakepowered.api.nbt.NBTBase getTag(int pos) {
-		return ForgeInterface.fromNBT(list.get(pos));
+		return ForgeInterface.getNBT(list.get(pos));
 	}
 }

@@ -1,10 +1,22 @@
 package org.cakepowered.api.nbt;
 
+import java.io.File;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 public interface NBTFactory {
 
-	public NBTList newNBTList();
+	NBTList newNBTList();
 
-	public NBTCompund newNBTCompound();
+	NBTCompund newNBTCompound();
 
-	public NBTBase newNBTBase(byte id, Object data) throws ClassCastException;
+	NBTBase newNBTBase(byte id, Object data) throws ClassCastException;
+	
+	NBTCompund readCompressedNBT(InputStream stream);
+	
+	void writeCompressedNBT(OutputStream stream, NBTCompund nbt);
+	
+	NBTCompund readNBT(File file);
+	
+	void writeNBT(File file, NBTCompund nbt);
 }

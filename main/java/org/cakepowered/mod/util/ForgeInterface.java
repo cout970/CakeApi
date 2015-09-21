@@ -110,7 +110,7 @@ public class ForgeInterface {
 		return new ApiTileEntity(tile);
 	}
 
-	public static NBTBase fromNBT(net.minecraft.nbt.NBTBase tag) {
+	public static NBTBase getNBT(net.minecraft.nbt.NBTBase tag) {
 		if (tag == null)
 			return null;
 		if (tag instanceof NBTTagCompound) {
