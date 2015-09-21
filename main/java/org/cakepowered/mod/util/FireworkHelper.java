@@ -42,7 +42,7 @@ public class FireworkHelper {
 
 		NBTTagCompound data = new NBTTagCompound();
 		data.setTag("Explosions", list);
-		data.setByte("Flight", (byte) 1);
+		data.setByte("Flight", prop.flight);
 
 		NBTTagCompound finalNBT = new NBTTagCompound();
 		finalNBT.setTag("Fireworks", data);

@@ -39,9 +39,9 @@ public class Plugin {
 	public void onChat(PlayerChatEvent event){
 		Player p = event.getPlayer();
 		World w = p.getWorld();
-		FireworkExplosion explosion = new FireworkExplosion(FireworkType.LARGE, new Color[]{DyeColor.BLUE.getColor(),DyeColor.LIME.getColor()}, false, false, new Color[]{DyeColor.RED.getColor(),DyeColor.SILVER.getColor()});
-		FireworkExplosion explosion1 = new FireworkExplosion(FireworkType.STAR, new Color[]{DyeColor.MAGENTA.getColor(),DyeColor.BROWN.getColor()}, false, false);
-		FireworkProperties properties = new FireworkProperties((byte)0, explosion, explosion1);
+		FireworkExplosion explosion = new FireworkExplosion(FireworkType.LARGE, new Color[]{DyeColor.ORANGE.getColor(),DyeColor.RED.getColor()}, true, false, new Color[]{DyeColor.RED.getColor()});
+		FireworkExplosion explosion1 = new FireworkExplosion(FireworkType.SMALL, new Color[]{DyeColor.YELLOW.getColor(),DyeColor.ORANGE.getColor()}, false, false, new Color[]{DyeColor.RED.getColor()});
+		FireworkProperties properties = new FireworkProperties((byte)0, explosion, explosion,explosion1);
 		w.spawnFirework(p.getPosition(), properties);
 	}
 }
