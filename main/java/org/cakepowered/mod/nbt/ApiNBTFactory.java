@@ -1,11 +1,18 @@
 package org.cakepowered.mod.nbt;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 import org.cakepowered.api.nbt.NBTBase;
 import org.cakepowered.api.nbt.NBTCompund;
 import org.cakepowered.api.nbt.NBTFactory;
 import org.cakepowered.api.nbt.NBTList;
 import org.cakepowered.mod.util.ForgeInterface;
+import org.cakepowered.mod.util.PluginInterface;
 
+import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.NBTTagByte;
 import net.minecraft.nbt.NBTTagByteArray;
 import net.minecraft.nbt.NBTTagCompound;
@@ -76,6 +83,44 @@ public class ApiNBTFactory implements NBTFactory {
 		default:
 			return null;
 		}
-		return ForgeInterface.fromNBT(nbt);
+		return ForgeInterface.getNBT(nbt);
+	}
+	
+	public NBTCompund readCompressedNBT(InputStream stream){
+		NBTTagCompound nbt = null;
+		
+		try {
+			nbt = CompressedStreamTools.readCompressed(stream);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return (NBTCompund) ForgeInterface.getNBT(nbt);
+	}
+	
+	public void writeCompressedNBT(OutputStream stream, NBTCompund nbt){
+		try {
+			CompressedStreamTools.writeCompressed(PluginInterface.getNBT(nbt), stream);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public NBTCompund readNBT(File file){
+		NBTTagCompound nbt = null;
+		try {
+			nbt = CompressedStreamTools.read(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return (NBTCompund) ForgeInterface.getNBT(nbt);
+	}
+	
+	public void writeNBT(File file, NBTCompund nbt){
+		try {
+			CompressedStreamTools.write(PluginInterface.getNBT(nbt), file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

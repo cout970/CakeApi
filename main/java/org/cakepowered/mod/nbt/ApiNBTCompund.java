@@ -118,7 +118,7 @@ public class ApiNBTCompund extends ApiNBTBase implements NBTCompund {
 
 	@Override
 	public NBTBase getCompound(String name) {
-		return ForgeInterface.fromNBT(nbt.getTag(name));
+		return ForgeInterface.getNBT(nbt.getTag(name));
 	}
 
 	@Override
