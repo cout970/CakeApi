@@ -68,4 +68,8 @@ public interface Player extends Entity {
 	public void playSound(String sound, float volume, float pitch);
 
 	public void sendMessageWithLinks(String s);
+
+	public void openGuiEnderChest(Inventory enderChest);
+
+	void openGuiWorkBench();
 }

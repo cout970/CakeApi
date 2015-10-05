@@ -137,4 +137,9 @@ public class ApiServer implements Server, IImplementation<MinecraftServer> {
 	public MinecraftServer getMcObject() {
 		return server;
 	}
+	
+	@Override
+	public void stop(){
+		server.stopServer();
+	}
 }
