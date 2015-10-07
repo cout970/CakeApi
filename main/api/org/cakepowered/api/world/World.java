@@ -61,4 +61,6 @@ public interface World {
 	boolean canBlockSeeSky(int x, int y, int z);
 	
 	boolean spawnFirework(Vector3d pos, FireworkProperties prop);
+	
+	void loadChunk(int x, int y);
 }

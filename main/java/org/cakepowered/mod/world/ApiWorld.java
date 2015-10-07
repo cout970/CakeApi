@@ -190,5 +190,9 @@ public class ApiWorld implements org.cakepowered.api.world.World, IImplementatio
 		EntityFireworkRocket entity = new EntityFireworkRocket(world, pos.getX(), pos.getY(), pos.getZ(), stack);
 		return world.spawnEntityInWorld(entity);
 	}
-	
+
+	@Override
+	public void loadChunk(int x, int y) {
+		world.getChunkProvider().provideChunk(x, y);
+	}
 }

@@ -23,7 +23,6 @@ import org.cakepowered.mod.util.TitleUtils;
 import org.cakepowered.mod.world.CustomTeleporter;
 
 import net.minecraft.block.BlockWorkbench;
-import net.minecraft.block.BlockWorkbench.InterfaceCraftingTable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -32,7 +31,6 @@ import net.minecraft.event.ClickEvent.Action;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ContainerWorkbench;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.inventory.InventoryEnderChest;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S29PacketSoundEffect;
