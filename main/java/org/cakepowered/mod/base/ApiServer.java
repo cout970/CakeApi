@@ -64,7 +64,7 @@ public class ApiServer implements Server, IImplementation<MinecraftServer> {
 		if (players == null)
 			return null;
 		for (GameProfile p : players) {
-			if (p.getName().toLowerCase().equals(username.toLowerCase())) {
+			if (p.getName().equalsIgnoreCase(username)) {
 				return getPlayer(p.getId());
 			}
 		}
@@ -136,5 +136,10 @@ public class ApiServer implements Server, IImplementation<MinecraftServer> {
 	@Override
 	public MinecraftServer getMcObject() {
 		return server;
+	}
+	
+	@Override
+	public void stop(){
+		server.stopServer();
 	}
 }

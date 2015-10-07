@@ -22,11 +22,17 @@ import org.cakepowered.mod.util.PluginInterface;
 import org.cakepowered.mod.util.TitleUtils;
 import org.cakepowered.mod.world.CustomTeleporter;
 
+import net.minecraft.block.BlockWorkbench;
+import net.minecraft.block.BlockWorkbench.InterfaceCraftingTable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.event.ClickEvent;
 import net.minecraft.event.ClickEvent.Action;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ContainerWorkbench;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.inventory.InventoryEnderChest;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S29PacketSoundEffect;
@@ -269,7 +275,8 @@ public class ApiPlayer extends ApiEntity implements Player{
 		}
 		player.displayGUIChest(inv);
 	}
-
+	
+	@Override
 	public void openGuiEnderChest(Inventory enderChest) {
 		IInventory inv = PluginInterface.getInventory(enderChest);
 		if (inv instanceof InventoryEnderChest) {
@@ -277,6 +284,23 @@ public class ApiPlayer extends ApiEntity implements Player{
 			chest.setChestTileEntity(new FakeTileEntityChest());
 			player.displayGUIChest(chest);
 		}
+	}
+	
+	@Override
+	public void openGuiWorkBench() {
+		
+		player.displayGui(new BlockWorkbench.InterfaceCraftingTable(player.worldObj, null) {
+			
+            public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {
+                return new ContainerWorkbench(playerInventory, player.worldObj, null) {
+                    public boolean canInteractWith(EntityPlayer playerIn) {
+                        return true;
+                    }
+                };
+            }
+            
+        });
+		
 	}
 
 	@Override

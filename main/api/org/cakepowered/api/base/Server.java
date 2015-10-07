@@ -27,4 +27,6 @@ public interface Server {
 	public void setPlayerOP(Player p, boolean op);
 
 	public CommandSender getCommandSender();
+	
+	public void stop();
 }
