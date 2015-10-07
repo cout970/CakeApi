@@ -208,4 +208,8 @@ public enum Items {
 	public String getName() {
 		return name;
 	}
+	
+	public String getCompleteName(){
+		return "minecraft:"+getName();
+	}
 }
