@@ -157,24 +157,16 @@ public class ApiPlayer extends ApiEntity implements Player{
 		if (w.provider.getDimensionId() != loc.getDimension()) {
 			teleportToDimension(player, loc);
 		}
-		player.setSpawnPoint(PluginInterface.getBlockPos(loc.getPosition()), true);
 		player.setPositionAndUpdate(loc.getX(), loc.getY(), loc.getZ());
 		((EntityPlayerMP) player).playerNetServerHandler.setPlayerLocation(loc.getX(), loc.getY(), loc.getZ(),
 				loc.getYaw(), loc.getPitch());
 	}
 
-	public static void teleportToDimension(EntityPlayer player, PreciseLocation loc) {
-		int oldDimension = player.worldObj.provider.getDimensionId();
+	private void teleportToDimension(EntityPlayer player, PreciseLocation loc) {
 		EntityPlayerMP entityPlayerMP = (EntityPlayerMP) player;
 		WorldServer worldServer = MinecraftServer.getServer().worldServerForDimension(loc.getDimension());
 		player.addExperienceLevel(0);
-		MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(entityPlayerMP,
-				loc.getDimension(), new CustomTeleporter(worldServer));
-		if (oldDimension == 1) {
-			player.setPositionAndUpdate(loc.getX(), loc.getY(), loc.getZ());
-			worldServer.spawnEntityInWorld(player);
-			worldServer.updateEntityWithOptionalForce(player, false);
-		}
+		MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(entityPlayerMP, loc.getDimension(), new CustomTeleporter(worldServer));
 	}
 
 	@Override
