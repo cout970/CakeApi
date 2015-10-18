@@ -29,4 +29,6 @@ public interface Server {
 	public CommandSender getCommandSender();
 	
 	public void stop();
+
+	public double getTicks();
 }

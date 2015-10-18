@@ -192,7 +192,7 @@ public class ApiWorld implements org.cakepowered.api.world.World, IImplementatio
 	}
 
 	@Override
-	public void loadChunk(int x, int y) {
-		world.getChunkProvider().provideChunk(x, y);
+	public void loadChunk(int x, int z) {
+		world.getChunkProvider().provideChunk(x, z);
 	}
 }
