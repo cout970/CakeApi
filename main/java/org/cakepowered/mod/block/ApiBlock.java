@@ -63,5 +63,10 @@ public class ApiBlock implements Block, IImplementation<net.minecraft.block.Bloc
 	public Item toItem() {
 		return ForgeInterface.getItem(net.minecraft.item.Item.getItemFromBlock(block));
 	}
+
+	@Override
+	public boolean hasTileEntity(BlockState state) {
+		return block.hasTileEntity(PluginInterface.getBlockState(state));
+	}
 	
 }

@@ -37,7 +37,11 @@ public class DummyForgeCommand extends CommandBase {
 
 	@Override
 	public void execute(ICommandSender sender, String[] args) throws CommandException {
-		command.execute(ForgeInterface.getCommandSender(sender), args);
+		try {
+			command.execute(ForgeInterface.getCommandSender(sender), args);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

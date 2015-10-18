@@ -27,4 +27,6 @@ public interface Block {
 	public BlockState getStateFromMetadata(int meta);
 
 	public Item toItem();
+
+	public boolean hasTileEntity(BlockState state);
 }
