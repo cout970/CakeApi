@@ -20,6 +20,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.ServerConfigurationManager;
 import net.minecraft.world.WorldServer;
+import net.minecraftforge.server.command.ForgeCommand;
 
 public class ApiServer implements Server, IImplementation<MinecraftServer> {
 
@@ -141,5 +142,16 @@ public class ApiServer implements Server, IImplementation<MinecraftServer> {
 	@Override
 	public void stop(){
 		server.stopServer();
+	}
+	
+	@Override
+	public double getTicks(){
+		double meanTickTime = 0;
+		try {
+			meanTickTime = ForgeCommand.class.getDeclaredField("mean").getLong(server.tickTimeArray) * 1.0E-6D;
+		} catch (Exception e) {}
+        double meanTPS = Math.min(1000.0/meanTickTime, 20);
+        
+        return meanTPS;
 	}
 }

@@ -152,6 +152,7 @@ public class ApiPlayer extends ApiEntity implements Player{
 	@Override
 	public void setLocation(PreciseLocation loc) {
 		World w = player.getEntityWorld();
+		getWorld().loadChunk(player.chunkCoordX, player.chunkCoordZ);
 		if (w.provider.getDimensionId() != loc.getDimension()) {
 			teleportToDimension(player, loc);
 		}
@@ -162,9 +163,8 @@ public class ApiPlayer extends ApiEntity implements Player{
 
 	private void teleportToDimension(EntityPlayer player, PreciseLocation loc) {
 		EntityPlayerMP entityPlayerMP = (EntityPlayerMP) player;
-		WorldServer worldServer = MinecraftServer.getServer().worldServerForDimension(loc.getDimension());
 		player.addExperienceLevel(0);
-		MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(entityPlayerMP, loc.getDimension(), new CustomTeleporter(worldServer));
+		MinecraftServer.getServer().getConfigurationManager() .transferPlayerToDimension(entityPlayerMP, loc.getDimension());
 	}
 
 	@Override
