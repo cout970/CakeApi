@@ -37,4 +37,14 @@ public enum Direction {
 	public Vector3i toVecInt() {
 		return offsets.copy();
 	}
+
+	public static String[] names() {
+		return new String[] { DOWN.name().toLowerCase(), UP.name().toLowerCase(), NORTH.name()
+				.toLowerCase(), SOUTH.name().toLowerCase(), WEST.name().toLowerCase(), EAST.name()
+						.toLowerCase() };
+	}
+
+	public static String[] namesUpper() {
+		return new String[] { DOWN.name(), UP.name(), NORTH.name(), SOUTH.name(), WEST.name(), EAST.name() };
+	}
 }
