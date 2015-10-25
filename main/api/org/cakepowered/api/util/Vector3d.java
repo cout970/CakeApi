@@ -2,8 +2,6 @@ package org.cakepowered.api.util;
 
 public class Vector3d {
 
-	public static final Vector3d NULL_VECTOR = new Vector3d(0, 0, 0);
-
 	protected double x;
 	protected double y;
 	protected double z;
@@ -22,6 +20,10 @@ public class Vector3d {
 
 	public Vector3d(int[] ar) {
 		this(ar[0], ar[1], ar[2]);
+	}
+	
+	public static Vector3d nullVector3d(){
+		return new Vector3d(0, 0, 0);
 	}
 
 	public Vector3d getOpposite() {
@@ -141,7 +143,7 @@ public class Vector3d {
 	 */
 	public Vector3d unitVector() {
 		if (isNullVector())
-			return NULL_VECTOR.copy();
+			return nullVector3d();
 		return this.copy().multiply(1 / mag());
 	}
 

@@ -7,7 +7,6 @@ import org.cakepowered.api.world.World;
 
 public class Vector3i {
 
-	public static final Vector3i NULL_VECTOR = new Vector3i(0, 0, 0);
 	protected int x;
 	protected int y;
 	protected int z;
@@ -26,6 +25,10 @@ public class Vector3i {
 		this(ar[0], ar[1], ar[2]);
 	}
 
+	public static Vector3i nullVector3i(){
+		return new Vector3i(0, 0, 0);
+	}
+	
 	public Vector3i getOpposite() {
 		return new Vector3i(-x, -y, -z);
 	}
@@ -105,6 +108,55 @@ public class Vector3i {
 
 	public int magnitude() {
 		return x * x + y * y + z * z;
+	}
+	
+	public Vector3i set(int a, int b, int c) {
+		x = a;
+		y = b;
+		z = c;
+		return this;
+	}
+	
+	public Vector3i divide(int i) {
+		x /= i;
+		y /= i;
+		z /= i;
+		return this;
+	}
+
+	public Vector3i rightShift(int i) {
+		x >>= i;
+		y >>= i;
+		z >>= i;
+		return this;
+	}
+
+	public Vector3i rightShiftUnsigned(int i) {
+		x >>>= i;
+		y >>>= i;
+		z >>>= i;
+		return this;
+	}
+
+	public Vector3i leftShift(int i) {
+		x <<= i;
+		y <<= i;
+		z <<= i;
+		return this;
+	}
+
+	public Vector3i and(int i) {
+		x &= i;
+		y &= i;
+		z &= i;
+		return this;
+	}
+
+	public Vector3i or(int i) {
+		x |= i;
+		y |= i;
+		z |= i;
+		return this;
 	}
 
 	public Vector3d toVector3d() {
