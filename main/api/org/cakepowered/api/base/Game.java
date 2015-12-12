@@ -7,19 +7,21 @@ import org.cakepowered.api.world.WorldManager;
 
 public interface Game {
 
-	public EventRegistry getEventRegistry();
+	EventRegistry getEventRegistry();
 
-	public Server getServer();
+	Server getServer();
 
-	public CommandDispatcher getCommandDispacher();
+	CommandDispatcher getCommandDispacher();
 
-	public WorldManager getWorldManager();
+	WorldManager getWorldManager();
 
-	public NBTFactory getNBTFactory();
+	NBTFactory getNBTFactory();
 
-	public MinecraftFinder getFinder();
+	MinecraftFinder getFinder();
 
-	public MessageDispatcher getMessageDispatcher();
+	MessageDispatcher getMessageDispatcher();
 
-	public RecipeManager getRecipeManager();
+	RecipeManager getRecipeManager();
+
+	ModInteractionHandler getModInteractionHandler();
 }

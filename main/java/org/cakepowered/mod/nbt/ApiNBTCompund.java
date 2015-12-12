@@ -1,11 +1,9 @@
 package org.cakepowered.mod.nbt;
 
-import org.cakepowered.api.nbt.NBTBase;
+import net.minecraft.nbt.NBTTagCompound;
 import org.cakepowered.api.nbt.NBTCompund;
 import org.cakepowered.mod.util.ForgeInterface;
 import org.cakepowered.mod.util.PluginInterface;
-
-import net.minecraft.nbt.NBTTagCompound;
 
 public class ApiNBTCompund extends ApiNBTBase implements NBTCompund {
 
@@ -67,7 +65,7 @@ public class ApiNBTCompund extends ApiNBTBase implements NBTCompund {
 	}
 
 	@Override
-	public void setCompound(String name, NBTBase id) {
+	public void setCompound(String name, NBTCompund id) {
 		nbt.setTag(name, PluginInterface.getNBTBase(id));
 	}
 
@@ -117,8 +115,8 @@ public class ApiNBTCompund extends ApiNBTBase implements NBTCompund {
 	}
 
 	@Override
-	public NBTBase getCompound(String name) {
-		return ForgeInterface.getNBT(nbt.getTag(name));
+	public NBTCompund getCompound(String name) {
+		return (NBTCompund) ForgeInterface.getNBT(nbt.getTag(name));
 	}
 
 	@Override

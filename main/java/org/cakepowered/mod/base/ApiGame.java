@@ -1,10 +1,6 @@
 package org.cakepowered.mod.base;
 
-import org.cakepowered.api.base.EventRegistry;
-import org.cakepowered.api.base.Game;
-import org.cakepowered.api.base.MessageDispatcher;
-import org.cakepowered.api.base.MinecraftFinder;
-import org.cakepowered.api.base.Server;
+import org.cakepowered.api.base.*;
 import org.cakepowered.api.command.CommandDispatcher;
 import org.cakepowered.api.nbt.NBTFactory;
 import org.cakepowered.api.recipe.RecipeManager;
@@ -58,5 +54,10 @@ public class ApiGame implements Game {
 	@Override
 	public RecipeManager getRecipeManager() {
 		return ApiRecipeManager.INSTANCE;
+	}
+
+	@Override
+	public ModInteractionHandler getModInteractionHandler() {
+		return ApiModInteractionHandler.INSTANCE;
 	}
 }

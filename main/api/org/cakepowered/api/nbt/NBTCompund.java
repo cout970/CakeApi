@@ -22,7 +22,7 @@ public interface NBTCompund extends NBTBase {
 
 	public void setByteArray(String name, byte[] id);
 
-	public void setCompound(String name, NBTBase id);
+	public void setCompound(String name, NBTCompund id);
 
 	public void setBoolean(String name, boolean id);
 
@@ -42,7 +42,7 @@ public interface NBTCompund extends NBTBase {
 
 	public byte[] getByteArray(String name);
 
-	public NBTBase getCompound(String name);
+	public NBTCompund getCompound(String name);
 
 	public boolean getBoolean(String name);
 }
