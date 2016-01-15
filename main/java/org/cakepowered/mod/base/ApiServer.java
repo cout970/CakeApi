@@ -141,7 +141,7 @@ public class ApiServer implements Server, IImplementation<MinecraftServer> {
 	
 	@Override
 	public void stop(){
-		server.stopServer();
+		server.initiateShutdown();
 	}
 	
 	@Override
