@@ -1,10 +1,10 @@
 package org.cakepowered.mod;
 
-import java.util.Map;
-
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 
-@IFMLLoadingPlugin.MCVersion("1.8")
+import java.util.Map;
+
+@IFMLLoadingPlugin.MCVersion("1.8.9")
 public class CakeCoremod implements IFMLLoadingPlugin {
 
 	@Override

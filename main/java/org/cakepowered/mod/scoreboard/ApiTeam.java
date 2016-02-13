@@ -1,7 +1,7 @@
 package org.cakepowered.mod.scoreboard;
 
-import java.util.List;
-
+import com.google.common.collect.Lists;
+import net.minecraft.scoreboard.ScorePlayerTeam;
 import org.cakepowered.api.base.Player;
 import org.cakepowered.api.scoreboard.Team;
 import org.cakepowered.api.util.text.TextModifier;
@@ -10,9 +10,7 @@ import org.cakepowered.mod.util.IImplementation;
 import org.cakepowered.mod.util.PluginInterface;
 import org.cakepowered.mod.util.TextUtils;
 
-import com.google.common.collect.Lists;
-
-import net.minecraft.scoreboard.ScorePlayerTeam;
+import java.util.List;
 
 public class ApiTeam implements Team, IImplementation<ScorePlayerTeam> {
 
@@ -29,12 +27,12 @@ public class ApiTeam implements Team, IImplementation<ScorePlayerTeam> {
 
 	@Override
 	public TextModifier getColor() {
-		return TextUtils.modifiers.get(this.team.func_178775_l());
+		return TextUtils.modifiers.get(this.team.getChatFormat());
 	}
 
 	@Override
 	public void setColor(TextModifier color) throws IllegalArgumentException {
-		this.team.func_178774_a(PluginInterface.getEnumChatFormatting(color));
+		this.team.setChatFormat(PluginInterface.getEnumChatFormatting(color));
 	}
 
 	@Override

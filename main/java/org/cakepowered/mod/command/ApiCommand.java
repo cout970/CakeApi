@@ -1,14 +1,13 @@
 package org.cakepowered.mod.command;
 
-import java.util.List;
-
+import net.minecraft.command.CommandException;
+import net.minecraft.command.ICommand;
 import org.cakepowered.api.command.CommandExecutor;
 import org.cakepowered.api.command.CommandSender;
 import org.cakepowered.api.util.Vector3i;
 import org.cakepowered.mod.util.PluginInterface;
 
-import net.minecraft.command.CommandException;
-import net.minecraft.command.ICommand;
+import java.util.List;
 
 public class ApiCommand implements CommandExecutor {
 
@@ -20,7 +19,7 @@ public class ApiCommand implements CommandExecutor {
 
 	@Override
 	public String getName() {
-		return command.getName();
+		return command.getCommandName();
 	}
 
 	@Override
@@ -31,13 +30,13 @@ public class ApiCommand implements CommandExecutor {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<String> getAllias() {
-		return command.getAliases();
+		return command.getCommandAliases();
 	}
 
 	@Override
 	public void execute(CommandSender commandSender, String[] args) {
 		try {
-			command.execute(PluginInterface.getCommandSender(commandSender), args);
+			command.processCommand(PluginInterface.getCommandSender(commandSender), args);
 		} catch (CommandException e) {
 			e.printStackTrace();
 		}
@@ -52,6 +51,6 @@ public class ApiCommand implements CommandExecutor {
 
 	@Override
 	public boolean canBeUsedBy(CommandSender commandSender) {
-		return command.canCommandSenderUse(PluginInterface.getCommandSender(commandSender));
+		return command.canCommandSenderUseCommand(PluginInterface.getCommandSender(commandSender));
 	}
 }

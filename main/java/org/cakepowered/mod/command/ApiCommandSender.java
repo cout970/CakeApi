@@ -35,7 +35,7 @@ public class ApiCommandSender implements CommandSender, IImplementation<ICommand
 
 	@Override
 	public boolean canUseCommand(int permLevel, String commandName) {
-		return sender.canUseCommand(permLevel, commandName);
+		return sender.canCommandSenderUseCommand(permLevel, commandName);
 	}
 
 	@Override

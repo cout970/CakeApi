@@ -1,29 +1,24 @@
 package org.cakepowered.mod.plugin;
 
-import java.io.File;
-import java.net.MalformedURLException;
-import java.security.cert.Certificate;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
-
-import net.minecraftforge.fml.common.LoadController;
-import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.MetadataCollection;
-import net.minecraftforge.fml.common.ModClassLoader;
-import net.minecraftforge.fml.common.ModContainer;
-import net.minecraftforge.fml.common.ModMetadata;
+import net.minecraftforge.fml.common.*;
 import net.minecraftforge.fml.common.discovery.ModCandidate;
 import net.minecraftforge.fml.common.event.FMLConstructionEvent;
 import net.minecraftforge.fml.common.versioning.ArtifactVersion;
 import net.minecraftforge.fml.common.versioning.DefaultArtifactVersion;
 import net.minecraftforge.fml.common.versioning.VersionRange;
+
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.security.cert.Certificate;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class PluginContainer implements ModContainer {
 
@@ -216,6 +211,11 @@ public class PluginContainer implements ModContainer {
 	@Override
 	public boolean shouldLoadInEnvironment() {
 		return true;
+	}
+
+	@Override
+	public URL getUpdateUrl() {
+		return null;
 	}
 
 	@Override
