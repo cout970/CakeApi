@@ -1,14 +1,14 @@
 package org.cakepowered.mod.base;
 
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import org.cakepowered.api.base.EventRegistry;
 import org.cakepowered.api.event.Event;
 import org.cakepowered.api.event.EventSuscribe;
 import org.cakepowered.mod.CakeApiCore;
 import org.cakepowered.mod.plugin.MethodCaller;
+
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ApiEventRegistry implements EventRegistry {
 
@@ -65,7 +65,7 @@ public class ApiEventRegistry implements EventRegistry {
 		if (listeners.containsKey(eventType)) {
 			list = listeners.get(eventType);
 		} else {
-			list = new ArrayList<MethodCaller>();
+			list = new ArrayList<>();
 			listeners.put(eventType, list);
 		}
 		MethodCaller caller = new MethodCaller(o, m);

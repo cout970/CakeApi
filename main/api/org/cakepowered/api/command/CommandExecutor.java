@@ -1,8 +1,9 @@
 package org.cakepowered.api.command;
 
-import java.util.List;
-
+import net.minecraft.command.WrongUsageException;
 import org.cakepowered.api.util.Vector3i;
+
+import java.util.List;
 
 public interface CommandExecutor {
 
@@ -12,7 +13,7 @@ public interface CommandExecutor {
 
 	List<String> getAllias();
 
-	void execute(CommandSender commandSender, String[] args);
+	void execute(CommandSender commandSender, String[] args) throws WrongUsageException;
 
 	List<String> addTabCompletionOptions(CommandSender sender, String[] args, Vector3i pos);
 

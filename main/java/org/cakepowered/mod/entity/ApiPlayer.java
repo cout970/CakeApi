@@ -1,27 +1,5 @@
 package org.cakepowered.mod.entity;
 
-import org.cakepowered.api.base.Player;
-import org.cakepowered.api.inventory.Inventory;
-import org.cakepowered.api.inventory.ItemStack;
-import org.cakepowered.api.inventory.PlayerInventory;
-import org.cakepowered.api.scoreboard.Scoreboard;
-import org.cakepowered.api.scoreboard.Team;
-import org.cakepowered.api.util.DirectionYaw;
-import org.cakepowered.api.util.PreciseLocation;
-import org.cakepowered.api.util.Title;
-import org.cakepowered.api.util.Vector3d;
-import org.cakepowered.api.util.text.TextFormating;
-import org.cakepowered.mod.CakeApiCore;
-import org.cakepowered.mod.inventory.ApiInventory;
-import org.cakepowered.mod.inventory.ApiPlayerInventory;
-import org.cakepowered.mod.scoreboard.ApiScoreboard;
-import org.cakepowered.mod.scoreboard.ApiTeam;
-import org.cakepowered.mod.tileentity.FakeTileEntityChest;
-import org.cakepowered.mod.util.ForgeInterface;
-import org.cakepowered.mod.util.PluginInterface;
-import org.cakepowered.mod.util.TitleUtils;
-import org.cakepowered.mod.world.CustomTeleporter;
-
 import net.minecraft.block.BlockWorkbench;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -44,6 +22,28 @@ import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.WorldSettings.GameType;
+import net.minecraftforge.common.DimensionManager;
+import org.cakepowered.api.base.Player;
+import org.cakepowered.api.inventory.Inventory;
+import org.cakepowered.api.inventory.ItemStack;
+import org.cakepowered.api.inventory.PlayerInventory;
+import org.cakepowered.api.scoreboard.Scoreboard;
+import org.cakepowered.api.scoreboard.Team;
+import org.cakepowered.api.util.DirectionYaw;
+import org.cakepowered.api.util.PreciseLocation;
+import org.cakepowered.api.util.Title;
+import org.cakepowered.api.util.Vector3d;
+import org.cakepowered.api.util.text.TextFormating;
+import org.cakepowered.mod.CakeApiCore;
+import org.cakepowered.mod.inventory.ApiInventory;
+import org.cakepowered.mod.inventory.ApiPlayerInventory;
+import org.cakepowered.mod.scoreboard.ApiScoreboard;
+import org.cakepowered.mod.scoreboard.ApiTeam;
+import org.cakepowered.mod.tileentity.FakeTileEntityChest;
+import org.cakepowered.mod.util.ForgeInterface;
+import org.cakepowered.mod.util.PluginInterface;
+import org.cakepowered.mod.util.TitleUtils;
+import org.cakepowered.mod.world.CustomTeleporter;
 
 public class ApiPlayer extends ApiEntity implements Player{
 
@@ -120,7 +120,7 @@ public class ApiPlayer extends ApiEntity implements Player{
 
 	@Override
 	public void moveToWorld(PreciseLocation loc) {
-		player.travelToDimension(loc.getDimension());
+		setLocation(loc);
 	}
 
 	@Override
@@ -164,7 +164,8 @@ public class ApiPlayer extends ApiEntity implements Player{
 	private void teleportToDimension(EntityPlayer player, PreciseLocation loc) {
 		EntityPlayerMP entityPlayerMP = (EntityPlayerMP) player;
 		player.addExperienceLevel(0);
-		MinecraftServer.getServer().getConfigurationManager() .transferPlayerToDimension(entityPlayerMP, loc.getDimension());
+		WorldServer world = DimensionManager.getWorld(loc.getDimension());
+		MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(entityPlayerMP, loc.getDimension(), new CustomTeleporter(world));
 	}
 
 	@Override
