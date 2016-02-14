@@ -10,6 +10,7 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ContainerWorkbench;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryEnderChest;
+import net.minecraft.network.NetHandlerPlayServer;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S29PacketSoundEffect;
 import net.minecraft.potion.PotionEffect;
@@ -216,9 +217,23 @@ public class ApiPlayer extends ApiEntity implements Player{
 
 	@Override
 	public void kick(String mes) {
-		if (mes == null)
+		if (mes == null){
 			mes = "";
-		((EntityPlayerMP) entity).playerNetServerHandler.kickPlayerFromServer(mes);
+		}
+		EntityPlayerMP e = ((EntityPlayerMP) entity);
+		
+		if(e != null){
+			
+			NetHandlerPlayServer net = e.playerNetServerHandler;
+			
+			if(net != null){
+				
+				net.kickPlayerFromServer(mes);
+				
+			}
+			
+		}
+		
 	}
 
 	@Override
