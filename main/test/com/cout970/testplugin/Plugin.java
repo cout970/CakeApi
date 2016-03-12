@@ -3,14 +3,9 @@ package com.cout970.testplugin;
 import org.cakepowered.api.base.CakePlugin;
 import org.cakepowered.api.base.Game;
 import org.cakepowered.api.base.Log;
-import org.cakepowered.api.base.Player;
 import org.cakepowered.api.event.EventSuscribe;
 import org.cakepowered.api.event.InitializationEvent;
 import org.cakepowered.api.event.PlayerJoinEvent;
-import org.cakepowered.api.util.*;
-import org.cakepowered.api.util.FireworkProperties.FireworkExplosion;
-import org.cakepowered.api.util.FireworkProperties.FireworkType;
-import org.cakepowered.api.world.World;
 
 import java.util.Random;
 
@@ -35,12 +30,12 @@ public class Plugin {
 
     @EventSuscribe
     public void onChat(PlayerJoinEvent event) {
-        Player p = event.getPlayer();
-        p.moveToWorld(new PreciseLocation(5, new Vector3d(0, 0, 0), 0, 0));
-        World w = p.getWorld();
-        FireworkExplosion explosion = new FireworkExplosion(FireworkType.LARGE, new Color[]{DyeColor.ORANGE.getColor(), DyeColor.RED.getColor()}, true, false, new Color[]{DyeColor.RED.getColor()});
-        FireworkExplosion explosion1 = new FireworkExplosion(FireworkType.SMALL, new Color[]{DyeColor.YELLOW.getColor(), DyeColor.ORANGE.getColor()}, false, false, new Color[]{DyeColor.RED.getColor()});
-        FireworkProperties properties = new FireworkProperties((byte) 0, explosion, explosion, explosion1);
-        w.spawnFirework(p.getPosition(), properties);
+//        Player p = event.getPlayer();
+//        p.moveToWorld(new PreciseLocation(5, new Vector3d(0, 0, 0), 0, 0));
+//        World w = p.getWorld();
+//        FireworkExplosion explosion = new FireworkExplosion(FireworkType.LARGE, new Color[]{DyeColor.ORANGE.getColor(), DyeColor.RED.getColor()}, true, false, DyeColor.RED.getColor());
+//        FireworkExplosion explosion1 = new FireworkExplosion(FireworkType.SMALL, new Color[]{DyeColor.YELLOW.getColor(), DyeColor.ORANGE.getColor()}, false, false, DyeColor.RED.getColor());
+//        FireworkProperties properties = new FireworkProperties((byte) 0, explosion, explosion, explosion1);
+//        w.spawnFirework(p.getPosition(), properties);
     }
 }

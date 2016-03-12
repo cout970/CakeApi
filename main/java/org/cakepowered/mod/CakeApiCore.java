@@ -1,10 +1,15 @@
 package org.cakepowered.mod;
 
-import org.cakepowered.api.base.CakePlugin;
-import org.cakepowered.api.base.Game;
-import org.cakepowered.api.base.Log;
-import org.cakepowered.api.base.References;
-import org.cakepowered.api.base.Server;
+import com.google.common.eventbus.EventBus;
+import com.google.common.eventbus.Subscribe;
+import net.minecraft.server.MinecraftServer;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.DummyModContainer;
+import net.minecraftforge.fml.common.LoadController;
+import net.minecraftforge.fml.common.ModContainerFactory;
+import net.minecraftforge.fml.common.ModMetadata;
+import net.minecraftforge.fml.common.event.*;
+import org.cakepowered.api.base.*;
 import org.cakepowered.mod.base.ApiEventRegistry;
 import org.cakepowered.mod.base.ApiGame;
 import org.cakepowered.mod.base.ApiLog;
@@ -18,22 +23,6 @@ import org.cakepowered.mod.util.ApiFiller;
 import org.cakepowered.mod.util.Ref;
 import org.cakepowered.mod.util.TextUtils;
 import org.objectweb.asm.Type;
-
-import com.google.common.eventbus.EventBus;
-import com.google.common.eventbus.Subscribe;
-
-import net.minecraft.server.MinecraftServer;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.DummyModContainer;
-import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.common.LoadController;
-import net.minecraftforge.fml.common.ModContainerFactory;
-import net.minecraftforge.fml.common.ModMetadata;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
 
 public class CakeApiCore extends DummyModContainer {
 
@@ -61,7 +50,6 @@ public class CakeApiCore extends DummyModContainer {
 		ApiFiller.registerEnchantments();
 
 		MinecraftForge.EVENT_BUS.register(new EventRedirect());
-		FMLCommonHandler.instance().bus().register(new EventRedirect());
 	}
 
 	@Subscribe
