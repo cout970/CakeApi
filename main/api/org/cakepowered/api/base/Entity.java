@@ -35,4 +35,6 @@ public interface Entity {
 	public CommandSender getCommandSender();
 
 	public void setDead();
+	
+	public Object getEntity();
 }

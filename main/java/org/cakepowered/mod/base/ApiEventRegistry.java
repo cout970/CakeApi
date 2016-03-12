@@ -65,7 +65,7 @@ public class ApiEventRegistry implements EventRegistry {
 		if (listeners.containsKey(eventType)) {
 			list = listeners.get(eventType);
 		} else {
-			list = new ArrayList<>();
+			list = new ArrayList<MethodCaller>();
 			listeners.put(eventType, list);
 		}
 		MethodCaller caller = new MethodCaller(o, m);
