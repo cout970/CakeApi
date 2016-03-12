@@ -90,4 +90,10 @@ public class ApiEntity implements org.cakepowered.api.base.Entity, IImplementati
 	public Entity getMcObject() {
 		return entity;
 	}
+	
+	@Override
+	public Object getEntity(){
+		return entity;
+	}
+	
 }
