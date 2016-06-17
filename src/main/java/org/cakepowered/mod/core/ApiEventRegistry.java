@@ -43,12 +43,12 @@ public class ApiEventRegistry implements EventRegistry {
 			if (m.isAnnotationPresent(EventSubscribe.class)) {
 				Class<?>[] parameterTypes = m.getParameterTypes();
 				if (parameterTypes.length != 1) {
-					CakeApiCore.logger.error("Invalid number of arguments on the EventSuscribe method: " + m.getName());
+					CakeApiCore.logger.error("Invalid number of arguments on the EventSubscribe method: " + m.getName());
 					continue;
 				}
 				Class<?> eventType = parameterTypes[0];
 				if (!Event.class.isAssignableFrom(eventType)) {
-					CakeApiCore.logger.error("Invalid argument type on the EventSuscribe method: " + m.getName()
+					CakeApiCore.logger.error("Invalid argument type on the EventSubscribe method: " + m.getName()
 							+ ", the type " + eventType + " don't implements Event");
 					continue;
 				}
@@ -65,7 +65,7 @@ public class ApiEventRegistry implements EventRegistry {
 		if (listeners.containsKey(eventType)) {
 			list = listeners.get(eventType);
 		} else {
-			list = new ArrayList<MethodCaller>();
+			list = new ArrayList<>();
 			listeners.put(eventType, list);
 		}
 		MethodCaller caller = new MethodCaller(o, m);

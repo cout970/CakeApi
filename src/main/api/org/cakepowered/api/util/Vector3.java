@@ -78,9 +78,8 @@ public class Vector3 {
 
         if (x != null ? !x.equals(vector3.x) : vector3.x != null) { return false; }
         if (y != null ? !y.equals(vector3.y) : vector3.y != null) { return false; }
-        if (z != null ? !z.equals(vector3.z) : vector3.z != null) { return false; }
+        return z != null ? z.equals(vector3.z) : vector3.z == null;
 
-        return true;
     }
 
     @Override

@@ -1,14 +1,18 @@
 package org.cakepowered.api.world;
 
+import org.cakepowered.api.world.biome.Biome;
+
 public interface WorldManager {
 
-	public World createFlatWorld(int id);
+	World createFlatWorld(int id);
 
-	public World createNormalWorld(int id, long seed);
+	World createNormalWorld(int id, long seed);
 
-	public World getWorld(int id);
+	World getWorld(int id);
 
-	public int getNextID();
+	int getNextID();
 
 	void unloadDimension(int id);
+
+	Biome getBiome(int id);
 }

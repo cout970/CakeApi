@@ -1,61 +1,66 @@
 package org.cakepowered.api.world;
 
-import java.util.List;
-
-import org.cakepowered.api.entity.Entity;
-import org.cakepowered.api.core.Server;
 import org.cakepowered.api.block.Block;
 import org.cakepowered.api.block.BlockState;
+import org.cakepowered.api.core.Server;
+import org.cakepowered.api.entity.Entity;
+import org.cakepowered.api.firework.FireworkProperties;
 import org.cakepowered.api.scoreboard.Scoreboard;
 import org.cakepowered.api.tileentity.TileEntity;
-import org.cakepowered.api.firework.FireworkProperties;
 import org.cakepowered.api.util.BlockLocation;
 import org.cakepowered.api.util.Vector3;
+import org.cakepowered.api.world.biome.Biome;
+
+import java.util.List;
 
 public interface World {
 
-	public int getDifficulty();
+	WorldDifficulty getDifficulty();
 
-	public String getName();
+	String getName();
 
-	public int getDimension();
+	int getDimension();
 
-	public Scoreboard getScoreboard();
+	Scoreboard getScoreboard();
 
-	public BlockLocation getSpawnLocation();
+	Biome getBiome(int x, int z);
 
-	public Block getBlock(Vector3 position);
+	void setBiome(Biome biome, int x, int z);
 
-	public TileEntity getTileEntity(Vector3 position);
+	BlockLocation getSpawnLocation();
 
-	public List<Entity> getEntities();
+	Block getBlock(Vector3 position);
 
-	public boolean isAirBlock(Vector3 pos);
+	TileEntity getTileEntity(Vector3 pos);
 
-	public boolean isBlockLoaded(Vector3 pos);
+	List<Entity> getEntities();
 
-	public boolean setBlockToAir(Vector3 pos);
+	boolean isAirBlock(Vector3 pos);
 
-	public boolean setBlockState(Vector3 pos, BlockState state);
+	boolean isBlockLoaded(Vector3 pos);
 
-	public BlockState getBlockState(Vector3 pos);
+	boolean setBlockToAir(Vector3 pos);
 
-	public boolean isDaytime();
+	boolean setBlockState(Vector3 pos, BlockState state);
+
+	BlockState getBlockState(Vector3 pos);
+
+	boolean isDaytime();
 
 	/**
 	 * volume and pitch must between 0 and 1
 	 */
-	public void playSoundAtEntity(Entity entity, String soundName, float volume, float pitch);
+	void playSoundAtEntity(Entity entity, String soundName, float volume, float pitch);
 
-	public void playSoundEffect(double x, double y, double z, String soundName, float volume, float pitch);
+	void playSoundEffect(double x, double y, double z, String soundName, float volume, float pitch);
 
-	public boolean spawnEntityInWorld(Entity entity);
+	boolean spawnEntityInWorld(Entity entity);
 
-	public List<Entity> getEntitiesExcludingType(Entity type, int minX, int minY, int minZ, int maxX, int maxY, int maxZ);
+	List<Entity> getEntitiesExcludingType(Entity type, int minX, int minY, int minZ, int maxX, int maxY, int maxZ);
 
 	void setWorldTime(long time);
 
-	public Server getServer();
+	Server getServer();
 	
 	boolean canBlockSeeSky(int x, int y, int z);
 	

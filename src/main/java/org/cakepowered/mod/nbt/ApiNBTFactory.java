@@ -86,6 +86,7 @@ public class ApiNBTFactory implements NBTFactory {
 		return ForgeInterface.getNBT(nbt);
 	}
 	
+	@Override
 	public NBTCompound readCompressedNBT(InputStream stream){
 		NBTTagCompound nbt = null;
 		
@@ -98,6 +99,7 @@ public class ApiNBTFactory implements NBTFactory {
 		return (NBTCompound) ForgeInterface.getNBT(nbt);
 	}
 	
+	@Override
 	public void writeCompressedNBT(OutputStream stream, NBTCompound nbt){
 		try {
 			CompressedStreamTools.writeCompressed(PluginInterface.getNBT(nbt), stream);
@@ -106,6 +108,7 @@ public class ApiNBTFactory implements NBTFactory {
 		}
 	}
 	
+	@Override
 	public NBTCompound readNBT(File file){
 		NBTTagCompound nbt = null;
 		try {
@@ -116,6 +119,7 @@ public class ApiNBTFactory implements NBTFactory {
 		return (NBTCompound) ForgeInterface.getNBT(nbt);
 	}
 	
+	@Override
 	public void writeNBT(File file, NBTCompound nbt){
 		try {
 			CompressedStreamTools.write(PluginInterface.getNBT(nbt), file);

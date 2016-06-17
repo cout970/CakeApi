@@ -4,5 +4,5 @@ import org.cakepowered.api.core.Server;
 
 public interface ServerStoppingEvent extends Event {
 
-	public Server getServer();
+	Server getServer();
 }

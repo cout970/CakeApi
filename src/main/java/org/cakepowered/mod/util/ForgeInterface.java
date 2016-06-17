@@ -1,5 +1,6 @@
 package org.cakepowered.mod.util;
 
+import net.minecraft.world.biome.BiomeGenBase;
 import org.cakepowered.api.entity.Entity;
 import org.cakepowered.api.core.Game;
 import org.cakepowered.api.entity.Player;
@@ -17,6 +18,7 @@ import org.cakepowered.api.tileentity.TileEntity;
 import org.cakepowered.api.util.Direction;
 import org.cakepowered.api.util.Vector3;
 import org.cakepowered.api.world.World;
+import org.cakepowered.api.world.biome.Biome;
 import org.cakepowered.mod.CakeApiCore;
 import org.cakepowered.mod.block.ApiBlock;
 import org.cakepowered.mod.block.ApiBlockState;
@@ -44,6 +46,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Vec3;
 import net.minecraftforge.fml.common.eventhandler.Event;
+import org.cakepowered.mod.world.biome.ApiBiome;
 
 public class ForgeInterface {
 
@@ -155,5 +158,10 @@ public class ForgeInterface {
 		if (ench == null)
 			return null;
 		return new ApiEnchantment(ench);
+	}
+
+	public static Biome getBiome(BiomeGenBase biome) {
+		if(biome == null) return null;
+		return new ApiBiome(biome);
 	}
 }

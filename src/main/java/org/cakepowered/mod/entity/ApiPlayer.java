@@ -297,9 +297,11 @@ public class ApiPlayer extends ApiEntity implements Player{
 		
 		player.displayGui(new BlockWorkbench.InterfaceCraftingTable(player.worldObj, null) {
 			
-            public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {
+            @Override
+			public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {
                 return new ContainerWorkbench(playerInventory, player.worldObj, null) {
-                    public boolean canInteractWith(EntityPlayer playerIn) {
+                    @Override
+					public boolean canInteractWith(EntityPlayer playerIn) {
                         return true;
                     }
                 };

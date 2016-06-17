@@ -1,18 +1,19 @@
 package org.cakepowered.mod.world;
 
-import java.util.HashMap;
-
-import org.cakepowered.api.world.World;
-import org.cakepowered.api.world.WorldManager;
-import org.cakepowered.mod.util.ForgeInterface;
-
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.network.ForgeMessage;
 import net.minecraftforge.fml.common.network.FMLEmbeddedChannel;
 import net.minecraftforge.fml.common.network.FMLOutboundHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;
+import org.cakepowered.api.world.World;
+import org.cakepowered.api.world.WorldManager;
+import org.cakepowered.api.world.biome.Biome;
+import org.cakepowered.mod.util.ForgeInterface;
+
+import java.util.HashMap;
 
 public class ApiWorldManager implements WorldManager {
 
@@ -49,6 +50,11 @@ public class ApiWorldManager implements WorldManager {
 	@Override
 	public void unloadDimension(int id) {
 		DimensionManager.unloadWorld(id);
+	}
+
+	@Override
+	public Biome getBiome(int id) {
+		return ForgeInterface.getBiome(BiomeGenBase.getBiome(id));
 	}
 
 	public void sendDimensionData(EntityPlayer player) {

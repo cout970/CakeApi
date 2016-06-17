@@ -24,4 +24,6 @@ public interface TileEntity {
 	void writeToNBT(NBTCompound nbt);
 
 	void syncPlayer(Player p);
+
+
 }

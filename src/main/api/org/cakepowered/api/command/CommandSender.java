@@ -8,9 +8,9 @@ public interface CommandSender {
 
 	String getName();
 
-	public String getDisplayName();
+	String getDisplayName();
 
-	public boolean canUseCommand(int permLevel, String commandName);
+	boolean canUseCommand(int permLevel, String commandName);
 
 	Vector3 getPositionVector();
 

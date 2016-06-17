@@ -18,7 +18,7 @@ public class ApiMinecraftFinder implements MinecraftFinder {
 	public Item findItem(String domain, String identifier) {
 		net.minecraft.item.Item i = GameRegistry.findItem(domain, identifier);
 		if (i == null) {
-			i = (net.minecraft.item.Item) net.minecraft.item.Item.itemRegistry
+			i = net.minecraft.item.Item.itemRegistry
 					.getObject(new ResourceLocation(domain, identifier));
 		}
 		return ForgeInterface.getItem(i);
@@ -28,7 +28,7 @@ public class ApiMinecraftFinder implements MinecraftFinder {
 	public Block findBlock(String domain, String identifier) {
 		net.minecraft.block.Block i = GameRegistry.findBlock(domain, identifier);
 		if (i == null) {
-			i = (net.minecraft.block.Block) net.minecraft.block.Block.blockRegistry
+			i = net.minecraft.block.Block.blockRegistry
 					.getObject(new ResourceLocation(domain, identifier));
 		}
 		return ForgeInterface.getBlock(i);
