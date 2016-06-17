@@ -3,7 +3,7 @@ package org.cakepowered.mod.tileentity;
 import org.cakepowered.api.entity.Player;
 import org.cakepowered.api.inventory.Inventory;
 import org.cakepowered.api.nbt.NBTCompound;
-import org.cakepowered.api.util.vector.Vector3i;
+import org.cakepowered.api.util.vector.Vector3;
 import org.cakepowered.api.world.World;
 import org.cakepowered.mod.util.ForgeInterface;
 import org.cakepowered.mod.util.IImplementation;
@@ -30,8 +30,8 @@ public class ApiTileEntity implements org.cakepowered.api.tileentity.TileEntity,
 	}
 
 	@Override
-	public Vector3i getPosition() {
-		return ForgeInterface.getVector3i(tile.getPos());
+	public Vector3 getPosition() {
+		return ForgeInterface.getVector3(tile.getPos());
 	}
 
 	@Override

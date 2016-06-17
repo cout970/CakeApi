@@ -1,7 +1,7 @@
 package org.cakepowered.api.entity;
 
 import org.cakepowered.api.command.CommandSender;
-import org.cakepowered.api.util.vector.Vector3d;
+import org.cakepowered.api.util.vector.Vector3;
 import org.cakepowered.api.world.World;
 
 import java.util.UUID;
@@ -16,9 +16,9 @@ public interface Entity {
 
 	String getModID();
 
-	Vector3d getPosition();
+	Vector3 getPosition();
 
-	void setPosition(Vector3d vec);
+	void setPosition(Vector3 vec);
 
 	/**
 	 * la entidad sobre la que esta montada

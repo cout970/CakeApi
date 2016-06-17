@@ -1,17 +1,16 @@
 package org.cakepowered.mod.entity;
 
-import java.util.UUID;
-
-import org.cakepowered.api.command.CommandSender;
-import org.cakepowered.api.util.vector.Vector3d;
-import org.cakepowered.api.world.World;
-import org.cakepowered.mod.util.ForgeInterface;
-import org.cakepowered.mod.util.IImplementation;
-
 import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry.EntityRegistration;
+import org.cakepowered.api.command.CommandSender;
+import org.cakepowered.api.util.vector.Vector3;
+import org.cakepowered.api.world.World;
+import org.cakepowered.mod.util.ForgeInterface;
+import org.cakepowered.mod.util.IImplementation;
+
+import java.util.UUID;
 
 public class ApiEntity implements org.cakepowered.api.entity.Entity, IImplementation<Entity> {
 
@@ -32,13 +31,13 @@ public class ApiEntity implements org.cakepowered.api.entity.Entity, IImplementa
 	}
 
 	@Override
-	public Vector3d getPosition() {
-		return new Vector3d(entity.posX, entity.posY, entity.posZ);
+	public Vector3 getPosition() {
+		return new Vector3(entity.posX, entity.posY, entity.posZ);
 	}
 
 	@Override
-	public void setPosition(Vector3d vec) {
-		entity.setPosition(vec.getX(), vec.getY(), vec.getZ());
+	public void setPosition(Vector3 vec) {
+		entity.setPosition(vec.getXd(), vec.getYd(), vec.getZd());
 	}
 
 	@Override

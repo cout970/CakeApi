@@ -1,26 +1,5 @@
 package org.cakepowered.mod.world;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.cakepowered.api.entity.Entity;
-import org.cakepowered.api.core.Server;
-import org.cakepowered.api.block.Block;
-import org.cakepowered.api.block.BlockState;
-import org.cakepowered.api.scoreboard.Scoreboard;
-import org.cakepowered.api.tileentity.TileEntity;
-import org.cakepowered.api.firework.FireworkProperties;
-import org.cakepowered.api.util.BlockLocation;
-import org.cakepowered.api.util.vector.Vector3d;
-import org.cakepowered.api.util.vector.Vector3i;
-import org.cakepowered.api.world.Difficulties;
-import org.cakepowered.mod.CakeApiCore;
-import org.cakepowered.mod.scoreboard.ApiScoreboard;
-import org.cakepowered.mod.util.FireworkHelper;
-import org.cakepowered.mod.util.ForgeInterface;
-import org.cakepowered.mod.util.IImplementation;
-import org.cakepowered.mod.util.PluginInterface;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityFireworkRocket;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,6 +8,25 @@ import net.minecraft.scoreboard.ServerScoreboard;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+import org.cakepowered.api.block.Block;
+import org.cakepowered.api.block.BlockState;
+import org.cakepowered.api.core.Server;
+import org.cakepowered.api.entity.Entity;
+import org.cakepowered.api.firework.FireworkProperties;
+import org.cakepowered.api.scoreboard.Scoreboard;
+import org.cakepowered.api.tileentity.TileEntity;
+import org.cakepowered.api.util.BlockLocation;
+import org.cakepowered.api.util.vector.Vector3;
+import org.cakepowered.api.world.Difficulties;
+import org.cakepowered.mod.CakeApiCore;
+import org.cakepowered.mod.scoreboard.ApiScoreboard;
+import org.cakepowered.mod.util.FireworkHelper;
+import org.cakepowered.mod.util.ForgeInterface;
+import org.cakepowered.mod.util.IImplementation;
+import org.cakepowered.mod.util.PluginInterface;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ApiWorld implements org.cakepowered.api.world.World, IImplementation<World> {
 
@@ -77,13 +75,13 @@ public class ApiWorld implements org.cakepowered.api.world.World, IImplementatio
 	}
 
 	@Override
-	public Block getBlock(Vector3i pos) {
+	public Block getBlock(Vector3 pos) {
 		IBlockState state = world.getBlockState(PluginInterface.getBlockPos(pos));
 		return ForgeInterface.getBlock(state.getBlock());
 	}
 
 	@Override
-	public TileEntity getTileEntity(Vector3i position) {
+	public TileEntity getTileEntity(Vector3 position) {
 		return ForgeInterface.getTileEntity(world.getTileEntity(PluginInterface.getBlockPos(position)));
 	}
 
@@ -104,27 +102,27 @@ public class ApiWorld implements org.cakepowered.api.world.World, IImplementatio
 	}
 
 	@Override
-	public boolean isAirBlock(Vector3i pos) {
+	public boolean isAirBlock(Vector3 pos) {
 		return world.isAirBlock(PluginInterface.getBlockPos(pos));
 	}
 
 	@Override
-	public boolean isBlockLoaded(Vector3i pos) {
+	public boolean isBlockLoaded(Vector3 pos) {
 		return world.isBlockLoaded(PluginInterface.getBlockPos(pos));
 	}
 
 	@Override
-	public boolean setBlockToAir(Vector3i pos) {
+	public boolean setBlockToAir(Vector3 pos) {
 		return world.setBlockToAir(PluginInterface.getBlockPos(pos));
 	}
 
 	@Override
-	public boolean setBlockState(Vector3i pos, BlockState state) {
+	public boolean setBlockState(Vector3 pos, BlockState state) {
 		return world.setBlockState(PluginInterface.getBlockPos(pos), PluginInterface.getBlockState(state));
 	}
 
 	@Override
-	public BlockState getBlockState(Vector3i pos) {
+	public BlockState getBlockState(Vector3 pos) {
 		return ForgeInterface.getBlockState(world.getBlockState(PluginInterface.getBlockPos(pos)));
 	}
 
@@ -184,10 +182,10 @@ public class ApiWorld implements org.cakepowered.api.world.World, IImplementatio
 	}
 
 	@Override
-	public boolean spawnFirework(Vector3d pos, FireworkProperties prop) {
+	public boolean spawnFirework(Vector3 pos, FireworkProperties prop) {
 		net.minecraft.item.ItemStack stack = new net.minecraft.item.ItemStack(Items.firework_charge);
 		FireworkHelper.generateFirework(stack, prop);
-		EntityFireworkRocket entity = new EntityFireworkRocket(world, pos.getX(), pos.getY(), pos.getZ(), stack);
+		EntityFireworkRocket entity = new EntityFireworkRocket(world, pos.getXd(), pos.getYd(), pos.getZd(), stack);
 		return world.spawnEntityInWorld(entity);
 	}
 

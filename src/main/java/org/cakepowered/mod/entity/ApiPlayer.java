@@ -33,7 +33,7 @@ import org.cakepowered.api.scoreboard.Team;
 import org.cakepowered.api.util.DirectionYaw;
 import org.cakepowered.api.util.EntityLocation;
 import org.cakepowered.api.title.Title;
-import org.cakepowered.api.util.vector.Vector3d;
+import org.cakepowered.api.util.vector.Vector3;
 import org.cakepowered.api.util.text.TextFormating;
 import org.cakepowered.mod.CakeApiCore;
 import org.cakepowered.mod.inventory.ApiInventory;
@@ -115,7 +115,7 @@ public class ApiPlayer extends ApiEntity implements Player{
 	}
 
 	@Override
-	public void setSpawnLocation(Vector3d loc) {
+	public void setSpawnLocation(Vector3 loc) {
 		player.setSpawnPoint(PluginInterface.getBlockPos(loc), false);
 	}
 

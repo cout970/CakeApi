@@ -15,8 +15,8 @@ import org.cakepowered.api.item.Item;
 import org.cakepowered.api.nbt.NBTBase;
 import org.cakepowered.api.tileentity.TileEntity;
 import org.cakepowered.api.util.Direction;
-import org.cakepowered.api.util.vector.Vector3d;
-import org.cakepowered.api.util.vector.Vector3i;
+import org.cakepowered.api.util.vector.Vector3;
+import org.cakepowered.api.util.vector.Vector3;
 import org.cakepowered.api.world.World;
 import org.cakepowered.mod.CakeApiCore;
 import org.cakepowered.mod.block.ApiBlock;
@@ -64,10 +64,10 @@ public class ForgeInterface {
 		return CakeApiCore.game;
 	}
 
-	public static Vector3i getVector3i(net.minecraft.util.BlockPos pos) {
+	public static Vector3 getVector3(net.minecraft.util.BlockPos pos) {
 		if (pos == null)
 			return null;
-		return new Vector3i(pos.getX(), pos.getY(), pos.getZ());
+		return new Vector3(pos.getX(), pos.getY(), pos.getZ());
 	}
 
 	public static Direction getDirection(EnumFacing face) {
@@ -82,8 +82,8 @@ public class ForgeInterface {
 		return new ApiCommandSender(sender);
 	}
 
-	public static Vector3d getVector3(Vec3 v) {
-		return new Vector3d(v.xCoord, v.yCoord, v.zCoord);
+	public static Vector3 getVector3(Vec3 v) {
+		return new Vector3(v.xCoord, v.yCoord, v.zCoord);
 	}
 
 	public static Entity getEntity(net.minecraft.entity.Entity target) {

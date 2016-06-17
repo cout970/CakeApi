@@ -3,26 +3,26 @@ package org.cakepowered.api.util;
 import org.cakepowered.api.core.References;
 import org.cakepowered.api.nbt.INBTserializable;
 import org.cakepowered.api.nbt.NBTCompound;
-import org.cakepowered.api.util.vector.Vector3i;
+import org.cakepowered.api.util.vector.Vector3;
 import org.cakepowered.api.world.World;
 
 public final class BlockLocation implements INBTserializable {
 
     protected int dimension;
-    protected Vector3i position;
+    protected Vector3 position;
 
     public BlockLocation() {
         dimension = 0;
-        position = new Vector3i(0, 0, 0);
+        position = new Vector3(0, 0, 0);
     }
 
     public BlockLocation(int d, int x, int y, int z) {
-        this(d, new Vector3i(x, y, z));
+        this(d, new Vector3(x, y, z));
     }
 
-    public BlockLocation(int d, Vector3i pos) {
+    public BlockLocation(int d, Vector3 pos) {
         dimension = d;
-        pos = pos.copy();
+        position = pos;
     }
 
     public int getDimension() {
@@ -33,20 +33,20 @@ public final class BlockLocation implements INBTserializable {
         return References.GAME.getWorldManager().getWorld(dimension);
     }
 
-    public Vector3i getPosition() {
+    public Vector3 getPosition() {
         return position;
     }
 
     public int getX() {
-        return position.getX();
+        return position.getXi();
     }
 
     public int getY() {
-        return position.getY();
+        return position.getYi();
     }
 
     public int getZ() {
-        return position.getZ();
+        return position.getZi();
     }
 
     @Override
@@ -61,7 +61,7 @@ public final class BlockLocation implements INBTserializable {
 
     @Override
     public void deserialize(NBTCompound nbt) {
-        position.set(nbt.getInteger("x"), nbt.getInteger("y"), nbt.getInteger("z"));
+        position = new Vector3(nbt.getInteger("x"), nbt.getInteger("y"), nbt.getInteger("z"));
         dimension = nbt.getInteger("dimension");
     }
 }

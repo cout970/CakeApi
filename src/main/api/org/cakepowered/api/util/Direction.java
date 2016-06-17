@@ -1,6 +1,6 @@
 package org.cakepowered.api.util;
 
-import org.cakepowered.api.util.vector.Vector3i;
+import org.cakepowered.api.util.vector.Vector3;
 
 public enum Direction {
 
@@ -10,22 +10,22 @@ public enum Direction {
 	public static final Direction[] OPPOSITES = { UP, DOWN, SOUTH, NORTH, EAST, WEST };
 	public static final int[][] rotation = { { 0, 1, 5, 4, 2, 3 }, { 0, 1, 4, 5, 3, 2 }, { 5, 4, 2, 3, 0, 1 }, { 4, 5, 2, 3, 1, 0 }, { 2, 3, 1, 0, 4, 5 }, { 3, 2, 0, 1, 4, 5 }, { 0, 1, 2, 3, 4, 5 } };
 
-	private final Vector3i offsets;
+	private final Vector3 offsets;
 
 	Direction(int x, int y, int z) {
-		offsets = new Vector3i(x, y, z);
+		offsets = new Vector3(x, y, z);
 	}
 
 	public int getOffsetX() {
-		return offsets.getX();
+		return offsets.getXi();
 	}
 
 	public int getOffsetY() {
-		return offsets.getY();
+		return offsets.getYi();
 	}
 
 	public int getOffsetZ() {
-		return offsets.getZ();
+		return offsets.getZi();
 	}
 
 	public Direction opposite() {
@@ -36,8 +36,8 @@ public enum Direction {
 		return values()[i % VALID_DIRECTIONS.length];
 	}
 
-	public Vector3i toVecInt() {
-		return offsets.copy();
+	public Vector3 getOffset() {
+		return offsets;
 	}
 
 	public static String[] names() {

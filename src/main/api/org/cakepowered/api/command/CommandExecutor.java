@@ -1,6 +1,6 @@
 package org.cakepowered.api.command;
 
-import org.cakepowered.api.util.vector.Vector3i;
+import org.cakepowered.api.util.vector.Vector3;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public interface CommandExecutor {
 
 	void execute(CommandSender commandSender, String[] args);
 
-	List<String> addTabCompletionOptions(CommandSender sender, String[] args, Vector3i pos);
+	List<String> addTabCompletionOptions(CommandSender sender, String[] args, Vector3 pos);
 
 	boolean canBeUsedBy(CommandSender commandSender);
 

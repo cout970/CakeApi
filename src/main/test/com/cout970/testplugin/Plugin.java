@@ -31,7 +31,7 @@ public class Plugin {
     @EventSubscribe
     public void onChat(PlayerJoinEvent event) {
 //        Player p = event.getPlayer();
-//        p.moveToWorld(new PreciseLocation(5, new Vector3d(0, 0, 0), 0, 0));
+//        p.moveToWorld(new PreciseLocation(5, new Vector3(0, 0, 0), 0, 0));
 //        World w = p.getWorld();
 //        FireworkExplosion explosion = new FireworkExplosion(FireworkType.LARGE, new Color[]{DyeColor.ORANGE.getColor(), DyeColor.RED.getColor()}, true, false, DyeColor.RED.getColor());
 //        FireworkExplosion explosion1 = new FireworkExplosion(FireworkType.SMALL, new Color[]{DyeColor.YELLOW.getColor(), DyeColor.ORANGE.getColor()}, false, false, DyeColor.RED.getColor());

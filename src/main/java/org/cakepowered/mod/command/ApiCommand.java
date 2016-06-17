@@ -4,7 +4,7 @@ import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import org.cakepowered.api.command.CommandExecutor;
 import org.cakepowered.api.command.CommandSender;
-import org.cakepowered.api.util.vector.Vector3i;
+import org.cakepowered.api.util.vector.Vector3;
 import org.cakepowered.mod.util.PluginInterface;
 
 import java.util.List;
@@ -44,7 +44,7 @@ public class ApiCommand implements CommandExecutor {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<String> addTabCompletionOptions(CommandSender sender, String[] args, Vector3i pos) {
+	public List<String> addTabCompletionOptions(CommandSender sender, String[] args, Vector3 pos) {
 		return command.addTabCompletionOptions(PluginInterface.getCommandSender(sender), args,
 				PluginInterface.getBlockPos(pos));
 	}

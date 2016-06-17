@@ -3,14 +3,14 @@ package org.cakepowered.api.tileentity;
 import org.cakepowered.api.entity.Player;
 import org.cakepowered.api.inventory.Inventory;
 import org.cakepowered.api.nbt.NBTCompound;
-import org.cakepowered.api.util.vector.Vector3i;
+import org.cakepowered.api.util.vector.Vector3;
 import org.cakepowered.api.world.World;
 
 public interface TileEntity {
 
 	World getWorld();
 
-	Vector3i getPosition();
+	Vector3 getPosition();
 
 	boolean isEquivalentTo(TileEntity t);
 

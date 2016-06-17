@@ -8,7 +8,7 @@ import org.cakepowered.api.scoreboard.Team;
 import org.cakepowered.api.util.DirectionYaw;
 import org.cakepowered.api.util.EntityLocation;
 import org.cakepowered.api.title.Title;
-import org.cakepowered.api.util.vector.Vector3d;
+import org.cakepowered.api.util.vector.Vector3;
 
 public interface Player extends Entity {
 
@@ -20,7 +20,7 @@ public interface Player extends Entity {
 
 	void sendTitle(Title t);
 
-	void setSpawnLocation(Vector3d vec);
+	void setSpawnLocation(Vector3 vec);
 
 	void moveToWorld(EntityLocation loc);
 

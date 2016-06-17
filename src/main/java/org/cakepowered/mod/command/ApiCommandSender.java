@@ -2,7 +2,7 @@ package org.cakepowered.mod.command;
 
 import org.cakepowered.api.entity.Player;
 import org.cakepowered.api.command.CommandSender;
-import org.cakepowered.api.util.vector.Vector3d;
+import org.cakepowered.api.util.vector.Vector3;
 import org.cakepowered.api.world.World;
 import org.cakepowered.mod.util.ForgeInterface;
 import org.cakepowered.mod.util.IImplementation;
@@ -39,7 +39,7 @@ public class ApiCommandSender implements CommandSender, IImplementation<ICommand
 	}
 
 	@Override
-	public Vector3d getPositionVector() {
+	public Vector3 getPositionVector() {
 		return ForgeInterface.getVector3(sender.getPositionVector());
 	}
 

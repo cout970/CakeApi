@@ -1,43 +1,43 @@
 package org.cakepowered.api.util;
 
-import org.cakepowered.api.util.vector.Vector3d;
+import org.cakepowered.api.util.vector.Vector3;
 
 public final class EntityLocation {
 
 	protected int dimension;
-	protected Vector3d position;
+	protected Vector3 position;
 	protected float yaw;
 	protected float pitch;
 
-	public EntityLocation(int d, Vector3d pos, float y, float p) {
+	public EntityLocation(int d, Vector3 pos, float y, float p) {
 		dimension = d;
-		position = pos.copy();
+		position = pos;
 		yaw = y;
 		pitch = p;
 	}
 
 	public EntityLocation(int d, double x, double y, double z, float yaw, float pitch) {
-		this(d, new Vector3d(x, y, z), yaw, pitch);
+		this(d, new Vector3(x, y, z), yaw, pitch);
 	}
 
 	public int getDimension() {
 		return dimension;
 	}
 
-	public Vector3d getPosition() {
+	public Vector3 getPosition() {
 		return position;
 	}
 
 	public double getX() {
-		return position.getX();
+		return position.getXd();
 	}
 
 	public double getY() {
-		return position.getY();
+		return position.getYd();
 	}
 
 	public double getZ() {
-		return position.getZ();
+		return position.getZd();
 	}
 
 	public float getPitch() {
@@ -49,6 +49,6 @@ public final class EntityLocation {
 	}
 
 	public BlockLocation toBlockLocation() {
-		return new BlockLocation(dimension, getPosition().toVector3i());
+		return new BlockLocation(dimension, getPosition());
 	}
 }

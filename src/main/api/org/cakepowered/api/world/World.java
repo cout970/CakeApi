@@ -10,8 +10,8 @@ import org.cakepowered.api.scoreboard.Scoreboard;
 import org.cakepowered.api.tileentity.TileEntity;
 import org.cakepowered.api.firework.FireworkProperties;
 import org.cakepowered.api.util.BlockLocation;
-import org.cakepowered.api.util.vector.Vector3d;
-import org.cakepowered.api.util.vector.Vector3i;
+import org.cakepowered.api.util.vector.Vector3;
+import org.cakepowered.api.util.vector.Vector3;
 
 public interface World {
 
@@ -25,21 +25,21 @@ public interface World {
 
 	public BlockLocation getSpawnLocation();
 
-	public Block getBlock(Vector3i position);
+	public Block getBlock(Vector3 position);
 
-	public TileEntity getTileEntity(Vector3i position);
+	public TileEntity getTileEntity(Vector3 position);
 
 	public List<Entity> getEntities();
 
-	public boolean isAirBlock(Vector3i pos);
+	public boolean isAirBlock(Vector3 pos);
 
-	public boolean isBlockLoaded(Vector3i pos);
+	public boolean isBlockLoaded(Vector3 pos);
 
-	public boolean setBlockToAir(Vector3i pos);
+	public boolean setBlockToAir(Vector3 pos);
 
-	public boolean setBlockState(Vector3i pos, BlockState state);
+	public boolean setBlockState(Vector3 pos, BlockState state);
 
-	public BlockState getBlockState(Vector3i pos);
+	public BlockState getBlockState(Vector3 pos);
 
 	public boolean isDaytime();
 
@@ -60,7 +60,7 @@ public interface World {
 	
 	boolean canBlockSeeSky(int x, int y, int z);
 	
-	boolean spawnFirework(Vector3d pos, FireworkProperties prop);
+	boolean spawnFirework(Vector3 pos, FireworkProperties prop);
 	
 	void loadChunk(int x, int y);
 }

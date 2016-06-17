@@ -1,33 +1,5 @@
 package org.cakepowered.mod.util;
 
-import org.cakepowered.api.entity.Entity;
-import org.cakepowered.api.entity.Player;
-import org.cakepowered.api.core.Server;
-import org.cakepowered.api.block.Block;
-import org.cakepowered.api.block.BlockState;
-import org.cakepowered.api.command.CommandSender;
-import org.cakepowered.api.enchantment.Enchantment;
-import org.cakepowered.api.inventory.Inventory;
-import org.cakepowered.api.inventory.ItemStack;
-import org.cakepowered.api.item.Item;
-import org.cakepowered.api.nbt.NBTBase;
-import org.cakepowered.api.nbt.NBTCompound;
-import org.cakepowered.api.util.vector.Vector3d;
-import org.cakepowered.api.util.vector.Vector3i;
-import org.cakepowered.api.util.text.TextModifier;
-import org.cakepowered.mod.core.ApiServer;
-import org.cakepowered.mod.block.ApiBlock;
-import org.cakepowered.mod.block.ApiBlockState;
-import org.cakepowered.mod.command.ApiCommandSender;
-import org.cakepowered.mod.enchantment.ApiEnchantment;
-import org.cakepowered.mod.entity.ApiEntity;
-import org.cakepowered.mod.entity.ApiPlayer;
-import org.cakepowered.mod.inventory.ApiInventory;
-import org.cakepowered.mod.inventory.ApiItemStack;
-import org.cakepowered.mod.item.ApiItem;
-import org.cakepowered.mod.nbt.ApiNBTBase;
-import org.cakepowered.mod.nbt.ApiNBTCompund;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
@@ -37,6 +9,32 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Vec3;
+import org.cakepowered.api.block.Block;
+import org.cakepowered.api.block.BlockState;
+import org.cakepowered.api.command.CommandSender;
+import org.cakepowered.api.core.Server;
+import org.cakepowered.api.enchantment.Enchantment;
+import org.cakepowered.api.entity.Entity;
+import org.cakepowered.api.entity.Player;
+import org.cakepowered.api.inventory.Inventory;
+import org.cakepowered.api.inventory.ItemStack;
+import org.cakepowered.api.item.Item;
+import org.cakepowered.api.nbt.NBTBase;
+import org.cakepowered.api.nbt.NBTCompound;
+import org.cakepowered.api.util.text.TextModifier;
+import org.cakepowered.api.util.vector.Vector3;
+import org.cakepowered.mod.block.ApiBlock;
+import org.cakepowered.mod.block.ApiBlockState;
+import org.cakepowered.mod.command.ApiCommandSender;
+import org.cakepowered.mod.core.ApiServer;
+import org.cakepowered.mod.enchantment.ApiEnchantment;
+import org.cakepowered.mod.entity.ApiEntity;
+import org.cakepowered.mod.entity.ApiPlayer;
+import org.cakepowered.mod.inventory.ApiInventory;
+import org.cakepowered.mod.inventory.ApiItemStack;
+import org.cakepowered.mod.item.ApiItem;
+import org.cakepowered.mod.nbt.ApiNBTBase;
+import org.cakepowered.mod.nbt.ApiNBTCompund;
 
 public class PluginInterface {
 
@@ -69,22 +67,16 @@ public class PluginInterface {
 		return null;
 	}
 
-	public static BlockPos getBlockPos(Vector3i v) {
+	public static BlockPos getBlockPos(Vector3 v) {
 		if (v == null)
 			return null;
-		return new BlockPos(v.getX(), v.getY(), v.getZ());
+		return new BlockPos(v.getXi(), v.getYi(), v.getZi());
 	}
 
-	public static BlockPos getBlockPos(Vector3d v) {
+	public static Vec3 getVec3(Vector3 v) {
 		if (v == null)
 			return null;
-		return new BlockPos(v.getX(), v.getY(), v.getZ());
-	}
-
-	public static Vec3 getVec3(Vector3d v) {
-		if (v == null)
-			return null;
-		return new Vec3(v.getX(), v.getY(), v.getZ());
+		return new Vec3(v.getXd(), v.getYd(), v.getZd());
 	}
 
 	public static net.minecraft.block.Block getBlock(Block block) {

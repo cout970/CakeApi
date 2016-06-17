@@ -1,6 +1,6 @@
 package org.cakepowered.api.command;
 
-import org.cakepowered.api.util.vector.Vector3i;
+import org.cakepowered.api.util.vector.Vector3;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,7 +33,7 @@ public abstract class CommandBase implements CommandExecutor {
 	}
 
 	@Override
-	public List<String> addTabCompletionOptions(CommandSender sender, String[] args, Vector3i pos) {
+	public List<String> addTabCompletionOptions(CommandSender sender, String[] args, Vector3 pos) {
 		return null;
 	}
 	

@@ -1,7 +1,7 @@
 package org.cakepowered.api.command;
 
 import org.cakepowered.api.entity.Player;
-import org.cakepowered.api.util.vector.Vector3d;
+import org.cakepowered.api.util.vector.Vector3;
 import org.cakepowered.api.world.World;
 
 public interface CommandSender {
@@ -12,7 +12,7 @@ public interface CommandSender {
 
 	public boolean canUseCommand(int permLevel, String commandName);
 
-	Vector3d getPositionVector();
+	Vector3 getPositionVector();
 
 	// can be null
 	Player getPlayer();
