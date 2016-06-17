@@ -16,7 +16,7 @@ import org.cakepowered.api.firework.FireworkProperties;
 import org.cakepowered.api.scoreboard.Scoreboard;
 import org.cakepowered.api.tileentity.TileEntity;
 import org.cakepowered.api.util.BlockLocation;
-import org.cakepowered.api.util.vector.Vector3;
+import org.cakepowered.api.util.Vector3;
 import org.cakepowered.api.world.Difficulties;
 import org.cakepowered.mod.CakeApiCore;
 import org.cakepowered.mod.scoreboard.ApiScoreboard;

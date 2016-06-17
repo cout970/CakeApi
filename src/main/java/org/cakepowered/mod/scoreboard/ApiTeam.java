@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import net.minecraft.scoreboard.ScorePlayerTeam;
 import org.cakepowered.api.entity.Player;
 import org.cakepowered.api.scoreboard.Team;
-import org.cakepowered.api.util.text.TextModifier;
+import org.cakepowered.api.text.TextModifier;
 import org.cakepowered.mod.util.ForgeInterface;
 import org.cakepowered.mod.util.IImplementation;
 import org.cakepowered.mod.util.PluginInterface;

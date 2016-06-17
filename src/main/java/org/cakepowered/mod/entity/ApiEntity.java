@@ -5,7 +5,7 @@ import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry.EntityRegistration;
 import org.cakepowered.api.command.CommandSender;
-import org.cakepowered.api.util.vector.Vector3;
+import org.cakepowered.api.util.Vector3;
 import org.cakepowered.api.world.World;
 import org.cakepowered.mod.util.ForgeInterface;
 import org.cakepowered.mod.util.IImplementation;

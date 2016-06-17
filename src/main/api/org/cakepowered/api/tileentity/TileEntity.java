@@ -3,7 +3,7 @@ package org.cakepowered.api.tileentity;
 import org.cakepowered.api.entity.Player;
 import org.cakepowered.api.inventory.Inventory;
 import org.cakepowered.api.nbt.NBTCompound;
-import org.cakepowered.api.util.vector.Vector3;
+import org.cakepowered.api.util.Vector3;
 import org.cakepowered.api.world.World;
 
 public interface TileEntity {

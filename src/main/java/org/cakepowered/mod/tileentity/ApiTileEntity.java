@@ -3,7 +3,7 @@ package org.cakepowered.mod.tileentity;
 import org.cakepowered.api.entity.Player;
 import org.cakepowered.api.inventory.Inventory;
 import org.cakepowered.api.nbt.NBTCompound;
-import org.cakepowered.api.util.vector.Vector3;
+import org.cakepowered.api.util.Vector3;
 import org.cakepowered.api.world.World;
 import org.cakepowered.mod.util.ForgeInterface;
 import org.cakepowered.mod.util.IImplementation;

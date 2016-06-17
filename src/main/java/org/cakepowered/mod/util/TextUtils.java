@@ -2,8 +2,8 @@ package org.cakepowered.mod.util;
 
 import java.util.EnumMap;
 
-import org.cakepowered.api.util.text.TextFormating;
-import org.cakepowered.api.util.text.TextModifier;
+import org.cakepowered.api.text.TextFormating;
+import org.cakepowered.api.text.TextModifier;
 
 import net.minecraft.util.EnumChatFormatting;
 

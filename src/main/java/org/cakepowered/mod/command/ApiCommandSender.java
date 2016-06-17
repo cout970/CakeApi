@@ -2,7 +2,7 @@ package org.cakepowered.mod.command;
 
 import org.cakepowered.api.entity.Player;
 import org.cakepowered.api.command.CommandSender;
-import org.cakepowered.api.util.vector.Vector3;
+import org.cakepowered.api.util.Vector3;
 import org.cakepowered.api.world.World;
 import org.cakepowered.mod.util.ForgeInterface;
 import org.cakepowered.mod.util.IImplementation;

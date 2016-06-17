@@ -1,7 +1,7 @@
 package org.cakepowered.api.command;
 
 import org.cakepowered.api.entity.Player;
-import org.cakepowered.api.util.vector.Vector3;
+import org.cakepowered.api.util.Vector3;
 import org.cakepowered.api.world.World;
 
 public interface CommandSender {

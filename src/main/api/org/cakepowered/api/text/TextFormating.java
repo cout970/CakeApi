@@ -1,4 +1,4 @@
-package org.cakepowered.api.util.text;
+package org.cakepowered.api.text;
 
 import java.util.ArrayList;
 import java.util.List;

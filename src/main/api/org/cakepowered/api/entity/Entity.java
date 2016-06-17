@@ -1,7 +1,7 @@
 package org.cakepowered.api.entity;
 
 import org.cakepowered.api.command.CommandSender;
-import org.cakepowered.api.util.vector.Vector3;
+import org.cakepowered.api.util.Vector3;
 import org.cakepowered.api.world.World;
 
 import java.util.UUID;

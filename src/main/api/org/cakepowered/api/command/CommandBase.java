@@ -1,6 +1,6 @@
 package org.cakepowered.api.command;
 
-import org.cakepowered.api.util.vector.Vector3;
+import org.cakepowered.api.util.Vector3;
 
 import java.util.ArrayList;
 import java.util.Collections;

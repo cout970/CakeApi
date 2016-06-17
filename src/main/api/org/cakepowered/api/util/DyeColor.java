@@ -1,7 +1,7 @@
 package org.cakepowered.api.util;
 
-import org.cakepowered.api.util.text.TextFormating;
-import org.cakepowered.api.util.text.TextModifier;
+import org.cakepowered.api.text.TextFormating;
+import org.cakepowered.api.text.TextModifier;
 
 public enum DyeColor {
 

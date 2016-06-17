@@ -8,7 +8,7 @@ import org.cakepowered.api.scoreboard.Team;
 import org.cakepowered.api.util.DirectionYaw;
 import org.cakepowered.api.util.EntityLocation;
 import org.cakepowered.api.title.Title;
-import org.cakepowered.api.util.vector.Vector3;
+import org.cakepowered.api.util.Vector3;
 
 public interface Player extends Entity {
 

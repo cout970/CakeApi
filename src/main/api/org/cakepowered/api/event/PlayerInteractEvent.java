@@ -2,7 +2,7 @@ package org.cakepowered.api.event;
 
 import org.cakepowered.api.block.Block;
 import org.cakepowered.api.util.Direction;
-import org.cakepowered.api.util.vector.Vector3;
+import org.cakepowered.api.util.Vector3;
 import org.cakepowered.api.world.World;
 
 public interface PlayerInteractEvent extends PlayerEvent {

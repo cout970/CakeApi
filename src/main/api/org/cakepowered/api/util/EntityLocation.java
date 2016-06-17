@@ -1,7 +1,5 @@
 package org.cakepowered.api.util;
 
-import org.cakepowered.api.util.vector.Vector3;
-
 public final class EntityLocation {
 
 	protected int dimension;

@@ -1,6 +1,4 @@
-package org.cakepowered.api.util.vector;
-
-import org.cakepowered.api.util.Direction;
+package org.cakepowered.api.util;
 
 /**
  * Created by cout970 on 17/06/2016.

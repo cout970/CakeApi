@@ -1,7 +1,7 @@
 package org.cakepowered.api.scoreboard;
 
 import org.cakepowered.api.entity.Player;
-import org.cakepowered.api.util.text.TextModifier;
+import org.cakepowered.api.text.TextModifier;
 
 import java.util.List;
 

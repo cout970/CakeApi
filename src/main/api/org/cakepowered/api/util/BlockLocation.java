@@ -3,7 +3,6 @@ package org.cakepowered.api.util;
 import org.cakepowered.api.core.References;
 import org.cakepowered.api.nbt.INBTserializable;
 import org.cakepowered.api.nbt.NBTCompound;
-import org.cakepowered.api.util.vector.Vector3;
 import org.cakepowered.api.world.World;
 
 public final class BlockLocation implements INBTserializable {

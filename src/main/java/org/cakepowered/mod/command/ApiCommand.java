@@ -4,7 +4,7 @@ import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import org.cakepowered.api.command.CommandExecutor;
 import org.cakepowered.api.command.CommandSender;
-import org.cakepowered.api.util.vector.Vector3;
+import org.cakepowered.api.util.Vector3;
 import org.cakepowered.mod.util.PluginInterface;
 
 import java.util.List;
