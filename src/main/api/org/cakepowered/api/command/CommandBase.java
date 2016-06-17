@@ -1,9 +1,10 @@
 package org.cakepowered.api.command;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.cakepowered.api.util.vector.Vector3i;
 
-import org.cakepowered.api.util.Vector3i;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public abstract class CommandBase implements CommandExecutor {
 
@@ -12,9 +13,8 @@ public abstract class CommandBase implements CommandExecutor {
 
 	public CommandBase(String name, String... alias) {
 		this.name = name;
-		this.alias = new ArrayList<String>(alias.length);
-		for (String s : alias)
-			this.alias.add(s);
+		this.alias = new ArrayList<>(alias.length);
+		Collections.addAll(this.alias, alias);
 	}
 
 	@Override
@@ -28,7 +28,7 @@ public abstract class CommandBase implements CommandExecutor {
 	}
 
 	@Override
-	public List<String> getAllias() {
+	public List<String> getAlias() {
 		return alias;
 	}
 

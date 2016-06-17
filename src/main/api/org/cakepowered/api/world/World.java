@@ -2,16 +2,16 @@ package org.cakepowered.api.world;
 
 import java.util.List;
 
-import org.cakepowered.api.base.Entity;
-import org.cakepowered.api.base.Server;
+import org.cakepowered.api.entity.Entity;
+import org.cakepowered.api.core.Server;
 import org.cakepowered.api.block.Block;
 import org.cakepowered.api.block.BlockState;
 import org.cakepowered.api.scoreboard.Scoreboard;
 import org.cakepowered.api.tileentity.TileEntity;
-import org.cakepowered.api.util.FireworkProperties;
-import org.cakepowered.api.util.Location;
-import org.cakepowered.api.util.Vector3d;
-import org.cakepowered.api.util.Vector3i;
+import org.cakepowered.api.firework.FireworkProperties;
+import org.cakepowered.api.util.BlockLocation;
+import org.cakepowered.api.util.vector.Vector3d;
+import org.cakepowered.api.util.vector.Vector3i;
 
 public interface World {
 
@@ -23,7 +23,7 @@ public interface World {
 
 	public Scoreboard getScoreboard();
 
-	public Location getSpawnLocation();
+	public BlockLocation getSpawnLocation();
 
 	public Block getBlock(Vector3i position);
 

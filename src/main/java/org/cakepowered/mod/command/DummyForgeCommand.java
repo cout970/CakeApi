@@ -31,7 +31,7 @@ public class DummyForgeCommand extends CommandBase {
 	@SuppressWarnings("rawtypes")
 	@Override
 	public List<String> getCommandAliases() {
-		return command.getAllias();
+		return command.getAlias();
 	}
 
 	@Override

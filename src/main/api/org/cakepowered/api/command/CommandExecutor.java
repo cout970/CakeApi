@@ -1,6 +1,6 @@
 package org.cakepowered.api.command;
 
-import org.cakepowered.api.util.Vector3i;
+import org.cakepowered.api.util.vector.Vector3i;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ public interface CommandExecutor {
 
 	String getCommandUsage(CommandSender commandSender);
 
-	List<String> getAllias();
+	List<String> getAlias();
 
 	void execute(CommandSender commandSender, String[] args);
 

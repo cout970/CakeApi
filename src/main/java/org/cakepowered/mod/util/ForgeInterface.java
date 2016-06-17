@@ -1,8 +1,8 @@
 package org.cakepowered.mod.util;
 
-import org.cakepowered.api.base.Entity;
-import org.cakepowered.api.base.Game;
-import org.cakepowered.api.base.Player;
+import org.cakepowered.api.entity.Entity;
+import org.cakepowered.api.core.Game;
+import org.cakepowered.api.entity.Player;
 import org.cakepowered.api.block.Block;
 import org.cakepowered.api.block.BlockState;
 import org.cakepowered.api.command.CommandExecutor;
@@ -15,8 +15,8 @@ import org.cakepowered.api.item.Item;
 import org.cakepowered.api.nbt.NBTBase;
 import org.cakepowered.api.tileentity.TileEntity;
 import org.cakepowered.api.util.Direction;
-import org.cakepowered.api.util.Vector3d;
-import org.cakepowered.api.util.Vector3i;
+import org.cakepowered.api.util.vector.Vector3d;
+import org.cakepowered.api.util.vector.Vector3i;
 import org.cakepowered.api.world.World;
 import org.cakepowered.mod.CakeApiCore;
 import org.cakepowered.mod.block.ApiBlock;

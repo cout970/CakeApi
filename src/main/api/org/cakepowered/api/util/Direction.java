@@ -1,5 +1,7 @@
 package org.cakepowered.api.util;
 
+import org.cakepowered.api.util.vector.Vector3i;
+
 public enum Direction {
 
 	DOWN(0, -1, 0), UP(0, 1, 0), NORTH(0, 0, -1), SOUTH(0, 0, 1), WEST(-1, 0, 0), EAST(1, 0, 0);

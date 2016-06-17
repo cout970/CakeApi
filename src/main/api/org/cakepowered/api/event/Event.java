@@ -1,22 +1,22 @@
 package org.cakepowered.api.event;
 
-import org.cakepowered.api.base.Game;
+import org.cakepowered.api.core.Game;
 
 public interface Event {
 
-	public Game getGame();
+	Game getGame();
 
-	public boolean isEventCancelable();
+	boolean isEventCancelable();
 
-	public void setEventCanceled(boolean value);
+	void setEventCanceled(boolean value);
 
-	public boolean isEventCanceled();
+	boolean isEventCanceled();
 
-	public boolean hasEventResult();
+	boolean hasEventResult();
 
-	public EventResult getEventResult();
+	EventResult getEventResult();
 
-	public enum EventResult {
+	enum EventResult {
 		DENY, DEFAULT, ALLOW
 	}
 }

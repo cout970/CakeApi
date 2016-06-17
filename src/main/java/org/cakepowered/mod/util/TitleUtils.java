@@ -1,6 +1,6 @@
 package org.cakepowered.mod.util;
 
-import org.cakepowered.api.util.Title;
+import org.cakepowered.api.title.Title;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.NetHandlerPlayServer;

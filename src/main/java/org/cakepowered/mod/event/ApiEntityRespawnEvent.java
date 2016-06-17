@@ -1,7 +1,7 @@
 package org.cakepowered.mod.event;
 
-import org.cakepowered.api.base.Entity;
-import org.cakepowered.api.base.Game;
+import org.cakepowered.api.entity.Entity;
+import org.cakepowered.api.core.Game;
 import org.cakepowered.api.event.EntitySpawnEvent;
 import org.cakepowered.api.world.World;
 import org.cakepowered.mod.util.ForgeInterface;

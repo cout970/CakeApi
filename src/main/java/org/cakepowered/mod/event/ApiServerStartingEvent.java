@@ -1,7 +1,7 @@
 package org.cakepowered.mod.event;
 
-import org.cakepowered.api.base.Game;
-import org.cakepowered.api.base.Server;
+import org.cakepowered.api.core.Game;
+import org.cakepowered.api.core.Server;
 import org.cakepowered.api.event.ServerStatingEvent;
 import org.cakepowered.mod.util.ForgeInterface;
 

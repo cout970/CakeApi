@@ -2,15 +2,15 @@ package org.cakepowered.api.enchantment;
 
 public interface Enchantment {
 
-	public int getID();
+	int getID();
 
-	public int getLevel();
+	int getLevel();
 
-	public int getMinLevel();
+	int getMinLevel();
 
-	public int getMaxLevel();
+	int getMaxLevel();
 
-	public String getName();
+	String getName();
 
-	public boolean canBeInBook();
+	boolean canBeInBook();
 }

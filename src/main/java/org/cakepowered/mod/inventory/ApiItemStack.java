@@ -1,6 +1,6 @@
 package org.cakepowered.mod.inventory;
 
-import org.cakepowered.api.base.Player;
+import org.cakepowered.api.entity.Player;
 import org.cakepowered.api.enchantment.Enchantment;
 import org.cakepowered.api.item.Item;
 import org.cakepowered.api.nbt.NBTCompound;

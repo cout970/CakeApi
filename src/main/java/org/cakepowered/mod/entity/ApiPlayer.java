@@ -24,16 +24,16 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.WorldSettings.GameType;
 import net.minecraftforge.common.DimensionManager;
-import org.cakepowered.api.base.Player;
+import org.cakepowered.api.entity.Player;
 import org.cakepowered.api.inventory.Inventory;
 import org.cakepowered.api.inventory.ItemStack;
 import org.cakepowered.api.inventory.PlayerInventory;
 import org.cakepowered.api.scoreboard.Scoreboard;
 import org.cakepowered.api.scoreboard.Team;
 import org.cakepowered.api.util.DirectionYaw;
-import org.cakepowered.api.util.PreciseLocation;
-import org.cakepowered.api.util.Title;
-import org.cakepowered.api.util.Vector3d;
+import org.cakepowered.api.util.EntityLocation;
+import org.cakepowered.api.title.Title;
+import org.cakepowered.api.util.vector.Vector3d;
 import org.cakepowered.api.util.text.TextFormating;
 import org.cakepowered.mod.CakeApiCore;
 import org.cakepowered.mod.inventory.ApiInventory;
@@ -120,13 +120,13 @@ public class ApiPlayer extends ApiEntity implements Player{
 	}
 
 	@Override
-	public void moveToWorld(PreciseLocation loc) {
+	public void moveToWorld(EntityLocation loc) {
 		setLocation(loc);
 	}
 
 	@Override
-	public PreciseLocation getLocation() {
-		return new PreciseLocation(getWorld().getDimension(), getPosition(), player.rotationYaw, player.rotationPitch);
+	public EntityLocation getLocation() {
+		return new EntityLocation(getWorld().getDimension(), getPosition(), player.rotationYaw, player.rotationPitch);
 	}
 
 	@Override
@@ -151,7 +151,7 @@ public class ApiPlayer extends ApiEntity implements Player{
 	}
 
 	@Override
-	public void setLocation(PreciseLocation loc) {
+	public void setLocation(EntityLocation loc) {
 		World w = player.getEntityWorld();
 		getWorld().loadChunk(player.chunkCoordX, player.chunkCoordZ);
 		if (w.provider.getDimensionId() != loc.getDimension()) {
@@ -162,7 +162,7 @@ public class ApiPlayer extends ApiEntity implements Player{
 				loc.getYaw(), loc.getPitch());
 	}
 
-	private void teleportToDimension(EntityPlayer player, PreciseLocation loc) {
+	private void teleportToDimension(EntityPlayer player, EntityLocation loc) {
 		EntityPlayerMP entityPlayerMP = (EntityPlayerMP) player;
 		player.addExperienceLevel(0);
 		WorldServer world = DimensionManager.getWorld(loc.getDimension());
@@ -170,7 +170,7 @@ public class ApiPlayer extends ApiEntity implements Player{
 	}
 
 	@Override
-	public int getDirection() {
+	public DirectionYaw getDirection() {
 		float yaw = wrapTo180(player.rotationYaw);
 		if ((yaw < 45 && yaw >= 0) || (yaw > -45 && yaw <= 0)) {
 			return DirectionYaw.SOUTH;
@@ -181,7 +181,7 @@ public class ApiPlayer extends ApiEntity implements Player{
 		} else if ((yaw >= 135 && yaw <= 180) || (yaw <= -135 && yaw >= -180)) {
 			return DirectionYaw.NORTH;
 		}
-		return 0;
+		return DirectionYaw.NORTH;
 	}
 
 	private static float wrapTo180(float angle) {

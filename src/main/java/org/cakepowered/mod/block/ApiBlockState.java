@@ -24,4 +24,9 @@ public class ApiBlockState implements BlockState, IImplementation<IBlockState> {
 	public Block getBlock() {
 		return ForgeInterface.getBlock(state.getBlock());
 	}
+
+	@Override
+	public int getMetadata() {
+		return getBlock().getMetadataFromState(this);
+	}
 }

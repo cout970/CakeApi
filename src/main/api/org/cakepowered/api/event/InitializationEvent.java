@@ -1,8 +1,8 @@
 package org.cakepowered.api.event;
 
-import org.cakepowered.api.base.Log;
+import org.cakepowered.api.util.Log;
 
 public interface InitializationEvent extends StateChangeEvent {
 
-	public Log getLogger(String pluginId);
+	Log getLogger(String pluginId);
 }

@@ -29,7 +29,7 @@ public enum DyeColor {
 	private Color color;
 	private TextModifier modifier;
 
-	private DyeColor(int id, int dyeMetadata, String name, String unlocalizedName, Color color, TextModifier modifier) {
+	DyeColor(int id, int dyeMetadata, String name, String unlocalizedName, Color color, TextModifier modifier) {
 		this.id = id;
 		this.dyeMetadata = dyeMetadata;
 		this.name = name;

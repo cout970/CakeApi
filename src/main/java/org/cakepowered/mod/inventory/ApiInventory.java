@@ -1,6 +1,6 @@
 package org.cakepowered.mod.inventory;
 
-import org.cakepowered.api.base.Player;
+import org.cakepowered.api.entity.Player;
 import org.cakepowered.api.inventory.Inventory;
 import org.cakepowered.api.inventory.ItemStack;
 import org.cakepowered.mod.util.ForgeInterface;

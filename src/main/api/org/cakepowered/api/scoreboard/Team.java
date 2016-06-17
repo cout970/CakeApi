@@ -1,9 +1,9 @@
 package org.cakepowered.api.scoreboard;
 
-import java.util.List;
-
-import org.cakepowered.api.base.Player;
+import org.cakepowered.api.entity.Player;
 import org.cakepowered.api.util.text.TextModifier;
+
+import java.util.List;
 
 public interface Team {
 
@@ -16,5 +16,4 @@ public interface Team {
 	void setName(String displayName) throws IllegalArgumentException;
 
 	List<Player> getPlayers();
-	
 }

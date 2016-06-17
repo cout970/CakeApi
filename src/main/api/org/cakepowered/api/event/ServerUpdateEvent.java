@@ -1,6 +1,6 @@
 package org.cakepowered.api.event;
 
-import org.cakepowered.api.base.Server;
+import org.cakepowered.api.core.Server;
 
 public interface ServerUpdateEvent extends Event {
 
@@ -8,7 +8,7 @@ public interface ServerUpdateEvent extends Event {
 
 	Phase getPhase();
 
-	public enum Phase {
+	enum Phase {
 		START, END
 	}
 }

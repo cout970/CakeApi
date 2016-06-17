@@ -1,12 +1,12 @@
 package org.cakepowered.api.event;
 
-import org.cakepowered.api.base.Player;
+import org.cakepowered.api.entity.Player;
 
 public interface PlayerChatEvent extends Event {
 
-	public String getMessage();
+	String getMessage();
 
-	public String getUsername();
+	String getUsername();
 
-	public Player getPlayer();
+	Player getPlayer();
 }

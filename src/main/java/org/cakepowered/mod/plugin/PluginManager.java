@@ -2,7 +2,7 @@ package org.cakepowered.mod.plugin;
 
 import java.util.List;
 
-import org.cakepowered.mod.base.ApiEventRegistry;
+import org.cakepowered.mod.core.ApiEventRegistry;
 
 import com.google.common.collect.Lists;
 

@@ -1,6 +1,6 @@
 package org.cakepowered.api.item;
 
-import org.cakepowered.api.base.References;
+import org.cakepowered.api.core.References;
 
 public enum Items {
 
@@ -194,7 +194,7 @@ public enum Items {
 
 	private final String name;
 
-	private Items(String name) {
+	Items(String name) {
 		this.name = name;
 	}
 

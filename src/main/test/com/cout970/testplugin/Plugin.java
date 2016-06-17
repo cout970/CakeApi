@@ -1,9 +1,9 @@
 package com.cout970.testplugin;
 
-import org.cakepowered.api.base.CakePlugin;
-import org.cakepowered.api.base.Game;
-import org.cakepowered.api.base.Log;
-import org.cakepowered.api.event.EventSuscribe;
+import org.cakepowered.api.core.CakePlugin;
+import org.cakepowered.api.core.Game;
+import org.cakepowered.api.util.Log;
+import org.cakepowered.api.event.EventSubscribe;
 import org.cakepowered.api.event.InitializationEvent;
 import org.cakepowered.api.event.PlayerJoinEvent;
 
@@ -16,7 +16,7 @@ public class Plugin {
     public Game game;
     public static Plugin INSTANCE;
 
-    @EventSuscribe
+    @EventSubscribe
     public void onInit(InitializationEvent event) {
         logger = event.getLogger("plugin_id");
         game = event.getGame();
@@ -28,7 +28,7 @@ public class Plugin {
         game.getWorldManager().createNormalWorld(7, r.nextLong());
     }
 
-    @EventSuscribe
+    @EventSubscribe
     public void onChat(PlayerJoinEvent event) {
 //        Player p = event.getPlayer();
 //        p.moveToWorld(new PreciseLocation(5, new Vector3d(0, 0, 0), 0, 0));

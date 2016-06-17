@@ -1,9 +1,9 @@
 package org.cakepowered.mod.event;
 
-import org.cakepowered.api.base.Game;
-import org.cakepowered.api.base.Log;
+import org.cakepowered.api.core.Game;
+import org.cakepowered.api.util.Log;
 import org.cakepowered.api.event.InitializationEvent;
-import org.cakepowered.mod.base.ApiLog;
+import org.cakepowered.mod.core.ApiLog;
 
 public class ApiInitializationEvent implements InitializationEvent {
 

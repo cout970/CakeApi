@@ -3,7 +3,7 @@ package org.cakepowered.mod.entity;
 import java.util.UUID;
 
 import org.cakepowered.api.command.CommandSender;
-import org.cakepowered.api.util.Vector3d;
+import org.cakepowered.api.util.vector.Vector3d;
 import org.cakepowered.api.world.World;
 import org.cakepowered.mod.util.ForgeInterface;
 import org.cakepowered.mod.util.IImplementation;
@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry.EntityRegistration;
 
-public class ApiEntity implements org.cakepowered.api.base.Entity, IImplementation<Entity> {
+public class ApiEntity implements org.cakepowered.api.entity.Entity, IImplementation<Entity> {
 
 	protected Entity entity;
 
@@ -42,14 +42,14 @@ public class ApiEntity implements org.cakepowered.api.base.Entity, IImplementati
 	}
 
 	@Override
-	public org.cakepowered.api.base.Entity getRiddingEntity() {
+	public org.cakepowered.api.entity.Entity getRiddingEntity() {
 		if (entity.ridingEntity == null)
 			return null;
 		return ForgeInterface.getEntity(entity.ridingEntity);
 	}
 
 	@Override
-	public org.cakepowered.api.base.Entity getRiddingByEntity() {
+	public org.cakepowered.api.entity.Entity getRiddingByEntity() {
 		if (entity.riddenByEntity == null)
 			return null;
 		return ForgeInterface.getEntity(entity.riddenByEntity);

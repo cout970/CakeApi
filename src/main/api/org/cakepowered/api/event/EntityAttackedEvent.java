@@ -1,8 +1,8 @@
 package org.cakepowered.api.event;
 
-import org.cakepowered.api.base.Entity;
+import org.cakepowered.api.entity.Entity;
 
 public interface EntityAttackedEvent extends PlayerEvent {
 
-	public Entity getEntity();
+	Entity getEntity();
 }

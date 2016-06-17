@@ -5,13 +5,13 @@ import org.cakepowered.api.command.CommandSender;
 
 public interface CommandExecuteEvent extends Event {
 
-	public CommandExecutor getCommandExecutor();
+	CommandExecutor getCommandExecutor();
 
-	public CommandSender getCommandSender();
+	CommandSender getCommandSender();
 
-	public String[] getArguments();
+	String[] getArguments();
 
-	public void setArguments(String[] args);
+	void setArguments(String[] args);
 
-	public void setThrowable(Throwable exception);
+	void setThrowable(Throwable exception);
 }

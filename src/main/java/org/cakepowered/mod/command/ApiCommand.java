@@ -4,7 +4,7 @@ import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import org.cakepowered.api.command.CommandExecutor;
 import org.cakepowered.api.command.CommandSender;
-import org.cakepowered.api.util.Vector3i;
+import org.cakepowered.api.util.vector.Vector3i;
 import org.cakepowered.mod.util.PluginInterface;
 
 import java.util.List;
@@ -29,7 +29,7 @@ public class ApiCommand implements CommandExecutor {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<String> getAllias() {
+	public List<String> getAlias() {
 		return command.getCommandAliases();
 	}
 

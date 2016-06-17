@@ -1,7 +1,7 @@
 package org.cakepowered.mod.util;
 
-import org.cakepowered.api.util.FireworkProperties;
-import org.cakepowered.api.util.FireworkProperties.FireworkExplosion;
+import org.cakepowered.api.firework.FireworkProperties;
+import org.cakepowered.api.firework.FireworkExplosion;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

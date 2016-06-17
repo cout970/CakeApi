@@ -10,7 +10,7 @@ import org.cakepowered.api.event.PlayerJoinEvent;
 import org.cakepowered.api.event.PlayerQuitEvent;
 import org.cakepowered.api.event.PlayerRespawnEvent;
 import org.cakepowered.mod.CakeApiCore;
-import org.cakepowered.mod.base.ApiEventRegistry;
+import org.cakepowered.mod.core.ApiEventRegistry;
 import org.cakepowered.mod.world.ApiWorldManager;
 
 import net.minecraftforge.event.CommandEvent;

@@ -1,8 +1,8 @@
 package org.cakepowered.mod.util;
 
-import org.cakepowered.api.base.Entity;
-import org.cakepowered.api.base.Player;
-import org.cakepowered.api.base.Server;
+import org.cakepowered.api.entity.Entity;
+import org.cakepowered.api.entity.Player;
+import org.cakepowered.api.core.Server;
 import org.cakepowered.api.block.Block;
 import org.cakepowered.api.block.BlockState;
 import org.cakepowered.api.command.CommandSender;
@@ -12,10 +12,10 @@ import org.cakepowered.api.inventory.ItemStack;
 import org.cakepowered.api.item.Item;
 import org.cakepowered.api.nbt.NBTBase;
 import org.cakepowered.api.nbt.NBTCompound;
-import org.cakepowered.api.util.Vector3d;
-import org.cakepowered.api.util.Vector3i;
+import org.cakepowered.api.util.vector.Vector3d;
+import org.cakepowered.api.util.vector.Vector3i;
 import org.cakepowered.api.util.text.TextModifier;
-import org.cakepowered.mod.base.ApiServer;
+import org.cakepowered.mod.core.ApiServer;
 import org.cakepowered.mod.block.ApiBlock;
 import org.cakepowered.mod.block.ApiBlockState;
 import org.cakepowered.mod.command.ApiCommandSender;

@@ -1,9 +1,9 @@
 package org.cakepowered.mod.event;
 
-import org.cakepowered.api.base.Game;
-import org.cakepowered.api.base.Player;
+import org.cakepowered.api.core.Game;
+import org.cakepowered.api.entity.Player;
 import org.cakepowered.api.event.BlockBreakEvent;
-import org.cakepowered.api.util.Vector3i;
+import org.cakepowered.api.util.vector.Vector3i;
 import org.cakepowered.api.world.World;
 import org.cakepowered.mod.util.ForgeInterface;
 

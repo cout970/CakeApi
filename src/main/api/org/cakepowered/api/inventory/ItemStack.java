@@ -1,6 +1,6 @@
 package org.cakepowered.api.inventory;
 
-import org.cakepowered.api.base.Player;
+import org.cakepowered.api.entity.Player;
 import org.cakepowered.api.enchantment.Enchantment;
 import org.cakepowered.api.item.Item;
 import org.cakepowered.api.nbt.NBTCompound;
@@ -8,57 +8,57 @@ import org.cakepowered.api.nbt.NBTList;
 
 public interface ItemStack {
 
-	public Item getItem();
+	Item getItem();
 
-	public void setItem(Item item);
+	void setItem(Item item);
 
-	public int getStackSize();
+	int getStackSize();
 
-	public void setStackSize(int amount);
+	void setStackSize(int amount);
 
-	public int getMaxStackSize();
+	int getMaxStackSize();
 
-	public int getMetadata();
+	int getMetadata();
 
-	public int getDamage();
+	int getDamage();
 
-	public void setDamage(int value);
+	void setDamage(int value);
 
-	public int getMaxDamage();
+	int getMaxDamage();
 
-	public NBTCompound getNBTCompound();
+	NBTCompound getNBTCompound();
 
-	public void setNBTCopound(NBTCompound nbt);
+	void setNBTCopound(NBTCompound nbt);
 
-	public ItemStack copy();
+	ItemStack copy();
 
-	public ItemStack splitStack(int amount);
+	ItemStack splitStack(int amount);
 
-	public void writeToNBT(NBTCompound nbt);
+	void writeToNBT(NBTCompound nbt);
 
-	public void readFromNBT(NBTCompound nbt);
+	void readFromNBT(NBTCompound nbt);
 
-	public boolean canBeDamaged();
+	boolean canBeDamaged();
 
-	public void damageItem(int amount, Player player);
+	void damageItem(int amount, Player player);
 
-	public String getUnlocalizedName();
+	String getUnlocalizedName();
 
-	public NBTList getEnchantmentTagList();
+	NBTList getEnchantmentTagList();
 
-	public String getDisplayName();
+	String getDisplayName();
 
-	public void setDisplayName(String name);
+	void setDisplayName(String name);
 
-	public void clearCustomName();
+	void clearCustomName();
 
-	public void addEnchantment(Enchantment ench, int level);
+	void addEnchantment(Enchantment ench, int level);
 
-	public boolean canBeEnchanted();
+	boolean canBeEnchanted();
 
-	public boolean isEnchanted();
+	boolean isEnchanted();
 
-	public int getRepairCost();
+	int getRepairCost();
 
-	public void setRepairCost(int cost);
+	void setRepairCost(int cost);
 }

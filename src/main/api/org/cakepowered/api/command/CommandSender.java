@@ -1,23 +1,23 @@
 package org.cakepowered.api.command;
 
-import org.cakepowered.api.base.Player;
-import org.cakepowered.api.util.Vector3d;
+import org.cakepowered.api.entity.Player;
+import org.cakepowered.api.util.vector.Vector3d;
 import org.cakepowered.api.world.World;
 
 public interface CommandSender {
 
-	public String getName();
+	String getName();
 
 	public String getDisplayName();
 
 	public boolean canUseCommand(int permLevel, String commandName);
 
-	public Vector3d getPositionVector();
+	Vector3d getPositionVector();
 
 	// can be null
-	public Player getPlayer();
+	Player getPlayer();
 
-	public World getWorld();
+	World getWorld();
 
-	public void sendMessage(String message);
+	void sendMessage(String message);
 }

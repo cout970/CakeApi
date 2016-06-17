@@ -1,23 +1,23 @@
 package org.cakepowered.api.inventory;
 
-import org.cakepowered.api.base.Player;
+import org.cakepowered.api.entity.Player;
 import org.cakepowered.api.item.Item;
 
 public interface PlayerInventory extends Inventory {
 
-	public Player getPlayer();
+	Player getPlayer();
 
-	public int getFirstEmptySlot();
+	int getFirstEmptySlot();
 
-	public boolean consumeInventoryItem(Item item);
+	boolean consumeInventoryItem(Item item);
 
-	public boolean hasItem(Item item);
+	boolean hasItem(Item item);
 
-	public boolean addItemStackToInventory(final ItemStack stack);
+	boolean addItemStackToInventory(final ItemStack stack);
 
-	public ItemStack armorItemInSlot(int slot);
+	ItemStack armorItemInSlot(int slot);
 
-	public void dropAllItems();
+	void dropAllItems();
 
-	public boolean hasItemStack(ItemStack stack);
+	boolean hasItemStack(ItemStack stack);
 }

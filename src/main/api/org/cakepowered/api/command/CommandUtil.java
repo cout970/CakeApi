@@ -1,10 +1,10 @@
 package org.cakepowered.api.command;
 
+import org.cakepowered.api.entity.Player;
+import org.cakepowered.api.world.World;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.cakepowered.api.base.Player;
-import org.cakepowered.api.world.World;
 
 public class CommandUtil {
 
@@ -72,6 +72,6 @@ public class CommandUtil {
 		for (Player p : world.getServer().getOnlinePlayers()) {
 			list.add(p.getName());
 		}
-		return list.toArray(new String[0]);
+		return list.toArray(new String[list.size()]);
 	}
 }

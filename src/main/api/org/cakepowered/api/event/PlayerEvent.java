@@ -1,8 +1,8 @@
 package org.cakepowered.api.event;
 
-import org.cakepowered.api.base.Player;
+import org.cakepowered.api.entity.Player;
 
 public interface PlayerEvent extends Event {
 
-	public Player getPlayer();
+	Player getPlayer();
 }

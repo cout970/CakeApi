@@ -2,7 +2,7 @@ package org.cakepowered.mod.scoreboard;
 
 import com.google.common.collect.Lists;
 import net.minecraft.scoreboard.ScorePlayerTeam;
-import org.cakepowered.api.base.Player;
+import org.cakepowered.api.entity.Player;
 import org.cakepowered.api.scoreboard.Team;
 import org.cakepowered.api.util.text.TextModifier;
 import org.cakepowered.mod.util.ForgeInterface;

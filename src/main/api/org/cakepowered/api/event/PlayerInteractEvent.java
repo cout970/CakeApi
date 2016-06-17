@@ -2,22 +2,22 @@ package org.cakepowered.api.event;
 
 import org.cakepowered.api.block.Block;
 import org.cakepowered.api.util.Direction;
-import org.cakepowered.api.util.Vector3i;
+import org.cakepowered.api.util.vector.Vector3i;
 import org.cakepowered.api.world.World;
 
 public interface PlayerInteractEvent extends PlayerEvent {
 
-	public Vector3i getPosition();
+	Vector3i getPosition();
 
-	public Direction getFace();
+	Direction getFace();
 
-	public ClickAction getAction();
+	ClickAction getAction();
 
-	public World getWorld();
+	World getWorld();
 
-	public enum ClickAction {
+	enum ClickAction {
 		RIGHT_CLICK_AIR, RIGHT_CLICK_BLOCK, LEFT_CLICK_BLOCK
 	}
 
-	public Block getInteractBlock();
+	Block getInteractBlock();
 }

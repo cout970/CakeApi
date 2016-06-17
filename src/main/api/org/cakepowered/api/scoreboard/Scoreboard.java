@@ -2,7 +2,7 @@ package org.cakepowered.api.scoreboard;
 
 import java.util.List;
 
-import org.cakepowered.api.base.Player;
+import org.cakepowered.api.entity.Player;
 
 public interface Scoreboard {
 

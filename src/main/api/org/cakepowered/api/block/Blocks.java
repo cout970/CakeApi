@@ -1,6 +1,6 @@
 package org.cakepowered.api.block;
 
-import org.cakepowered.api.base.References;
+import org.cakepowered.api.core.References;
 
 public enum Blocks {
 
@@ -205,7 +205,7 @@ public enum Blocks {
 
 	private final String name;
 
-	private Blocks(String name) {
+	Blocks(String name) {
 		this.name = name;
 	}
 

@@ -1,57 +1,30 @@
 package org.cakepowered.api.util;
 
-public class DirectionYaw {
+public enum DirectionYaw {
 
-	public static final int NORTH = 0;
-	public static final int WEST = 1;
-	public static final int SOUTH = 2;
-	public static final int EAST = 3;
+    NORTH(0, 180),
+    SOUTH(1, 0),
+    WEST(2, 90),
+    EAST(3, 270);
 
-	public static final float EAST_f = 270f;
-	public static final float NORTH_f = 180f;
-	public static final float WEST_f = 90f;
-	public static final float SOUTH_f = 0f;
+    private static final int OPOSITES[] = {1, 0, 3, 2};
+    int index;
+    float angle;
 
-	public static float getYawFromDirection(int dir) {
+    DirectionYaw(int index, float angle) {
+        this.index = index;
+        this.angle = angle;
+    }
 
-		switch (dir) {
-		case NORTH:
-			return NORTH_f;
+    public int getIndex() {
+        return index;
+    }
 
-		case WEST:
-			return WEST_f;
+    public float getAngle() {
+        return angle;
+    }
 
-		case SOUTH:
-			return SOUTH_f;
-
-		case EAST:
-			return EAST_f;
-
-		default:
-			return NORTH_f;
-		}
-
-	}
-
-	public static float getOpossiteYawFromDirection(int dir) {
-
-		switch (dir) {
-		case NORTH:
-			return SOUTH_f;
-
-		case WEST:
-			return EAST_f;
-
-		case SOUTH:
-			return NORTH_f;
-
-		case EAST:
-			return WEST_f;
-
-		default:
-			return 180f;
-		}
-
-	}
-
+    public DirectionYaw getOpposite(){
+        return DirectionYaw.values()[OPOSITES[index]];
+    }
 }

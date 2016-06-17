@@ -13,7 +13,7 @@ public interface RecipeManager {
 	 * @param experience
 	 *            must be positive
 	 */
-	public void addFurnaceRecipe(ItemStack input, ItemStack output, float experience);
+	void addFurnaceRecipe(ItemStack input, ItemStack output, float experience);
 
 	/**
 	 * recipe example: addCraftingRecipe( new ItemStack(Blocks.bookshelf, 1), new Object[] { 
@@ -24,5 +24,5 @@ public interface RecipeManager {
 	 * @param output
 	 * @param recipe
 	 */
-	public void addCraftingRecipe(ItemStack output, Object... recipe);
+	void addCraftingRecipe(ItemStack output, Object... recipe);
 }

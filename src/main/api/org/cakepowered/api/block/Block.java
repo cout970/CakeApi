@@ -8,25 +8,25 @@ public interface Block {
 	/**
 	 * Returns the internal name for this block
 	 */
-	public String getUnlocalizedName();
+	String getUnlocalizedName();
 
 	/**
 	 * Creates a new ItemStack using this block and the amount
 	 */
-	public ItemStack createStack(int amount);
+	ItemStack createStack(int amount);
 
 	/**
 	 * Creates a new ItemStack using this block, the amount (fist arg) and the metadata (second arg)
 	 */
-	public ItemStack createStack(int amount, int metadata);
+	ItemStack createStack(int amount, int metadata);
 
-	public BlockState getDefuldBlockState();
+	BlockState getDefuldBlockState();
 
-	public int getMetadataFromState(BlockState state);
+	int getMetadataFromState(BlockState state);
 
-	public BlockState getStateFromMetadata(int meta);
+	BlockState getStateFromMetadata(int meta);
 
-	public Item toItem();
+	Item toItem();
 
-	public boolean hasTileEntity(BlockState state);
+	boolean hasTileEntity(BlockState state);
 }

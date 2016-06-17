@@ -3,7 +3,7 @@ package org.cakepowered.mod.scoreboard;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cakepowered.api.base.Player;
+import org.cakepowered.api.entity.Player;
 import org.cakepowered.api.scoreboard.Scoreboard;
 import org.cakepowered.api.scoreboard.Team;
 import org.cakepowered.mod.util.IImplementation;

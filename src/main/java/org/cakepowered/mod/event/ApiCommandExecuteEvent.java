@@ -1,6 +1,6 @@
 package org.cakepowered.mod.event;
 
-import org.cakepowered.api.base.Game;
+import org.cakepowered.api.core.Game;
 import org.cakepowered.api.command.CommandExecutor;
 import org.cakepowered.api.command.CommandSender;
 import org.cakepowered.api.event.CommandExecuteEvent;
