@@ -1,0 +1,1 @@
+The file Dummy.jar is needed to reconice the coremod in the dev workspace

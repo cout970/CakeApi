@@ -15,7 +15,7 @@ This mapping 'stable_20' was designed for MC 1.8.8! Use at your own peril.This m
 :compileApiJava UP-TO-DATE
 :processApiResources UP-TO-DATE
 :apiClasses UP-TO-DATE
-:sourceMainJava UP-TO-DATE
+:sourceMainJava
 :compileJavaNote: I:\newWorkspace\Proyectos\Java_Kotlin\IdeaWorkspace\CakeApi\build\sources\main\java\org\cakepowered\mod\core\ApiMinecraftFinder.java uses or overrides a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 
@@ -23,7 +23,7 @@ Note: Recompile with -Xlint:deprecation for details.
 :classes
 :devJar
 :jar
-:sourceTestJava
+:sourceTestJava UP-TO-DATE
 :compileTestJava UP-TO-DATE
 :processTestResources UP-TO-DATE
 :testClasses UP-TO-DATE
@@ -45,4 +45,4 @@ remapping source...
 
 BUILD SUCCESSFUL
 
-Total time: 28.477 secs
+Total time: 36.268 secs
