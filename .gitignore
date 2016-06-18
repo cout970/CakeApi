@@ -65,7 +65,6 @@ run
 bin
 build
 eclipse
-gradle*
 *.jar
 *.war
 *.ear
