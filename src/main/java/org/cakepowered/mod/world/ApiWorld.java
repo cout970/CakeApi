@@ -136,6 +136,11 @@ public class ApiWorld implements org.cakepowered.api.world.World, IImplementatio
     }
 
     @Override
+    public boolean setBlockState(Vector3 pos, BlockState state, int flags) {
+        return world.setBlockState(PluginInterface.getBlockPos(pos), PluginInterface.getBlockState(state), flags);
+    }
+
+    @Override
     public BlockState getBlockState(Vector3 pos) {
         return ForgeInterface.getBlockState(world.getBlockState(PluginInterface.getBlockPos(pos)));
     }

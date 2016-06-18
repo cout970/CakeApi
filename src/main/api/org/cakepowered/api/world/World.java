@@ -43,6 +43,8 @@ public interface World {
 
 	boolean setBlockState(Vector3 pos, BlockState state);
 
+	boolean setBlockState(Vector3 pos, BlockState state, int flags);
+
 	BlockState getBlockState(Vector3 pos);
 
 	boolean isDaytime();
