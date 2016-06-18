@@ -63,8 +63,7 @@ out
 #misc
 run
 bin
-build
 eclipse
-*.jar
+build
 *.war
 *.ear
