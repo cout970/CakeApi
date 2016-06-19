@@ -10,6 +10,8 @@ import org.cakepowered.api.util.EntityLocation;
 import org.cakepowered.api.title.Title;
 import org.cakepowered.api.util.Vector3;
 
+import java.net.SocketAddress;
+
 public interface Player extends Entity {
 
 	String getUserName();
@@ -73,4 +75,6 @@ public interface Player extends Entity {
 	void openGuiEnderChest(Inventory enderChest);
 
 	void openGuiWorkBench();
+
+	SocketAddress getAddress();
 }

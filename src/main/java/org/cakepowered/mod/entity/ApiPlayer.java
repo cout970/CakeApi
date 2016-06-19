@@ -46,6 +46,8 @@ import org.cakepowered.mod.util.PluginInterface;
 import org.cakepowered.mod.util.TitleUtils;
 import org.cakepowered.mod.world.CustomTeleporter;
 
+import java.net.SocketAddress;
+
 public class ApiPlayer extends ApiEntity implements Player{
 
 	protected EntityPlayer player;
@@ -306,9 +308,7 @@ public class ApiPlayer extends ApiEntity implements Player{
                     }
                 };
             }
-            
         });
-		
 	}
 
 	@Override
@@ -320,5 +320,15 @@ public class ApiPlayer extends ApiEntity implements Player{
 	@Override
 	public void clearActivePotions() {
 		player.clearActivePotions();
+	}
+
+	@Override
+	public SocketAddress getAddress() {
+		try {
+			return ((EntityPlayerMP) player).playerNetServerHandler.getNetworkManager().getRemoteAddress();
+		}catch (Exception e){
+			//ignored
+			return null;
+		}
 	}
 }
