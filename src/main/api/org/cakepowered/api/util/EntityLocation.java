@@ -49,4 +49,37 @@ public final class EntityLocation {
 	public BlockLocation toBlockLocation() {
 		return new BlockLocation(dimension, getPosition());
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) { return true; }
+		if (!(o instanceof EntityLocation)) { return false; }
+
+		EntityLocation that = (EntityLocation) o;
+
+		if (dimension != that.dimension) { return false; }
+		if (Float.compare(that.yaw, yaw) != 0) { return false; }
+		if (Float.compare(that.pitch, pitch) != 0) { return false; }
+		return position != null ? position.equals(that.position) : that.position == null;
+
+	}
+
+	@Override
+	public int hashCode() {
+		int result = dimension;
+		result = 31 * result + (position != null ? position.hashCode() : 0);
+		result = 31 * result + (yaw != +0.0f ? Float.floatToIntBits(yaw) : 0);
+		result = 31 * result + (pitch != +0.0f ? Float.floatToIntBits(pitch) : 0);
+		return result;
+	}
+
+	@Override
+	public String toString() {
+		return "EntityLocation{" +
+				"dimension=" + dimension +
+				", position=" + position +
+				", yaw=" + yaw +
+				", pitch=" + pitch +
+				'}';
+	}
 }

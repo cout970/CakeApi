@@ -1,5 +1,6 @@
 package org.cakepowered.mod.event;
 
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import org.cakepowered.api.event.BlockBreakEvent;
 import org.cakepowered.api.event.BlockPlaceEvent;
 import org.cakepowered.api.event.EntityAttackedEvent;
@@ -26,6 +27,11 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedOutEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.ServerTickEvent;
 
 public class EventRedirect {
+
+	@SubscribeEvent
+	public void onLoadFromFile(PlayerEvent.LoadFromFile event){
+		event.entityPlayer.dimension = 0;
+	}
 
 	@SubscribeEvent
 	public void onExecuteCommand(CommandEvent e) {

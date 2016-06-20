@@ -1,6 +1,7 @@
 package org.cakepowered.mod.world;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.network.ForgeMessage;
@@ -30,7 +31,7 @@ public class ApiWorldManager implements WorldManager {
 
 	@Override
 	public World getWorld(int id) {
-		return ForgeInterface.getWorld(DimensionManager.getWorld(id));
+		return ForgeInterface.getWorld(MinecraftServer.getServer().worldServerForDimension(id));
 	}
 
 	@Override

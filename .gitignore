@@ -65,6 +65,10 @@ run
 bin
 eclipse
 build
+.gradle/*
 .gradle
+.gradle/**
+\.gradle
+/.gradle
 *.war
 *.ear

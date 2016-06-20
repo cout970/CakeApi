@@ -63,4 +63,31 @@ public final class BlockLocation implements INBTserializable {
         position = new Vector3(nbt.getInteger("x"), nbt.getInteger("y"), nbt.getInteger("z"));
         dimension = nbt.getInteger("dimension");
     }
+
+    @Override
+    public String toString() {
+        return "BlockLocation{" +
+                "dimension=" + dimension +
+                ", position=" + position +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) { return true; }
+        if (!(o instanceof BlockLocation)) { return false; }
+
+        BlockLocation that = (BlockLocation) o;
+
+        if (dimension != that.dimension) { return false; }
+        return position != null ? position.equals(that.position) : that.position == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = dimension;
+        result = 31 * result + (position != null ? position.hashCode() : 0);
+        return result;
+    }
 }
