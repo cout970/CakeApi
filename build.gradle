@@ -1,0 +1,67 @@
+
+buildscript.repositories {
+    jcenter()
+    maven {
+        name = "forge"
+        url = "http://files.minecraftforge.net/maven"
+    }
+}
+buildscript.dependencies {
+    classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+
+version = "3.1.0"
+group = "org.cakepowered.api"
+archivesBaseName = "CakeApiMod"
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
+
+minecraft {
+    version = "1.10.2-12.18.1.2011"
+    runDir = "run"
+
+    mappings = "snapshot_20160518"
+}
+
+jar.maifest.attributes(
+        'FMLCorePlugin': 'org.cakepowered.mod.CakeCoremod'
+)
+
+
+sourceSets.main {
+    java {
+        srcDir 'src/main/java'
+        srcDir 'src/main/api'
+    }
+    resources {
+        srcDir 'src/main/resources'
+    }
+}
+
+//noinspection GroovyAssignabilityCheck
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+
+        expand 'version': project.version, 'mcversion': project.minecraft.version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
+
+task devJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'dev'
+}
+
+artifacts {
+    archives devJar
+}

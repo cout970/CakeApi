@@ -1,0 +1,17 @@
+[
+{
+  "modid": "cakeapi",
+  "name": "Cake Api",
+  "description": "Api for Server Plugins",
+  "version": "1.0.0",
+  "mcversion": "1.8",
+  "url": "http://minecraft.curseforge.com/mc-mods/236420-cake-api",
+  "updateUrl": "http://minecraft.curseforge.com/mc-mods/236420-cake-api",
+  "authorList": ["Cout970"],
+  "credits": "Thanks to Pablo(Pagoru) for contributing on the project",
+  "logoFile": "logo.png",
+  "screenshots": [],
+  "requiredMods": [ "Forge" ],
+  "dependencies": []
+}
+]
