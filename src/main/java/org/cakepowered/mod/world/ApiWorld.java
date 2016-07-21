@@ -39,6 +39,12 @@ public class ApiWorld implements org.cakepowered.api.world.World, IImplementatio
 
     public ApiWorld(net.minecraft.world.World world) {
         this.world = world;
+
+    }
+
+    @Override
+    public int getHeight(int x, int z) {
+        return world.func_189649_b(x, z);
     }
 
     @Override
@@ -213,4 +219,6 @@ public class ApiWorld implements org.cakepowered.api.world.World, IImplementatio
     public void loadChunk(int x, int z) {
         world.getChunkProvider().provideChunk(x, z);
     }
+
+
 }

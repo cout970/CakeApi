@@ -69,4 +69,6 @@ public interface World {
 	boolean spawnFirework(Vector3 pos, FireworkProperties prop);
 	
 	void loadChunk(int x, int y);
+
+	int getHeight(int x, int z);
 }

@@ -1,14 +1,17 @@
 
-buildscript.repositories {
-    jcenter()
-    maven {
-        name = "forge"
-        url = "http://files.minecraftforge.net/maven"
-    }
+buildscript{
+	repositories {
+		jcenter()
+		maven {
+			name = "forge"
+			url = "http://files.minecraftforge.net/maven"
+		}
+		dependencies {
+			classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+		}
+	}
 }
-buildscript.dependencies {
-    classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
-}
+
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 
@@ -26,12 +29,17 @@ minecraft {
     mappings = "snapshot_20160518"
 }
 
-jar.maifest.attributes(
-        'FMLCorePlugin': 'org.cakepowered.mod.CakeCoremod'
-)
+jar{
+	manifest{
+		attributes(
+			'FMLCorePlugin': 'org.cakepowered.mod.CakeCoremod'
+		)
+	}
+}
 
 
-sourceSets.main {
+sourceSets{
+main {
     java {
         srcDir 'src/main/java'
         srcDir 'src/main/api'
@@ -39,6 +47,7 @@ sourceSets.main {
     resources {
         srcDir 'src/main/resources'
     }
+}
 }
 
 //noinspection GroovyAssignabilityCheck

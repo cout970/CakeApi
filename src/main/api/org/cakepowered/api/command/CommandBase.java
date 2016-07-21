@@ -34,7 +34,7 @@ public abstract class CommandBase implements CommandExecutor {
 
 	@Override
 	public List<String> addTabCompletionOptions(CommandSender sender, String[] args, Vector3 pos) {
-		return null;
+		return new ArrayList<>();
 	}
 	
 	@Override
