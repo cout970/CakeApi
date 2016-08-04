@@ -20,7 +20,7 @@ public class FlatWorldProvider extends WorldProvider {
 
     @Override
     public DimensionType getDimensionType() {
-        return ApiWorldManager.flatWorld;
+        return DimensionType.OVERWORLD;
     }
 
     @Override

@@ -167,7 +167,6 @@ public class ApiPlayer extends ApiEntity implements Player {
     private void teleportToDimension(EntityPlayerMP player, int dimensionId) {
         //esto evita un bug con la barra de experiencia
         player.addExperienceLevel(0);
-        player.changeDimension(dimensionId);
         CakeApiCore.getServer().getPlayerList().transferPlayerToDimension(player, dimensionId, new CustomTeleporter(player.getServerWorld()));
 //        transferPlayerToDimension(player, dimensionId, CakeApiCore.getServer().getPlayerList());
         //        MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(player, dimensionId, new CustomTeleporter(world));
@@ -204,7 +203,9 @@ public class ApiPlayer extends ApiEntity implements Player {
 
     @Override
     public void sendTitle(Title t) {
-        if (t == null) { return; }
+        if (t == null) {
+            return;
+        }
         TitleUtils.sendTitle(((EntityPlayerMP) player).connection, player, t);
     }
 

@@ -1,13 +1,7 @@
 package org.cakepowered.mod.world;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.world.DimensionType;
 import net.minecraftforge.common.DimensionManager;
-import net.minecraftforge.common.network.ForgeMessage;
-import net.minecraftforge.fml.common.network.FMLEmbeddedChannel;
-import net.minecraftforge.fml.common.network.FMLOutboundHandler;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.fml.relauncher.Side;
 import org.cakepowered.api.world.World;
 import org.cakepowered.api.world.WorldManager;
 import org.cakepowered.api.world.biome.Biome;
@@ -20,14 +14,15 @@ public class ApiWorldManager implements WorldManager {
 
 	public static final ApiWorldManager INSTANCE = new ApiWorldManager();
 	static HashMap<Integer, Long> seeds = new HashMap<>();
-	public static DimensionType flatWorld = DimensionType.register("FlatWorld", "_flat", DimensionType.values()[DimensionType.values().length-1].getId() + 1, FlatWorldProvider.class, true);
-	public static DimensionType surfaceWorld = DimensionType.register("SurfaceWorld", "_surface", DimensionType.values()[DimensionType.values().length-1].getId() + 1, SurfaceWorldProvider.class, true);
+//	public static DimensionType flatWorld = DimensionType.register("FlatWorld", "_flat", DimensionType.values()[DimensionType.values().length-1].getId() + 1, FlatWorldProvider.class, true);
+//	public static DimensionType surfaceWorld = DimensionType.register("SurfaceWorld", "_surface", DimensionType.values()[DimensionType.values().length-1].getId() + 1, SurfaceWorldProvider.class, true);
 
 	@Override
 	public World createFlatWorld(int id) {
 
-		DimensionManager.registerDimension(id, flatWorld);
-		return ForgeInterface.getWorld(DimensionManager.getWorld(id));
+//		DimensionManager.registerDimension(id, DimensionType.OVERWORLD);
+//		return ForgeInterface.getWorld(DimensionManager.getWorld(id));
+		return null;
 	}
 
 	@Override
@@ -42,10 +37,11 @@ public class ApiWorldManager implements WorldManager {
 
 	@Override
 	public World createNormalWorld(int id, long seed) {
-		DimensionManager.registerDimension(id, surfaceWorld);
-		seeds.put(id, seed);
-
-		return ForgeInterface.getWorld(DimensionManager.getWorld(id));
+//		DimensionManager.registerDimension(id, DimensionType.OVERWORLD);
+//		seeds.put(id, seed);
+//
+//		return ForgeInterface.getWorld(DimensionManager.getWorld(id));
+		return null;
 	}
 
 	@Override
@@ -59,13 +55,13 @@ public class ApiWorldManager implements WorldManager {
 	}
 
 	public void sendDimensionData(EntityPlayer player) {
-		for (int id : DimensionManager.getIDs()) {
-			if (id != -1 && id != 0 && id != 1) {
-				FMLEmbeddedChannel serverChannel = NetworkRegistry.INSTANCE.getChannel("FORGE", Side.SERVER);
-				serverChannel.attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.PLAYER);
-				serverChannel.attr(FMLOutboundHandler.FML_MESSAGETARGETARGS).set(player);
-				serverChannel.writeOutbound(new ForgeMessage.DimensionRegisterMessage(id, DimensionType.getById(id).getName()));
-			}
-		}
+//		for (int id : DimensionManager.getIDs()) {
+//			if (id != -1 && id != 0 && id != 1) {
+//				FMLEmbeddedChannel serverChannel = NetworkRegistry.INSTANCE.getChannel("FORGE", Side.SERVER);
+//				serverChannel.attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.PLAYER);
+//				serverChannel.attr(FMLOutboundHandler.FML_MESSAGETARGETARGS).set(player);
+//				serverChannel.writeOutbound(new ForgeMessage.DimensionRegisterMessage(id, DimensionManager.getProviderType(id).getName()));
+//			}
+//		}
 	}
 }

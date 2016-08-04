@@ -26,7 +26,7 @@ public class SurfaceWorldProvider extends WorldProvider {
 
 	@Override
 	public DimensionType getDimensionType() {
-		return ApiWorldManager.surfaceWorld;
+		return DimensionType.OVERWORLD;
 	}
 
 	@Override
