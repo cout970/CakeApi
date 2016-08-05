@@ -19,6 +19,7 @@ import org.cakepowered.mod.world.ApiWorld;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class ApiServer implements Server, IImplementation<MinecraftServer> {
 
@@ -32,16 +33,7 @@ public class ApiServer implements Server, IImplementation<MinecraftServer> {
 
 	@Override
 	public List<Player> getOnlinePlayers() {
-		List<Player> list = new ArrayList<Player>();
-		GameProfile[] players = server.getGameProfiles();
-		if (players == null)
-			return list;
-		for (GameProfile p : players) {
-			Player pl = getPlayer(p.getId());
-			if (pl != null)
-				list.add(pl);
-		}
-		return list;
+		return server.getPlayerList().getPlayerList().stream().map(p -> ForgeInterface.getPlayer(p)).collect(Collectors.toList());
 	}
 
 	@Override
@@ -51,23 +43,12 @@ public class ApiServer implements Server, IImplementation<MinecraftServer> {
 
 	@Override
 	public Player getPlayer(UUID uniqueId) {
-		Entity t = server.getEntityFromUuid(uniqueId);
-		if (t instanceof EntityPlayer)
-			return ForgeInterface.getPlayer((EntityPlayer) t);
-		return null;
+		return getOnlinePlayers().stream().filter(p -> p.getUniqueID().equals(uniqueId)).findAny().orElse(null);
 	}
 
 	@Override
 	public Player getPlayer(String username) {
-		GameProfile[] players = server.getGameProfiles();
-		if (players == null)
-			return null;
-		for (GameProfile p : players) {
-			if (p.getName().equalsIgnoreCase(username)) {
-				return getPlayer(p.getId());
-			}
-		}
-		return null;
+		return getOnlinePlayers().stream().filter(p -> p.getUserName().equalsIgnoreCase(username)).findAny().orElse(null);
 	}
 
 	@Override
